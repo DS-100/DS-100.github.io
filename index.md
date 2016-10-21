@@ -32,7 +32,7 @@ Skills and expertise developed in this class will enable students to pursue care
 
 * **Enable** students to start careers as data scientists by providing the necessary experience on real-world data, tools, and techniques
 
-* **Empower** student to apply computational and inferential thinking to tackle the real-world problems
+* **Empower** student to apply computational and inferential thinking to tackle  real-world problems
 
 
 
