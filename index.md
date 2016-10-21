@@ -1,6 +1,6 @@
 ---
 layout: header_page
-title: Data Science 100:
+title: Data Science 100
 tagline: Principles and Techniques of Data Science
 ---
 {% include JB/setup %}
@@ -9,7 +9,7 @@ tagline: Principles and Techniques of Data Science
 
 This document contains early descriptions of a course that is actively under development.
 I am sharing this information to collect feedback and help students plan for future courses.
-Students who are interested in DS100 and would like more details should contact [me](http://eecs.berkeley.edu/~jegonzal)!
+Students who are interested in either taking or helping to TA DS100 and would like more details please fill out <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3"> this Google form</a>.
 
 <br/>
 <br/>
