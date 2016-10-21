@@ -1,6 +1,6 @@
 ---
 layout: header_page
-title: DS100 Data Science
+title: Data Science 100:
 tagline: Principles and Techniques of Data Science
 ---
 {% include JB/setup %}
