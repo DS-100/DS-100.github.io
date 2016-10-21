@@ -27,11 +27,14 @@ Skills and expertise developed in this class will enable students to pursue care
 
 ### Goals
 
-* Students will build the basic understanding of the concepts in data science enabling them to apply computational and inferential thinking to real-world problems
 
-* Students will develop the foundation needed to learn new data science techniques and concepts quickly thereby excelling in advanced Berkeley courses in data-management ([CS186](http://www.cs186berkeley.net)), machine learning ([CS189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics
+* **Prepare** students for advanced Berkeley courses in data-management ([CS186](http://www.cs186berkeley.net)), machine learning [CS189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat-154](http://www.stat.berkeley.edu/~rabbee/s154/)), by providing the necessary foundation and context
 
-* Students will develop skills needed to start careers as data scientists
+* **Enable** students to start careers as data scientists by providing the necessary experience on real-world data, tools, and techniques
+
+* **Empower** student to apply computational and inferential thinking to tackle the real-world problems
+
+
 
 
 </div>
