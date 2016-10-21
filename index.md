@@ -36,7 +36,7 @@ Skills and expertise developed in this class will enable students to pursue care
 
 </div>
 <div class="col-md-3" markdown="1">
-![lifecycle](/assets/images/lifecycle3_cropped.png){:height="200px"}
+![lifecycle](assets/images/lifecycle3_cropped.png){:height="200px"}
 <!-- <img src="{{ site.baseurl }}assets/images/lifecycle2.png" alt="Lifecycle Logo" style="height: 300px"/> -->
 </div>
 </div>
