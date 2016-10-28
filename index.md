@@ -7,12 +7,6 @@ tagline: Principles and Techniques of Data Science
 
 
 
-This document contains early descriptions of a course that is actively under development.
-I am sharing this information to collect feedback and help students plan for future courses.
-Students who are interested in either taking or helping to TA DS100 and would like more details please fill out <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3"> this Google form</a>.
-
-<br/>
-<br/>
 
 <!-- # DS100: Principles & Techniques of Data Science -->
 
@@ -23,6 +17,17 @@ Students who are interested in either taking or helping to TA DS100 and would li
 This intermediate level class bridges between [Data 8](http://data8.org/fa16/) and upper division computer science and statistics courses as well as methods courses in other fields.
 In this class, students will master the data science life-cycle and learn many of the basic principles and techniques of data science spanning algorithms, statistics, machine learning, visualization, and data systems.
 Skills and expertise developed in this class will enable students to pursue careers in data science or apply data-science to research.
+
+
+<br/>
+
+
+If you are interested in getting updates about the class please fill out this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
+
+
+<br/>
+
+
 
 
 ### Goals
