@@ -22,7 +22,7 @@ Skills and expertise developed in this class will enable students to pursue care
 <br/>
 
 
-If you are interested in getting updates about the class please fill out this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
+If you are interested in getting updates about the class please complete this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
 
 
 <br/>
@@ -55,7 +55,8 @@ If you are interested in getting updates about the class please fill out this <a
 ## Context
 
 This course is a gateway to upper division courses in both the foundations and the application of data science principles and techniques.
-We expect that DS100 will be widely enrolled by students in many majors, as well as graduate students in many fields, but it will be held to a moderate size in the first offering.
+We expect that DS100 will be widely enrolled by students in many majors, as well as graduate students in many fields.
+<!-- , but it will be held to a moderate size in the first offering. -->
 <!-- It will fill a substantial hole in current offerings that will be essential to cover if future minors or major in data science are to be offered.
  -->
 In the first offering of this class we would like to keep enrollment relatively small, around 100, to enable closer interaction with students as challenges arise.  We expect later offerings to be substantially larger.
@@ -65,13 +66,14 @@ In the first offering of this class we would like to keep enrollment relatively 
 
 While we are working to make this class widely accessible in the initial ([beta](https://en.wikipedia.org/wiki/Software_release_life_cycle)) version of the class we plan to require the following (or equivalent):
 
-1. **Foundations of Data Science:** [**CS/INFO/Stat C8**](http://data8.org/fa16/)  This is an *excellent* class that covers much of the material in DS100 but at a higher level.  This class provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and ML.
+1. **Foundations of Data Science:** [**Data8**](http://data8.org/fa16/) covers much of the material in DS100 but at an introductory level.  Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
 
 
-1. **Computing:** *The Structure and Interpretation of Computer Programs* [**CS61a**](http://cs61a.org)  or *Computational Structures in Data Science* [**CS88**](http://cs88-website.github.io:)   These courses will provide additional background in python programming (e.g., *for loops*, *lambdas*, *debugging*, and *complexity*) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.  However, students that are proficient in python may request to have these pre-requisites waived.
+1. **Computing:** *The Structure and Interpretation of Computer Programs* [**CS61a**](http://cs61a.org)  or *Computational Structures in Data Science* [**CS88**](http://cs88-website.github.io).   These courses provide additional background in python programming (e.g., *for loops*, *lambdas*, *debugging*, and *complexity*) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.
 
 
-1. **Math:** *Calculus and Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2015.html) or [EE 16a](http://inst.eecs.berkeley.edu/~ee16a/fa16/)): We will need some basic concepts like linear operators, eigenvectors, derivatives, and integrals to enable statistical inference and derive new prediction algorithms.  Students with a strong mathematics background may be able to skip this prerequisite.  *This may be satisfied concurrently to DS100*
+
+1. **Math:** *Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2015.html) or [EE 16a](http://inst.eecs.berkeley.edu/~ee16a/fa16/)): We will need some basic concepts like linear operators, eigenvectors, derivatives, and integrals to enable statistical inference and derive new prediction algorithms.  This may be satisfied concurrently to DS100.
 
 
 ## Textbooks:
