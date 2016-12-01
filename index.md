@@ -13,33 +13,13 @@ tagline: Principles and Techniques of Data Science
 <div class="container-fluid">
 <div class="row">
 <div markdown="1" class="col-sm-9">
-**Summary:** Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand the world.
+
+Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand the world.
 This intermediate level class bridges between [Data 8](http://data8.org/fa16/) and upper division computer science and statistics courses as well as methods courses in other fields.
-In this class, students will master the data science life-cycle and learn many of the basic principles and techniques of data science spanning algorithms, statistics, machine learning, visualization, and data systems.
-Skills and expertise developed in this class will enable students to pursue careers in data science or apply data-science to research.
 
+In this class, students explore the data science lifecycle, including question formulation, data collection and cleaning, exploratory data analysis and visualization, statistical inference and prediction​, and decision-making.​ This class focuses on quantitative critical thinking​ and key principles and techniques needed to carry out this cycle. These include languages for transforming, querying and analyzing data; algorithms for machine learning methods including regression, classification and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
 
-<br/>
-
-
-If you are interested in getting updates about the class please complete this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
-
-
-<br/>
-
-
-
-
-### Goals
-
-
-* **Prepare** students for advanced Berkeley courses in data-management ([CS186](http://www.cs186berkeley.net)), machine learning [CS189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat-154](http://www.stat.berkeley.edu/~rabbee/s154/)), by providing the necessary foundation and context
-
-* **Enable** students to start careers as data scientists by providing the necessary experience on real-world data, tools, and techniques
-
-* **Empower** student to apply computational and inferential thinking to tackle  real-world problems
-
-
+_Lectures are Tuesdays and Thursdays from 12:30 to 2:00 in Soda 306_
 
 
 </div>
@@ -51,15 +31,23 @@ If you are interested in getting updates about the class please complete this <a
 </div>
 
 
+If you are interested in getting updates about the class please complete this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
+
+
+### Goals
+
+
+* **Prepare** students for advanced Berkeley courses in data-management ([CS186](http://www.cs186berkeley.net)), machine learning [CS189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat-154](http://www.stat.berkeley.edu/~rabbee/s154/)), by providing the necessary foundation and context
+
+* **Enable** students to start careers as data scientists by providing experience in working with real-world data, tools, and techniques
+
+* **Empower** student to apply computational and inferential thinking to tackle real-world problems
 
 ## Context
 
 This course is a gateway to upper division courses in both the foundations and the application of data science principles and techniques.
 We expect that DS100 will be widely enrolled by students in many majors, as well as graduate students in many fields.
-<!-- , but it will be held to a moderate size in the first offering. -->
-<!-- It will fill a substantial hole in current offerings that will be essential to cover if future minors or major in data science are to be offered.
- -->
-In the first offering of this class we would like to keep enrollment relatively small, around 100, to enable closer interaction with students as challenges arise.  We expect later offerings to be substantially larger.
+In this first offering of the class we will keep enrollment relatively small, around 98, to enable closer interaction with students as challenges arise.  We expect later offerings to be substantially larger.
 
 
 ## Prerequisites
@@ -90,6 +78,41 @@ However, we have listed a few optional books that will provide additional contex
 #### Secondary Books
 *  **[Doing Data Science:](http://shop.oreilly.com/product/0636920028529.do)** This books provides a unique case-study view of data science but uses R and not Python.
 
+
+
+<style>
+@media (max-width: 550px) {
+   .big-container {
+       display: none;
+   }
+}
+@media (min-width: 550px) {
+   .small-container {
+       display: none;
+   }
+}
+/* Responsive iFrame */
+.responsive-iframe-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   padding-top: 30px;
+   height: 0;
+   overflow: hidden;
+}
+.responsive-iframe-container iframe,   
+.vresponsive-iframe-container object,  
+.vresponsive-iframe-container embed {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 75%;
+   height: 100%;
+}
+</style>
+
+<div class="responsive-iframe-container big-container">
+<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=700&amp;wkst=1&amp;bgcolor=%23db694f&amp;src=YmVya2VsZXkuZWR1X2xhMW44NmFhazZuZnJxOHFidDM2bDk4N2dzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23fbdbac&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="75%" height="650" frameborder="0" scrolling="no"></iframe>
+</div>
 
 
 
