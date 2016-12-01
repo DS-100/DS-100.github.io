@@ -31,6 +31,9 @@ _Lectures are Tuesdays and Thursdays from 12:30 to 2:00 in Soda 306_
 </div>
 
 
+**[*Tentative* Syllabus](syllabus)**
+
+
 If you are interested in getting updates about the class please complete this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
 
 
@@ -57,7 +60,7 @@ While we are working to make this class widely accessible in the initial ([beta]
 1. **Foundations of Data Science:** [**Data8**](http://data8.org/fa16/) covers much of the material in DS100 but at an introductory level.  Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
 
 
-1. **Computing:** *The Structure and Interpretation of Computer Programs* [**CS61a**](http://cs61a.org)  or *Computational Structures in Data Science* [**CS88**](http://cs88-website.github.io).   These courses provide additional background in python programming (e.g., *for loops*, *lambdas*, *debugging*, and *complexity*) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.
+1. **Computing:** *The Structure and Interpretation of Computer Programs* [**CS61a**](http://cs61a.org) or *Computational Structures in Data Science* [**CS88**](http://cs88-website.github.io).   These courses provide additional background in python programming (e.g., *for loops*, *lambdas*, *debugging*, and *complexity*) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.
 
 
 
@@ -113,116 +116,6 @@ However, we have listed a few optional books that will provide additional contex
 <div class="responsive-iframe-container big-container">
 <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=700&amp;wkst=1&amp;bgcolor=%23db694f&amp;src=YmVya2VsZXkuZWR1X2xhMW44NmFhazZuZnJxOHFidDM2bDk4N2dzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23fbdbac&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="75%" height="650" frameborder="0" scrolling="no"></iframe>
 </div>
-
-
-
-## Current *Tentative* Course Outline
-
-{% assign counter = 1 %}
-
-### Module 0: *Course Overview*
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %} *Course Overview*:** What is data science and how does this class relate to it?
-
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %} *The Data Science Lifecycle*:** In this lecture we will work through the entire data science lifecycle by exploring the "presidential" tweets.
-
-
-### Module 1: *Data Science Lifecycle*
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Problem Formulation and Domain Understanding*:**
-In this lecture we will discuss the challenges of experimental design (sampling, observational, controlled), and data collection.
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Data Acquisition Cleaning*:**
-In this lecture we will explore the process of collecting and cleaning data from a variety of sources and formats. We will also introduce the dataset we will study for the next two weeks (tweets around the debates) and discuss some of the challenges in collecting and cleaning the data.  In this lecture we will begin to introduce dataframes.
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Descriptive Analysis*:**
-In this lecture we will analyze the tweets around the debates in conjunction with debate transcripts to get a better understanding of the data, the questions we wanted to answer and the types of questions we may want to explore.  In this lecture we will emphasize visualization.
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Inferential Analysis*:**
-In this lecture we will explore basic techniques around regression and uncertainty measures to infer properties of the data and evaluate our earlier hypothesis.  We will also discuss some of the challenges around communicating these results.
-
-
-
-The remainder of the course is then divided into topic areas that dive deeper into the concepts and principles in data science.  While these lectures are organized topically they will make frequent references to concepts through-out the data science lifecycle.
-
-
-
-### Module 2: *Data System*
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Working with relational data, introduction to SQL*:**
-
-<!-- In this lecture students will be introduced to SQL and learn hot to manipulate and access data in a relational database.
- -->
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Database design: schemas and normalization*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Analytics at Scale: Understanding Data Parallel Algorithms and Physical Layout (partitioning, indexing and replication)*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Overview of the big-data ecosystem: Data Warehouses, Data Lakes, and MapReduce*:**
-
-### Module 3: *Descriptive and Inferential Statistics*
-
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Data summarization, visualization and communication*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Dimensionality Reduction with PCA*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Modeling data: random variables and distributions*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Power-laws and the challenges of data skew*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Hypothesis testing and false discovery*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Review of Inferential Statistical Methods*:**
-
-
-
-
-### Module 4: *Statistics and Machine Learning*
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*The Taxonomy of Machine Learning Methods*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Least Squares regression and Loss Functions*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Feature Engineering*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Overfitting and the bias variance Trade-off*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Regularization and Cross Validation*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Generalization of loss functions to logistic regression*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Classification and Regression Trees*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Overview of Deep Learning and its Connection to Regression*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Clustering and Mixture of Gaussians*:**
-
-* **(Lecture {{ counter }}) {% assign counter = counter | plus: 1 %}
-*Course Review*:**
 
 
 
