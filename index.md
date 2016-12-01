@@ -67,7 +67,7 @@ While we are working to make this class widely accessible in the initial ([beta]
 1. **Math:** *Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2015.html) or [EE 16a](http://inst.eecs.berkeley.edu/~ee16a/fa16/)): We will need some basic concepts like linear operators, eigenvectors, derivatives, and integrals to enable statistical inference and derive new prediction algorithms.  This may be satisfied concurrently to DS100.
 
 
-## Textbooks:
+## Textbooks
 
 Because data science is a relatively new and rapidly evolving discipline there is no single *ideal* textbook for the course.
 Instead we plan to use reading from a collection of books all of which are free.
@@ -79,44 +79,7 @@ However, we have listed a few optional books that will provide additional contex
 * **[Data Science from Scratch:](http://shop.oreilly.com/product/0636920033400.do)** (Free to Berkeley students) This more applied book covers many of the topics in this class using Python but doesn't go into sufficient depth for some of the more mathematical material.
 
 #### Secondary Books
-*  **[Doing Data Science:](http://shop.oreilly.com/product/0636920028529.do)** This books provides a unique case-study view of data science but uses R and not Python.
-
-
-
-<style>
-@media (max-width: 550px) {
-   .big-container {
-       display: none;
-   }
-}
-@media (min-width: 550px) {
-   .small-container {
-       display: none;
-   }
-}
-/* Responsive iFrame */
-.responsive-iframe-container {
-   position: relative;
-   padding-bottom: 56.25%;
-   padding-top: 30px;
-   height: 0;
-   overflow: hidden;
-}
-.responsive-iframe-container iframe,   
-.vresponsive-iframe-container object,  
-.vresponsive-iframe-container embed {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 75%;
-   height: 100%;
-}
-</style>
-
-<div class="responsive-iframe-container big-container">
-<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=700&amp;wkst=1&amp;bgcolor=%23db694f&amp;src=YmVya2VsZXkuZWR1X2xhMW44NmFhazZuZnJxOHFidDM2bDk4N2dzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23fbdbac&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="75%" height="650" frameborder="0" scrolling="no"></iframe>
-</div>
-
+*  **[Doing Data Science:](http://shop.oreilly.com/product/0636920028529.do)** This books provides a unique case-study view of data science but uses R and not Python. 
 
 
 ## Instructors
@@ -163,6 +126,46 @@ However, we have listed a few optional books that will provide additional contex
     </div></div>
   </div>
 </div>
+
+
+<!-- 
+<style>
+@media (max-width: 550px) {
+   .big-container {
+       display: none;
+   }
+}
+@media (min-width: 550px) {
+   .small-container {
+       display: none;
+   }
+}
+/* Responsive iFrame */
+.responsive-iframe-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   padding-top: 30px;
+   height: 0;
+   overflow: hidden;
+}
+.responsive-iframe-container iframe,   
+.vresponsive-iframe-container object,  
+.vresponsive-iframe-container embed {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 75%;
+   height: 100%;
+}
+</style>
+
+<div class="responsive-iframe-container big-container">
+<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=700&amp;wkst=1&amp;bgcolor=%23db694f&amp;src=YmVya2VsZXkuZWR1X2xhMW44NmFhazZuZnJxOHFidDM2bDk4N2dzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23fbdbac&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="75%" height="650" frameborder="0" scrolling="no"></iframe>
+</div>
+ -->
+
+
+
 
 
 
