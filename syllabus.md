@@ -249,7 +249,7 @@ for (var i = 1; i < rows.length && !finished; i++) {
    var r = rows[i];
    var date_text = r.getElementsByTagName("td")[1].textContent;
    console.log(date_text)
-   var d = new Date(date_text + " 23:59:59");
+   var d = new Date(date_text + " 14:00:00");
    if (current_date <= d) {
       finished = true;
       var children = r.childNodes
