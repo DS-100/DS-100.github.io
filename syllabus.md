@@ -53,49 +53,49 @@ The actual lectures.  Dates are rendered automatically using Jekyll
  -->
 
 {% include syllabus_entry dates=dates %}
-#### Course Overview
+#### Course Overview [Gonzalez]
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### The Data Science Lifecycle
+#### The Data Science Lifecycle [Nolan]
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Problem Formulation and Experimental Design 
+#### Problem Formulation and Experimental Design [Yu]
 In this lecture we provide an overview of how to formulate hypothesis, identify sources of data, and construct basic experiments to collect data.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Data Wrangling and Regular Expressions
+#### Data Wrangling and Regular Expressions [Hellerstein]
 In this lecture we explore the challenges data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and dive into regular expressions. 
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Exploratory Data Analysis and Visualization
+#### Exploratory Data Analysis and Visualization [Nolan]
 In this lecture we provide an overview of the bid ideas in exploratory data analysis and data visualization.  
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Prediction and Inference
+#### Prediction and Inference [Yu]
 In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.  
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Pandas DataFrames
+#### Pandas DataFrames [Joey]
 In this tools oriented lecture we will introduce Pandas, dataframe manipulation, and some of the basic vectorization philosophy of scalable data processing.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Version Control and Lineage
+#### Version Control and Lineage [Joey]
 In this tools oriented lecture we will cover version control and techniques around managing data and code development to ensure repeatedly analysis.
 {% include syllabus_entry end=true %}
 
