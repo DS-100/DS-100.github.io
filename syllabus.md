@@ -72,7 +72,7 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 
 {% include syllabus_entry dates=dates %}
 #### Data Wrangling and Regular Expressions
-In this lecture we explore the challenges data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) 
+In this lecture we explore the challenges data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and dive into regular expressions. 
 {% include syllabus_entry end=true %}
 
 
@@ -89,8 +89,8 @@ In this lecture we will explore the key types and challenges of inference and pr
 
 
 {% include syllabus_entry dates=dates %}
-#### Pandas
-In this tools oriented lecture we develop regular expressions and learn some of the more advanced software tools and concepts that will be used throughout the class. 
+#### Pandas DataFrames
+In this tools oriented lecture we will introduce Pandas, dataframe manipulation, and some of the basic vectorization philosophy of scalable data processing.
 {% include syllabus_entry end=true %}
 
 
