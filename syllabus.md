@@ -89,13 +89,13 @@ In this lecture we will explore the key types and challenges of inference and pr
 
 
 {% include syllabus_entry dates=dates %}
-#### Pandas DataFrames [Joey]
+#### Pandas DataFrames [Gonzalez]
 In this tools oriented lecture we will introduce Pandas, dataframe manipulation, and some of the basic vectorization philosophy of scalable data processing.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-#### Version Control and Lineage [Joey]
+#### Version Control and Lineage [Gonzalez]
 In this tools oriented lecture we will cover version control and techniques around managing data and code development to ensure repeatedly analysis.
 {% include syllabus_entry end=true %}
 
