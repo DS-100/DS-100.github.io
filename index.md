@@ -34,7 +34,7 @@ _Lectures are Tuesdays and Thursdays from 12:30 to 2:00 in Soda 306_
 **[*Tentative* Syllabus](syllabus)**
 
 
-If you are interested in getting updates about the class please complete this <a href="https://goo.gl/forms/od8j3HcBsOH1pLWA3">Google form</a>.
+If you have enrolled in the wait-list please complete the following  <a href="https://goo.gl/forms/Ku5cu7L7cUbSaTKc2">Background Survey</a> we will use this to help in admitting students into the class.
 
 
 ### Goals
