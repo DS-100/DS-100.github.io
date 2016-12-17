@@ -46,6 +46,7 @@ This schedule is still under development and is subject to change.
  04/11/2017 04/13/2017 
  04/18/2017 04/20/2017 
  04/25/2017 04/27/2017 
+ 05/02/2017 05/04/2017 
 {% endcapture %}
 {% assign dates = dates | split: " " %}
 
@@ -58,13 +59,13 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 ### Course Overview [Gonzalez]
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
-#### Homework 1 Released
+#### Homework 0 Released
 
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### The Data Science Lifecycle [Nolan]
+### The Data Science Lifecycle [Gonzalez]
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
 {% include syllabus_entry end=true %}
 
@@ -72,72 +73,130 @@ In this lecture we introduce the data-science lifecycle and explore each stage b
 {% include syllabus_entry dates=dates %}
 ### Problem Formulation and Experimental Design [Yu]
 In this lecture we provide an overview of how to formulate hypothesis, identify sources of data, and construct basic experiments to collect data.
+
+#### Homework 0 Due
+
+#### Homework 1 Released
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Data Wrangling and Regular Expressions [Hellerstein]
-In this lecture we explore the challenges data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and dive into regular expressions. 
+### Data Wrangling [Hellerstein]
+In this lecture we explore the challenges of data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and the kinds of errors commonly found in the real world. 
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### Exploratory Data Analysis [Nolan]
+In this lecture we provide an overview of exploratory data analysis (EDA). 
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### Prediction and Inference [Yu and Gonzalez]
+
+In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.  
 
 #### Homework 1 Due
 {% include syllabus_entry end=true %}
 
 
-{% include syllabus_entry dates=dates %}
-### Exploratory Data Analysis and Visualization [Nolan]
-In this lecture we provide an overview of the bid ideas in exploratory data analysis and data visualization. 
 
-#### Homework 2 Released 
+
+
+{% include syllabus_entry dates=dates %}
+### Machine Learning Overview [Gonzalez]
+
+This lecture provides an overview of the categories of problems addressed by machine learning techniques and the basic tools we will use in Python.
+
+#### Homework 2 Released
 {% include syllabus_entry end=true %}
 
 
+
+
+
+
 {% include syllabus_entry dates=dates %}
-### Prediction and Inference [Yu]
-In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.  
+### Advanced Python Data Science Tools [Gonzalez]
+In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing. 
+
 {% include syllabus_entry end=true %}
 
 
+
+
+
 {% include syllabus_entry dates=dates %}
-### Pandas DataFrames [Gonzalez]
-In this tools oriented lecture we will introduce Pandas, dataframe manipulation, and some of the basic vectorization philosophy of scalable data processing.
+### Transforming Data to Tables in Python [Hellerstein]
+In this lecture we talk about the process of converting unstructured and semi-structured data to tables and arrays.  We will cover text processing, regular expressions, and structural transformations.
 {% include syllabus_entry end=true %}
 
 
+
 {% include syllabus_entry dates=dates %}
-### Version Control and Lineage [Gonzalez]
-In this tools oriented lecture we will cover version control and techniques around managing data and code development to ensure repeatedly analysis.
+### SQL and Big Data [Hellerstein]
+In this lecture we introduce SQL and the relational model.
 
 #### Homework 2 Due
 {% include syllabus_entry end=true %}
 
 
+
+
 {% include syllabus_entry dates=dates %}
-### Basic Modeling using Statistical Distributions
-In this lecture provide an overview of several basic distributions and how to estimate the parameters of those distributions from data.
+### SQL Continued [Hellerstein]
+In this lecture we will introduce data analysis techniques with a focus on aggregation and summary statistics.
 
 #### Homework 3 Released
 {% include syllabus_entry end=true %}
 
 
+
 {% include syllabus_entry dates=dates %}
-### Power-laws and the Challenges of working with Skewed Data
-In this lecture we discuss common power-law patterns in data and their implications on modeling and analysis.
+
+### Basic Modeling using Statistical Distributions [Nolan]
+In this lecture we provide an overview of several basic distributions and discuss some of the challenges of working with skewed data.
+
+<!-- Let's connect summary statistics to the SQL discussion in the previous lecture. -->
+
 {% include syllabus_entry end=true %}
 
 
+
+
+
 {% include syllabus_entry dates=dates %}
-### Bayesian Models and Working with Priors
+### Maximum Likelihood Estimation [Nolan]
+
+In this lecture we fit basic models to data by applying the method of maximum likelihood estimation.
+
+{% include syllabus_entry end=true %}
+
+
+
+
+
+{% include syllabus_entry dates=dates %}
+### TBD
+<!-- 
+### Bayesian Models and Working with Priors [Gonzalez]
 In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### Hypothesis Testing and False Discovery
-In this lecture will go into more detailed hypothesis testing procedures and highlight some of the challenges of false discovery in the setting of repeated hypothesis tests.
+ -->
 
 #### Homework 3 Due
+
 {% include syllabus_entry end=true %}
 
+
+
+
+
+
+{% include syllabus_entry dates=dates %}
+### Midterm Review [Gonzalez]
+
+{% include syllabus_entry end=true %}
 
 {% include syllabus_entry dates=dates %}
 ## _Tentative_ Midterm 
@@ -145,14 +204,10 @@ This may change in the weeks before class starts as we adjust the schedule.
 {% include syllabus_entry end=true %}
 
 
-{% include syllabus_entry dates=dates %}
-### The Taxonomy of Machine Learning
-This lecture provides an overview of the categories of problems addressed by machine learning techniques and some guidance on how to frame machine learning problems.
-{% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Least Squares Regression and Loss Functions
+### Least Squares Regression and Hypothesis Testing [Nolan]
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
 
 #### Homework 4 Released
@@ -160,104 +215,180 @@ In this lecture dives into the details of least squares regression through the l
 
 
 {% include syllabus_entry dates=dates %}
-### Generalization of Loss Functions to Logistic Regression
+### Loss Functions and Generalized Linear Models [Nolan]
 This lecture extends the earlier discussion on least squares regression to categorical data and introduce the gradient descent algorithm.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Feature Engineering
-This lecture explores how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.
+### Feature Engineering and the Bias Variance Trade-off [Gonzalez and Nolan]
+This lecture explores how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  This will bring us to a fundamental challenging in learning and statistical inference (the bias-variance trade-off)
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Over-fitting and Cross Validation 
-This lecture introduces the critical challenges of over-fitting and discuss how to address over-fitting through regularization and cross validation.
+### Regularization and Cross Validation [Gonzalez and Nolan]
+
+This lecture will continue our discussion on the bias variance trade-off by introducing the concept of regularization.  We then introduce cross validation as a mechanism to optimize the trade-off between bias and variance.
 
 #### Homework 4 Due
 {% include syllabus_entry end=true %}
 
 
+
 {% include syllabus_entry dates=dates %}
-### Overview of Deep Learning
-This lecture connects deep learning to the earlier lectures on regression and touches on recent developments in predictive modeling using neural networks.
+### Spring Break
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### Spring Break
+{% include syllabus_entry end=true %}
+
+
+
+
+{% include syllabus_entry dates=dates %}
+### Classification and Regression Trees [Nolan]
+
+This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
 
 #### Homework 5 Released
 {% include syllabus_entry end=true %}
 
 
+
+
 {% include syllabus_entry dates=dates %}
-### Classification and Regression Trees
-This lecture introduces an alternative approach to feature engineering using CART.
+### Non-Parametric Models [Gonzalez]
+
+This lecture introduces non-parametric modeling techniques and discusses k-nearest neighbor and kernel regression.
+
 {% include syllabus_entry end=true %}
 
 
+
 {% include syllabus_entry dates=dates %}
-### Unsupervised Learning Clustering
+### Clustering and the Mixed Membership Model [Nolan]
+
 This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In particular we focus on mix-membership models and introduce the EM algorithm.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Dimensionality Reduction
+### Dimensionality Reduction [Gonzalez]
+
 This lecture introduces the Singular Value Decomposition algorithm for dimensionality reduction.
 
 #### Homework 5 Due
 {% include syllabus_entry end=true %}
 
 
+
+
+
 {% include syllabus_entry dates=dates %}
-### Text Modeling 
-This lecture explores techniques used to model text data including n-gram models, TF-IDF, LSA, and LDA. 
+### Data Acquisition [Hellerstein]
+This lecture discusses how to get data from a variety of common sources and includes the topics of crawling, scraping, the DOM, XML, HTTP req., and REST APIs.
+
 
 #### Homework 6 Released
 {% include syllabus_entry end=true %}
 
 
+
+{% include syllabus_entry dates=dates %}
+### Visualization and Communication [Nolan]
+
+This lecture covers how to effectively visualize and communicate complex results to a broader audience.
+
+{% include syllabus_entry end=true %}
+
+
+
+{% include syllabus_entry dates=dates %}
+### Analytics at Scale [Hellerstein]
+
+Streaming algorithms and online estimation: sketching and sampling.
+
+<!-- joey finish -->
+
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### The Big-data Ecosystem and Technologies [Gonzalez]
+
+In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis, map-reduce, etl ...
+
+#### Homework 6 Due
+
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### RRR Review
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### RRR Review
+{% include syllabus_entry end=true %}
+
+
+
+
+<!-- 
+Topics Dropped from lecture outline for first teaching 
+-->
+
+
+
+<!-- 
+{% include syllabus_entry dates=dates %}
+### Database Schema Design [Hellerstein]
+In this lecture we describe how to create and organize tables in a database to mitigate errors and improve access efficiency.
+{% include syllabus_entry end=true %} 
+-->
+
+
+<!-- 
+{% include syllabus_entry dates=dates %}
+### Hypothesis Testing and False Discovery
+In this lecture will go into more detailed hypothesis testing procedures and highlight some of the challenges of false discovery in the setting of repeated hypothesis tests.
+{% include syllabus_entry end=true %}
+ -->
+
+
+<!-- 
+{% include syllabus_entry dates=dates %}
+### Text Modeling 
+This lecture explores techniques used to model text data including n-gram models, TF-IDF, LSA, and LDA. 
+{% include syllabus_entry end=true %}
+ -->
+
+
+<!-- 
 {% include syllabus_entry dates=dates %}
 ### Collaborative Filtering
 This lecture explores nearest neighbor, graph similarity, and matrix factorization techniques for content recommendation.
 {% include syllabus_entry end=true %}
+ -->
 
-
+<!-- 
 {% include syllabus_entry dates=dates %}
-### SQL and Relational Databases
-In this lecture we introduce SQL and relational database systems. 
+###  Deep Learning
+This lecture connects deep learning to the earlier lectures on regression and touches on recent developments in predictive modeling using neural networks.
 {% include syllabus_entry end=true %}
+ -->
 
 
+<!-- 
 {% include syllabus_entry dates=dates %}
-### Database Schema Design
-In this lecture we describe how to create and organize tables in a database to mitigate errors and improve access efficiency.
+### Version Control [Gonzalez]
+In this tools oriented lecture we will cover version control and techniques around managing data and code development to ensure repeatedly analysis.
 {% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### Analytics at Scale 
-In this lecture we introduce the design of map-reduce and data parallel compute frameworks and discuss issues around physical data-layout and its implications on analysis.
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### The Big-data Ecosystem and Technologies
-In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis.
-
-#### Homework 6 Due 
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### TBD
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### Course Review
-{% include syllabus_entry end=true %}
-
-
-
+ -->
 
 </tbody>
 </table>
