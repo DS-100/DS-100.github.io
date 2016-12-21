@@ -8,7 +8,7 @@ order: 2
 {% include JB/setup %}
 
 
-This schedule is still under development and is subject to change.   
+This schedule is still under development and is subject to change.
 
 
 <table class="table table-striped">
@@ -31,27 +31,27 @@ This schedule is still under development and is subject to change.
 
 <!-- This is the dates for all the lectures -->
 {% capture dates %}
- 01/17/2017 01/19/2017 
- 01/24/2017 01/26/2017 
- 01/31/2017 02/02/2017 
- 02/07/2017 02/09/2017 
- 02/14/2017 02/16/2017 
- 02/21/2017 02/23/2017 
- 02/28/2017 03/02/2017 
- 03/07/2017 03/09/2017 
- 03/14/2017 03/16/2017 
- 03/21/2017 03/23/2017 
- 03/28/2017 03/30/2017 
- 04/04/2017 04/06/2017 
- 04/11/2017 04/13/2017 
- 04/18/2017 04/20/2017 
- 04/25/2017 04/27/2017 
- 05/02/2017 05/04/2017 
+ 01/17/2017 01/19/2017
+ 01/24/2017 01/26/2017
+ 01/31/2017 02/02/2017
+ 02/07/2017 02/09/2017
+ 02/14/2017 02/16/2017
+ 02/21/2017 02/23/2017
+ 02/28/2017 03/02/2017
+ 03/07/2017 03/09/2017
+ 03/14/2017 03/16/2017
+ 03/21/2017 03/23/2017
+ 03/28/2017 03/30/2017
+ 04/04/2017 04/06/2017
+ 04/11/2017 04/13/2017
+ 04/18/2017 04/20/2017
+ 04/25/2017 04/27/2017
+ 05/02/2017 05/04/2017
 {% endcapture %}
 {% assign dates = dates | split: " " %}
 
 
-<!-- 
+<!--
 The actual lectures.  Dates are rendered automatically using Jekyll
  -->
 
@@ -82,20 +82,20 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 
 {% include syllabus_entry dates=dates %}
 ### Data Wrangling [Hellerstein]
-In this lecture we explore the challenges of data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and the kinds of errors commonly found in the real world. 
+In this lecture we explore the challenges of data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and the kinds of errors commonly found in the real world.
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
 ### Exploratory Data Analysis [Nolan]
-In this lecture we provide an overview of exploratory data analysis (EDA). 
+In this lecture we provide an overview of exploratory data analysis (EDA).
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
 ### Prediction and Inference [Yu and Gonzalez]
 
-In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.  
+In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.
 
 #### Homework 1 Due
 {% include syllabus_entry end=true %}
@@ -119,7 +119,7 @@ This lecture provides an overview of the categories of problems addressed by mac
 
 {% include syllabus_entry dates=dates %}
 ### Advanced Python Data Science Tools [Gonzalez]
-In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing. 
+In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing.
 
 {% include syllabus_entry end=true %}
 
@@ -179,7 +179,7 @@ In this lecture we fit basic models to data by applying the method of maximum li
 
 {% include syllabus_entry dates=dates %}
 ### TBD
-<!-- 
+<!--
 ### Bayesian Models and Working with Priors [Gonzalez]
 In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
  -->
@@ -199,7 +199,7 @@ In this lecture we introduce the concept of priors and explore the use Bayes Rul
 {% include syllabus_entry end=true %}
 
 {% include syllabus_entry dates=dates %}
-## _Tentative_ Midterm 
+## _Tentative_ Midterm
 This may change in the weeks before class starts as we adjust the schedule.
 {% include syllabus_entry end=true %}
 
@@ -338,21 +338,21 @@ In this lecture we provide an overview of the data technologies commonly used to
 
 
 
-<!-- 
-Topics Dropped from lecture outline for first teaching 
+<!--
+Topics Dropped from lecture outline for first teaching
 -->
 
 
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
 ### Database Schema Design [Hellerstein]
 In this lecture we describe how to create and organize tables in a database to mitigate errors and improve access efficiency.
-{% include syllabus_entry end=true %} 
+{% include syllabus_entry end=true %}
 -->
 
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
 ### Hypothesis Testing and False Discovery
 In this lecture will go into more detailed hypothesis testing procedures and highlight some of the challenges of false discovery in the setting of repeated hypothesis tests.
@@ -360,22 +360,22 @@ In this lecture will go into more detailed hypothesis testing procedures and hig
  -->
 
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
-### Text Modeling 
-This lecture explores techniques used to model text data including n-gram models, TF-IDF, LSA, and LDA. 
+### Text Modeling
+This lecture explores techniques used to model text data including n-gram models, TF-IDF, LSA, and LDA.
 {% include syllabus_entry end=true %}
  -->
 
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
 ### Collaborative Filtering
 This lecture explores nearest neighbor, graph similarity, and matrix factorization techniques for content recommendation.
 {% include syllabus_entry end=true %}
  -->
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
 ###  Deep Learning
 This lecture connects deep learning to the earlier lectures on regression and touches on recent developments in predictive modeling using neural networks.
@@ -383,7 +383,7 @@ This lecture connects deep learning to the earlier lectures on regression and to
  -->
 
 
-<!-- 
+<!--
 {% include syllabus_entry dates=dates %}
 ### Version Control [Gonzalez]
 In this tools oriented lecture we will cover version control and techniques around managing data and code development to ensure repeatedly analysis.
@@ -413,7 +413,7 @@ for (var i = 1; i < rows.length && !finished; i++) {
       var children = r.childNodes
       children[1].style.background = "orange"
       children[1].style.color = "black"
-      children[3].style.background = "red"
+      children[3].style.background = "#043361"
       children[3].style.color = "white"
    }
 }
