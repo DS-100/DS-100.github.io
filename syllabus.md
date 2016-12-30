@@ -59,7 +59,7 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 ### Course Overview [Gonzalez]
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
-#### Homework 0 Released
+#### Homework 1 Released
 
 {% include syllabus_entry end=true %}
 
@@ -74,9 +74,9 @@ In this lecture we introduce the data-science lifecycle and explore each stage b
 ### Problem Formulation and Experimental Design [Yu]
 In this lecture we provide an overview of how to formulate hypothesis, identify sources of data, and construct basic experiments to collect data.
 
-#### Homework 0 Due
+#### Homework 1 Due
 
-#### Homework 1 Released
+#### Homework 2 Released
 {% include syllabus_entry end=true %}
 
 
@@ -93,26 +93,22 @@ In this lecture we provide an overview of exploratory data analysis (EDA).
 
 
 {% include syllabus_entry dates=dates %}
-### Prediction and Inference [Yu and Gonzalez]
+### Visualization and Communication [Nolan]
 
-In this lecture we will explore the key types and challenges of inference and predictions and introduce a few standard prediction and inference techniques.
+This lecture covers how to effectively visualize and communicate complex results to a broader audience.
 
-#### Homework 1 Due
+#### Homework 2 Due
 {% include syllabus_entry end=true %}
-
-
 
 
 
 {% include syllabus_entry dates=dates %}
-### Machine Learning Overview [Gonzalez]
+### Prediction and Inference [Yu and Gonzalez]
 
-This lecture provides an overview of the categories of problems addressed by machine learning techniques and the basic tools we will use in Python.
+In this lecture we will explore the key types and challenges of inference and predictions.  We will provide an overview of the categories of prediction problems and introduce some of the key machine learning tools in python.
 
-#### Homework 2 Released
+#### Homework 3 Released
 {% include syllabus_entry end=true %}
-
-
 
 
 
@@ -138,7 +134,7 @@ In this lecture we talk about the process of converting unstructured and semi-st
 ### SQL and Big Data [Hellerstein]
 In this lecture we introduce SQL and the relational model.
 
-#### Homework 2 Due
+#### Homework 3 Due
 {% include syllabus_entry end=true %}
 
 
@@ -148,7 +144,7 @@ In this lecture we introduce SQL and the relational model.
 ### SQL Continued [Hellerstein]
 In this lecture we will introduce data analysis techniques with a focus on aggregation and summary statistics.
 
-#### Homework 3 Released
+#### Homework 4 Released
 {% include syllabus_entry end=true %}
 
 
@@ -184,7 +180,7 @@ In this lecture we fit basic models to data by applying the method of maximum li
 In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
  -->
 
-#### Homework 3 Due
+#### Homework 4 Due
 
 {% include syllabus_entry end=true %}
 
@@ -207,15 +203,15 @@ This may change in the weeks before class starts as we adjust the schedule.
 
 
 {% include syllabus_entry dates=dates %}
-### Least Squares Regression and Hypothesis Testing [Nolan]
+### Least Squares Regression and Hypothesis Testing [Yu]
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
 
-#### Homework 4 Released
+#### Homework 5 Released
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### Loss Functions and Generalized Linear Models [Nolan]
+### Loss Functions and Generalized Linear Models [Yu]
 This lecture extends the earlier discussion on least squares regression to categorical data and introduce the gradient descent algorithm.
 {% include syllabus_entry end=true %}
 
@@ -231,7 +227,7 @@ This lecture explores how simple linear techniques can be used to address comple
 
 This lecture will continue our discussion on the bias variance trade-off by introducing the concept of regularization.  We then introduce cross validation as a mechanism to optimize the trade-off between bias and variance.
 
-#### Homework 4 Due
+#### Homework 5 Due
 {% include syllabus_entry end=true %}
 
 
@@ -253,7 +249,7 @@ This lecture will continue our discussion on the bias variance trade-off by intr
 
 This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
 
-#### Homework 5 Released
+#### Homework 6 Released
 {% include syllabus_entry end=true %}
 
 
@@ -280,7 +276,7 @@ This lecture explores unsupervised learning techniques to aid in exploratory dat
 
 This lecture introduces the Singular Value Decomposition algorithm for dimensionality reduction.
 
-#### Homework 5 Due
+#### Homework 6 Due
 {% include syllabus_entry end=true %}
 
 
@@ -292,17 +288,9 @@ This lecture introduces the Singular Value Decomposition algorithm for dimension
 This lecture discusses how to get data from a variety of common sources and includes the topics of crawling, scraping, the DOM, XML, HTTP req., and REST APIs.
 
 
-#### Homework 6 Released
+#### Homework 7 Released
 {% include syllabus_entry end=true %}
 
-
-
-{% include syllabus_entry dates=dates %}
-### Visualization and Communication [Nolan]
-
-This lecture covers how to effectively visualize and communicate complex results to a broader audience.
-
-{% include syllabus_entry end=true %}
 
 
 
@@ -321,7 +309,14 @@ Streaming algorithms and online estimation: sketching and sampling.
 
 In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis, map-reduce, etl ...
 
-#### Homework 6 Due
+
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### TBD
+
+#### Homework 7 Due
 
 {% include syllabus_entry end=true %}
 
@@ -334,6 +329,7 @@ In this lecture we provide an overview of the data technologies commonly used to
 {% include syllabus_entry dates=dates %}
 ### RRR Review
 {% include syllabus_entry end=true %}
+
 
 
 
