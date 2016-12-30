@@ -14,6 +14,14 @@ order: 2
 - [Windows](#windows)
 - [Linux](#linux)
 
+# Getting your computer set up for DS100 work
+
+## Contents
+
+- [OSX](#osx)
+- [Windows](#windows)
+- [Linux](#linux)
+
 ## OSX
 
 1. First, let's install `brew` if you haven't done that yet. In your terminal,
@@ -39,7 +47,11 @@ order: 2
 
    Ensure the installation worked by running `conda --version`.
 
-5. Now, use `brew` to install the latest version of `git` by running:
+5. Install some extra packages that don't come with Anaconda by default:
+
+        pip install datascience okpy
+
+6. Now, use `brew` to install the latest version of `git` by running:
 
         brew install git
 
@@ -77,6 +89,10 @@ scratch.
 
    Notice how the `python` prompt shows that it is running from Anaconda. Now
    you have Python installed!
+
+5. Install some extra packages that don't come with Anaconda by default:
+
+       pip install datascience okpy
 
 ### Installing `git`:
 
@@ -122,7 +138,11 @@ For other distributions of Linux, substitute the available package manager.
 
    Ensure the installation worked by running `conda --version`.
 
-5. Now, install the latest version of `git`:
+5. Install some extra packages that don't come with Anaconda by default:
+
+        pip install datascience okpy
+
+6. Now, install the latest version of `git`:
 
         sudo add-apt-repository ppa:git-core/ppa
         sudo apt-get update
