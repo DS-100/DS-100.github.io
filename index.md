@@ -127,42 +127,24 @@ However, we have listed a few optional books that will provide additional contex
   </div>
 </div>
 
+## Grading
 
-<!-- 
-<style>
-@media (max-width: 550px) {
-   .big-container {
-       display: none;
-   }
-}
-@media (min-width: 550px) {
-   .small-container {
-       display: none;
-   }
-}
-/* Responsive iFrame */
-.responsive-iframe-container {
-   position: relative;
-   padding-bottom: 56.25%;
-   padding-top: 30px;
-   height: 0;
-   overflow: hidden;
-}
-.responsive-iframe-container iframe,   
-.vresponsive-iframe-container object,  
-.vresponsive-iframe-container embed {
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 75%;
-   height: 100%;
-}
-</style>
+There will be 7 challenging homeworks assignments.  Homeworks must be completed individually and will mix programming and short answer questions.  At the end of each week of instruction we will have an online multiple choice quiz that will help you stay up-to-date with lecture materials. Labs assignments will be graded for completion and are intended to help with the homework assignments. 
 
-<div class="responsive-iframe-container big-container">
-<iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=700&amp;wkst=1&amp;bgcolor=%23db694f&amp;src=YmVya2VsZXkuZWR1X2xhMW44NmFhazZuZnJxOHFidDM2bDk4N2dzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&amp;color=%23fbdbac&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="75%" height="650" frameborder="0" scrolling="no"></iframe>
-</div>
- -->
+* 40% Homeworks 
+* 13% Vitamins 
+* 7% Labs
+* 15% Midterm
+* 25% Final 
+
+### Collaboration Policy
+
+Data science is a collaborative activity.  While you may talk with others about the homework, we ask that you write your solutions individually.  If you do discuss the assignments with others please include their names at the top of your solution.
+Keep in mind that content from the homework and vitamins will likely be covered on both the midterm and final.
+
+
+
+
 
 
 
