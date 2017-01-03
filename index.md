@@ -127,7 +127,7 @@ However, we have listed a few optional books that will provide additional contex
   </div>
 </div>
 
-## Grading
+## _Tentative_ Grading
 
 There will be 7 challenging homeworks assignments.  Homeworks must be completed individually and will mix programming and short answer questions.  At the end of each week of instruction we will have an online multiple choice quiz that will help you stay up-to-date with lecture materials. Labs assignments will be graded for completion and are intended to help with the homework assignments. 
 
