@@ -8,13 +8,7 @@ order: 2
 
 {% include JB/setup %}
 
-## Contents
-
-- [OSX](#osx)
-- [Windows](#windows)
-- [Linux](#linux)
-
-# Getting your computer set up for DS100 work
+<!-- # Getting your computer set up for DS100 work -->
 
 ## Contents
 
