@@ -8,8 +8,6 @@ order: 2
 
 {% include JB/setup %}
 
-<!-- # Getting your computer set up for DS100 work -->
-
 ## Contents
 
 - [OSX](#osx)
@@ -41,9 +39,24 @@ order: 2
 
    Ensure the installation worked by running `conda --version`.
 
-5. Install some extra packages that don't come with Anaconda by default:
+5. Run these commands to create a new [conda environment][env]. Each conda
+   environment has its own package versions. This allows us to switch between
+   package versions easily. For example, this class uses Python 3, but you
+   might have another that uses Python 2. With a conda environment, you can
+   switch between those at will.
 
+        # Create a conda env called ds100 that uses python 3.5
+        conda create --name ds100 python=3.5
+
+        # Switch to the ds100 environment
+        source activate ds100
+
+        # Install the packages for ds100
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
         pip install datascience okpy
+
+   From now on, you can switch to the `ds100` env with `source activate ds100`,
+   and switch back to the default env with `source deactivate`.
 
 6. Now, use `brew` to install the latest version of `git` by running:
 
@@ -82,11 +95,26 @@ scratch.
    ![conda6](https://cloud.githubusercontent.com/assets/2468904/21345449/24497f5a-c655-11e6-9181-d253e5c0d07c.PNG)
 
    Notice how the `python` prompt shows that it is running from Anaconda. Now
-   you have Python installed!
+   you have `conda` installed!
 
-5. Install some extra packages that don't come with Anaconda by default:
+5. Run these commands to create a new [conda environment][env]. Each conda
+   environment has its own package versions. This allows us to switch between
+   package versions easily. For example, this class uses Python 3, but you
+   might have another that uses Python 2. With a conda environment, you can
+   switch between those at will.
 
-       pip install datascience okpy
+        # Create a conda env called ds100 that uses python 3.5
+        conda create --name ds100 python=3.5
+
+        # Switch to the ds100 environment
+        activate ds100
+
+        # Install the packages for ds100
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
+        pip install datascience okpy
+
+   From now on, you can switch to the `ds100` env with `activate ds100`,
+   and switch back to the default env with `deactivate`.
 
 ### Installing `git`:
 
@@ -132,9 +160,24 @@ For other distributions of Linux, substitute the available package manager.
 
    Ensure the installation worked by running `conda --version`.
 
-5. Install some extra packages that don't come with Anaconda by default:
+5. Run these commands to create a new [conda environment][env]. Each conda
+   environment has its own package versions. This allows us to switch between
+   package versions easily. For example, this class uses Python 3, but you
+   might have another that uses Python 2. With a conda environment, you can
+   switch between those at will.
 
+        # Create a conda env called ds100 that uses python 3.5
+        conda create --name ds100 python=3.5
+
+        # Switch to the ds100 environment
+        source activate ds100
+
+        # Install the packages for ds100
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
         pip install datascience okpy
+
+   From now on, you can switch to the `ds100` env with `source activate ds100`,
+   and switch back to the default env with `source deactivate`.
 
 6. Now, install the latest version of `git`:
 
@@ -147,3 +190,5 @@ For other distributions of Linux, substitute the available package manager.
 
 Congrats! You are ready for DS100 work. You may remove the
 `install_anaconda.sh` script now if you'd like since it's quite large.
+
+[env]: http://conda.pydata.org/docs/using/envs.html
