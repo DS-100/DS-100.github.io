@@ -10,9 +10,13 @@ order: 2
 
 ## Contents
 
-- [OSX](#osx)
-- [Windows](#windows)
-- [Linux](#linux)
+- **Installation**
+  - [OSX](#osx)
+  - [Windows](#windows)
+  - [Linux](#linux)
+- [Working on assignments](#working-on-assignments)
+- [Opening notebooks](#opening-notebooks)
+- [Verifying your installation](#verifying-your-installation)
 
 ## OSX
 
@@ -65,8 +69,10 @@ order: 2
    Ensure that `git` is installed by running `git --version`. The version
    should be 2.5.0 or higher.
 
-Congrats! You are ready for DS100 work. You may remove the
-`install_anaconda.sh` script now if you'd like since it's quite large.
+You may remove the `install_anaconda.sh` script now if you'd like since it's
+quite large.
+
+[**Click here to continue to the next part of the setup.**](#working-on-assignments)
 
 ## Windows
 
@@ -133,8 +139,7 @@ scratch.
 
    ![git4](https://cloud.githubusercontent.com/assets/2468904/21345451/2457579c-c655-11e6-8ece-d760cf548749.PNG)
 
-   Congrats! You now have both Anaconda and `git` set up and are ready to start
-   the real work of Data 100.
+[**Click here to continue to the next part of the setup.**](#working-on-assignments)
 
 ## Linux
 
@@ -188,7 +193,82 @@ For other distributions of Linux, substitute the available package manager.
    Ensure that `git` is installed by running `git --version`. The version
    should be 2.5.0 or higher.
 
-Congrats! You are ready for DS100 work. You may remove the
-`install_anaconda.sh` script now if you'd like since it's quite large.
+You may remove the `install_anaconda.sh` script now if you'd like since it's
+quite large.
 
 [env]: http://conda.pydata.org/docs/using/envs.html
+
+[**Click here to continue to the next part of the setup.**](#working-on-assignments)
+
+## Working on assignments
+
+These instructions are the same for OSX, Windows, and Linux.
+
+Now, let's download the course materials so you can start working on
+assignments.
+
+1. Visit https://github.com/ and log in / create an account if you don't
+   already have one.
+2. Visit https://ds100-repo.herokuapp.com/ and fill out the form to create a
+   private repo to hold all of your work this semester. Bookmark the URL
+   because you'll be using it soon.
+3. In your terminal, navigate to the directory you want to put the DS100
+   assignments in.
+4. Run the following commands. Replace `<URL_OF_YOUR_PRIVATE_REPO>` with the
+   URL of your repo.
+
+    ```
+    # Download the repo
+    git clone https://github.com/DS-100/sp17-materials
+
+    # Enter the repo folder
+    cd sp17-materials
+
+    # Rename the origin remote to ds100
+    git remote rename origin ds100
+
+    # Set the origin remote to your repo
+    git remote add origin <URL_OF_YOUR_PRIVATE_REPO>
+    ```
+
+For example, if my repo is https://github.com/DS-100/s0001 I'd run:
+
+    git remote add origin https://github.com/DS-100/s0001
+
+This should download a copy of the course materials (including this homework)
+onto your personal computer and set up `git` remotes so that you can pull
+released assignments from the staff and push your personal work to your private
+repo.
+
+Now, when you want to pull new/updated assignments, you can run:
+
+    git pull ds100 master
+
+And when you want to push your work to your private repo:
+
+    git push origin master
+
+## Opening notebooks
+
+To open Jupyter notebooks, you'll navigate to the `sp17-materials`
+directory and run:
+
+    jupyter notebook
+
+This will automatically open the notebook interface in your browser. You can
+then browse to a notebook and open it.
+
+## Verifying your installation
+
+Finally, let's open a notebook that will check to see whether you've installed
+everything correctly.
+
+In your `sp17-materials` directory, ensure that you are in the `ds100` conda
+environment by running `source activate ds100` on OSX / Linux or `source
+activate` on Windows. Then, run `git pull ds100 master` and then `jupyter
+notebook`.
+
+Now, open the `test_setup.ipynb` notebook. If you've installed everything
+correctly, all the cells should run without error.
+
+Congrats! You've set up your computer for DS100 work.
