@@ -217,19 +217,17 @@ assignments.
 4. Run the following commands. Replace `<URL_OF_YOUR_PRIVATE_REPO>` with the
    URL of your repo.
 
-    ```
-    # Download the repo
-    git clone https://github.com/DS-100/sp17-materials
+        # Download the repo
+        git clone https://github.com/DS-100/sp17-materials
 
-    # Enter the repo folder
-    cd sp17-materials
+        # Enter the repo folder
+        cd sp17-materials
 
-    # Rename the origin remote to ds100
-    git remote rename origin ds100
+        # Rename the origin remote to ds100
+        git remote rename origin ds100
 
-    # Set the origin remote to your repo
-    git remote add origin <URL_OF_YOUR_PRIVATE_REPO>
-    ```
+        # Set the origin remote to your repo
+        git remote add origin <URL_OF_YOUR_PRIVATE_REPO>
 
 For example, if my repo is https://github.com/DS-100/s0001 I'd run:
 
