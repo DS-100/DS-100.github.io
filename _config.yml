@@ -23,7 +23,7 @@ highlighter: rouge
 # Themes are encouraged to use these universal variables
 # so be sure to set them if your theme uses them.
 #
-title : DS100 Spring-2017
+title : DS100
 tagline: Principles and Techniques of Data Science
 author :
   name : UC Berkeley
@@ -32,7 +32,7 @@ author :
   # twitter : username
   # feedburner : feedname
 
-baseurl: /spring-2017
+baseurl: ~
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
@@ -42,7 +42,7 @@ baseurl: /spring-2017
 # Else if you are pushing to username.github.io, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : DS-100.github.io
+production_url : ds100.org
 
 gems: ["jekyll-sitemap"]
 

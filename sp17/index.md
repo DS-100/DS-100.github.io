@@ -1,7 +1,9 @@
 ---
 layout: header_page
-title: Data Science 100
+title: DS100 Spring 2017
 tagline: Principles and Techniques of Data Science
+group: navigation
+order: 1
 ---
 {% include JB/setup %}
 
@@ -14,18 +16,28 @@ tagline: Principles and Techniques of Data Science
 <div class="row">
 <div markdown="1" class="col-sm-9">
 
-Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand the world.
-This intermediate level class bridges between [Data 8](http://data8.org/fa16/) and upper division computer science and statistics courses as well as methods courses in other fields.
+Combining data, computation, and inferential thinking, data science is
+redefining how people and organizations solve challenging problems and
+understand the world. This intermediate level class bridges between [Data
+8](http://data8.org/fa16/) and upper division computer science and statistics
+courses as well as methods courses in other fields.
 
-In this class, students explore the data science lifecycle, including question formulation, data collection and cleaning, exploratory data analysis and visualization, statistical inference and prediction​, and decision-making.​ This class focuses on quantitative critical thinking​ and key principles and techniques needed to carry out this cycle. These include languages for transforming, querying and analyzing data; algorithms for machine learning methods including regression, classification and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
+In this class, students explore the data science lifecycle, including question
+formulation, data collection and cleaning, exploratory data analysis and
+visualization, statistical inference and prediction​, and decision-making.​
+This class focuses on quantitative critical thinking​ and key principles and
+techniques needed to carry out this cycle. These include languages for
+transforming, querying and analyzing data; algorithms for machine learning
+methods including regression, classification and clustering; principles behind
+creating informative data visualizations; statistical concepts of measurement
+error and prediction; and techniques for scalable data processing.
 
 _Lectures are Tuesdays and Thursdays from 12:30 to 2:00 in Soda 306_
 
 
 </div>
-<div class="col-md-3" markdown="1">
-![lifecycle](assets/images/lifecycle3_cropped.png){:height="200px"}
-<!-- <img src="{{ site.baseurl }}assets/images/lifecycle2.png" alt="Lifecycle Logo" style="height: 300px"/> -->
+<div class="col-md-3">
+<img src="{{ 'assets/images/lifecycle3_cropped.png' | absolute_url }}" alt="Lifecycle Logo" style="height: 200px"/>
 </div>
 </div>
 </div>
@@ -79,7 +91,7 @@ However, we have listed a few optional books that will provide additional contex
 * **[Data Science from Scratch:](http://shop.oreilly.com/product/0636920033400.do)** (Free to Berkeley students) This more applied book covers many of the topics in this class using Python but doesn't go into sufficient depth for some of the more mathematical material.
 
 #### Secondary Books
-*  **[Doing Data Science:](http://shop.oreilly.com/product/0636920028529.do)** This books provides a unique case-study view of data science but uses R and not Python. 
+*  **[Doing Data Science:](http://shop.oreilly.com/product/0636920028529.do)** This books provides a unique case-study view of data science but uses R and not Python.
 
 
 ## Instructors
@@ -129,13 +141,13 @@ However, we have listed a few optional books that will provide additional contex
 
 ## _Tentative_ Grading
 
-There will be 7 challenging homeworks assignments.  Homeworks must be completed individually and will mix programming and short answer questions.  At the end of each week of instruction we will have an online multiple choice quiz that will help you stay up-to-date with lecture materials. Labs assignments will be graded for completion and are intended to help with the homework assignments. 
+There will be 7 challenging homeworks assignments.  Homeworks must be completed individually and will mix programming and short answer questions.  At the end of each week of instruction we will have an online multiple choice quiz that will help you stay up-to-date with lecture materials. Labs assignments will be graded for completion and are intended to help with the homework assignments.
 
-* 40% Homeworks 
-* 13% Vitamins 
+* 40% Homeworks
+* 13% Vitamins
 * 7% Labs
 * 15% Midterm
-* 25% Final 
+* 25% Final
 
 ### Collaboration Policy
 
