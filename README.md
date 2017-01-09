@@ -1,32 +1,27 @@
-# CS294 RISE Class Github Pages Website
+# DS100 Website
 
-To contribute to this class fork this repo and send pull requests with any changes to the content.
+This website is written using Jekyll Bootstrap with some modifications to
+improve support for github pages.
 
-This website is written using Jekyll Bootstrap with some modifications to improve support for github pages. 
+## Building Locally
 
-# Building Locally
+Install `rvm`: https://rvm.io/
 
-Make sure you have a version of ruby that is 2.2 or higher. If not on a mac run:
+Install Ruby 2.2.0:
 
-```bash
-brew install ruby
-```
+    rvm install 2.2.0
 
-You will also need bundle:
+Clone this repo:
 
-```bash
-gem install bundle
-```
+    git clone https://github.com/DS-100/DS-100.github.io
 
-then to setup the Jekyll build environment run:
+In the repo directory, run:
 
-```bash
-cd path/to/cs294-rise-fa16
-bundle install
-```
+    gem install bundler
+    bundle install
 
-Finally to serve the project locally:
+Finally, serve the project locally with:
 
-```bash
-bundle exec jekyll serve --baseurl ''
-```
+    jekyll serve
+
+This will start the local Jekyll server at http://localhost:4000.
