@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Setup"
+title: "Computer Setup"
 description: "Setup Your Data Science Environment"
 group: navigation
 order: 2
