@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Getting Setup"
-description: "Getting your computer setup for DS100 work"
+title: "Setup"
+description: "Setup Your Data Science Environment"
 group: navigation
 order: 2
 ---
