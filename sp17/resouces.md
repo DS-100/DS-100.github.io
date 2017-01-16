@@ -59,7 +59,7 @@ However, we have listed a few optional books that will provide additional contex
 *  **[Doing Data Science](http://shop.oreilly.com/product/0636920028529.do)**
 ([Available as eBook for Berkeley students](http://proquest.safaribooksonline.com/9781449363871)) This books provides a unique case-study view of data science but uses R and not Python.
 
-* **[Python for Data Analysis](http://shop.oreilly.com/product/0636920023784.do)** ([Available as eBook for Berkeley students](http://http://proquest.safaribooksonline.com/9781449323592)).  This book provides a good reference for the Pandas library.
+* **[Python for Data Analysis](http://shop.oreilly.com/product/0636920023784.do)** ([Available as eBook for Berkeley students](http://proquest.safaribooksonline.com/9781449323592)).  This book provides a good reference for the Pandas library.
 
 
 
