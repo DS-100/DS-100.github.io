@@ -38,7 +38,7 @@ If you do discuss the assignments with others please include their names at the 
 Keep in mind that content from the homework and vitamins will likely be covered on both the midterm and final.
 We will be following the [EECS departmental policy on Academic Honesty](https://eecs.berkeley.edu/resources/students/policies#dishonesty), so be sure you are familiar with it.
 
-### We You to Succeed
+### We Want You to Succeed
 
 If you are feeling overwhelmed, visit our office hours and talk with us.
 We know college can be stressful and we want to help you succeed!

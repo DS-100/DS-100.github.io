@@ -103,7 +103,7 @@ This lecture covers how to effectively visualize and communicate complex results
 
 
 {% include syllabus_entry dates=dates %}
-### Prediction and Inference [Yu and Gonzalez]
+### Prediction and Inference [Yu]
 
 In this lecture we will explore the key types and challenges of inference and predictions.  We will provide an overview of the categories of prediction problems and introduce some of the key machine learning tools in python.
 
