@@ -39,6 +39,11 @@ error and prediction; and techniques for scalable data processing.
 * **What:** *tentative* [lecture schedule](syllabus)
 * **News:** We will post updates about the class on [Piazza](http://piazza.com/berkeley/spring2017/ds100) 
 
+#### The Wait List and First Lecture
+
+As many of you know, we have been having trouble managing the wait list for DS100 using CalCentral.  We have already contacted 96 students (the lecture hall capacity) directly informing them that they have a slot it the class.  There are still roughly 70 students currently on the wait list.  I just sent an email to the next 25 students on our internal prioritized wait list.  Because the lecture hall will likely be crowded, if I did not contact you please allow the students who have been contacted to have access to the room.  I will post the first lecture online for those who cannot fit into the room and will be holding office hours this week if you have any questions.
+
+
 
 </div>
 <div class="col-md-3">

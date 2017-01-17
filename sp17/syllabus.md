@@ -64,6 +64,7 @@ In this lecture we define and motivate the study of data science and outline the
 * [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU)
 * [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc) 
 
+
 #### Homework 1 Released
 
 {% include syllabus_entry end=true %}
