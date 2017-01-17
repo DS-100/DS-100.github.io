@@ -255,8 +255,14 @@ repo.
 
 Now, when you want to pull new/updated assignments, you can run:
 
-    # Get updates from the course repo
-    git pull ds100 master
+    # Make a work-in-progress commit since git doesn't allow pulling when you
+    # have uncommited modifications
+    git commit -am "WIP"
+
+    # Get updates from the course repo. The options here tell git to override
+    # any conflicts in the files with what you currently have so that your work
+    # is never erased.
+    git pull -s recursive -X ours --no-edit ds100 master
 
 And when you want to push your work to your private repo:
 
