@@ -34,14 +34,10 @@ error and prediction; and techniques for scalable data processing.
 
 ### Important Information:
 
-* **When:** Tuesdays and Thursdays from 12:30 to 2:00 
+* **When:** Lectures Tuesdays and Thursdays from 12:30 to 2:00 
 * **Where:** Soda Hall Room 306 (Hewlett Packard Auditorium)
 * **What:** *tentative* [lecture schedule](syllabus)
 * **News:** We will post updates about the class on [Piazza](http://piazza.com/berkeley/spring2017/ds100) 
-
-#### The Wait List and First Lecture
-
-As many of you know, we have been having trouble managing the wait list for DS100 using CalCentral.  We have already contacted 96 students (the lecture hall capacity) directly informing them that they have a slot it the class.  There are still roughly 70 students currently on the wait list.  I just sent an email to the next 25 students on our internal prioritized wait list.  Because the lecture hall will likely be crowded, if I did not contact you please allow the students who have been contacted to have access to the room.  I will post the first lecture online for those who cannot fit into the room and will be holding office hours this week if you have any questions.
 
 
 
@@ -54,7 +50,14 @@ As many of you know, we have been having trouble managing the wait list for DS10
 
 
 
-If you have enrolled in the wait-list please complete the following  <a href="https://goo.gl/forms/Ku5cu7L7cUbSaTKc2">Background Survey</a> we will use this to help in admitting students into the class.
+If you have enrolled in the wait-list please complete the following  <a href="https://goo.gl/forms/Ku5cu7L7cUbSaTKc2">Background Survey</a> we will use this to help in admitting students into the class.  Please sign up for Piazza to follow updates on the wait list.
+
+
+## Office Hours, Section, and Lab Schedule
+
+<iframe src="https://calendar.google.com/calendar/embed?mode=WEEK&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=berkeley.edu_la1n86aak6nfrq8qbt36l987gs%40group.calendar.google.com&amp;color=%23691426&amp;ctz=America%2FLos_Angeles" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
 
 
 
