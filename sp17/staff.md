@@ -1,10 +1,12 @@
 ---
 layout: page
 title: "Staff"
-description: "Professors and GSIs"
+description: "Course Staff"
 group: navigation
 order: 7
 ---
+
+{% include JB/setup %}
 
 ## Instructors
 
