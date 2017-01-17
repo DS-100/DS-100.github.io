@@ -1,3 +1,11 @@
+---
+layout: page
+title: "Staff"
+description: "Professors and GSIs"
+group: navigation
+order: 7
+---
+
 ## Instructors
 
 <!-- The following block is for faculty info -->
