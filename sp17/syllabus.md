@@ -59,6 +59,11 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 ### Course Overview [Gonzalez]
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
+##### Draft Lecture Notes 
+* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIM2lSSWsxUGdDcXc) 
+* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIZHFNN0gtalNjT28)
+* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIS2RVbHByME10QnM) 
+
 #### Homework 1 Released
 
 {% include syllabus_entry end=true %}
