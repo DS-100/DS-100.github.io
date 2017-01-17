@@ -60,9 +60,9 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
 ##### Draft Lecture Notes 
-* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIM2lSSWsxUGdDcXc) 
-* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIZHFNN0gtalNjT28)
-* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIS2RVbHByME10QnM) 
+* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIN2d5eWJRV2ZYanc) 
+* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU)
+* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc) 
 
 #### Homework 1 Released
 
