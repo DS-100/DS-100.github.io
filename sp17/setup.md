@@ -20,9 +20,16 @@ order: 2
 
 ## OSX
 
-1. First, let's install `brew` if you haven't done that yet. In your terminal,
-   run:
+0. First things first. Your terminal program allows you to type commands to
+   control your computer. On a Mac, you can open the Terminal by going to your
+   Applications screen and selecting Terminal (it might be in the folder named
+   "Other"). Or, you can open Spotlight (Cmd + Space) and type "Terminal".
 
+1. First, let's install `brew` if you haven't done that yet. Homebrew is a
+   program that allows you to easily install other software on OSX. In your
+   terminal, run:
+
+        # This downloads the Ruby code of the installation script and runs it
         /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
    Verify your installation by making sure `brew --version` doesn't error at
@@ -31,14 +38,17 @@ order: 2
 2. Next, install `wget`. This is a command-line tool that lets you download
    files / webpages at the command line.
 
+        # Uses Homebrew to install wget
         brew install wget
 
 3. Download the Anaconda installation script:
 
+        # Uses wget to download the installation script, naming it install_anaconda.sh
         wget -O install_anaconda.sh https://repo.continuum.io/archive/Anaconda3-4.2.0-MacOSX-x86_64.sh
 
 4. Install Anaconda:
 
+        # Run the installation script
         bash install_anaconda.sh
 
    Ensure the installation worked by running `conda --version`.
@@ -56,7 +66,7 @@ order: 2
         source activate ds100
 
         # Install the packages for ds100
-        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn scikit-image
         pip install datascience okpy
 
    From now on, you can switch to the `ds100` env with `source activate ds100`,
@@ -103,6 +113,9 @@ scratch.
    Notice how the `python` prompt shows that it is running from Anaconda. Now
    you have `conda` installed!
 
+   **From now on, when we talk about the "Terminal" or "Command Prompt", we are
+   referring to the Anaconda Prompt that you just installed.**
+
 5. Run these commands to create a new [conda environment][env]. Each conda
    environment has its own package versions. This allows us to switch between
    package versions easily. For example, this class uses Python 3, but you
@@ -116,7 +129,7 @@ scratch.
         activate ds100
 
         # Install the packages for ds100
-        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn scikit-image
         pip install datascience okpy
 
    From now on, you can switch to the `ds100` env with `activate ds100`,
@@ -132,6 +145,7 @@ scratch.
 
 2. At the anaconda prompt, type:
 
+        # Use anaconda to install git
         conda install -c anaconda git -y
 
 3. Now, verify that `git` is installed by typing `git --version` on the command
@@ -145,6 +159,11 @@ scratch.
 
 These instructions assume you have `apt-get` (Ubuntu and Debian).
 For other distributions of Linux, substitute the available package manager.
+
+1. You likely already know this if you're running Linux, but just in case: your
+   terminal program allows you to type commands to control your computer. On
+   Linux, you can open the Terminal by going to the Applications menu and
+   clicking "Terminal".
 
 2. Install `wget`. This is a command-line tool that lets you download
    files / webpages at the command line.
@@ -178,7 +197,7 @@ For other distributions of Linux, substitute the available package manager.
         source activate ds100
 
         # Install the packages for ds100
-        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn
+        conda install -n ds100 jupyter pandas numpy matplotlib scikit-learn seaborn scikit-image
         pip install datascience okpy
 
    From now on, you can switch to the `ds100` env with `source activate ds100`,
@@ -210,12 +229,12 @@ assignments.
 1. Visit https://github.com/ and log in / create an account if you don't
    already have one.
 2. Visit https://ds100-repo.herokuapp.com/ and fill out the form to create a
-   private repo to hold all of your work this semester. Bookmark the URL
+   private repo to hold all of your work this semester. Bookmark the GitHub URL
    because you'll be using it soon.
 3. In your terminal, navigate to the directory you want to put the DS100
    assignments in.
 4. Run the following commands. Replace `<URL_OF_YOUR_PRIVATE_REPO>` with the
-   URL of your repo.
+   URL of your repo (eg. `https://github.com/DS-100/s0001`).
 
         # Download the repo
         git clone https://github.com/DS-100/sp17-materials
@@ -229,10 +248,6 @@ assignments.
         # Set the origin remote to your repo
         git remote add origin <URL_OF_YOUR_PRIVATE_REPO>
 
-For example, if my repo is https://github.com/DS-100/s0001 I'd run:
-
-    git remote add origin https://github.com/DS-100/s0001
-
 This should download a copy of the course materials (including this homework)
 onto your personal computer and set up `git` remotes so that you can pull
 released assignments from the staff and push your personal work to your private
@@ -240,11 +255,18 @@ repo.
 
 Now, when you want to pull new/updated assignments, you can run:
 
+    # Get updates from the course repo
     git pull ds100 master
 
 And when you want to push your work to your private repo:
 
+    # Send updates to your personal private git repo
     git push origin master
+
+To read up on how git remotes work, check out [this page from the `git`
+tutorials](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) and
+[this Stack Overflow post](http://stackoverflow.com/questions/5617211/what-is-git-remote-add-and-git-push-origin-master/5617350#5617350).
+If you're still confused, Google your question or ask a TA.
 
 ## Opening notebooks
 
