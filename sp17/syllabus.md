@@ -400,7 +400,13 @@ In this tools oriented lecture we will cover version control and techniques arou
 
 A little script to highlight the week that is next
 
+There is currently a bug in this script which someone needs to fix.  When I wrote this script for my graduate seminar class we only had one lecture a week. We should modify the Jekyll code to render the syllabus with each row tagged so we can automatically identify the week and lecture day.
+
 -->
+
+<!-- 
+
+
 <script type="text/javascript">
 var current_date = new Date();
 var rows = document.getElementsByTagName("tr");
@@ -419,5 +425,5 @@ for (var i = 1; i < rows.length && !finished; i++) {
       children[3].style.color = "white"
    }
 }
-</script>
+</script> -->
 
