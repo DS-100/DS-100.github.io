@@ -251,7 +251,7 @@ This lecture will continue our discussion on the bias variance trade-off by intr
 
 
 {% include syllabus_entry dates=dates %}
-### Classification and Regression Trees [Nolan]
+### Classification and Regression Trees [Nolan and Yu]
 
 This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
 
@@ -271,20 +271,23 @@ This lecture introduces non-parametric modeling techniques and discusses k-neare
 
 
 {% include syllabus_entry dates=dates %}
-### Clustering and the Mixed Membership Model [Nolan]
-
-This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In particular we focus on mix-membership models and introduce the EM algorithm.
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
 ### Dimensionality Reduction [Gonzalez]
 
 This lecture introduces the Singular Value Decomposition algorithm for dimensionality reduction.
 
-#### Homework 6 Due
 {% include syllabus_entry end=true %}
 
+
+
+
+{% include syllabus_entry dates=dates %}
+### Clustering and the Mixed Membership Model [Nolan and Yu]
+
+This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In particular we focus on mix-membership models and introduce the EM algorithm.
+
+#### Homework 6 Due
+
+{% include syllabus_entry end=true %}
 
 
 
