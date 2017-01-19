@@ -59,20 +59,27 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 ### Course Overview [Gonzalez]
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
-##### Draft Lecture Notes 
+##### Lecture Notes 
 * [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIN2d5eWJRV2ZYanc) 
 * [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU)
 * [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc) 
 
-
 #### Homework 1 Released
-
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
 ### The Data Science Lifecycle [Gonzalez]
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
+
+##### Draft Lecture Notes 
+<!-- * [pptx with animations]() 
+* [pdf]()
+* [pdf 6up]() -->
+* [Jupyter Notebook (HTML)](assets/notebooks/food_safety/lecture.html)
+* [Jupyter Notebook (Raw)](assets/notebooks/food_safety/SF_Food_Safety.ipynb) 
+
+
 {% include syllabus_entry end=true %}
 
 
