@@ -73,9 +73,9 @@ In this lecture we define and motivate the study of data science and outline the
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
 
 ##### Draft Lecture Notes 
-<!-- * [pptx with animations]() 
-* [pdf]()
-* [pdf 6up]() -->
+* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIUHpPMV92ek9JNkE)
+* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIakhySzdkaVhLdVE)
+* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIM1NNS2ZNNEwxdDQ) 
 * [Jupyter Notebook (HTML)](assets/notebooks/food_safety/lecture.html)
 * [Jupyter Notebook (Raw)](assets/notebooks/food_safety/SF_Food_Safety.ipynb) 
 
