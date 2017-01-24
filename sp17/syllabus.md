@@ -72,12 +72,13 @@ In this lecture we define and motivate the study of data science and outline the
 ### The Data Science Lifecycle [Gonzalez]
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
 
-##### Draft Lecture Notes 
+##### Lecture Notes 
 * [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIUHpPMV92ek9JNkE)
 * [pdf](https://drive.google.com/open?id=0Bze55lezLJhIakhySzdkaVhLdVE)
 * [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIM1NNS2ZNNEwxdDQ) 
 * [Jupyter Notebook (HTML)](assets/notebooks/food_safety/lecture.html)
 * [Jupyter Notebook (Raw)](assets/notebooks/food_safety/SF_Food_Safety.ipynb) 
+* [Data Needed for the Notebook](assets/notebooks/food_safety/data.tar.bz2) 
 
 
 {% include syllabus_entry end=true %}
@@ -414,26 +415,27 @@ There is currently a bug in this script which someone needs to fix.  When I wrot
 
 -->
 
-<!-- 
 
 
 <script type="text/javascript">
 var current_date = new Date();
-var rows = document.getElementsByTagName("tr");
+var rows = document.getElementsByTagName("th");
 var finished =  false;
 for (var i = 1; i < rows.length && !finished; i++) {
    var r = rows[i];
-   var date_text = r.getElementsByTagName("td")[1].textContent;
-   console.log(date_text)
-   var d = new Date(date_text + " 14:00:00");
-   if (current_date <= d) {
-      finished = true;
-      var children = r.childNodes
-      children[1].style.background = "orange"
-      children[1].style.color = "black"
-      children[3].style.background = "#043361"
-      children[3].style.color = "white"
+   if (r.id.startsWith("counter_")) {
+      var fields = r.id.split("_")
+      var week_div_id = "week_" + fields[2]
+      var lecture_date = new Date(fields[1] + " 12:30:00")
+      if (current_date <= lecture_date) {
+         finished = true;
+         r.style.background = "orange"
+         r.style.color = "black"
+         var week_td = document.getElementById(week_div_id)
+         week_td.style.background = "#043361"
+         week_td.style.color = "white"
+      }
    }
 }
-</script> -->
+</script>
 
