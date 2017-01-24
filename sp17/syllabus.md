@@ -8,7 +8,7 @@ order: 2
 {% include JB/setup %}
 
 
-This schedule is still under development and is subject to change.
+This schedule is still under development and is subject to change.  
 
 
 <table class="table table-striped">
