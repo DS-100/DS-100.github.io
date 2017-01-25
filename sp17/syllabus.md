@@ -431,7 +431,7 @@ for (var i = 1; i < rows.length && !finished; i++) {
    if (r.id.startsWith("counter_")) {
       var fields = r.id.split("_")
       var week_div_id = "week_" + fields[2]
-      var lecture_date = new Date(fields[1] + " 12:30:00")
+      var lecture_date = new Date(fields[1] + " 23:59:00")
       if (current_date <= lecture_date) {
          finished = true;
          r.style.background = "orange"

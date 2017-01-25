@@ -5,7 +5,7 @@
 
 
 {% assign week_begin = lecture_counter | modulo: 2 %}
-{% assign week = lecture_counter | divided_by: 2 | plus: 1 %}
+{% assign week = lecture_counter | divided_by: 2.0 | ceil %}
 {% assign lecture_index = lecture_counter | minus: 1 %}
 {% assign lecture_date = include.dates[ lecture_index ] %}
 
