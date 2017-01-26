@@ -88,7 +88,7 @@ In this lecture we introduce the data-science lifecycle and explore each stage b
 ### Problem Formulation and Experimental Design [Yu]
 In this lecture we provide an overview of how to formulate hypothesis, identify sources of data, and construct basic experiments to collect data.
 
-##### Tentative Lecture Notes 
+##### Lecture Notes 
 * [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIVWxwMTRLM096UjQ)
 * [pdf](https://drive.google.com/open?id=0Bze55lezLJhIb2MtU2ZCWEY2dlU)
 * [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhINU5lZFEtRjdPR3c) 
