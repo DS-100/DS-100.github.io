@@ -101,7 +101,12 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 
 {% include syllabus_entry dates=dates %}
 ### Data Wrangling [Hellerstein]
-In this lecture we explore the challenges of data cleaning and preparation (e.g., parsing and processing unstructured text data, semi-structured formats like JSON, and XML) and the kinds of errors commonly found in the real world.
+In this lecture we explore the challenges of data preparation (e.g., assessing, structuring, cleaning, and rolling up data) and the kinds of errors commonly found in the real world.
+
+#### Lecture Notes
+* [pptx with animations](https://drive.google.com/open?id=0B2k285AK-3KEVlllcndGTWdaVGM) 
+* [pdf](https://drive.google.com/open?id=0B2k285AK-3KESWpNOWN2MVZkZjg)
+* [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KEaGsycTgyWFZ1M3c) 
 {% include syllabus_entry end=true %}
 
 
