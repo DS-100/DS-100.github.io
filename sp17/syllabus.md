@@ -105,9 +105,9 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 In this lecture we explore the challenges of data preparation (e.g., assessing, structuring, cleaning, and rolling up data) and the kinds of errors commonly found in the real world.
 
 #### Lecture Notes
-* [pptx with animations](https://drive.google.com/open?id=0B2k285AK-3KEVlllcndGTWdaVGM) 
-* [pdf](https://drive.google.com/open?id=0B2k285AK-3KESWpNOWN2MVZkZjg)
-* [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KEaGsycTgyWFZ1M3c) 
+* [pptx with animations](https://drive.google.com/open?id=0B2k285AK-3KEZFhsQzRKQWFaN00) 
+* [pdf](https://drive.google.com/open?id=0B2k285AK-3KEbE5GQ3BCZXI1V28)
+* [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KESmplRWlpc2F3Tnc) 
 {% include syllabus_entry end=true %}
 
 
