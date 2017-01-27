@@ -93,9 +93,10 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 * [pdf](https://drive.google.com/open?id=0Bze55lezLJhIb2MtU2ZCWEY2dlU)
 * [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhINU5lZFEtRjdPR3c) 
 
+#### Homework 2 Released
+
 #### Homework 1 Due
 
-#### Homework 2 Released
 {% include syllabus_entry end=true %}
 
 
@@ -121,7 +122,6 @@ In this lecture we provide an overview of exploratory data analysis (EDA).
 
 This lecture covers how to effectively visualize and communicate complex results to a broader audience.
 
-#### Homework 2 Due
 {% include syllabus_entry end=true %}
 
 
@@ -132,6 +132,8 @@ This lecture covers how to effectively visualize and communicate complex results
 In this lecture we will explore the key types and challenges of inference and predictions.  We will provide an overview of the categories of prediction problems and introduce some of the key machine learning tools in python.
 
 #### Homework 3 Released
+
+#### Homework 2 Due
 {% include syllabus_entry end=true %}
 
 
@@ -158,7 +160,6 @@ In this lecture we talk about the process of converting unstructured and semi-st
 ### SQL and Big Data [Hellerstein]
 In this lecture we introduce SQL and the relational model.
 
-#### Homework 3 Due
 {% include syllabus_entry end=true %}
 
 
@@ -169,6 +170,8 @@ In this lecture we introduce SQL and the relational model.
 In this lecture we will introduce data analysis techniques with a focus on aggregation and summary statistics.
 
 #### Homework 4 Released
+
+#### Homework 3 Due
 {% include syllabus_entry end=true %}
 
 
@@ -204,7 +207,6 @@ In this lecture we fit basic models to data by applying the method of maximum li
 In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
  -->
 
-#### Homework 4 Due
 
 {% include syllabus_entry end=true %}
 
@@ -231,6 +233,8 @@ This may change in the weeks before class starts as we adjust the schedule.
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
 
 #### Homework 5 Released
+
+#### Homework 4 Due
 {% include syllabus_entry end=true %}
 
 
@@ -251,7 +255,6 @@ This lecture explores how simple linear techniques can be used to address comple
 
 This lecture will continue our discussion on the bias variance trade-off by introducing the concept of regularization.  We then introduce cross validation as a mechanism to optimize the trade-off between bias and variance.
 
-#### Homework 5 Due
 {% include syllabus_entry end=true %}
 
 
@@ -274,6 +277,8 @@ This lecture will continue our discussion on the bias variance trade-off by intr
 This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
 
 #### Homework 6 Released
+
+#### Homework 5 Due
 {% include syllabus_entry end=true %}
 
 
@@ -303,7 +308,6 @@ This lecture introduces the Singular Value Decomposition algorithm for dimension
 
 This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In particular we focus on mix-membership models and introduce the EM algorithm.
 
-#### Homework 6 Due
 
 {% include syllabus_entry end=true %}
 
@@ -316,6 +320,8 @@ This lecture discusses how to get data from a variety of common sources and incl
 
 
 #### Homework 7 Released
+
+#### Homework 6 Due
 {% include syllabus_entry end=true %}
 
 
