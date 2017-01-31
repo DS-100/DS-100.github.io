@@ -60,9 +60,7 @@ The actual lectures.  Dates are rendered automatically using Jekyll
 In this lecture we define and motivate the study of data science and outline the key ideas covered throughout the class.
 
 ##### Lecture Notes 
-* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIN2d5eWJRV2ZYanc) 
-* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU)
-* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc) 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIN2d5eWJRV2ZYanc), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU), [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc))
 
 #### Homework 1 Released
 {% include syllabus_entry end=true %}
@@ -73,12 +71,11 @@ In this lecture we define and motivate the study of data science and outline the
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
 
 ##### Lecture Notes 
-* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIUHpPMV92ek9JNkE)
-* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIakhySzdkaVhLdVE)
-* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIM1NNS2ZNNEwxdDQ) 
-* [Jupyter Notebook (HTML)](assets/notebooks/food_safety/lecture.html)
-* [Jupyter Notebook (Raw)](assets/notebooks/food_safety/SF_Food_Safety.ipynb) 
-* [Data Needed for the Notebook](assets/notebooks/food_safety/data.tar.bz2) 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIUHpPMV92ek9JNkE),
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIakhySzdkaVhLdVE),
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIM1NNS2ZNNEwxdDQ))
+* SF Food Safety Demo ([html](assets/notebooks/food_safety/lecture.html),
+[raw](assets/notebooks/food_safety/SF_Food_Safety.ipynb), [data](assets/notebooks/food_safety/data.tar.bz2))
 
 
 {% include syllabus_entry end=true %}
