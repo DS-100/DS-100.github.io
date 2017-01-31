@@ -114,7 +114,15 @@ In this lecture we explore the challenges of data preparation (e.g., assessing, 
 {% include syllabus_entry dates=dates %}
 ### Exploratory Data Analysis [Nolan]
 In this lecture we provide an overview of exploratory data analysis (EDA).
+
+##### Lecture Notes 
+* [pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5SDd1MndCY0NZQnM)
+* [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE) 
+* [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE)
+
 {% include syllabus_entry end=true %}
+
+
 
 
 {% include syllabus_entry dates=dates %}
