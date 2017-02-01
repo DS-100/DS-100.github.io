@@ -128,25 +128,27 @@ This lecture covers how to effectively visualize and communicate complex results
 {% include syllabus_entry end=true %}
 
 
+{% include syllabus_entry dates=dates %}
+### Advanced Python Data Science Tools [Gonzalez]
+In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing.
+
+#### Homework 3 Released
+
+#### Homework 2 Due
+
+{% include syllabus_entry end=true %}
+
+
 
 {% include syllabus_entry dates=dates %}
 ### Prediction and Inference [Yu]
 
 In this lecture we will explore the key types and challenges of inference and predictions.  We will provide an overview of the categories of prediction problems and introduce some of the key machine learning tools in python.
 
-#### Homework 3 Released
-
-#### Homework 2 Due
 {% include syllabus_entry end=true %}
 
 
 
-
-{% include syllabus_entry dates=dates %}
-### Advanced Python Data Science Tools [Gonzalez]
-In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing.
-
-{% include syllabus_entry end=true %}
 
 
 
