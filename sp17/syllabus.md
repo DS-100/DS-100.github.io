@@ -86,9 +86,9 @@ In this lecture we introduce the data-science lifecycle and explore each stage b
 In this lecture we provide an overview of how to formulate hypothesis, identify sources of data, and construct basic experiments to collect data.
 
 ##### Lecture Notes 
-* [pptx with animations](https://drive.google.com/open?id=0Bze55lezLJhIVWxwMTRLM096UjQ)
-* [pdf](https://drive.google.com/open?id=0Bze55lezLJhIb2MtU2ZCWEY2dlU)
-* [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhINU5lZFEtRjdPR3c) 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIVWxwMTRLM096UjQ), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIb2MtU2ZCWEY2dlU),
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhINU5lZFEtRjdPR3c))
 
 #### Homework 2 Released
 
@@ -97,15 +97,15 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 {% include syllabus_entry end=true %}
 
 
+
 {% include syllabus_entry dates=dates %}
 ### Data Wrangling [Hellerstein]
 In this lecture we explore the challenges of data preparation (e.g., assessing, structuring, cleaning, and rolling up data) and the kinds of errors commonly found in the real world.
 
 #### Lecture Notes
-* [pptx with animations](https://drive.google.com/open?id=0B2k285AK-3KEZFhsQzRKQWFaN00) 
-* [pdf](https://drive.google.com/open?id=0B2k285AK-3KEbE5GQ3BCZXI1V28)
-* [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KESmplRWlpc2F3Tnc) 
-{% include syllabus_entry end=true %}
+* Slides ([pptx](https://drive.google.com/open?id=0B2k285AK-3KEZFhsQzRKQWFaN00), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEbE5GQ3BCZXI1V28), [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KESmplRWlpc2F3Tnc))
+* Wrangler [Software](https://www.trifacta.com/start-wrangling/) (optional)
+{% include syllabus_entry end=true %})
 
 
 {% include syllabus_entry dates=dates %}
@@ -113,9 +113,7 @@ In this lecture we explore the challenges of data preparation (e.g., assessing, 
 In this lecture we provide an overview of exploratory data analysis (EDA).
 
 ##### Lecture Notes 
-* [pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5SDd1MndCY0NZQnM)
-* [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE) 
-* [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE)
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5SDd1MndCY0NZQnM), [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE), [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE))
 
 {% include syllabus_entry end=true %}
 
