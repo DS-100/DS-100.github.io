@@ -66,6 +66,8 @@ In this lecture we define and motivate the study of data science and outline the
 {% include syllabus_entry end=true %}
 
 
+
+
 {% include syllabus_entry dates=dates %}
 ### The Data Science Lifecycle [Gonzalez]
 In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
@@ -77,8 +79,12 @@ In this lecture we introduce the data-science lifecycle and explore each stage b
 * SF Food Safety Demo ([html](assets/notebooks/food_safety/lecture.html),
 [raw](assets/notebooks/food_safety/SF_Food_Safety.ipynb), [data](assets/notebooks/food_safety/data.tar.bz2))
 
-
 {% include syllabus_entry end=true %}
+
+
+
+
+
 
 
 {% include syllabus_entry dates=dates %}
@@ -98,6 +104,10 @@ In this lecture we provide an overview of how to formulate hypothesis, identify 
 
 
 
+
+
+
+
 {% include syllabus_entry dates=dates %}
 ### Data Wrangling [Hellerstein]
 In this lecture we explore the challenges of data preparation (e.g., assessing, structuring, cleaning, and rolling up data) and the kinds of errors commonly found in the real world.
@@ -105,7 +115,10 @@ In this lecture we explore the challenges of data preparation (e.g., assessing, 
 #### Lecture Notes
 * Slides ([pptx](https://drive.google.com/open?id=0B2k285AK-3KEZFhsQzRKQWFaN00), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEbE5GQ3BCZXI1V28), [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KESmplRWlpc2F3Tnc))
 * Wrangler [Software](https://www.trifacta.com/start-wrangling/) (optional)
-{% include syllabus_entry end=true %})
+{% include syllabus_entry end=true %}
+
+
+
 
 
 {% include syllabus_entry dates=dates %}
@@ -116,6 +129,10 @@ In this lecture we provide an overview of exploratory data analysis (EDA).
 * Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5SDd1MndCY0NZQnM), [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE), [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE))
 
 {% include syllabus_entry end=true %}
+
+
+
+
 
 
 
@@ -131,6 +148,12 @@ This lecture covers how to effectively visualize and communicate complex results
 {% include syllabus_entry end=true %}
 
 
+
+
+
+
+
+
 {% include syllabus_entry dates=dates %}
 ### Advanced Python Data Science Tools [Gonzalez]
 In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing.
@@ -140,6 +163,12 @@ In this lecture we will introduce Pandas, dataframe manipulation, python visuali
 #### Homework 2 Due
 
 {% include syllabus_entry end=true %}
+
+
+
+
+
+
 
 
 
@@ -157,10 +186,19 @@ In this lecture we will explore the key types and challenges of inference and pr
 
 
 
+
+
 {% include syllabus_entry dates=dates %}
 ### Transforming Data to Tables in Python [Hellerstein]
 In this lecture we talk about the process of converting unstructured and semi-structured data to tables and arrays.  We will cover text processing, regular expressions, and structural transformations.
 {% include syllabus_entry end=true %}
+
+
+
+
+
+
+
 
 
 
