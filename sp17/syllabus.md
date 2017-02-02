@@ -125,6 +125,9 @@ In this lecture we provide an overview of exploratory data analysis (EDA).
 
 This lecture covers how to effectively visualize and communicate complex results to a broader audience.
 
+##### Lecture Notes:
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5LUVVa1JuM3RZeTQ), [pdf](https://drive.google.com/open?id=0Bze55lezLJhITWROdV9PNEE2RGs), [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhISVpKUU95VmFRcUU))
+
 {% include syllabus_entry end=true %}
 
 
