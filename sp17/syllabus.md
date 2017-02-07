@@ -158,6 +158,11 @@ This lecture covers how to effectively visualize and communicate complex results
 ### Advanced Python Data Science Tools [Gonzalez]
 In this lecture we will introduce Pandas, dataframe manipulation, python visualization, and some of the batch oriented philosophy of scalable data processing.
 
+##### Lecture Notes:
+* Summary Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIWnMzS0FuNFdqM3M), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIZVVza0RUeEVsckU), [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhISjNYRHdGOGM4YmM))
+* Extended Notebook ([html](assets/notebooks/python_tools/lec7.html), [ipynb](assets/notebooks/python_tools/lec7.ipynb))
+
+
 #### Homework 3 Released
 
 #### Homework 2 Due
