@@ -193,12 +193,6 @@ In this lecture we will explore the key types and challenges of inference and pr
 
 
 
-{% include syllabus_entry dates=dates %}
-### Transforming Data to Tables in Python [Hellerstein]
-In this lecture we talk about the process of converting unstructured and semi-structured data to tables and arrays.  We will cover text processing, regular expressions, and structural transformations.
-{% include syllabus_entry end=true %}
-
-
 
 
 
@@ -208,10 +202,10 @@ In this lecture we talk about the process of converting unstructured and semi-st
 
 
 {% include syllabus_entry dates=dates %}
-### SQL and Big Data [Hellerstein]
+### Relational Algebra and SQL [Hellerstein]
 In this lecture we introduce SQL and the relational model.
-
 {% include syllabus_entry end=true %}
+
 
 
 
@@ -219,10 +213,20 @@ In this lecture we introduce SQL and the relational model.
 {% include syllabus_entry dates=dates %}
 ### SQL Continued [Hellerstein]
 In this lecture we will introduce data analysis techniques with a focus on aggregation and summary statistics.
+{% include syllabus_entry end=true %}
+
+
+
+
+{% include syllabus_entry dates=dates %}
+### Transforming Data to Tables in Python [Hellerstein]
+
+In this lecture we talk about the process of converting unstructured and semi-structured data to tables and arrays.  We will cover text processing, regular expressions, and structural transformations.
 
 #### Homework 4 Released
 
 #### Homework 3 Due
+
 {% include syllabus_entry end=true %}
 
 
