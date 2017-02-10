@@ -92,7 +92,7 @@ order: 7
       <img src="https://pbs.twimg.com/profile_images/685456550/son_of_man_square_400x400.jpg" alt="Andrew Do" style="height: 150px;"/>
       <address>
         <strong>Andrew Do</strong><br>
-        <script type="text/javascript"> email_address("", "?") </script>
+        <script type="text/javascript"> email_address("", "do") </script>
       </address>
     </div></div>
   </div>
