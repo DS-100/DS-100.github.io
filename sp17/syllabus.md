@@ -179,8 +179,12 @@ In this lecture we will introduce Pandas, dataframe manipulation, python visuali
 
 {% include syllabus_entry dates=dates %}
 ### Prediction and Inference [Yu]
-
 In this lecture we will explore the key types and challenges of inference and predictions.  We will provide an overview of the categories of prediction problems and introduce some of the key machine learning tools in python.
+
+#### Lecture Notes:
+* Slides ([pptx](https://drive.google.com/open?id=0B9WpyRE9TsDYS0dQNmV5S2htSk0), 
+[pdf](https://drive.google.com/open?id=0B9WpyRE9TsDYYlZQcEJnc0ZXb1k),
+[pdf 6up](https://drive.google.com/open?id=0B9WpyRE9TsDYX0h2ZUdKd29oV28)
 
 {% include syllabus_entry end=true %}
 
