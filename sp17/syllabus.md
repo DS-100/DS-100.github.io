@@ -184,7 +184,7 @@ In this lecture we will explore the key types and challenges of inference and pr
 #### Lecture Notes:
 * Slides ([pptx](https://drive.google.com/open?id=0B9WpyRE9TsDYS0dQNmV5S2htSk0), 
 [pdf](https://drive.google.com/open?id=0B9WpyRE9TsDYYlZQcEJnc0ZXb1k),
-[pdf 6up](https://drive.google.com/open?id=0B9WpyRE9TsDYX0h2ZUdKd29oV28)
+[pdf 6up](https://drive.google.com/open?id=0B9WpyRE9TsDYX0h2ZUdKd29oV28))
 
 {% include syllabus_entry end=true %}
 
