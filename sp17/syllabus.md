@@ -191,7 +191,7 @@ In this lecture we will explore the key types and challenges of inference and pr
 
 
 
-
+https://drive.google.com/open?id=0B2k285AK-3KEUmsyZ09LUGdDNkU
 
 
 
@@ -210,7 +210,11 @@ In this lecture we will explore the key types and challenges of inference and pr
 In this lecture we introduce SQL and the relational model.
 {% include syllabus_entry end=true %}
 
+#### Lecture Notes:
+* Slides([pptx](https://drive.google.com/open?id=0B2k285AK-3KERXR0Ri1OZlR2Z0k), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEMGFhU0NXLXhMYTQ), [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KEUmsyZ09LUGdDNkU)).
+* Extended Notebook: [ipynb]()
 
+{% include syllabus_entry end=true %}
 
 
 
