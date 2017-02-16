@@ -11807,7 +11807,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The SQL examples above are commands for data <em>definition</em>.  Mostly when we use SQL we think about querying, i.e. the SQL <code>SELECT</code> statement.</p>
 <p>The canonical SQL query block includes the following clauses, in the order they appear. Square brackets indicate optional clauses.</p>
 <div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">...</span>
   <span class="k">FROM</span> <span class="p">...</span>
@@ -11839,11 +11838,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> drop table if exists profs;
-<span class="o">%</span><span class="k">sql</span> create table profs (firstname    text, \
-                         <span class="n">lastname</span>     <span class="n">text</span><span class="p">,</span> \
-                         <span class="n">luckynumber</span>  <span class="n">integer</span><span class="p">,</span> \
-                         <span class="n">primary</span> <span class="n">key</span> <span class="p">(</span><span class="n">firstname</span><span class="p">,</span> <span class="n">lastname</span><span class="p">));</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+drop table if exists profs;
+create table profs (firstname    text,
+                    lastname     text,
+                    luckynumber  integer,
+                    primary key (firstname, lastname));
 </pre></div>
 
 </div>
@@ -11890,11 +11890,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> insert into profs values \
-     <span class="p">(</span><span class="s1">&#39;Bin&#39;</span><span class="p">,</span> <span class="s1">&#39;Yu&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> \
-     <span class="p">(</span><span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Gonzalez&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> \
-     <span class="p">(</span><span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Hellerstein&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> \
-     <span class="p">(</span><span class="s1">&#39;Deborah&#39;</span><span class="p">,</span> <span class="s1">&#39;Nolan&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> insert into profs values
+      (&#39;Bin&#39;, &#39;Yu&#39;, 3),
+      (&#39;Joseph&#39;, &#39;Gonzalez&#39;, 6),
+      (&#39;Joseph&#39;, &#39;Hellerstein&#39;, 6),
+      (&#39;Deborah&#39;, &#39;Nolan&#39;, 7);
 </pre></div>
 
 </div>
@@ -11940,8 +11940,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> insert into profs values \
-     <span class="p">(</span><span class="s1">&#39;Joseph&#39;</span><span class="p">,</span> <span class="s1">&#39;Hellerstein&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> insert into profs values
+      (&#39;Joseph&#39;, &#39;Hellerstein&#39;, 7);
 </pre></div>
 
 </div>
@@ -11964,10 +11964,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> update profs \
-        <span class="nb">set</span> <span class="n">luckynumber</span> <span class="o">=</span> <span class="mi">7</span> \
-      <span class="n">where</span> <span class="n">firstname</span> <span class="o">=</span> <span class="s1">&#39;Joseph&#39;</span> \
-            <span class="ow">and</span> <span class="n">lastname</span> <span class="o">=</span> <span class="s1">&#39;Hellerstein&#39;</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> update profs
+         set luckynumber = 7
+       where firstname = &#39;Joseph&#39;
+             and lastname = &#39;Hellerstein&#39;;
 </pre></div>
 
 </div>
@@ -12018,7 +12018,7 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Simple-SELECT-Queries">Simple SELECT Queries<a class="anchor-link" href="#Simple-SELECT-Queries">&#182;</a></h3><p>Now let's start looking at some slightly more interesting queries.</p>
-<p>We can select specific columns of interest in the <code>select</code> list:</p>
+<p>We can do relational projection--i.e., select specific <em>columns</em> of interest--via the <code>select</code> list:</p>
 
 </div>
 </div>
@@ -12028,8 +12028,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select luckynumber, firstname \
-       <span class="kn">from</span> <span class="nn">profs</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select luckynumber, firstname 
+  from profs;
 </pre></div>
 
 </div>
@@ -12042,7 +12043,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can select specific rows of interest by adding a <code>where</code> clause:</p>
+<p>We can do relational selection--i.e. select specific <em>rows</em> of interest--by adding a <code>where</code> clause:</p>
 
 </div>
 </div>
@@ -12052,9 +12053,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * \
-       <span class="kn">from</span> <span class="nn">profs</span> \
-      <span class="n">where</span> <span class="n">luckynumber</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">;</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select *
+  from profs
+ where luckynumber &gt; 5; 
 </pre></div>
 
 </div>
@@ -12077,10 +12079,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select luckynumber \
-       <span class="kn">from</span> <span class="nn">profs</span> \
-      <span class="n">where</span> <span class="n">lastname</span> <span class="o">=</span> <span class="s1">&#39;Yu&#39;</span> \
-        <span class="ow">and</span> <span class="n">firstname</span> <span class="o">=</span> <span class="s1">&#39;Bin&#39;</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select luckynumber
+  from profs
+ where lastname = &#39;Yu&#39;
+   and firstname = &#39;Bin&#39;;
 </pre></div>
 
 </div>
@@ -12196,9 +12199,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * \
-       <span class="kn">from</span> <span class="nn">individual</span> \
-      <span class="n">limit</span> <span class="mi">3</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select *
+  from individual 
+ limit 3;
 </pre></div>
 
 </div>
@@ -12239,8 +12243,9 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * \
-       <span class="kn">from</span> <span class="nn">individual</span> <span class="n">tablesample</span> <span class="n">bernoulli</span><span class="p">(</span><span class="o">.</span><span class="mi">00001</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select *
+  from individual tablesample bernoulli(.00001);
 </pre></div>
 
 </div>
@@ -12270,10 +12275,11 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> drop table if exists indiv_sample;
-<span class="o">%</span><span class="k">sql</span> create table indiv_sample as \
-     <span class="n">select</span> <span class="o">*</span> \
-       <span class="kn">from</span> <span class="nn">individual</span> <span class="n">tablesample</span> <span class="n">bernoulli</span><span class="p">(</span><span class="o">.</span><span class="mi">03</span><span class="p">);</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+drop table if exists indiv_sample;
+create table indiv_sample as
+select *
+  from individual tablesample bernoulli(.03);
 </pre></div>
 
 </div>
@@ -12286,7 +12292,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Choosing-columns-and-calling-scalar-(per-row)-functions.">Choosing columns and calling scalar (per-row) functions.<a class="anchor-link" href="#Choosing-columns-and-calling-scalar-(per-row)-functions.">&#182;</a></h3>
+<h3 id="Selecting-rows-and-columns,-and-calling-scalar-(per-row)-functions.">Selecting rows and columns, and calling scalar (per-row) functions.<a class="anchor-link" href="#Selecting-rows-and-columns,-and-calling-scalar-(per-row)-functions.">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12295,7 +12301,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>OK, we already had a peek at the <code>individual</code> table. Now let's look at specific attributes (columns) relates to who is donating how much to what committee.</p>
+<p>OK, we already had a peek at the <code>individual</code> table. Now let's look at specific attributes (columns) relates to who is donating how much.</p>
 <p>In addition to referencing the columns of <code>individual</code> in the <code>select</code> clause, we can also derive new columns by writing per-row (so-called "scalar") functions. Typically we reference some table columns in those functions.</p>
 <p>In our case, let's compute the log of <code>transaction_amt</code> for subsequent plotting.</p>
 <p>We'll look at <code>indiv_sample</code> rather than <code>individual</code> while we're just exploring.</p>
@@ -12308,10 +12314,39 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, state, cmte_id, \
-            <span class="n">transaction_amt</span><span class="p">,</span> <span class="n">log</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> \
-       <span class="kn">from</span> <span class="nn">indiv_sample</span> \
-      <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select name, state, cmte_id,
+       transaction_amt, log(transaction_amt)
+  from indiv_sample
+  limit 10;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What about smaller donations?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+select name, state, cmte_id,
+       transaction_amt, log(transaction_amt)
+  from indiv_sample
+ where transaction_amt &lt; 10
+  limit 10;
 </pre></div>
 
 </div>
@@ -12334,13 +12369,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, state, cmte_id, \
-            <span class="n">case</span> <span class="n">when</span> <span class="n">transaction_amt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">then</span> <span class="n">log</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> \
-                 <span class="n">when</span> <span class="n">transaction_amt</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">then</span> <span class="mi">0</span> \
-                 <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)))</span> \
-            <span class="n">end</span> \
-       <span class="kn">from</span> <span class="nn">indiv_sample</span> \
-      <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, state, cmte_id,
+             case when transaction_amt &gt; 0 then log(transaction_amt)
+                  when transaction_amt = 0 then 0
+                  else -1*(log(abs(transaction_amt)))
+             end
+        from indiv_sample
+       where transaction_amt &lt; 10
+       limit 10;
 </pre></div>
 
 </div>
@@ -12363,13 +12399,14 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, state, cmte_id, \
-            <span class="n">case</span> <span class="n">when</span> <span class="n">transaction_amt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">then</span> <span class="n">log</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> \
-                 <span class="n">when</span> <span class="n">transaction_amt</span> <span class="o">=</span> <span class="mi">0</span> <span class="n">then</span> <span class="mi">0</span> \
-                 <span class="k">else</span> <span class="o">-</span><span class="mi">1</span><span class="o">*</span><span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)))</span> \
-            <span class="n">end</span> <span class="n">AS</span> <span class="n">log_magnitude</span> \
-       <span class="kn">from</span> <span class="nn">indiv_sample</span> \
-      <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, state, cmte_id,
+             case when transaction_amt &gt; 0 then log(transaction_amt)
+                  when transaction_amt = 0 then 0
+                  else -1*(log(abs(transaction_amt)))
+             end AS log_magnitude
+        from indiv_sample
+       where transaction_amt &lt; 10
+       limit 10;
 </pre></div>
 
 </div>
@@ -12382,7 +12419,61 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Data-Generation">Data Generation<a class="anchor-link" href="#Data-Generation">&#182;</a></h2><p>Sometimes it's useful to auto-generate data in queries, rather than examine data in the database. This is nice for testing, but also can be useful to play some computational tricks as we'll see later.</p>
+<h3 id="Selecting-rows:-more-interesting-WHERE-clauses">Selecting rows: more interesting <code>WHERE</code> clauses<a class="anchor-link" href="#Selecting-rows:-more-interesting-WHERE-clauses">&#182;</a></h3><p>We can choose which rows do and do not appear in the query by putting boolean-valued expressions ("predicates") in the <code>WHERE</code> clause, right after the <code>FROM</code> clause. For example, we might be looking for big donations greater than $1000:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, city, state, transaction_amt
+        from individual 
+       where transaction_amt &gt; 1000 
+       limit 10;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can form more complex predicates using Boolean connectives AND, OR and NOT:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, city, state, transaction_amt
+        from individual
+       where transaction_amt &gt; 1000
+         and (state = &#39;WI&#39; or state = &#39;MI&#39;)
+         and not (city = &#39;Chicago&#39;)
+         limit 10;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Data-Generation">Data Generation<a class="anchor-link" href="#Data-Generation">&#182;</a></h3><p>Sometimes it's useful to auto-generate data in queries, rather than examine data in the database. This is nice for testing, but also can be useful to play some computational tricks as we'll see later.</p>
 <p>SQL has a simple scalar function called <a href="https://www.postgresql.org/docs/9.6/static/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE"><code>random</code></a> that returns a random value between 0.0 and 1.0. You can use this if you need to generate a column of random numbers.  (The PostgreSQL manual doesn't promise much about the statistical properties of this random number generator.)</p>
 <p>Let's see if any Professor rolls their lucky number on a 10-sided die. (Side-question: is this query really implementing a 10-sided die? If not, what would be a better query?)</p>
 
@@ -12531,11 +12622,12 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> drop function if exists double(x integer);
-<span class="o">%</span><span class="k">sql</span> create function double(x integer) returns integer \
-<span class="k">as</span> <span class="err">$$</span> \
-  <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">x</span> \
-<span class="err">$$</span> <span class="n">language</span> <span class="n">plpythonu</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+drop function if exists double(x integer);
+create function double(x integer) returns integer
+as $$
+  return x + x
+$$ language plpythonu;
 </pre></div>
 
 </div>
@@ -12610,10 +12702,34 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, city, state, transaction_amt \
-       <span class="kn">from</span> <span class="nn">individual</span> \
-      <span class="n">where</span> <span class="n">double</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1000</span> \
-      <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+drop function if exists sentiment(t text);
+create function sentiment(t text) returns float
+as $$
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+s = SentimentIntensityAnalyzer()
+scores = s.polarity_scores(t)
+return scores[&#39;pos&#39;] - scores[&#39;neg&#39;]
+$$
+language plpythonu;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select name, transaction_amt, memo_text, sentiment(memo_text)
+  from individual
+ where memo_text IS NOT NULL
+   and sentiment(memo_text) &lt; 0
+ limit 5;
 </pre></div>
 
 </div>
@@ -12626,7 +12742,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Selecting-rows:-the-WHERE-clause">Selecting rows: the <code>WHERE</code> clause<a class="anchor-link" href="#Selecting-rows:-the-WHERE-clause">&#182;</a></h3><p>We can choose which rows do and do not appear in the query by putting boolean-valued expressions ("predicates") in the <code>WHERE</code> clause, right after the <code>FROM</code> clause. For example, we might be looking for big donations greater than $1000:</p>
+<p>OK, let's look at some tweets -- they'll be more interesting.</p>
 
 </div>
 </div>
@@ -12636,10 +12752,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, city, state, transaction_amt \
-       <span class="kn">from</span> <span class="nn">individual</span> \
-      <span class="n">where</span> <span class="n">transaction_amt</span> <span class="o">&gt;</span> <span class="mi">1000</span> \
-      <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select timestamp, content, sentiment(content)
+  from trump
+ limit 10;
 </pre></div>
 
 </div>
@@ -12652,7 +12768,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can form more complex predicates using Boolean connectives AND, OR and NOT:</p>
+<h3 id="Ordering-the-output">Ordering the output<a class="anchor-link" href="#Ordering-the-output">&#182;</a></h3><p>As a nicety, SQL allows you to order your output rows, in either ascending (ASC) or descending (DESC) order of the values in columns. For example:</p>
 
 </div>
 </div>
@@ -12662,18 +12778,273 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select name, city, state, transaction_amt \
-       <span class="kn">from</span> <span class="nn">individual</span> \
-      <span class="n">where</span> <span class="n">transaction_amt</span> <span class="o">&gt;</span> <span class="mi">1000</span> \
-        <span class="ow">and</span> <span class="p">(</span><span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;WI&#39;</span> <span class="ow">or</span> <span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;MI&#39;</span><span class="p">)</span> \
-        <span class="ow">and</span> <span class="ow">not</span> <span class="p">(</span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Chicago&#39;</span><span class="p">)</span> \
-        <span class="n">limit</span> <span class="mi">10</span><span class="p">;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select name, city, state, transaction_amt
+  from indiv_sample
+ where transaction_amt &gt; 1000
+   and (state = &#39;WI&#39; or state = &#39;MI&#39;)
+   and not (city = &#39;Chicago&#39;)
+ order by transaction_amt DESC
+ limit 10;
 </pre></div>
 
 </div>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note how the combination of <code>ORDER BY</code> and <code>LIMIT 10</code> gives you the "top 10" results. That's often handy!</p>
+<p>You can order by multiple columns, which will leave you with "lexicographic" ordering: it's ordered by the first column, and ties on the first column are ordered by the second column, etc.  For example:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select name, city, state, transaction_amt
+  from indiv_sample
+ where transaction_amt &gt; 1000
+   and (state = &#39;WI&#39; or state = &#39;MI&#39;)
+   and not (city = &#39;Chicago&#39;)
+ order by state DESC, city
+ limit 10;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Aggregation">Aggregation<a class="anchor-link" href="#Aggregation">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What's the granularity of our <code>individual</code> table? Transactions? Examining the schema it doesn't look like there's a key for the donor. Maybe the <code>transaction_pgi</code> is a key.</p>
+<p>To determine this, we need to count up the total number of rows, and the number of <em>distinct values</em> that occur in the <code>transaction_pgi</code> column. SQL provides a family of [<em>aggregate functions</em>] for use in the <code>select</code> clause. In the simplest form, queries with aggregates in the <code>select</code> clause generate a single row of output, with each aggregate function performing a summary of all the rows of input. You can have many aggregate functions in your <code>select</code> clause:</p>
+<p>A list of built-in aggregate functions in PostgreSQL is <a href="https://www.postgresql.org/docs/9.6/static/functions-aggregate.html">here</a>. In our case, the query we are looking for is as follows. To start with, we'll run it on our sample for a sanity check:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select count(*) as total_rows, \
+            <span class="n">count</span><span class="p">(</span><span class="n">distinct</span> <span class="n">transaction_pgi</span><span class="p">)</span> <span class="k">as</span> <span class="n">distinct_pgis</span> \
+       <span class="kn">from</span> <span class="nn">indiv_sample</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note how the <code>distinct</code> modifier can be used inside an aggregate function: it removes any duplicated values <em>prior to computing the aggregate</em>.</p>
+<p>Let's examine some more descriptive statistics of our data using SQL aggregates:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select count(*), sum(transaction_amt), \
+            <span class="n">avg</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">),</span> <span class="n">stddev</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> \
+       <span class="kn">from</span> <span class="nn">indiv_sample</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Group-By-and-Aggregation">Group By and Aggregation<a class="anchor-link" href="#Group-By-and-Aggregation">&#182;</a></h3><p>Often we want to partition our input table into groups, and compute an aggregate per group. SQL makes this easy: we use a <code>group by</code> clause to specify our groups:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select state, count(*), sum(transaction_amt),
+             avg(transaction_amt), stddev(transaction_amt)
+        from indiv_sample
+       group by state
+       order by state;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note that we can also group by more than one column. (It does not matter what order the columns appear in the <code>group by</code> clause.) <em>Will the query below have more rows than the previous one, or fewer?</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt), \
+            <span class="n">avg</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">),</span> <span class="n">stddev</span><span class="p">(</span><span class="n">transaction_amt</span><span class="p">)</span> \
+       <span class="kn">from</span> <span class="nn">indiv_sample</span> \
+      <span class="n">group</span> <span class="n">by</span> <span class="n">state</span><span class="p">,</span> <span class="n">city</span><span class="p">;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Legal-columns-in-the-select-clause-of-a-group-by-query">Legal columns in the <code>select</code> clause of a <code>group by</code> query<a class="anchor-link" href="#Legal-columns-in-the-select-clause-of-a-group-by-query">&#182;</a></h4><p>Note that we can reference the columns <code>city</code> and <code>state</code> from the <code>group by</code> clause in the <code>select</code> list: this makes sense because each row (and each aggregate value) in the output can have at most one city or state associated with it. However it would not make sense to reference <code>name</code>, since there are many names associated with a given row in the output:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
+             avg(transaction_amt), stddev(transaction_amt)
+        from indiv_sample
+       group by city, state
+       order by state, city;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Read the error message carefully: note that it <em>would</em> have been legal to use <code>name</code> inside an aggregate function, since the aggregate would have taken the many names associated with an output row and summarized them into one value. (Aggregating strings is a bit unusual, but use your imagination!)</p>
+<h4 id="Connection-to-Index-variables-in-math-notation">Connection to Index variables in math notation<a class="anchor-link" href="#Connection-to-Index-variables-in-math-notation">&#182;</a></h4><p>There is a direct analogy to index subscripts in familiar math notation. Suppose you have a set of objects $a_{ij}$. Consider the expression $\sum_i a_{ij}$. Which index corresponds to the <code>group by</code> column: $i$ or $j$?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-HAVING-Clause-in-GROUP-BY-queries">The HAVING Clause in GROUP BY queries<a class="anchor-link" href="#The-HAVING-Clause-in-GROUP-BY-queries">&#182;</a></h3><p>We can use the <code>WHERE</code> clause in an aggregate query to filter the rows that are to be aggregated. In relational algebra terms, this is a selection ($\sigma$) prior to the aggregation.</p>
+<p>But what about if we want to filter out groups based on a property of the group, say its size? The <code>HAVING</code> clause allows us to do selections <em>after</em> the aggegation.</p>
+<p>Let's first use a <code>WHERE</code> clause to focus our aggregates on only large donations.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
+             avg(transaction_amt), stddev(transaction_amt)
+        from indiv_sample
+       where transaction_amt &gt; 1000
+       group by state, city
+       order by state, city;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now we will using the HAVING clause to only look at cities with more than 10 million dollars in donations:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
+            avg(transaction_amt), stddev(transaction_amt)
+       from indiv_sample
+      where transaction_amt &gt; 1000
+      group by state, city
+     having sum(transaction_amt) &gt; 10000
+      order by state, city;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Notice that we have to compute (and type!) <code>sum(transaction_amt)</code> twice. We can clean that up later when we learn about nested queries.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
