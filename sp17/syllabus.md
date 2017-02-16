@@ -200,12 +200,9 @@ In this lecture we introduce SQL and the relational model.
 
 
 #### Lecture Notes:
-* Slides (
-[pptx](https://drive.google.com/open?id=0B2k285AK-3KERXR0Ri1OZlR2Z0k), 
+* Slides ([pptx](https://drive.google.com/open?id=0B2k285AK-3KERXR0Ri1OZlR2Z0k), 
 [pdf](https://drive.google.com/open?id=0B2k285AK-3KEMGFhU0NXLXhMYTQ), 
 [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KEUmsyZ09LUGdDNkU)).
-* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb))
-
 {% include syllabus_entry end=true %}
 
 
@@ -213,6 +210,10 @@ In this lecture we introduce SQL and the relational model.
 {% include syllabus_entry dates=dates %}
 ### SQL Continued [Hellerstein]
 In this lecture we will introduce data analysis techniques with a focus on aggregation and summary statistics.
+
+#### Lecture Notes:
+* Slides (continued from last lecture)
+* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb))
 {% include syllabus_entry end=true %}
 
 
