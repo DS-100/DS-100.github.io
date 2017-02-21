@@ -11972,6 +11972,53 @@ SELECT name, cand_name, transaction_amt
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Self-Joins">Self-Joins<a class="anchor-link" href="#Self-Joins">&#182;</a></h3><p>Sometimes you want to join a table with itself. For example, we may want to pair up candidate records for the same person running for two different offices on two different party affiliations:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT cn1.cand_name,
+       cn1.cand_election_yr, cn1.cand_pty_affiliation, cn1.cand_office, cn1.cand_office_st,
+       cn2.cand_election_yr, cn2.cand_pty_affiliation, cn2.cand_office, cn2.cand_office_st
+  FROM cn AS cn1, cn AS cn2
+ WHERE cn1.cand_name = cn2.cand_name
+   AND cn1.cand_office != cn2.cand_office
+   AND cn1.cand_pty_affiliation != cn2.cand_pty_affiliation
+   AND cn1.cand_election_yr &lt;= cn2.cand_election_yr;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A few notes on the query above:</p>
+<ul>
+<li>Note the table renaming in the <code>FROM</code> clause to <code>cn1</code> and <code>cn2</code>. This is <em>required</em>.</li>
+<li>In essence, <code>cn1</code> and <code>cn2</code> are table-valued variables; the fact that they're variables over the same table is basically irrelevant to the query semantics.</li>
+<li>Obviously every column name is ambiguous and requires <code>cn1.</code> or <code>cn2.</code> out front.</li>
+<li>Why do you suppose the last <code>AND</code> clause is useful? </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Outer-joins">Outer joins<a class="anchor-link" href="#Outer-joins">&#182;</a></h3><p>As discussed, the standard theta join $R \Join_\theta S$ of the relational algebra is a selection over the cross-product, i.e. $\sigma_\theta(R \times S)$. But it's often more intuitive to think of a join as a "lookup", or a nested loop: for each row in one table $R$ (the outer loop), look for theta-matches in another table $S$ (the inner loop).</p>
 <p>What if we want to "preserve" rows from the outer table that have no match? This is called an <em>outer join</em> of $R$ and $S$. If an $R$ tuple has no matches in $S$, we preserve it by returning the $R$ tuple padded with NULL values for all the columns in $S$.</p>
 <p>The standard version of this is called a <em>left outer join</em> (or <code>LEFT JOIN</code> in SQL), reflecting the idea that the table on the left side of the (infix) join operator is the "outer loop" -- i.e. the one we preserve. This requires introducing an infix notation for joins in SQL, like so:</p>
