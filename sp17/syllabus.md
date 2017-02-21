@@ -220,9 +220,11 @@ In this lecture we will introduce data analysis techniques with a focus on aggre
 
 
 {% include syllabus_entry dates=dates %}
-### Transforming Data to Tables in Python [Hellerstein]
+### Advanced SQL [Hellerstein]
 
-In this lecture we talk about the process of converting unstructured and semi-structured data to tables and arrays.  We will cover text processing, regular expressions, and structural transformations.
+In this lecture we will cover SQL joins, views, and CTEs, as well as advanced aggregation including order statistics, window functions and user-defined aggregates.
+* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part2_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part2_without_output.ipynb))
+
 
 #### Homework 4 Released
 
