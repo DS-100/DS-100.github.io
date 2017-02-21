@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>sql_lecture_part1</title>
+<title>sql_lecture_part2</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -11751,21 +11751,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Set-up-Python-and-Jupyter-support-for-PostgreSQL">Set up Python and Jupyter support for PostgreSQL<a class="anchor-link" href="#Set-up-Python-and-Jupyter-support-for-PostgreSQL">&#182;</a></h2><p>In a bash shell, add the <code>psycopg2</code> package to make connections to postgres, and the very handy [<code>ipython-sql</code>] package (<a href="https://github.com/catherinedevlin/ipython-sql">https://github.com/catherinedevlin/ipython-sql</a>) to integrate SQL queries into Jupyter notebooks.</p>
-<div class="highlight"><pre><span></span>% pip install psycopg2
-% pip install ipython-sql
-</pre></div>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Load the ipython-sql magic.</p>
-
+<h1 id="SQL-for-Data-Scientists,-Part-2">SQL for Data Scientists, Part 2<a class="anchor-link" href="#SQL-for-Data-Scientists,-Part-2">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11800,26 +11786,22 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="SQL:-The-Query-Language">SQL: The Query Language<a class="anchor-link" href="#SQL:-The-Query-Language">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The canonical SQL query block includes the following clauses, in the order they appear. Square brackets indicate optional clauses.</p>
+<h2 id="Joins">Joins<a class="anchor-link" href="#Joins">&#182;</a></h2><p>One of the fundamental operations in the relational algebra is the general-purpose theta-join and its more specific variants, equijoin and natural join. Joins are endemic to the relational model.</p>
+<p>Consider our FEC schema. Each committee has a single row in the <code>cm</code> table. But each committee is associated with many donations in the <code>individual</code> table. Some models like XML or JSON would let us "nest" many individual donations for a committee into each <code>cm</code> record, but the relational model only allows us to store a single atomic value (i.e. a basic integer, float, string, etc.) in a field of a record. A table with only atomic values in its cells is said to be in <em>first normal form</em>. Nested data is sometimes said to be <em>denormalized</em>, and when you convert it back to flat tables it is <em>normalized</em>.</p>
+<p>So how to we combine <code>individual</code> rows and <code>cm</code> rows in SQL? Via an equijoin on the <code>cmte_id</code> columns in each; the result is still a normalized table.</p>
+<p>Recall that $R \Join_\theta S = \sigma_\theta(R \times S)$: i.e. theta joins are simple cartesian products followed by a theta selection.  SQL's standard syntax is analogous:</p>
 <div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">...</span>
-  <span class="k">FROM</span> <span class="p">...</span>
-<span class="p">[</span><span class="k">WHERE</span> <span class="p">...]</span>
-<span class="p">[</span><span class="k">GROUP</span> <span class="k">BY</span> <span class="p">...]</span>
-<span class="p">[</span><span class="k">HAVING</span> <span class="p">...]</span>
-<span class="p">[</span><span class="k">ORDER</span> <span class="k">BY</span> <span class="p">...]</span>
-<span class="p">[</span><span class="k">LIMIT</span> <span class="p">...];</span>
+  <span class="k">FROM</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span>
+ <span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">theta</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
-<p>Query blocks can reference one or more tables, and be nested in various ways.</p>
-<p>Before we worry about multi-table queries or nested queries, we'll work our way through examples that exercise all of these clauses on a single table.</p>
+<p>The same applies to multi-table queries.  $R \Join_{\theta_1} S \Join_{\theta_2} T \Join_{\theta_3} U = \sigma_{\theta_1 \wedge \theta_2 \wedge \theta_3} (R \times S \times T \times U)$. Or equivalently, in SQL:</p>
+<div class="highlight"><pre><span></span><span class="k">SELECT</span> <span class="p">...</span>
+  <span class="k">FROM</span> <span class="n">R</span><span class="p">,</span> <span class="n">S</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">U</span>
+ <span class="k">WHERE</span> <span class="o">&lt;</span><span class="n">theta1</span><span class="o">&gt;</span>
+   <span class="k">AND</span> <span class="o">&lt;</span><span class="n">theta2</span><span class="o">&gt;</span>
+   <span class="k">AND</span> <span class="o">&lt;</span><span class="n">theta3</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+<p>Most join queries you'll want to write in SQL will have this form; you simply need to match up the columns properly in the <code>WHERE</code> clause.</p>
 
 </div>
 </div>
@@ -11829,8 +11811,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Easy-Peasy-SQL-Basics">Easy Peasy SQL Basics<a class="anchor-link" href="#Easy-Peasy-SQL-Basics">&#182;</a></h2><p>To start, we are going to define a toy <em>relation</em> (a.k.a. <em>table</em>), populate it with some toy data, and work through some basic SQL. Deeper stuff coming soon though, I promise!</p>
-<h3 id="CREATE-TABLE">CREATE TABLE<a class="anchor-link" href="#CREATE-TABLE">&#182;</a></h3><p>First, let's create a table storing information about the professors in this class. This defines the <em>schema</em> of the table.</p>
+<h3 id="Basic-joins-in-SQL">Basic joins in SQL<a class="anchor-link" href="#Basic-joins-in-SQL">&#182;</a></h3><p>To begin, let's join up the <code>indiv_sample</code> and <code>cm</code> tables on <code>cmte_id</code>. We should get one row out for each row of <code>indiv_sample</code>, because <code>cmte_id</code> is a primary key of <code>cm</code>.</p>
 
 </div>
 </div>
@@ -11840,12 +11821,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-drop table if exists profs;
-create table profs (firstname    text,
-                    lastname     text,
-                    luckynumber  integer,
-                    primary key (firstname, lastname));
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select *
+        from indiv_sample I, cm
+       where I.cmte_id = cm.cmte_id
+       limit 2;
 </pre></div>
 
 </div>
@@ -11858,825 +11837,93 @@ create table profs (firstname    text,
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that each column has a fixed data type; PostgreSQL will enforce these types as data is inserted. Note also the definition of a primary key, as we discussed in the Data Wrangling lecture. PostgreSQL will <em>enforce</em> the uniqueness of values in the key columns.</p>
-<p>To see what we've done, let's run our first query, dumping out the content of the table: every column for each row. We denote every column with <code>*</code>:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * from profs;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="INSERT-VALUES">INSERT VALUES<a class="anchor-link" href="#INSERT-VALUES">&#182;</a></h3><p>Now let's manually insert some values into the table.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> insert into profs values
-      (&#39;Bin&#39;, &#39;Yu&#39;, 3),
-      (&#39;Joseph&#39;, &#39;Gonzalez&#39;, 6),
-      (&#39;Joseph&#39;, &#39;Hellerstein&#39;, 6),
-      (&#39;Deborah&#39;, &#39;Nolan&#39;, 7);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Note how insertions need to have values in the same order as the columns in the <code>create table</code> statement! Let's make sure our data is there:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * from profs;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And now let's see what happens if we try to mess with that primary key!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> insert into profs values
-      (&#39;Joseph&#39;, &#39;Hellerstein&#39;, 7);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="UPDATE-values">UPDATE values<a class="anchor-link" href="#UPDATE-values">&#182;</a></h3><p>OK, we can't have two rows for me, but we <em>can</em> change my lucky number via update:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> update profs
-         set luckynumber = 7
-       where firstname = &#39;Joseph&#39;
-             and lastname = &#39;Hellerstein&#39;;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And let's check the table now:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * from profs;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice two things:</p>
-<ol>
-<li>The rows may come back in a different order than before. Remember: relations do not have a defined order, and in fact two different orders are just two ways of describing the same relation!</li>
-<li>Note the relational style of the <code>update</code> statement: we decide which rows get updated based entirely on the values in each row, as checked by the <code>where</code> clause. There is no notion of any information outside the values in the row--e.g. there are no "object identifiers" or "row numbers"... everything is <em>just the data and only the data</em>.</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Simple-SELECT-Queries">Simple SELECT Queries<a class="anchor-link" href="#Simple-SELECT-Queries">&#182;</a></h3><p>Now let's start looking at some slightly more interesting queries.</p>
-<p>We can do relational projection--i.e., select specific <em>columns</em> of interest--via the <code>select</code> list:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-select firstname
-  from profs;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can do relational selection--i.e. select specific <em>rows</em> of interest--by adding a <code>where</code> clause:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select *
-  from profs
- where luckynumber &gt; 5; 
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And of course we can specify both rows and columns explicitly. If we have a primary key, we can filter things down to even the cell level via a <code>select</code> list of one column, and a <code>where</code> clause checking equality on the primary key columns:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select luckynumber
-  from profs
- where lastname = &#39;Yu&#39;
-   and firstname = &#39;Bin&#39;;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that even this "single-celled" response still has a uniform data type of a <em>relation</em>. SQL is always manipulating and returning objects of type <em>relation</em>.</p>
-<p>Now that you can slice and dice tables into columns, rows and cells, you have enough knowledge to poke around in a database. Let's move on to skills that you'll need as a data scientist.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Working-with-Real-Data-in-psql">Working with Real Data in <code>psql</code><a class="anchor-link" href="#Working-with-Real-Data-in-psql">&#182;</a></h2><p>In a separate notebook (<code>load_fec.ipynb</code>) you'll find the commands to load publicly-available campaign finance <a href="http://www.fec.gov/finance/disclosure/ftpdet.shtml#a2015_2016">data from the Federal Election Commission</a> into a PostgreSQL database.</p>
-<p>To see what we have in the database, it's simplest to use the PostgreSQL shell command <code>psql</code> to interact with the database.  You can run <code>man psql</code> to learn more about it. A few handy tips:</p>
-<ol>
-<li><code>psql</code> supports some useful non-SQL "meta-"commands, which you access via backslash (<code>\</code>). To find out about them, run <code>psql</code> in a bash shell, and at the prompt you can type <code>\?</code>.</li>
-<li><code>psql</code> has builtin documentation for SQL. To see that, at the <code>psql</code> prompt type <code>\help</code>.</li>
-<li><code>psql</code> is an interactive SQL shell, so not suitable for use inside a Jupyter notebook. If you want to invoke it within a Jupyter notebook, you should use <code>!psql -c &lt;SQL statement&gt;</code> -- the <code>-c</code> flag tells psql to run the SQL statement and then exit:</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>psql -c <span class="s2">&quot;select * from profs;&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's see what tables we have our database after loading the FEC data:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>psql -c <span class="s2">&quot;\d&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And let's have a look at the <code>individual</code> table's schema:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>psql -c <span class="s2">&quot;\d individual&quot;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Browsing-Tables:-LIMIT-and-sampling">Browsing Tables: <code>LIMIT</code> and sampling<a class="anchor-link" href="#Browsing-Tables:-LIMIT-and-sampling">&#182;</a></h3><p><em>This is not the first topic usually taught in SQL, but it's extremely useful for exploration.</em></p>
-<p>OK, now we have some serious data loaded and we're ready to explore it.</p>
-<p>Database tables are often big--hence the use of a database system. When browsing them at first, we may want to look at exemplary rows: e.g., an arbitrary number of rows, or a random sample of the rows.</p>
-<p>To look at all of the data in the <code>individual</code> table, we would simply write:</p>
-<div class="highlight"><pre><span></span><span class="k">select</span> <span class="o">*</span> <span class="err">\</span>
-  <span class="k">from</span> <span class="n">individual</span><span class="p">;</span>
-</pre></div>
-<p>But that would return <strong> <em>39,986,122</em> </strong> rows into our Jupyter notebook's memory, and perhaps overflow the RAM in your computer.  Instead, we could limit the size of the output to the first 3 rows as follows:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select *
-  from individual 
- limit 4;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Some notes on the <code>limit</code> clause:</p>
-<ol>
-<li>Not only does it produce a small output, it's quite efficient: the database system stops iterating over the table after producing the first three rows, saving the work of examining the other nearly 40 million rows. </li>
-<li>Recall that relations have no intrinsic order, so this is some arbitrary choice of 3 rows. Two issues to keep in mind:<ol>
-<li>This is a <em>biased</em> choice of rows. Very likely these are the first 3 rows stored in some disk file managed by the database, which may (for example) be the first 3 rows that were entered into the database, so they may not be representative of rows entered later.</li>
-<li>The result is non-deterministic. Given that tables are not guaranteed to have an intrinsic order, it is considered correct for an SQL engine to return <em>any</em> 3 rows that satisfy this query, and return a different 3 rows each time!</li>
-</ol>
-</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As data scientists, we should be concerned about spending much time looking at a biased subset of our data. Instead, we might want an i.i.d. random sample of the rows in the table. There are various methods for sampling from a table. A simple one built into many database systems including PostgreSQL is <a href="https://en.wikipedia.org/wiki/Bernoulli_sampling">Bernoulli</a> sampling, in which the decision to return each row is made randomly and independently. As a metaphor, the database engine "flips a coin" for each row to decide whether to return it. We can influence the sampling rate by choosing the probability of a "true" result of the coinflip. This is done on a per-table basis in the <code>FROM</code> clause of the query like so:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select *
-  from individual tablesample bernoulli(.00001);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Three things to note relative to our previous <code>limit</code> construct:</p>
-<ol>
-<li>Bernoulli sampling is slow: it scales linearly with the table size by iterating through every row in the table.</li>
-<li>The number of rows returned by Bernoulli sampling is probabilistic. For a table with $n$ rows and a sampling probability $p$, the output size comes from a <a href="">binomial distribution</a> with mean $np$ and variance ($np(1-p)$). For a very small $p$, the variance means we could easily get 0 rows back when trying our query!</li>
-<li>If we don't know the size of the table, it's hard to choose a practical sampling probability. First we want to count up the number of rows $n$ (see the discussion of aggregation queries below), to inform us of a good $p$ to choose to get our desired output size. That means yet another full pass of the table to compute the count before we compute the sample!</li>
-</ol>
-<p>For these reasons, if we want a proper i.i.d sample, it's a good idea to compute a nice-sized sample and store it elsewhere, keeping it reasonably large for more general use. Since we will not be updating and rows in our <code>individual</code> table, we can do this without worrying that the sample will get "out of date" with respect to the context of <code>individual</code>.</p>
-<p>We can use the <code>CREATE TABLE AS SELECT ...</code> (a.k.a. CTAS) pattern to do create a table that saves the output of a query:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
--- drop table if exists indiv_sample;
-create table indiv_sample as
-select *
-  from individual tablesample bernoulli(.03);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Selecting-rows-and-columns,-and-calling-scalar-(per-row)-functions.">Selecting rows and columns, and calling scalar (per-row) functions.<a class="anchor-link" href="#Selecting-rows-and-columns,-and-calling-scalar-(per-row)-functions.">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>OK, we already had a peek at the <code>individual</code> table. Now let's look at specific attributes (columns) relates to who is donating how much.</p>
-<p>In addition to referencing the columns of <code>individual</code> in the <code>select</code> clause, we can also derive new columns by writing field-level (so-called "scalar") functions. Typically we reference some table columns in those functions.</p>
-<p>In our case, let's compute the log of <code>transaction_amt</code> for subsequent plotting. SQL comes with many typical functions you can use in this way, and PostgreSQL is particularly rich on this front; see the <a href="https://www.postgresql.org/docs/9.6/static/functions.html">PostgreSQL manual</a> for details.</p>
-<p>We'll look at <code>indiv_sample</code> rather than <code>individual</code> while we're just exploring.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select name, state, cmte_id,
-       transaction_amt, log(transaction_amt)
-  from indiv_sample
-  limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="CASE-statements:-SQL-conditionals-in-the-FROM-clause"><code>CASE</code> statements: SQL conditionals in the <code>FROM</code> clause<a class="anchor-link" href="#CASE-statements:-SQL-conditionals-in-the-FROM-clause">&#182;</a></h4><p>What about smaller donations?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-select name, state, cmte_id,
-       transaction_amt, log(transaction_amt)
-  from indiv_sample
- WHERE transaction_amt &lt; 10
-  limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Uh oh, log is not defined for numbers &lt;= 0! We need a <em>conditional</em> statement in the <code>select</code> clause to decide what function to call. We can use SQL's <code>case</code> construct for that.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, state, cmte_id, transaction_amt,
-             CASE WHEN transaction_amt &gt; 0 THEN log(transaction_amt)
-                  WHEN transaction_amt = 0 THEN 0
-                  ELSE -1*(log(abs(transaction_amt)))
-             END
-        from indiv_sample
-       where transaction_amt &lt; 10
-       limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To make things more readable, let's rename the derived column using an <code>AS</code> clause:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, state, cmte_id, transaction_amt,
-             case when transaction_amt &gt; 0 then log(transaction_amt)
-                  when transaction_amt = 0 then 0
-                  else -1*(log(abs(transaction_amt)))
-             end AS log_magnitude
-        from indiv_sample
-       where transaction_amt &lt; 10
-       limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Selecting-rows:-more-interesting-WHERE-clauses">Selecting rows: more interesting <code>WHERE</code> clauses<a class="anchor-link" href="#Selecting-rows:-more-interesting-WHERE-clauses">&#182;</a></h3><p>We can choose which rows do and do not appear in the query by putting boolean-valued expressions ("predicates") in the <code>WHERE</code> clause, right after the <code>FROM</code> clause. For example, we might be looking for big donations greater than $1000:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, city, state, transaction_amt
-        from individual 
-       WHERE transaction_amt &gt; 1000 
-       limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can form more complex predicates using Boolean connectives AND, OR and NOT:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select name, city, state, transaction_amt
-        from individual
-       WHERE transaction_amt &gt; 1000
-         AND (state = &#39;WI&#39; OR state = &#39;IL&#39;)
-         AND NOT (city = &#39;CHICAGO&#39;)
-         limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Data-Generation">Data Generation<a class="anchor-link" href="#Data-Generation">&#182;</a></h3><p>Sometimes it's useful to auto-generate data in queries, rather than examine data in the database. This is nice for testing, but also can be useful to play some computational tricks as you'll see in your homework.</p>
-<p>SQL has a simple scalar function called <a href="https://www.postgresql.org/docs/9.6/static/functions-math.html#FUNCTIONS-MATH-RANDOM-TABLE"><code>random</code></a> that returns a random value between 0.0 and 1.0. You can use this if you need to generate a column of random numbers.  (The PostgreSQL manual doesn't promise much about the statistical properties of this random number generator.)</p>
-<p>Let's see if any Professor rolls their lucky number on a 10-sided die. (Side-question: is this query really implementing a 10-sided die? If not, what would be a better query?)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select *, 
-             round(random()*10) as roll_dice 
-        from profs;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Suppose we want to generate a whole bunch of random numbers, not tied to any particular stored table -- can we do that in SQL?</p>
-<p>SQL has a notion of <a href="https://www.postgresql.org/docs/9.6/static/functions-srf.html">table-valued functions</a>: functions that return tables, and hence can be used in a <code>FROM</code> clause of a query. The standard table-valued function is called <code>generate_series</code>, and it's much like numpy's <code>arange</code>:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * from generate_series(1,5);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select * from generate_series(1, 10, 2);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So to generate 5 random real numbers between 0 and 10, we might use this SQL:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select (10*random()) as rando from generate_series(1,5);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>And if we want integers, we can use a PostgreSQL typecast operator (postfix <code>::&lt;type&gt;</code>):</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> select (10*random())::integer as rando_int from generate_series(1,5);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now suppose we want to populate a "matrix" relation <code>my_matrix(x, y, val)</code> full of random values. In Python during Lecture 7 we used <code>np.random.randn(3,2)</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="c1"># normally distributed random numbers, mean 0 variance 1</span>
-<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this relational version we need to explicitly generate the <code>x</code> and <code>y</code> values. We can do this via SQL's built-in cartesian product!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-SELECT rows.x, columns.y, random() AS val
-  FROM generate_series(0,2) AS rows(x),
-       generate_series(0,1) AS columns(y);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We may want to store a matrix as a table—in which case we should set up the schema properly to ensure that it remains a legal matrix.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-DROP TABLE IF EXISTS my_matrix;
-
-CREATE TABLE my_matrix(x integer, y integer, val float, PRIMARY KEY(x,y));
-
-INSERT INTO my_matrix
-SELECT rows.x, columns.y, random() AS val
-  FROM generate_series(0,2) AS rows(x),
-       generate_series(0,1) AS columns(y);
-        
-SELECT * FROM my_matrix;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A few take-aways from the previous cell:</p>
+<p>Note some issues with column naming:</p>
 <ul>
-<li>Notice the schema of <code>my_matrix</code> reflects the fact that <code>val</code> is a function of the row (<code>x</code>) and column (<code>y</code>) IDs.</li>
-<li>We've said before that the order of rows in a table isn't defined in SQL. Is this relational representation of a "matrix" faithful to the mathematical definition of a matrix? Why or why not?</li>
-<li>Notice the <code>INSERT</code> statement, which contains a <code>SELECT</code> query rather than the <code>VALUES</code> we saw before. You might want to experiment and see what would happen if the <code>SELECT</code> query produces a different schema than <code>my_matrix</code>: try having it produce too few columns, too many columns, columns in different orders, etc.</li>
-<li>In the <code>INSERT...SELECT</code> statement, notice the definition of output column names via the <code>AS</code> in the <code>SELECT</code> clause. Is that necessary here?</li>
-<li>In the <code>INSERT...SELECT</code> statement, notice the definition of table <em>and</em> column names in the <code>FROM</code> clause via <code>AS</code>, and the way they get referenced in the <code>SELECT</code> clause. Do we need the tablenames specified in the <code>SELECT</code> clause? Try it and see!</li>
-<li>Count the rows in the output...does it look good?</li>
+<li>The <code>*</code> in the <code>SELECT</code> list returns all the columns of both tables, in the order the tables appear in the <code>FROM</code> clause.</li>
+<li>In the <code>FROM</code> clause, we introduce the variable <code>I</code> as an alias for <code>individual</code>, and reuse it in the <code>WHERE</code> clause. (As an alternative syntax, we could also have said <code>from individual AS I</code>; the <code>AS</code> is optional.)</li>
+<li>The column name <code>cmte_id</code> appears in more than one table in the <code>FROM</code> clause, so we always need to preface it with a table variable to disambiguate it. (Try and see what happens if you remove, say, the <code>I</code> from <code>I.cmte_id</code>.)</li>
+</ul>
+<p>We can put an aggregate over a join query to count rows in the output:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select count(*)
+       from indiv_sample I, cm
+      where I.cmte_id = cm.cmte_id;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's compare to <code>indiv_sample</code> without the join to validate our assumption about the output size:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> SELECT count(*) FROM indiv_sample;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you look at the FEC schema, you'll see that some committees in <code>cm</code> are associate with candidates in <code>cn</code> via the <code>cand_id</code> field. So we can figure out which individuals donated to which candidates by joining the three tables:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, cand_name, transaction_amt
+  FROM indiv_sample I, cm, cn
+ WHERE I.cmte_id = cm.cmte_id
+   AND cm.cand_id = cn.cand_id
+ ORDER BY transaction_amt desc
+ LIMIT 5;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some notes here:</p>
+<ul>
+<li>The three columns in the <code>SELECT</code> list happen to each appear in only one table, so we don't need to disambiguate them via table variables like <code>I.name, cn.cand_name, I.transaction_amt</code>.</li>
+<li>Note that the usual <code>ORDER BY/LIMIT</code> logic applies as usual.</li>
 </ul>
 
 </div>
@@ -12687,118 +11934,197 @@ SELECT * FROM my_matrix;
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="User-defined-functions-(UDFs)">User-defined functions (UDFs)<a class="anchor-link" href="#User-defined-functions-(UDFs)">&#182;</a></h3><p>Sometimes we may want a custom scalar function that isn't built into SQL. Some database systems allow you to register your own <em>user-defined functions</em> (UDFs) in one or more programming languages. Conveniently, PostgreSQL allows us to register user-defined functions written in Python. Be aware of two things:</p>
+<p>As we learned in class, joins can be reordered (somewhat). It's interesting to see what the query optimizer chooses for a join order. We can view this by using <code>EXPLAIN</code> in front of our query:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+EXPLAIN 
+SELECT name, cand_name, transaction_amt
+  FROM indiv_sample I, cm, cn
+ WHERE I.cmte_id = cm.cmte_id
+   AND cm.cand_id = cn.cand_id;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>On my machine, it appears that it chose to do  <code>indiv_sample</code> $\Join$ (<code>cm</code> $\Join$ <code>cn</code>).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Outer-joins">Outer joins<a class="anchor-link" href="#Outer-joins">&#182;</a></h3><p>As discussed, the standard theta join $R \Join_\theta S$ of the relational algebra is a selection over the cross-product, i.e. $\sigma_\theta(R \times S)$. But it's often more intuitive to think of a join as a "lookup", or a nested loop: for each row in one table $R$ (the outer loop), look for theta-matches in another table $S$ (the inner loop).</p>
+<p>What if we want to "preserve" rows from the outer table that have no match? This is called an <em>outer join</em> of $R$ and $S$. If an $R$ tuple has no matches in $S$, we preserve it by returning the $R$ tuple padded with NULL values for all the columns in $S$.</p>
+<p>The standard version of this is called a <em>left outer join</em> (or <code>LEFT JOIN</code> in SQL), reflecting the idea that the table on the left side of the (infix) join operator is the "outer loop" -- i.e. the one we preserve. This requires introducing an infix notation for joins in SQL, like so:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select cm.cmte_id, cm.cmte_nm, cn.cand_id, cn.cand_name
+        from cm LEFT JOIN cn 
+                  ON cm.cand_id = cn.cand_id
+       limit 5;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For convenience, we can also have a <code>RIGHT JOIN</code> that does the same thing, but treats the right-hand-side of the join operator as the table to preserve:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select cm.cmte_id, cm.cmte_nm, cn.cand_id, cn.cand_name
+        from cn RIGHT JOIN cm
+                   ON cm.cand_id = cn.cand_id
+       limit 5;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In fact, we can think about join symmetrically, and preserve non-matching rows from both sides! This is called a <code>FULL JOIN</code> in SQL:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select cm.cmte_id, cm.cmte_nm, cn.cand_id, cn.cand_name
+        from cn FULL JOIN cm
+                  ON cm.cand_id = cn.cand_id
+       limit 5;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Having introduced the binary syntax for outer joins, SQL also adds binary syntax for theta joins (which it calls just <code>JOIN</code>, or confusingly, <code>INNER JOIN</code>) and <code>NATURAL JOIN</code> (which doesn't need an <code>ON</code> clause for obvious reasons!)  So the following three queries are equivalent:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select *
+       from indiv_sample I JOIN cm ON I.cmte_id = cm.cmte_id
+       limit 3;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select *
+       from indiv_sample I INNER JOIN cm ON I.cmte_id = cm.cmte_id
+       limit 3;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select *
+       from indiv_sample I NATURAL JOIN cm
+       limit 3;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a matter of software engineering I would discourage you from using NATURAL JOIN ... it's not self-contained to read (you have to go consult the schema to see what a query says), and it's not robust to changes in schema over time.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Putting-it-all-together">Putting it all together<a class="anchor-link" href="#Putting-it-all-together">&#182;</a></h2><p>We've seen a bunch of different query clauses now, and done some mixing and matching. How do they fit together? The order of evaluation should be thought of like this:</p>
 <ol>
-<li><p>Calling Python for each row in a query is quite a bit slower than using the pre-compiled built-in functions in SQL ... this is akin to the use of Python loops instead of <code>numpy</code> calls. <em>If you can avoid using Python UDFs you should do so to get better performance</em>.</p>
-</li>
-<li><p>Python is a full-feature programming language with access to your operating system's functionality, which means it can reach outside of the scope of the query and wreak havoc, including running arbitrary UNIX commands. (PostgreSQL refers to this as an <code>untrusted</code> language.) Be <em>very</em> careful with the Python UDFs you use in your Postgres queries! If you want to be safer write UDFs in a trusted language. PostgreSQL has a <a href="https://www.postgresql.org/docs/current/static/xplang.html">number of other languages</a> to choose from, including <a href="https://www.postgresql.org/docs/current/static/external-pl.html">Java</a> and even <a href="https://www.postgresql.org/docs/current/static/external-pl.html">R</a>!.</p>
-</li>
+<li>The <code>FROM</code> and <code>WHERE</code> clauses are evaluated to compute selections and joins.</li>
+<li>The <code>GROUP BY</code> and <code>HAVING</code> clauses are evaluated to for groups resulting from the previous step</li>
+<li>The <code>SELECT</code> clause is evaluated, including any aggregates</li>
+<li>The <code>ORDER BY</code> clause is evaluated</li>
+<li>The <code>LIMIT</code> clause is used to cut off output production.</li>
 </ol>
-<p>First we tell PostgreSQL we want to use the plpythonu package (so named because of "pl" for "programming language", "u" for "untrusted"):</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> create extension if not exists plpythonu;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's write some trivial Python code and register it as a UDF using the <code>create function</code> command. Since SQL is a typed language, we need to specify the SQL types for the input and output to our function, in addition to the code (within $$ delimiters) and the language:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
-drop function if exists double(x integer);
-
-create function double(x integer) returns integer
-as $$
-  return x + x
-$$ language plpythonu;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select double(10), 10+10 as builtin_double 
-        from generate_series(1,1);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>OK let's do a little performance test on a generated table of 1 million rows. To get timing numbers, we'll prefix our queries with <code>EXPLAIN ANALYZE</code>: this tells postgres to return us information about the query execution, rather than returning us actual data.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> EXPLAIN ANALYZE select double(10) \
-                       <span class="kn">from</span> <span class="nn">generate_series</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">);</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> explain analyze select 10+10 from generate_series(1, 1000000);
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice the Execution Time: the UDF makes things how many times slower?</p>
-<p><em>Question on experimental methodology: as data scientists, how should we get more confidence in our understanding of the performance of these queries?</em></p>
 
 </div>
 </div>
@@ -12808,61 +12134,28 @@ $$ language plpythonu;
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="More-interesting-UDFs">More interesting UDFs<a class="anchor-link" href="#More-interesting-UDFs">&#182;</a></h4><p>As we said above, PostgreSQL already provides many standard arithmetic and string functions. The reason to use a UDF is typically to invoke some more involved procedural code -- e.g. something from an interesting open-source library you don't want to rewrite.</p>
-<p>Obviously there are many interesting Python libraries we might like to use in doing our data science. One that's often useful in a SQL context is the Natural Language Tool Kit <a href="http://nltk.org">nltk</a>. One common use of nltk is <em>sentiment analysis</em>: converting full text into a summary feature that describes the "feelings" behind the text.</p>
-<p>Ordinarily you'd train your sentiment analysis package (and we'll learn about training models soon!) But in the next example, we'll use a simple pre-trained sentiment analysis package from nltk called Vader.</p>
-<p>First, let's see how we use Vader from Python:</p>
+<h2 id="Named-Queries:-Views-and-CTEs">Named Queries: Views and CTEs<a class="anchor-link" href="#Named-Queries:-Views-and-CTEs">&#182;</a></h2><p>Up to now we've looked at a single query at a time. SQL also allows us to nest queries in various ways. In this section we look at the cleaner examples of how to do this in SQL: views and Common Table Expressions (CTEs).</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.sentiment.vader</span> <span class="k">import</span> <span class="n">SentimentIntensityAnalyzer</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">SentimentIntensityAnalyzer</span><span class="p">()</span>
-<span class="n">score</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">polarity_scores</span><span class="p">(</span><span class="s1">&#39;Data scientists are the bomb: the sexiest job of the 21st century!!&#39;</span><span class="p">)</span>
-<span class="n">score</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="http://www.ds100.org/assets/images/crossword.jpg" alt="NYT Crossword 2/10/17">
-(Yes, this was in the New York Times crossword puzzle on 2/10/17... thanks Mom!)</p>
-<p>Let's boil that down to a single number, the difference between positive and negative</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">score</span><span class="p">[</span><span class="s1">&#39;pos&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">score</span><span class="p">[</span><span class="s1">&#39;neg&#39;</span><span class="p">]</span>
+<h4 id="Views">Views<a class="anchor-link" href="#Views">&#182;</a></h4><p>In earlier examples, we created new tables and populated them from the result of queries over stored tables. There are two main drawbacks of that approach that may concern us in some cases:</p>
+<ol>
+<li>The new table uses up storage, even though it is recomputable from other tables.</li>
+<li>If the input tables change, the stored output does not reflect the new state of the input.</li>
+</ol>
+<p>For this reason, SQL provides a notion of logical <em>views</em>: these are basically named queries that are re-evaluated upon each reference. They are rather like "macros" if you're familiar with that term.</p>
+<p>The syntax is straightforward:</p>
+<div class="highlight"><pre><span></span><span class="k">CREATE</span> <span class="k">VIEW</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">&gt;</span> <span class="k">AS</span>
+<span class="o">&lt;</span><span class="k">SELECT</span> <span class="k">statement</span><span class="o">&gt;</span><span class="p">;</span>
 </pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now that we've seen what we want in Python, let's register that idea as a Postgres UDF:</p>
+<p>The resulting view <code>&lt;name&gt;</code> can be used in an <code>SELECT</code> query, but <em>not</em> in an <code>INSERT</code>, <code>DELETE</code> or <code>UPDATE</code> query!</p>
+<p>As an example, we might want a view that stores just some summary statistics of <code>transaction_amt</code>s for each date:</p>
 
 </div>
 </div>
@@ -12873,16 +12166,15 @@ $$ language plpythonu;
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-drop function if exists sentiment(t text);
+DROP VIEW IF EXISTS date_stats;
 
-create function sentiment(t text) returns float
-as $$
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-s = SentimentIntensityAnalyzer()
-scores = s.polarity_scores(t)
-return scores[&#39;pos&#39;] - scores[&#39;neg&#39;]
-$$
-language plpythonu;
+CREATE VIEW date_stats AS
+SELECT transaction_dt, min(transaction_amt), avg(transaction_amt), stddev(transaction_amt),
+       max(transaction_amt)
+  FROM indiv_sample
+ GROUP BY transaction_dt;
+
+SELECT * from date_stats limit 5;
 </pre></div>
 
 </div>
@@ -12890,15 +12182,237 @@ language plpythonu;
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One of the nice things about views is modularity: if we have a complex query, we can break it up into smaller views and the run queries on the views.</p>
+<p>For example, now we can ask for the day with the highest variance in donations per state:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-select name, transaction_amt, memo_text, sentiment(memo_text)
-  from individual
- where memo_text IS NOT NULL
+SELECT transaction_dt, stddev
+  FROM date_stats
+ WHERE stddev IS NOT NULL
+ ORDER BY stddev DESC
+ LIMIT 1;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Common-Table-Expressions-(WITH)">Common Table Expressions (<code>WITH</code>)<a class="anchor-link" href="#Common-Table-Expressions-(WITH)">&#182;</a></h4><p>If we're only going to use a view within a single query, it is a little inelegant to <code>CREATE</code> it, and then have to <code>DROP</code> it later to recycle the view name.</p>
+<p><em>Common Table Expressions</em> (CTEs) are like views that we use on-the-fly. (If you know about lambdas in Python, you can think of CTEs as lambda views.) The syntax for CTEs is to use a <code>WITH</code> clause in front of the query:</p>
+<p><code>WITH &lt;name&gt; [(renamed columns)] AS 
+  (&lt;SELECT statement&gt;) 
+  [, &lt;name2&gt; AS (&lt;SELECT statement&gt;)...]</code></p>
+<p>If you need multiple CTEs, you separate them with commas.
+We can rewrite our query above without a view as follows:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+WITH perdate AS
+  (SELECT transaction_dt AS date, stddev(transaction_amt) AS std
+     FROM indiv_sample
+    GROUP BY transaction_dt)
+    
+SELECT date, std
+  FROM perdate
+ WHERE std IS NOT NULL
+ ORDER by std DESC
+ LIMIT 1;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can of course use views or CTEs in join queries as well, just as if they were tables.  For example, we can compute the "argmax" of <code>transaction_amt</code> for <code>indiv_sample</code>: those rows that have the maximum <code>transaction_amt</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+WITH biggest_gifts AS
+  (SELECT max(transaction_amt) AS max
+     FROM indiv_sample)
+    
+SELECT I.transaction_dt, I.name, I.state, I.transaction_amt
+  FROM indiv_sample I, biggest_gifts B
+ WHERE I.transaction_amt = B.max;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="Nested-Queries">Nested Queries<a class="anchor-link" href="#Nested-Queries">&#182;</a></h4><p>It is also possible to nest a SQL query within the <code>WHERE</code> clause of another SQL query: this is usually called a "subquery" or "nested query". Time prevents us from covering subqueries here. It's best if you can avoid them anyhow: they are relatively confusing, they often lead to poor performance, and in most cases there is some way to achieve the same effect without using them.</p>
+<p>If you'd like to learn more, you can read the <a href="https://www.postgresql.org/docs/current/static/functions-subquery.html">relevant material in the PostgreSQL manual</a> or look at <a href="https://drive.google.com/file/d/0B2k285AK-3KEY2w0cEwySlJxSzA/view">slides from CS186 (slides 35-41)</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Set-and-Multiset-Operators-(skip-in-class)">Set and Multiset Operators (skip in class)<a class="anchor-link" href="#Set-and-Multiset-Operators-(skip-in-class)">&#182;</a></h2><p>Like the relational algebra, SQL supports the operators for union, intersect, and difference of relations. Becase SQL is a multiset (i.e. duplicate-aware) language, it distinguishes between the set-based versions of these operators (which remove duplicates) and the multiset versions (which have rules about the number of duplicates in the output.</p>
+<p>The syntax is simple:</p>
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">SELECT</span> <span class="n">query</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="k">set</span> <span class="k">operator</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="k">SELECT</span> <span class="n">query</span><span class="o">&gt;</span><span class="p">;</span>
+</pre></div>
+<p>where the two queries are <em>compatible</em> in the sense of schemas, and the set operator is one of:</p>
+<ul>
+<li>Union: <code>UNION</code> (set) or <code>UNION ALL</code> (multiset)</li>
+<li>Intersection: <code>INTERSECT</code> (set) or <code>INTERSECT ALL</code> (multiset)</li>
+<li>Difference: <code>EXCEPT</code> (set) or <code>EXCEPT ALL</code> (multiset).</li>
+</ul>
+<p>The set-based versions of these operations are straightforward. Rather than teach the number of duplicates formed for each multiset operator, I'd encourage you to think about what's intuitive, and then test it out yourself!</p>
+<p>As an example, you can run the query below to find the individual records that did not make it into our sample. (This query will run slowly).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM individual
+EXCEPT ALL
+SELECT * FROM indiv_sample
+LIMIT 5;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Getting-Fancy-with-SQL-Aggregates:-Statistics,-Windows-and-UDAs">Getting Fancy with SQL Aggregates: Statistics, Windows and UDAs<a class="anchor-link" href="#Getting-Fancy-with-SQL-Aggregates:-Statistics,-Windows-and-UDAs">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Simple-Descriptive-Statistics-in-SQL">Simple Descriptive Statistics in SQL<a class="anchor-link" href="#Simple-Descriptive-Statistics-in-SQL">&#182;</a></h3><p>Statistics doesn't deal with individuals, it deals with groups: distributions, populations, samples and the like. As such, computing statistics in SQL focuses heavily on aggregation functions.</p>
+<p>All SQL systems have simple descriptive statistics built in as aggregation functions:</p>
+<ul>
+<li><code>min, max</code></li>
+<li><code>count</code></li>
+<li><code>sum</code></li>
+<li><code>avg</code></li>
+<li><code>stddev</code> and <code>variance</code>, the sample standard deviation and variance.</li>
+</ul>
+<p>PostgreSQL offers <a href="https://www.postgresql.org/docs/current/static/functions-aggregate.html#FUNCTIONS-AGGREGATE-STATISTICS-TABLE">many more</a>. Some handy ones include</p>
+<ul>
+<li><code>stddev_pop</code> and <code>var_pop</code>: the population standard deviation and variance, which you should use rather than <code>stddev</code> and <code>variance</code> if you know your data is the full population, not a sample.</li>
+<li><code>covar_samp</code> and <code>covar_pop</code>: sample and population covariance</li>
+<li><code>corr</code>, Pearson's correlation coefficient</li>
+</ul>
+<h3 id="Order-Statistics:-Aggregates-requiring-ordered-input">Order Statistics: Aggregates requiring ordered input<a class="anchor-link" href="#Order-Statistics:-Aggregates-requiring-ordered-input">&#182;</a></h3><p>You'll notice that a number of handy statistics are missing from this list, including the median and quartiles. That's because those are <a href="https://en.wikipedia.org/wiki/Order_statistic">order statistics</a>: they are defined based on an ordering of the values in a column.</p>
+<p>SQL provides for this by allowing what it calls "ordered set functions", which require a <code>WITHIN GROUP (ORDER BY &lt;columns&gt;)</code> clause to accompany the order-statistic aggregate.  For example, to compute the 25th percentile, 50th percentile (median) and 75th percentile in SQL, we can use the following:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select percentile_cont(0.25) within group (order by transaction_amt) as lower_quartile,
+       percentile_cont(0.5) within group (order by transaction_amt) as median,
+       percentile_cont(0.75) within group (order by transaction_amt) as upper_quartile
+  from indiv_sample;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> <em>GROUP BY vs. WITHIN GROUP</em> </strong></p>
+<p>Note the difference between <code>WITHIN GROUP</code> and <code>GROUP BY</code>:</p>
+<ul>
+<li><code>WITHIN GROUP</code> is in the <code>FROM</code> clause</li>
+<li><code>WITHIN GROUP</code> is associated with a <em>single</em> aggregate function</li>
+<li><code>WITHIN GROUP</code> <em>does not affect the number of groups</em></li>
+</ul>
+<p><em>Side note for database aficionados: If you're clever, you can express order statistics like median in more "purely relational" SQL without resorting to <code>WITHIN GROUP (ORDER BY ...)</code>, but (a) it's hard for people to understand, (b) it's very messy to get more than one order statistic in a single query, and (c) it's quite difficult for a query optimizer to understand and make it go fast.</em></p>
+<p>Of course you can combine <code>WITHIN GROUP</code> and <code>GROUP BY</code> to compute order statistics within groups:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+select state, 
+       percentile_cont(0.25) within group (order by transaction_amt) as lower_quartile,
+       percentile_cont(0.5) within group (order by transaction_amt) as median,
+       percentile_cont(0.75) within group (order by transaction_amt) as upper_quartile
+  from indiv_sample
+ group by state
  limit 5;
 </pre></div>
 
@@ -12912,7 +12426,7 @@ select name, transaction_amt, memo_text, sentiment(memo_text)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>OK, let's look at some tweets -- they'll be more interesting.</p>
+<h3 id="Window-Functions">Window Functions<a class="anchor-link" href="#Window-Functions">&#182;</a></h3><p>Sometimes, for each row in the output of a query, you want perform a calculation on a related <em>set</em> of rows in the output—often a "window" of rows that precede or follow in some order. Again, this is not very "set-oriented", but SQL provides a mechanism to do it, called a <em>window function</em>. The most common window functions are <code>row_number</code> in some order, <code>rank</code> in some order (where equivalent values in the ordering get the same rank), and <code>ntile(n)</code> in some order, which reports which n-tile the row is in:</p>
 
 </div>
 </div>
@@ -12923,40 +12437,13 @@ select name, transaction_amt, memo_text, sentiment(memo_text)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-select timestamp, content, sentiment(content)
-  from trump
- where content IS NOT NULL
- limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Ordering-the-output">Ordering the output<a class="anchor-link" href="#Ordering-the-output">&#182;</a></h3><p>As a nicety, SQL allows you to order your output rows, in either ascending (ASC) or descending (DESC) order of the values in columns. For example:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-select name, city, state, transaction_amt
+select row_number() over (order by transaction_amt desc),
+       rank() over (order by transaction_amt desc) as desc_rank,
+       ntile(4) over (order by transaction_amt desc) as desc_ntile,
+       transaction_amt
   from indiv_sample
- where transaction_amt &gt; 1000
-   and (state = &#39;WI&#39; or state = &#39;IL&#39;)
-   and not (city = &#39;CHICAGO&#39;)
- ORDER BY transaction_amt DESC
- limit 10;
+ order by row_number
+limit 10;
 </pre></div>
 
 </div>
@@ -12969,8 +12456,8 @@ select name, city, state, transaction_amt
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note how the combination of <code>ORDER BY</code> and <code>LIMIT 10</code> gives you the "top 10" results. That's often handy!</p>
-<p>You can order by multiple columns, which will leave you with "lexicographic" ordering: it's ordered by the first column, and ties on the first column are ordered by the second column, etc.  For example:</p>
+<p>Try changing around the <code>ORDER BY</code> clauses in that query -- switch one or more from <code>DESC</code> to <code>ASC</code>, or change the columns around. What happens?  Now put the word <code>EXPLAIN</code> in front of your query: do you see what the database system has to do to satisfy your query?</p>
+<p>Sometimes you want to compute order statistics within groups. Note that we can't use a normal <code>GROUP BY</code> for this since we don't want one row per group; we want to know a property of each individual output row <em>with respect to its group</em>. We do this via a <code>PARTITION BY</code> clause in the windowed aggregate:</p>
 
 </div>
 </div>
@@ -12981,12 +12468,10 @@ select name, city, state, transaction_amt
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-select name, city, state, transaction_amt
+select rank() over(partition by state order by transaction_amt desc),
+       state,
+       transaction_amt
   from indiv_sample
- where transaction_amt &gt; 2000
-   and (state = &#39;WI&#39; or state = &#39;IL&#39;)
-   and not (city = &#39;CHICAGO&#39;)
- order by state DESC, city
  limit 10;
 </pre></div>
 
@@ -13000,7 +12485,7 @@ select name, city, state, transaction_amt
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Removing-duplicates:-SELECT-DISTINCT">Removing duplicates: SELECT DISTINCT<a class="anchor-link" href="#Removing-duplicates:-SELECT-DISTINCT">&#182;</a></h3><p>As we know, SQL is a multiset logic, preserving the meaning of the number of duplicates in query results. Sometimes, however, we don't want to keep the duplicates, we want to eliminate them.  This is done simply by adding the keyword <code>DISTINCT</code> after the <code>SELECT</code> statement:</p>
+<p>We can also use standard aggregates over these partitions to append grouped aggregates to each row:</p>
 
 </div>
 </div>
@@ -13011,8 +12496,158 @@ select name, city, state, transaction_amt
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-SELECT DISTINCT firstname
-  FROM profs;
+select rank() over(partition by state order by transaction_amt desc),
+       state,
+       avg(transaction_amt) over(partition by state)
+       transaction_amt
+  from indiv_sample
+ order by state
+ limit 10;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As a final example, let's reconsider the humble <em>argmax</em>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+with ranked as (
+select rank() over(partition by state order by transaction_amt desc),
+       transaction_dt, name, state, transaction_amt
+  from indiv_sample
+)
+select * from ranked 
+ where rank = 1;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Does this give the same answer as the implementation at the top of the notebook? Run <code>EXPLAIN</code> on each to see how the database system executes the different forms of the query.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong> <em>PARTITION BY vs. GROUP BY vs. WITHIN GROUP</em> </strong></p>
+<p>When do we use <code>PARTITION BY</code>?  Here are some key things to remember about <code>PARTITION BY</code>:</p>
+<ul>
+<li><code>PARTITION BY</code> is used within an <code>OVER</code> clause</li>
+<li>Each <code>OVER</code> clause is associated with a single window function in the <code>FROM</code> clause</li>
+<li>a window function <em>is not an aggregate</em> -- it does not affect the number of rows in the output. Instead it allows an aggregate function to be calculated over a "window" of rows associated with each row.</li>
+</ul>
+<p>By contrast:</p>
+<ul>
+<li><code>WITHIN GROUP</code> is used to modify a single aggregate function (<em>not</em> a window function)---specifically an ordered-set aggregate function</li>
+<li><code>GROUP BY</code> partitions the input set before aggregation begins, and affects all aggregate functions in the <code>SELECT</code> clause.</li>
+</ul>
+<p><strong> <em>More general Windowing</em> </strong></p>
+<p>Note that <code>PARTITION BY</code> is a specific way define a window "frame": based on distinct values.</p>
+<p>Sometimes you want to define window frames based on position rather than value: e.g. the running 7-day total of <code>transaction_amt</code>, or the rank of the current <code>transaction_amt</code> among 2 days preceding or following, etc.</p>
+<p>This can be done in SQL as well, but we won't go into the details here. You can look at the <a href="https://www.postgresql.org/docs/current/static/sql-expressions.html#SYNTAX-WINDOW-FUNCTIONS">PostgreSQL manual for more information</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="User-Defined-Aggregates-(UDAs)">User-Defined Aggregates (UDAs)<a class="anchor-link" href="#User-Defined-Aggregates-(UDAs)">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Earlier we saw how to register Python code as "user-defined functions" (UDFs) in PostgreSQL. Those were <em>scalar functions</em>: they produces one value of output for each input. We can also register "user-defined aggregates" (UDAs), which produce one value of output for a group of inputs.</p>
+<p>A user-defined aggregate is based on managing running <em>state</em> per group. This state is determined by registering three things:</p>
+<ol>
+<li>An initial condition of the aggregate state before any values are examined</li>
+<li>A <em>state transition function</em>, which is a standard UDF that takes each input value and modifies the state accordingly</li>
+<li>A <em>final function</em> that computes the aggregate value based on the state function. If the final function is the identity function, it can be omitted.</li>
+</ol>
+<p>As an example, we can define a user-defined aggregates for computing GPAs based on letter grades. The initial condition of the state is the pair <code>(0,0)</code> representing the count and sum of grades so far. The state transition function increments the count, and adds to the sum based on decoding the letter grade into a number between 0 and 4. The final function returns the sum divided by the count, unless the count is 0 in which case it returns NULL.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+DROP AGGREGATE IF EXISTS gpa(char);
+DROP FUNCTION IF EXISTS final_gpa(avg_state);
+DROP FUNCTION IF EXISTS transition_gpa(avg_state, char);
+DROP TYPE IF EXISTS avg_state;
+
+CREATE TYPE avg_state AS (cnt integer, total integer);
+
+CREATE FUNCTION transition_gpa(state avg_state, grade char) returns avg_state
+AS 
+$$
+def grade_to_num(g):
+    lookup = {
+        &#39;A&#39;: 4,
+        &#39;B&#39;: 3,
+        &#39;C&#39;: 2,
+        &#39;D&#39;: 1,
+        &#39;F&#39;: 0
+    };
+    return lookup.get(g, None);
+state[&quot;cnt&quot;] += 1;
+state[&quot;total&quot;] += grade_to_num(grade);
+return state;
+$$ LANGUAGE plpythonu;
+
+CREATE FUNCTION final_gpa(state avg_state) returns float
+AS
+$$
+if (state[&quot;cnt&quot;] == 0):
+    return None
+else:
+    return state[&quot;total&quot;]*1.0 / state[&quot;cnt&quot;];
+end
+$$ LANGUAGE plpythonu;
+
+CREATE AGGREGATE gpa(char) 
+(
+    initcond = &#39;(0,0)&#39;,
+    stype = avg_state,
+    sfunc = transition_gpa,
+    finalfunc = final_gpa
+);
 </pre></div>
 
 </div>
@@ -13026,8 +12661,13 @@ SELECT DISTINCT firstname
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
-SELECT DISTINCT firstname, luckynumber
-  FROM profs;
+DROP TABLE IF EXISTS gradebook;
+CREATE TABLE gradebook(name text, course text, grade char);
+INSERT INTO gradebook values
+ (&#39;Joe&#39;, &#39;DS100&#39;, &#39;B&#39;),
+ (&#39;Mary&#39;, &#39;DS100&#39;, &#39;A&#39;),
+ (&#39;Sam&#39;, &#39;DS100&#39;, &#39;D&#39;);
+select gpa(grade) from gradebook;
 </pre></div>
 
 </div>
@@ -13040,7 +12680,10 @@ SELECT DISTINCT firstname, luckynumber
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Aggregation">Aggregation<a class="anchor-link" href="#Aggregation">&#182;</a></h2>
+<p>Now you can use your UDA wherever you used to use a standard aggregate function, including with <code>GROUP BY</code> and other clauses.</p>
+<p>Note that there's a more involved interface for (efficient) implementation of windowed aggregates.</p>
+<p>Details on UDAs can be found in the <a href="https://www.postgresql.org/docs/current/static/xaggr.html">PostgreSQL manual</a>.</p>
+
 </div>
 </div>
 </div>
@@ -13049,9 +12692,26 @@ SELECT DISTINCT firstname, luckynumber
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>What's the granularity of our <code>individual</code> table? Transactions? Examining the schema it doesn't look like there's a key for the donor. Maybe the <code>image_num</code> is a key? Or the <code>file_num</code>?</p>
-<p>To determine this, we need to count up the total number of rows, and the number of <em>distinct values</em> that occur in the <code>image_num</code> column. SQL provides a family of [<em>aggregate functions</em>] for use in the <code>select</code> clause. In the simplest form, queries with aggregates in the <code>select</code> clause generate a single row of output, with each aggregate function performing a summary of all the rows of input. You can have many aggregate functions in your <code>select</code> clause:</p>
-<p>A list of built-in aggregate functions in PostgreSQL is <a href="https://www.postgresql.org/docs/9.6/static/functions-aggregate.html">here</a>. In our case, the query we are looking for is as follows. To start with, we'll run it on our sample for a sanity check:</p>
+<h3 id="Exercises:-Statistical-Computations-in-SQL">Exercises: Statistical Computations in SQL<a class="anchor-link" href="#Exercises:-Statistical-Computations-in-SQL">&#182;</a></h3><p>Given what you've learned so far, here are some things you should be able to do with a table too big to fit into memory in Python:</p>
+<ol>
+<li>Compute histogram bins in SQL to feed to a plotting package</li>
+<li>Compute 2-dimensional bins in SQL to feed to a heatmap plot</li>
+<li>Compute the summary statistics for box plots</li>
+<li>Represent a sparse matrix as a table</li>
+<li>Implement vector/matrix operations in SQL on sparse matrices</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Indexes">Indexes<a class="anchor-link" href="#Indexes">&#182;</a></h2><p>Up to this point we have left performance entirely in the hands of the database system. As it turns out, most relational databases still leave a large degree of performance tuning to the user (or "database administrator").</p>
+<p>The main way you can influence performance is to ask the database to build "indexes" on columns. This is particularly useful for columns that you use in your <code>WHERE</code> clauses (theta expressions for selection and join).</p>
+<p>Here is an example.</p>
 
 </div>
 </div>
@@ -13061,10 +12721,42 @@ SELECT DISTINCT firstname, luckynumber
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select count(*) as total_rows,
-             count(DISTINCT image_num) as image_nums,
-             count(distinct file_num) as file_nums
-        from indiv_sample;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+drop index if exists ind_sample_name_ix;
+
+explain analyze 
+select *
+  from indiv_sample
+ where name = &#39;HATHAWAY, RANDOLPH&#39;;
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+create index ind_sample_name_ix on indiv_sample (name); 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> explain analyze select * \
+       <span class="kn">from</span> <span class="nn">indiv_sample</span> \
+      <span class="n">where</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;HATHAWAY, RANDOLPH&#39;</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -13077,8 +12769,8 @@ SELECT DISTINCT firstname, luckynumber
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Note how the <code>distinct</code> modifier can be used inside an aggregate function: it removes any duplicated values <em>prior to computing the aggregate</em>.</p>
-<p>Let's examine some more descriptive statistics of our data using SQL aggregates:</p>
+<p>See how the execution time went down by 1-2 orders of magnitude? The index makes lookups (both exact-match lookups and small range lookups) very fast compared to scanning through all the records in the table. Of course it also made the query optimizer ("planning time") slower since it had more options to consider.</p>
+<p>For a large table like <code>individual</code> this can be an enormous win at query time.  Recall that <code>individual</code> is nearly 40,000,000 rows big. I previously built an index on <code>individual.name</code>, and look at the runtime for a lookup query on name now:</p>
 
 </div>
 </div>
@@ -13088,9 +12780,9 @@ SELECT DISTINCT firstname, luckynumber
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select count(*), sum(transaction_amt),
-             avg(transaction_amt), stddev(transaction_amt)
-        from indiv_sample;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">sql</span> explain analyze select * \
+       <span class="kn">from</span> <span class="nn">individual</span> \
+      <span class="n">where</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;HATHAWAY, RANDOLPH&#39;</span><span class="p">;</span>
 </pre></div>
 
 </div>
@@ -13103,7 +12795,7 @@ SELECT DISTINCT firstname, luckynumber
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Group-By-and-Aggregation">Group By and Aggregation<a class="anchor-link" href="#Group-By-and-Aggregation">&#182;</a></h3><p>Often we want to partition our input table into groups, and compute an aggregate per group. SQL makes this easy: we use a <code>group by</code> clause to specify our groups:</p>
+<p>Indexes can also improve join performance. For example:</p>
 
 </div>
 </div>
@@ -13113,38 +12805,33 @@ SELECT DISTINCT firstname, luckynumber
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select state, count(*), sum(transaction_amt),
-             avg(transaction_amt), stddev(transaction_amt)
-        from indiv_sample
-       GROUP BY state;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+drop index if exists indiv_sample_cmte;
+
+explain analyze select *
+       from indiv_sample I, cm, cn
+      where I.cmte_id = cm.cmte_id
+        and cm.cand_id = cn.cand_id
+      limit 10;
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Note that we can also group by more than one column. (It does not matter what order the columns appear in the <code>group by</code> clause.) <em>In the absence of a <code>LIMIT</code> clause, would the query below have more rows than the previous one, or fewer?</em></p>
-
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
-             avg(transaction_amt), stddev(transaction_amt)
-        from indiv_sample
-       group by state, city
-       order by state, city
-       limit 20;
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+create index indiv_sample_cmte on indiv_sample(cmte_id);
+explain analyze select *
+       from indiv_sample I, cm, cn
+      where I.cmte_id = cm.cmte_id
+        and cm.cand_id = cn.cand_id
+      limit 10;
 </pre></div>
 
 </div>
@@ -13157,142 +12844,15 @@ SELECT DISTINCT firstname, luckynumber
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Legal-columns-in-the-select-clause-of-a-group-by-query">Legal columns in the <code>select</code> clause of a <code>group by</code> query<a class="anchor-link" href="#Legal-columns-in-the-select-clause-of-a-group-by-query">&#182;</a></h4><p>Note that we can reference the columns <code>city</code> and <code>state</code> from the <code>group by</code> clause in the <code>select</code> list: this makes sense because each row (and each aggregate value) in the output can have at most one city or state associated with it. However it would not make sense to reference <code>name</code>, since there are many names associated with a given row in the output:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, name, count(*), sum(transaction_amt),
-             avg(transaction_amt), stddev(transaction_amt)
-        from indiv_sample
-       group by city, state
-       order by state, city
-       limit 20;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Read the error message carefully: note that it <em>would</em> have been legal to use <code>name</code> inside an aggregate function, since the aggregate would have taken the many names associated with an output row and summarized them into one value. (Aggregating strings is a bit unusual, but use your imagination!)</p>
-<h4 id="Connection-to-Index-variables-in-math-notation-(skip-in-class)">Connection to Index variables in math notation (skip in class)<a class="anchor-link" href="#Connection-to-Index-variables-in-math-notation-(skip-in-class)">&#182;</a></h4><p>There is a direct analogy to index subscripts in familiar math notation. Suppose you have a set of objects $a_{ij}$. Consider the expression $\sum_i a_{ij}$. Which index corresponds to the <code>group by</code> column: $i$ or $j$?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-HAVING-Clause-in-GROUP-BY-queries">The HAVING Clause in GROUP BY queries<a class="anchor-link" href="#The-HAVING-Clause-in-GROUP-BY-queries">&#182;</a></h3><p>We can use the <code>WHERE</code> clause in an aggregate query to filter the rows that are to be aggregated. In relational algebra terms, this is a selection prior to the aggregation, i.e. $\gamma_{c_1...c_m, a_1...a_n}(\sigma_\theta(R))$.</p>
-<p>But what about if we want to filter out groups based on a property of the group, say its size? The <code>HAVING</code> clause allows us to do selections <em>after</em> the aggregation, i.e. $\sigma_{\theta_2}(\gamma_{c_1...c_m, a_1...a_n}(R))$. Here, $\theta_2$ can refer to the aggregate properties $a_1, ..., a_n$ computed by $\gamma$.</p>
-<p>Let's first use a <code>WHERE</code> clause to focus our aggregates on only large donations.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
-             avg(transaction_amt), stddev(transaction_amt)
-        from indiv_sample
-       where transaction_amt &gt; 1000
-       group by state, city
-       order by state, city
-       limit 10;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now we will using the HAVING clause to only look at cities with more than 10 million dollars in donations:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select city, state, count(*), sum(transaction_amt),
-            avg(transaction_amt), stddev(transaction_amt)
-       from indiv_sample
-      where transaction_amt &gt; 1000
-      group by state, city
-     HAVING sum(transaction_amt) &gt; 10000
-      order by state, city;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice that we have to compute (and type!) <code>sum(transaction_amt)</code> twice. We can clean that up later when we learn about views and common table expressions.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="What's-up-with-indiv_sample.image_num?">What's up with indiv_sample.image_num?<a class="anchor-link" href="#What's-up-with-indiv_sample.image_num?">&#182;</a></h4><p>OK, let's return to that query above, and this time identify the duplicates!</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">sql</span> select image_num, count(*) as total_rows
-        from indiv_sample
-       group by image_num
-       having count(*) &gt; 1;
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><p>OK, you now have enough information to do basic exploration of the contents of data set, using the equivalent of relational algebra <em>selection</em> and <em>projection</em>, along with niceties around limits, samples, and function invocation. Next time we'll pick up with statistical uses of aggregation, as well as <em>joins</em>.</p>
+<p>Again, the performance win here would be much more dramatic for the <code>individual</code> table, but I did not take the time and space to build an index on <code>individual.cmte_id</code> yet.</p>
+<p>Why not use indexes on all your columns?</p>
+<ul>
+<li>Indexes take time to build</li>
+<li>Indexes slow down insertions/deletions/updates</li>
+<li>Indexes take up disk space</li>
+<li>In principle you could index any subset of columns -- that's too many indexes!</li>
+</ul>
+<p>So the typical practice is to add indexes as you find your work getting too slow.</p>
 
 </div>
 </div>
