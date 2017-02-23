@@ -239,8 +239,10 @@ In this lecture we will cover SQL joins, views, and CTEs, as well as advanced ag
 ### Basic Modeling using Statistical Distributions [Nolan]
 In this lecture we provide an overview of several basic distributions and discuss some of the challenges of working with skewed data.
 
-<!-- Let's connect summary statistics to the SQL discussion in the previous lecture. -->
-
+#### Lecture Notes:
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5Yl8wLXAzdnZ5aVE), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIWEFiMndKRlA2SVk), 
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIb2RuS3pRRTJyRG8)).
 {% include syllabus_entry end=true %}
 
 
