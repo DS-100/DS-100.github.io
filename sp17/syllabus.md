@@ -115,6 +115,13 @@ In this lecture we explore the challenges of data preparation (e.g., assessing, 
 #### Lecture Notes
 * Slides ([pptx](https://drive.google.com/open?id=0B2k285AK-3KEZFhsQzRKQWFaN00), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEbE5GQ3BCZXI1V28), [pdf 6up](https://drive.google.com/open?id=0B2k285AK-3KESmplRWlpc2F3Tnc))
 * Wrangler [Software](https://www.trifacta.com/start-wrangling/) (optional)
+* Additional reading for the curious:
+  * [Quartz Bad Data Guide](https://github.com/Quartz/bad-data-guide)
+  * [Bad Data Handbook](http://proquest.safaribooksonline.com/book/databases/9781449324957/bad-data-handbook/index_html?query=((bad+data))#snippet) (O'Reilly book, free on berkeley.edu networks)
+  * [Research Directions in Data Wrangling, Heer et al. 2011.](http://vis.stanford.edu/papers/data-wrangling)
+  * [Quantitative Data Cleaning For Large Databases, Hellerstein 2008](https://scholar.google.com/scholar?cluster=7843444941770972724&hl=en&as_sdt=0,5)
+  * [Exploratory Data Mining and Cleaning, Dasu and Johnson](https://www.amazon.com/Exploratory-Data-Mining-Cleaning/dp/0471268518) (book)
+
 {% include syllabus_entry end=true %}
 
 
@@ -127,6 +134,9 @@ In this lecture we provide an overview of exploratory data analysis (EDA).
 
 ##### Lecture Notes 
 * Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5SDd1MndCY0NZQnM), [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE), [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5X2ZKaHZtZkVWVUE))
+* Additional reading for the curious:
+  * [Exploratory Data Analysis, Tukey 1977](https://www.amazon.com/Exploratory-Data-Analysis-John-Tukey/dp/0201076160/ref=sr_1_1?ie=UTF8&qid=1487888547&sr=8-1&keywords=exploratory+data+analysis) (book)
+  * [Now You See It, Few 2009](https://www.amazon.com/Now-You-See-Visualization-Quantitative/dp/0970601980/ref=sr_1_7?ie=UTF8&qid=1487888659&sr=8-7&keywords=exploratory+data+analysis) (book)
 
 {% include syllabus_entry end=true %}
 
@@ -214,8 +224,13 @@ In this lecture we will introduce data analysis techniques with a focus on aggre
 #### Lecture Notes:
 * Slides (continued from last lecture)
 * Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb))
-{% include syllabus_entry end=true %}
+* Additional resources for the curious
+  * CS186 Slides, 2016. [PPTX](https://www.google.com/url?q=https://drive.google.com/file/d/0B2k285AK-3KEY2w0cEwySlJxSzA/view), [PDF](https://www.google.com/url?q=https://drive.google.com/file/d/0B2k285AK-3KEX1ZhRzZmTlVBdzg/view), [Lecture Video 1](https://www.youtube.com/watch?v=4Kdpo1xim8U#t=01h03m16s), [Lecture Video 2](https://www.youtube.com/watch?v=ZZ7OwN6_s-0), [Lecture Video 3](https://www.youtube.com/watch?v=AUdts0N_5hk)
+  * [PostgreSQL Manual](https://www.postgresql.org/docs/9.6/static/sql.html)
+  * [SQLfiddle](http://sqlfiddle.com/)
 
+
+{% include syllabus_entry end=true %}
 
 
 
