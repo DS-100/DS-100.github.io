@@ -213,8 +213,9 @@ In this lecture we will introduce data analysis techniques with a focus on aggre
 
 #### Lecture Notes:
 * Slides (continued from last lecture)
-* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb))
+* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb), [data](https://drive.google.com/open?id=0Bze55lezLJhIay1qcWp4aWJiSW8))
 {% include syllabus_entry end=true %}
+
 
 
 
