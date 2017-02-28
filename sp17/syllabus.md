@@ -255,6 +255,11 @@ In this lecture we provide an overview of several basic distributions and discus
 
 In this lecture we fit basic models to data by applying the method of maximum likelihood estimation.
 
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5cDJDbVBMUmR2akE), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIcjVGakxxN01oYWs), 
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIc3dZb29QaHBuMkE)).
+
+
 {% include syllabus_entry end=true %}
 
 
@@ -262,7 +267,7 @@ In this lecture we fit basic models to data by applying the method of maximum li
 
 
 {% include syllabus_entry dates=dates %}
-### TBD
+### Maximum Likelihood Estimation Continued [Nolan]
 <!--
 ### Bayesian Models and Working with Priors [Gonzalez]
 In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
@@ -282,7 +287,7 @@ In this lecture we introduce the concept of priors and explore the use Bayes Rul
 {% include syllabus_entry end=true %}
 
 {% include syllabus_entry dates=dates %}
-## _Tentative_ Midterm
+## Midterm
 This may change in the weeks before class starts as we adjust the schedule.
 {% include syllabus_entry end=true %}
 
