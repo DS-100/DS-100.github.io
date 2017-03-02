@@ -271,7 +271,7 @@ In this lecture we fit basic models to data by applying the method of maximum li
 
 This lecture will continue discussion on the method of maximum likelihood.
 
-* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5eF9XSGVacHppdm8), 
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5UzRkTnF0YklMX0U), 
 [pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5dWRJWGJKZFhoVWs), 
 [pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5bWlSdWN3NVlYQ0E)).
 
