@@ -47,6 +47,7 @@ This schedule is still under development and is subject to change.
  04/18/2017 04/20/2017
  04/25/2017 04/27/2017
  05/02/2017 05/04/2017
+ 05/11/2017
 {% endcapture %}
 {% assign dates = dates | split: " " %}
 
@@ -223,14 +224,13 @@ In this lecture we will introduce data analysis techniques with a focus on aggre
 
 #### Lecture Notes:
 * Slides (continued from last lecture)
-* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb))
+* Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part1_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part1_without_output.ipynb), [data](https://drive.google.com/open?id=0Bze55lezLJhIay1qcWp4aWJiSW8))
 * Additional resources for the curious
   * CS186 Slides, 2016. [PPTX](https://www.google.com/url?q=https://drive.google.com/file/d/0B2k285AK-3KEY2w0cEwySlJxSzA/view), [PDF](https://www.google.com/url?q=https://drive.google.com/file/d/0B2k285AK-3KEX1ZhRzZmTlVBdzg/view), [Lecture Video 1](https://www.youtube.com/watch?v=4Kdpo1xim8U#t=01h03m16s), [Lecture Video 2](https://www.youtube.com/watch?v=ZZ7OwN6_s-0), [Lecture Video 3](https://www.youtube.com/watch?v=AUdts0N_5hk)
   * [PostgreSQL Manual](https://www.postgresql.org/docs/9.6/static/sql.html)
   * [SQLfiddle](http://sqlfiddle.com/)
-
-
 {% include syllabus_entry end=true %}
+
 
 
 
@@ -269,6 +269,11 @@ In this lecture we provide an overview of several basic distributions and discus
 
 In this lecture we fit basic models to data by applying the method of maximum likelihood estimation.
 
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5bnd1X2VuOWJKXzg), 
+[pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5Vzh6QXZHaHRzSzQ), 
+[pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5TDYzRm5kcFE1NEk)).
+
+
 {% include syllabus_entry end=true %}
 
 
@@ -276,12 +281,13 @@ In this lecture we fit basic models to data by applying the method of maximum li
 
 
 {% include syllabus_entry dates=dates %}
-### TBD
-<!--
-### Bayesian Models and Working with Priors [Gonzalez]
-In this lecture we introduce the concept of priors and explore the use Bayes Rule in model design.
- -->
+### Maximum Likelihood Estimation Continued [Nolan]
 
+This lecture will continue discussion on the method of maximum likelihood.
+
+* Slides ([pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5UzRkTnF0YklMX0U), 
+[pdf](https://drive.google.com/open?id=0B7gkaDYGT5X5dWRJWGJKZFhoVWs), 
+[pdf 6up](https://drive.google.com/open?id=0B7gkaDYGT5X5bWlSdWN3NVlYQ0E)).
 
 {% include syllabus_entry end=true %}
 
@@ -293,10 +299,12 @@ In this lecture we introduce the concept of priors and explore the use Bayes Rul
 {% include syllabus_entry dates=dates %}
 ### Midterm Review [Gonzalez]
 
+#### Homework 4 Due
+
 {% include syllabus_entry end=true %}
 
 {% include syllabus_entry dates=dates %}
-## _Tentative_ Midterm
+## Midterm
 This may change in the weeks before class starts as we adjust the schedule.
 {% include syllabus_entry end=true %}
 
@@ -309,7 +317,6 @@ In this lecture dives into the details of least squares regression through the l
 
 #### Homework 5 Released
 
-#### Homework 4 Due
 {% include syllabus_entry end=true %}
 
 
@@ -438,6 +445,12 @@ In this lecture we provide an overview of the data technologies commonly used to
 ### RRR Review
 {% include syllabus_entry end=true %}
 
+
+{% include syllabus_entry dates=dates %}
+# Final Exam 
+
+The final exam will be from 3:00 to 6:00 PM.  For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
+{% include syllabus_entry end=true %}
 
 
 
