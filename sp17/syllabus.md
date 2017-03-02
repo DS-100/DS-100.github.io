@@ -286,6 +286,8 @@ This lecture will continue discussion on the method of maximum likelihood.
 {% include syllabus_entry dates=dates %}
 ### Midterm Review [Gonzalez]
 
+#### Homework 4 Due
+
 {% include syllabus_entry end=true %}
 
 {% include syllabus_entry dates=dates %}
@@ -302,7 +304,6 @@ In this lecture dives into the details of least squares regression through the l
 
 #### Homework 5 Released
 
-#### Homework 4 Due
 {% include syllabus_entry end=true %}
 
 
