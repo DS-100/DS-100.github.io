@@ -47,6 +47,7 @@ This schedule is still under development and is subject to change.
  04/18/2017 04/20/2017
  04/25/2017 04/27/2017
  05/02/2017 05/04/2017
+ 05/11/2017
 {% endcapture %}
 {% assign dates = dates | split: " " %}
 
@@ -430,6 +431,12 @@ In this lecture we provide an overview of the data technologies commonly used to
 ### RRR Review
 {% include syllabus_entry end=true %}
 
+
+{% include syllabus_entry dates=dates %}
+# Final Exam 
+
+The final exam will be from 3:00 to 6:00 PM.  For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
+{% include syllabus_entry end=true %}
 
 
 
