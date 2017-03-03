@@ -299,7 +299,6 @@ This lecture will continue discussion on the method of maximum likelihood.
 {% include syllabus_entry dates=dates %}
 ### Midterm Review [Gonzalez]
 
-#### Homework 4 Due
 
 {% include syllabus_entry end=true %}
 
@@ -314,6 +313,8 @@ This may change in the weeks before class starts as we adjust the schedule.
 {% include syllabus_entry dates=dates %}
 ### Least Squares Regression and Hypothesis Testing [Yu]
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
+
+#### Homework 4 Due
 
 #### Homework 5 Released
 
