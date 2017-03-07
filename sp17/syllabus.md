@@ -299,6 +299,10 @@ This lecture will continue discussion on the method of maximum likelihood.
 {% include syllabus_entry dates=dates %}
 ### Midterm Review [Gonzalez]
 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIVUthZ2xSblBlblk), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIc29JMHVKb0EzZFE), 
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIRnNaam5MUkRyd28)).
+
 
 {% include syllabus_entry end=true %}
 
