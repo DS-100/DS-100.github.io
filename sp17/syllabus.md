@@ -239,7 +239,7 @@ In this lecture we will introduce data analysis techniques with a focus on aggre
 
 In this lecture we will cover SQL joins, views, and CTEs, as well as advanced aggregation including order statistics, window functions and user-defined aggregates.
 * Extended Notebook:  ([html no output](assets/notebooks/sql/sql_lecture_part2_without_output.html), [ipynb no output](assets/notebooks/sql/sql_lecture_part2_without_output.ipynb))
-
+* Gonzalez follow-up notebook ([html](assets/notebooks/sql/sql_lecture_part2-gonzalez-followup.html), [ipynb](assets/notebooks/sql/sql_lecture_part2-gonzalez-followup.ipynb))
 
 #### Homework 4 Released
 
@@ -298,13 +298,12 @@ This lecture will continue discussion on the method of maximum likelihood.
 
 {% include syllabus_entry dates=dates %}
 ### Midterm Review [Gonzalez]
-
 * Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIVUthZ2xSblBlblk), 
 [pdf](https://drive.google.com/open?id=0Bze55lezLJhIc29JMHVKb0EzZFE), 
 [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIRnNaam5MUkRyd28)).
-
-
 {% include syllabus_entry end=true %}
+
+
 
 {% include syllabus_entry dates=dates %}
 ## Midterm
