@@ -325,61 +325,80 @@ In this lecture dives into the details of least squares regression through the l
 
 
 {% include syllabus_entry dates=dates %}
-### Loss Functions and Generalized Linear Models [Yu]
+
+### Least Squares Regression and Hypothesis Testing [Yu]
+In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
+
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+
+### Feature Engineering, Over-fitting, and Cross Validation [Gonzalez]
+This lecture explores how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
+{% include syllabus_entry end=true %}
+
+
+
+
+{% include syllabus_entry dates=dates %}
+
+### Regularization and the Bias Variance tradeoff [Gonzalez]
+
+In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
+
+{% include syllabus_entry end=true %}
+
+
+
+{% include syllabus_entry dates=dates %}
+### Spring Break
+{% include syllabus_entry end=true %}
+
+
+{% include syllabus_entry dates=dates %}
+### Spring Break
+{% include syllabus_entry end=true %}
+
+
+
+{% include syllabus_entry dates=dates %}
+### Generalized Linear Model and Loss Functions [Gonzalez]
+
 This lecture extends the earlier discussion on least squares regression to categorical data and introduce the gradient descent algorithm.
-{% include syllabus_entry end=true %}
 
-
-{% include syllabus_entry dates=dates %}
-### Feature Engineering and the Bias Variance Trade-off [Gonzalez and Nolan]
-This lecture explores how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  This will bring us to a fundamental challenging in learning and statistical inference (the bias-variance trade-off)
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### Regularization and Cross Validation [Gonzalez and Nolan]
-
-This lecture will continue our discussion on the bias variance trade-off by introducing the concept of regularization.  We then introduce cross validation as a mechanism to optimize the trade-off between bias and variance.
-
-{% include syllabus_entry end=true %}
-
-
-
-{% include syllabus_entry dates=dates %}
-### Spring Break
-{% include syllabus_entry end=true %}
-
-
-{% include syllabus_entry dates=dates %}
-### Spring Break
-{% include syllabus_entry end=true %}
-
-
-
-
-{% include syllabus_entry dates=dates %}
-### Classification and Regression Trees [Nolan and Yu]
-
-This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
+#### Homework 5 Due
 
 #### Homework 6 Released
 
-#### Homework 5 Due
+{% include syllabus_entry end=true %}
+
+
+
+
+
+{% include syllabus_entry dates=dates %}
+### Generalized Linear Model and Loss Functions [Gonzalez]
+
+We continue our earlier discussion on Generalized linear models.
+
 {% include syllabus_entry end=true %}
 
 
 
 
 {% include syllabus_entry dates=dates %}
-### Non-Parametric Models [Gonzalez]
+### Classification and Regression Trees [Nolan]
 
-This lecture introduces non-parametric modeling techniques and discusses k-nearest neighbor and kernel regression.
+This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
 
 {% include syllabus_entry end=true %}
 
 
 
+
 {% include syllabus_entry dates=dates %}
+
 ### Dimensionality Reduction [Gonzalez]
 
 This lecture introduces the Singular Value Decomposition algorithm for dimensionality reduction.
@@ -390,24 +409,17 @@ This lecture introduces the Singular Value Decomposition algorithm for dimension
 
 
 {% include syllabus_entry dates=dates %}
-### Clustering and the Mixed Membership Model [Nolan and Yu]
 
-This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In particular we focus on mix-membership models and introduce the EM algorithm.
+### Clustering and the EM [Yu]
 
-
-{% include syllabus_entry end=true %}
+This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In this lecture we will cover mixture of guassians and th EM algorithm.
 
 
-
-
-{% include syllabus_entry dates=dates %}
-### Data Acquisition [Hellerstein]
-This lecture discusses how to get data from a variety of common sources and includes the topics of crawling, scraping, the DOM, XML, HTTP req., and REST APIs.
-
+#### Homework 6 Due
 
 #### Homework 7 Released
 
-#### Homework 6 Due
+
 {% include syllabus_entry end=true %}
 
 
@@ -418,30 +430,33 @@ This lecture discusses how to get data from a variety of common sources and incl
 
 Streaming algorithms and online estimation: sketching and sampling.
 
+
 <!-- joey finish -->
 
 {% include syllabus_entry end=true %}
 
 
+
+
 {% include syllabus_entry dates=dates %}
 ### The Big-data Ecosystem and Technologies [Gonzalez]
-
 In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis, map-reduce, etl ...
-
-
-{% include syllabus_entry end=true %}
+{% include syllabus_entry end=true %} 
 
 
 {% include syllabus_entry dates=dates %}
+
 ### TBD
 
 #### Homework 7 Due
-
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
 ### RRR Review
+
+#### Homework 7 Due (optional extension)
+
 {% include syllabus_entry end=true %}
 
 
