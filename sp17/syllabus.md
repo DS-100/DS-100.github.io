@@ -317,6 +317,10 @@ This may change in the weeks before class starts as we adjust the schedule.
 ### Least Squares Regression and Hypothesis Testing [Yu]
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIZkVhN0ZaaU1DdUk), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhINnk3ejFzZmE2YlE), 
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIeW5OTU5tQkhZYkk)).
+
 #### Homework 4 Due
 
 #### Homework 5 Released
