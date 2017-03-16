@@ -63,6 +63,8 @@ In this lecture we define and motivate the study of data science and outline the
 ##### Lecture Notes 
 * Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIN2d5eWJRV2ZYanc), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIeVkwUFNocUhNakU), [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIN1JzZW5CM3YtRHc))
 
+* Additional Optional Reading: Chapter 1 from [Doing Data Science](http://proquest.safaribooksonline.com/9781449363871) and [Data Science from Scratch](http://proquest.safaribooksonline.com/9781491901410)
+
 #### Homework 1 Released
 {% include syllabus_entry end=true %}
 
@@ -71,7 +73,7 @@ In this lecture we define and motivate the study of data science and outline the
 
 {% include syllabus_entry dates=dates %}
 ### The Data Science Lifecycle [Gonzalez]
-In this lecture we introduce the data-science lifecycle and explore each stage by analyzing tweets from the 2016 presidential election.
+In this lecture we introduce the data-science life-cycle and explore each stage by analyzing tweets from the 2016 presidential election.
 
 ##### Lecture Notes 
 * Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIUHpPMV92ek9JNkE),
@@ -339,7 +341,7 @@ In this lecture dives into the details of least squares regression through the l
 {% include syllabus_entry dates=dates %}
 
 ### Feature Engineering, Over-fitting, and Cross Validation [Gonzalez]
-This lecture explores how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
+In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
 {% include syllabus_entry end=true %}
 
 
