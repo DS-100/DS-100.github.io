@@ -335,6 +335,11 @@ In this lecture dives into the details of least squares regression through the l
 ### Least Squares Regression and Hypothesis Testing [Yu]
 In this lecture dives into the details of least squares regression through the lens of empirical risk minimization while discussing some of the key modeling assumptions.
 
+* Slides ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIaHRoYm51WHZqczA), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIclZGSFpUczVMWXc), 
+[pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIQWE0emd6bWh3N0k)).
+
+
 {% include syllabus_entry end=true %}
 
 
