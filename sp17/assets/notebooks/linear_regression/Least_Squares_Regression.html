@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>Linear Regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>Least Squares Regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11776,7 +11776,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For this exercise we are going to make some synthetic data which we will use to illustrate the basic ideas of modeling design.</p>
+<p>For this exercise we are going to use synthetic data to illustrate the basic ideas of model design.</p>
 
 </div>
 </div>
@@ -11814,7 +11814,7 @@ div#notebook {
 <div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/203.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/305.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -11828,13 +11828,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Simplest-model">The Simplest model<a class="anchor-link" href="#The-Simplest-model">&#182;</a></h2><p>What is the simplest model for this data?  Recall that we are trying to "model" the relationship between $x$ and $y$.  Let's focus on the class of <strong>parametric</strong> models that are functional relationships defined by a set of <strong>parameters</strong> $\theta$:</p>
+<h2 id="The-Simplest-model">The Simplest model<a class="anchor-link" href="#The-Simplest-model">&#182;</a></h2><p>What is the simplest model for this data? We know how the data was created but let's imagine we did not.</p>
+<p>Recall that we are trying to "model" the relationship between $x$ and $y$.  Let's focus on the class of <strong>parametric</strong> models that are functional relationships defined by a set of <strong>parameters</strong> $\theta$:</p>
 $$
 f_\theta: x \rightarrow y
 $$<h3 id="The-constant-function:">The constant function:<a class="anchor-link" href="#The-constant-function:">&#182;</a></h3><p>Here is a very simple model:</p>
 $$
 f_\theta(x) = \theta
-$$<p>Notice that this model is determined by a single number $\theta$.  How should we determine $\theta$?  Perhaps we can guess a good value for $\theta$?  I propose we use the mean value of $y$:</p>
+$$<p>Notice that this model is determined by a single number $\theta$.  How should we determine $\theta$?  Perhaps we can guess a good value for $\theta$?  I propose we use the mean value of $y$.  Why might this be a good guess?</p>
 
 </div>
 </div>
@@ -11844,12 +11845,12 @@ $$<p>Notice that this model is determined by a single number $\theta$.  How shou
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define my model:</span>
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define our simple constant model:</span>
+<span class="k">def</span> <span class="nf">f_const</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">theta</span> 
 
 <span class="n">theta_guess</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Y</span><span class="p">)</span>
-<span class="n">yhat</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">theta_guess</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="p">[</span><span class="n">f_const</span><span class="p">(</span><span class="n">theta_guess</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
 
 <span class="c1"># Visualize the data ---------------------</span>
 <span class="n">theta_guess_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;First Guess&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;lines&#39;</span><span class="p">,</span>
@@ -11869,7 +11870,7 @@ $$<p>Notice that this model is determined by a single number $\theta$.  How shou
 <div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/205.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/307.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -11883,10 +11884,12 @@ $$<p>Notice that this model is determined by a single number $\theta$.  How shou
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Is-this-the-best-model?">Is this the best model?<a class="anchor-link" href="#Is-this-the-best-model?">&#182;</a></h3><p>Ideally we want this model to approximate the data.  How do we know if the model approximates the data?  We can introduce a <strong>loss function</strong> to measure how well the model approximates the data.  A very common loss function is the squared loss which measures the squared distance between what the model predicts and the true value.</p>
+<h3 id="Is-this-the-best-model?">Is this the best model?<a class="anchor-link" href="#Is-this-the-best-model?">&#182;</a></h3><p>Is this a good approximation of the data?  What does it mean to be a good approximation of the data?</p>
+<p>To answer these questions we need to define a <strong>loss function</strong> to measure how well the model approximates the data.  A very common loss function is the <strong>squared loss</strong> which measures the squared difference between what the model predicts $f_\theta(x)$ and the observed response $y$.</p>
 $$
 L(y, f_\theta(x)) = \left( y - f_\theta(x) \right)^2
-$$<p>That is the loss for a single data point.  If we have many data points (and hopefully we do) then we define the loss over the entire dataset as:</p>
+$$<p>The <strong>squared loss</strong> is the foundation of the <strong>least squares</strong> method which is widely used in function approximation and modeling and can be applied to a wide range of models (not just linear models).</p>
+<p>If we have many data points (and hopefully we do) then we define the loss over the entire dataset as:</p>
 $$
 L_D(\theta) = \frac{1}{n} \sum_{i=1}^n L(y_i, f_\theta(x_i))
 $$<p>Notice that in the above notation we have defined the loss $L_D(\theta)$ as a function of only the parameters $\theta$ and are assuming the model form $f$ and the data $D$ are fixed.  If we consider the squared loss we get:</p>
@@ -11904,20 +11907,26 @@ We can plot the <strong>loss function</strong> for our simple model and our best
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Single point loss function</span>
+<span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
+<span class="c1"># Loss over the entire dataset for a given thena</span>
+<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)])</span>
 
+<span class="c1"># Generate a range of possible theta values (models)</span>
 <span class="n">theta_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">loss_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">theta_values</span><span class="p">]</span>
+
+<span class="c1"># Compute the loss of each</span>
+<span class="n">loss_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">f_const</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">theta_values</span><span class="p">]</span>
 
 
-<span class="c1">### Plotting code</span>
+<span class="c1">### Plotting code ---------</span>
 <span class="n">loss_curve</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Loss Function&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">theta_values</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">loss_values</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;lines&#39;</span><span class="p">)</span>
-<span class="n">best_guess</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Best Guess&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">theta_guess</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">theta_guess</span><span class="p">),</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">,</span>
-                       <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+<span class="n">best_guess</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Best Guess&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">theta_guess</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">f_const</span><span class="p">,</span> <span class="n">theta_guess</span><span class="p">),</span> 
+                        <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+                        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
 <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span>
     <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
         <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Theta Value&quot;</span>
@@ -11941,7 +11950,7 @@ We can plot the <strong>loss function</strong> for our simple model and our best
 <div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/207.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/309.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -11955,7 +11964,27 @@ We can plot the <strong>loss function</strong> for our simple model and our best
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A lucky guess!  Could we have used calculus to minimize the loss directly? It would look something like:</p>
+<p><strong>Observation:</strong> <em>The loss function is a smooth quadratic curve.</em></p>
+<p>This is not an artifact of our data.  In general, when we combine the squared loss with a linear model (more on this later) we will get nice quadratic loss curves (potentially in many dimensions).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Minimize-the-Loss-with-Calculus">Minimize the Loss with Calculus<a class="anchor-link" href="#Minimize-the-Loss-with-Calculus">&#182;</a></h2><p>We guessed that best $\theta$ value for the model $f_\theta(x) = \theta$ would be $\theta = \frac{1}{n} \sum_{i=1}^n y_n$ (the red circle in the above figure).  This was a good guess!!</p>
+<p>However, a more general procedure would be to use calculus to minimize the loss function.</p>
+<p><strong>Beginners Convex Optimization Recipe:</strong></p>
+<ol>
+<li>Take derivative of the loss function </li>
+<li>Solve for paramter values by setting derivative equal to zero:</li>
+</ol>
+<p>We are trying to compute the point where the derivative is zero:</p>
+<p><img src="convex_function.png" width="400px"></p>
+<p>Working through the calculations for our very simple constant function:</p>
 \begin{align*}
 \frac{\partial}{\partial \theta} L_D(\theta) 
 & = \frac{1}{n} \sum_{i=1}^n \frac{\partial}{\partial \theta} \left( y_i -  f_\theta(x_i) \right)^2 \\
@@ -11984,7 +12013,7 @@ y = m \, x + b
 $$<p>a line is one of the simplest models we might use to represent the relationship between an input $x$ and an output $y$.  We could write this as the model:</p>
 $$
 f_{(m,b)}(x) = m \, x + b
-$$<p>We would call this a parametric model as it is parameterized by the parameters $m$ and $b$.  Adopting our earlier notation we can define $\theta = (m, b)$ and rewrite our improved model:</p>
+$$<p>This is a <strong>parametric model</strong> parameterized by $m$ and $b$.  Adopting our earlier notation we define $\theta = (m, b)$ and rewrite our improved model:</p>
 $$
 f_\theta(x) = \theta_0 x + \theta_1
 $$<p>Now that we have a new model how should we select our parameters?  We would like to minimize our loss but what does it look like.</p>
@@ -11997,15 +12026,9 @@ $$<p>Now that we have a new model how should we select our parameters?  We would
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Our new model</span>
+<span class="k">def</span> <span class="nf">f_line</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">pred</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
-
-<span class="k">def</span> <span class="nf">loss</span><span class="p">(</span><span class="n">theta</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">theta</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">theta</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">)])</span>
-
 
 <span class="c1"># To visualize the loss I need to generate many theta0, theta1 pairs. </span>
 <span class="c1"># This is done using meshgrid</span>
@@ -12013,7 +12036,7 @@ $$<p>Now that we have a new model how should we select our parameters?  We would
 <span class="n">theta_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">theta0</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">theta1</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">T</span>
 
 <span class="c1"># Evaluating the loss for all theta values</span>
-<span class="n">loss_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">theta_values</span><span class="p">]</span>
+<span class="n">loss_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">loss</span><span class="p">(</span><span class="n">f_line</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span> <span class="k">for</span> <span class="n">theta</span> <span class="ow">in</span> <span class="n">theta_values</span><span class="p">]</span>
 
 <span class="c1"># Plotting code! ------------------------</span>
 
@@ -12049,7 +12072,7 @@ $$<p>Now that we have a new model how should we select our parameters?  We would
 <div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/209.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/311.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12063,8 +12086,18 @@ $$<p>Now that we have a new model how should we select our parameters?  We would
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Playing with the above plot we might guess something like $\theta_0 = 1.5$ and $\theta_1 = 3$ (take it for a spin if you haven't already).</p>
-<p>Let's now try to derive the minimizing values for our parameters:</p>
+<p>Spin the above plot and guess what might be optimal values for $\theta$ (and admire D3 WebGL enabled visualizations).</p>
+<p><strong>Notice:</strong> <em>The plot is quadratic like the earlier 1-dimensional loss function.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Minimizing-the-Loss-Function">Minimizing the Loss Function<a class="anchor-link" href="#Minimizing-the-Loss-Function">&#182;</a></h2><p>Let's now try to derive the minimizing values for our parameters:</p>
 \begin{align*}
 \frac{\partial}{\partial \theta_0} L_D(\theta) 
 & = \frac{1}{n} \sum_{i=1}^n \frac{\partial}{\partial \theta_0} \left( y_i -  f_\theta(x_i) \right)^2 \\
@@ -12093,15 +12126,15 @@ $$<p>Now that we have a new model how should we select our parameters?  We would
 \begin{align*}
 \sum_{i=1}^n  x_i y_i  & =   \theta_0  \sum_{i=1}^n  x_i x_i + \theta_1  \sum_{i=1}^n  x_i \\
 \sum_{i=1}^n y_i  & =   \theta_0  \sum_{i=1}^n  x_i + \theta_1 n
-\end{align*}<p>Defining some constants:</p>
+\end{align*}<p>To simplify the math we can define constants (statistics computed from the data directly):</p>
 \begin{align*}
 C_1 & = \sum_{i=1}^n  x_i y_i  \quad &  \quad C_2  &=  \sum_{i=1}^n  x_i x_i \\
 C_3 & = \sum_{i=1}^n  x_i \quad & \quad C_4 & = \sum_{i=1}^n y_i 
-\end{align*}<p>We clearly have a system of linear equations:</p>
+\end{align*}<p>Substituting the constants it becomes clear that we have a classic system of linear equations:</p>
 \begin{align*}
 C_1 & =   \theta_0  C_2 + \theta_1  C_3 \\
 C_4 & =   \theta_0  C_3 + \theta_1 n
-\end{align*}<p>Which we can solve using more algebra.  However, because algebra is hard we can use symbolic algebra tools to solve these equations analytically:</p>
+\end{align*}<p>Which we can solve analytically through some simple but tedious algebra.  However, because algebra is tedious and we are data scientists who use technology to tackle problems (and make our lives easier) let's make a symbolic algebra library do the tricky work for us:</p>
 
 </div>
 </div>
@@ -12162,6 +12195,16 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>Okay, so the above equation was pretty easy.  However, as we move to more complex models we will quickly find that both computing the derivatives and even solving them will require sophisticated analytic and numeric machinery.  The combination of symbolic differentiation and numerical optimization have been at the heart of recent advances in AI.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>We can now compute the actual numerical values for the algebraic expressions above:</p>
 
 </div>
@@ -12212,7 +12255,7 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We have now have the "optimal" parameters for our original model. Returning to our earlier plot lets place the solution on the loss suface:</p>
+<p>We have just computed the "optimal" parameters for our original model. Returning to our earlier plot lets place the solution on the loss suface:</p>
 
 </div>
 </div>
@@ -12225,7 +12268,7 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta_hat_point</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">theta_hat</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">theta_hat</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">theta_hat</span><span class="p">),</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">loss</span><span class="p">(</span><span class="n">f_line</span><span class="p">,</span> <span class="n">theta_hat</span><span class="p">),</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
     <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="p">)</span>
@@ -12246,7 +12289,7 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 <div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/211.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/313.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12271,13 +12314,13 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define my model:</span>
-<span class="n">yhat</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">theta_hat</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
+<span class="n">yhat</span> <span class="o">=</span> <span class="p">[</span><span class="n">f_line</span><span class="p">(</span><span class="n">theta_hat</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X</span><span class="p">]</span>
 
 <span class="c1"># Visualize the data ---------------------</span>
 <span class="n">theta_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Linear Model&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yhat</span><span class="p">,</span> <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;lines&#39;</span><span class="p">,</span>
     <span class="n">line</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="p">)</span>
-<span class="n">theta_guess_line</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;gray&quot;</span>
+<span class="n">theta_guess_line</span><span class="o">.</span><span class="n">line</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;pink&quot;</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">theta_guess_line</span><span class="p">,</span> <span class="n">theta_line</span><span class="p">])</span>
 </pre></div>
 
@@ -12292,7 +12335,7 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 <div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/213.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/315.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12307,6 +12350,15 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Is this a better fit?</p>
+<p><br/> <br/> <br/></p>
+<hr>
+<h1 id="Quick-Review">Quick Review<a class="anchor-link" href="#Quick-Review">&#182;</a></h1><ol>
+<li>We introduced the idea <strong>parametric functions</strong> as a modeling primitive</li>
+<li>We introduced the idea of the <strong>loss function</strong> and in particular the <strong>squared</strong> loss to determine how well our model approximates our data.</li>
+<li>We then used calculus (and in particular convex optimization) to determine the model parameters that <strong>minimize the loss function</strong></li>
+</ol>
+<p>We will now generalize these ideas to the <strong>parametric</strong> function of a line.</p>
+<p><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12316,21 +12368,13 @@ $$\left \{ \theta_{0} : \frac{C_{1} n - C_{3} C_{4}}{C_{2} n - C_{3}^{2}}, \quad
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Linear-Model-Family">Linear Model Family<a class="anchor-link" href="#Linear-Model-Family">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We can generalize our earlier model formulation to the general <strong>linear model</strong>:</p>
+<hr>
+<h1 id="Linear-Model-Family">Linear Model Family<a class="anchor-link" href="#Linear-Model-Family">&#182;</a></h1><p>The <strong>linear model</strong> is a generalization of our earlier two dimensional $y = m x + b$ model:</p>
 $$
 f_\theta(x) = \sum_{j=1}^p \theta_j x_j
 $$<p><strong>Note:</strong></p>
 <ol>
-<li>This is the model for a <strong>single data point</strong></li>
+<li>This is the model for a <strong>single data point</strong> $x$</li>
 <li>The data point is <strong>$p$-dimensional</strong></li>
 <li>The subscript $j$ is indexing each of the $p$ dimensions</li>
 </ol>
@@ -12339,15 +12383,23 @@ $$
 f_\theta(x) =  x^T \theta
 $$<p>You can see this in the following figure:</p>
 <p><img src="vector_dot.png" width="400px"></p>
-<p>As we will see, shortly this is a very expressive parametric model.  In previous lectures we derived the <strong>Least Squares</strong> parameter values for this model.  Let's derive them again.</p>
-<h2 id="Least-Squares-Linear-Regression">Least Squares Linear Regression<a class="anchor-link" href="#Least-Squares-Linear-Regression">&#182;</a></h2><p>Before we proceed we need to define some new notation to describe the entire dataset:</p>
-<p>We introduce the design (covariate) matrix $X$ and the response matrix (vector) $Y$ which encode the data:</p>
+<p>As we will see, shortly, this is a very expressive parametric model.  In previous lectures we derived the <strong>Least Squares</strong> parameter values for this model.  Let's derive them again.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Least-Squares-Linear-Regression">Least Squares Linear Regression<a class="anchor-link" href="#Least-Squares-Linear-Regression">&#182;</a></h2><p>Before we proceed we need to define some new notation to describe the entire dataset.  We introduce the design (covariate) matrix $X$ and the response matrix (vector) $Y$ which encode the data:</p>
 <p><img src="design_matrix.png" width="400px"></p>
 <p><strong>Notes:</strong></p>
 <ol>
 <li>The <strong>rows</strong> of $X$ correspond to records (e.g., users in our database)</li>
 <li>The <strong>columns</strong> of $X$ correspond to <strong>features</strong> (e.g., the age, income, height).</li>
-<li><strong>CS and Stats Terminology Issue:</strong> In statistics we use $p$ to denote the number of columns in $X$ which corresponds to the number of <em>parameters</em> in the corresponding linear model.  In computer science we use $d$ instead of $p$ to refer to the number of columns.  The $d$ is in reference to the <em>dimensionality</em> of each record.  </li>
+<li><strong>CS and Stats Terminology Issue:</strong> In statistics we use $p$ to denote the number of columns in $X$ which corresponds to the number of <em>parameters</em> in the corresponding linear model.  In computer science we use $d$ instead of $p$ to refer to the number of columns.  The $d$ is in reference to the <em>dimensionality</em> of each record.  You can see the differences in focus on the model and the data. If you get confused just flip the paper (or your computer) upside down and it will make more sense.</li>
 </ol>
 
 </div>
@@ -12374,11 +12426,28 @@ L_D(\theta)
 L_D(\theta) 
 & = 
 \frac{1}{n}\left(Y -  X \theta \right)^T \left(Y -  X \theta \right) \\
+& = 
+\frac{1}{n}\left(Y^T \left(Y -  X \theta \right) -  \left(X \theta\right)^T \left(Y -  X \theta \right) \right) \\
+& = 
+\frac{1}{n}\left( 
+   Y^T Y -  Y^T X \theta  - \left(X \theta \right)^T Y + \left(X \theta \right)^T  X \theta 
+\right) \\
 & =
 \frac{1}{n} \left( 
  Y^T Y -  2 Y^T X \theta + \theta^T  X^T  X \theta 
 \right)
-\end{align}<p>Recall our goal is to compute:</p>
+\end{align}<p><strong>Note:</strong> Because $\left(X \theta \right)^T Y$ is a scalar it is equal to its transpose $Y^T X \theta$ 
+and therefore $- Y^T X \theta  - \left(X \theta \right)^T Y  = -2 Y^T X \theta$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Computing-the-Loss-Minimizing-$\theta$">Computing the Loss Minimizing $\theta$<a class="anchor-link" href="#Computing-the-Loss-Minimizing-$\theta$">&#182;</a></h2><p>Recall our goal is to compute:</p>
 \begin{align}
 \hat{\theta} = \arg \min_\theta L(\theta)
 \end{align}<p>Which we can compute by taking the <strong>gradient</strong> of the loss and setting it equal to zero.</p>
@@ -12397,11 +12466,10 @@ L_D(\theta)
 <li>$\nabla_\theta \left( A \theta  \right) = A^T$</li>
 <li>$\nabla_\theta \left( \theta^T A \theta \right) = A\theta + A^T \theta$ and $A = X^T X$ is symmetric</li>
 </ol>
-<p>Setting the gradient equal to zero we get:</p>
+<p>Setting the gradient equal to zero we get the famous <strong>Normal Equations</strong>:</p>
 $$
 X^T  X \theta =  X^T Y
-$$<p>and solving for $\theta$ we get the famous <strong>Normal Equation</strong>:</p>
-$$
+$$$$
  \theta = \left(X^T  X\right)^{-1} X^T Y
 $$
 </div>
@@ -12412,7 +12480,13 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Applying-the-Normal-Equation">Applying the Normal Equation<a class="anchor-link" href="#Applying-the-Normal-Equation">&#182;</a></h1>
+<h1 id="The-Normal-Equation">The Normal Equation<a class="anchor-link" href="#The-Normal-Equation">&#182;</a></h1><p>The normal equations define the least squares optimal parameter value  $\hat{\theta}$ for the linear regression model:</p>
+$$
+ \hat{\theta} = \left(X^T  X\right)^{-1} X^T Y
+$$<p>and have the pictorial interpretation of the matrices:</p>
+<p><img src="normal_equations.png" width="400px"></p>
+<p>It is worth noting that for common settings where $n >> p$ (i.e., there are many records and only a few dimensions) the matrix $X^T X$ and $X^T Y$ are small relative to the data.</p>
+
 </div>
 </div>
 </div>
@@ -12421,7 +12495,16 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Applying the normal equations to our regression problem from before:</p>
+<h1 id="Working-with-the-Normal-Equation">Working with the Normal Equation<a class="anchor-link" href="#Working-with-the-Normal-Equation">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now that we have the normal equation let's apply it to compute the optimal $\theta$ for our toy dataset.</p>
 
 </div>
 </div>
@@ -12491,7 +12574,7 @@ $$
 <div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/215.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/317.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12505,11 +12588,16 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stuck-on-the-origin!-(again)">Stuck on the origin! (again)<a class="anchor-link" href="#Stuck-on-the-origin!-(again)">&#182;</a></h2><p>Remember our model doesn't have <strong>"bias"</strong> term:</p>
+<h2 id="Stuck-on-the-origin!">Stuck on the origin!<a class="anchor-link" href="#Stuck-on-the-origin!">&#182;</a></h2><p>Remember our general linear model:</p>
 $$
 f_\theta(x) = \sum_{j=1}^p \theta_j x_j
-$$<p>However we can begin our journey into <strong>feature engineering</strong> by adding an extra <strong>constant</strong> (typically 1) dimension:</p>
+$$<p>doesn't have the <strong>"bias"</strong> term $b$ we had in our line equation:</p>
+$$
+y = m x + b
+$$<p></p>
+<p>However we can begin our journey into <strong>feature engineering</strong> by adding an extra <strong>constant</strong> (typically 1) to each record:</p>
 <p><img src="adding_bias_term.png" width="400px"></p>
+<p>This extra <strong>feature</strong> will allow our general linear model to represent a <strong>bias</strong> term.</p>
 <p>For reasons we will see later, I am going to call this a feature transformation $\phi(X)$.  For notational convenience I will occasionally write $\Phi = \phi(X)$.</p>
 
 </div>
@@ -12663,7 +12751,7 @@ $$<p>However we can begin our journey into <strong>feature engineering</strong> 
 <div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/217.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/319.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12691,11 +12779,11 @@ $$<p>However we can begin our journey into <strong>feature engineering</strong> 
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">raw3d</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Raw Data&quot;</span><span class="p">,</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">Phi</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">,</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">Phi</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">,</span>
-    <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> 
     <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="p">)</span>
 
@@ -12704,22 +12792,40 @@ $$<p>However we can begin our journey into <strong>feature engineering</strong> 
 <span class="n">ycoords</span> <span class="o">=</span> <span class="n">coords</span> <span class="o">@</span> <span class="n">theta_hat</span>
 
 <span class="n">fit_plane</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Fitting Hyperplane&quot;</span><span class="p">,</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">coords</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">ycoords</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">coords</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span>
-    <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.95</span>   
+    <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="n">cauto</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">showscale</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">colorscale</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;rgb(255,0,0)&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;rgb(255,0,0)&#39;</span><span class="p">]]</span>
 <span class="p">)</span>
 
 <span class="n">origin</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Origin (0,0,0)&quot;</span><span class="p">,</span>
     <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span>
     <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">,</span> 
-    <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+    <span class="n">marker</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
+<span class="n">data_plane</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Mesh3d</span><span class="p">(</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;2D Plot&quot;</span><span class="p">,</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+    <span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;gray&#39;</span>
+<span class="p">)</span>
+
+
 <span class="n">loss_surface</span><span class="o">.</span><span class="n">opacity</span> <span class="o">=</span> <span class="mf">0.9</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">raw3d</span><span class="p">,</span> <span class="n">fit_plane</span><span class="p">,</span> <span class="n">origin</span><span class="p">])</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">raw3d</span><span class="p">,</span> <span class="n">fit_plane</span><span class="p">,</span> <span class="n">origin</span><span class="p">,</span> <span class="n">data_plane</span><span class="p">])</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
 </pre></div>
 
@@ -12734,7 +12840,7 @@ $$<p>However we can begin our journey into <strong>feature engineering</strong> 
 <div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/219.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/321.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12748,7 +12854,16 @@ $$<p>However we can begin our journey into <strong>feature engineering</strong> 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Spin the above plot around.  You will notice that our data lives on the plane 3 dimensions and that the plane passes through the origin.  This is a key theme with linear regression. That is by transforming the input we can often make complex data live on a plane that passes through the origin.</p>
+<p>Spin the above plot around, because it is pretty and also you will learn something. Try spinning the plot so you look down on the <strong>gray</strong> plane and you should see the original data as though it were plotted in two dimensions.</p>
+<p><strong>Notice:</strong></p>
+<ol>
+<li>The <strong>red</strong> plane is the plane corresponding to the model which passes through the points.</li>
+<li>The <strong>red</strong> plane still passes through the origin (the big black circle).</li>
+<li>The <strong>gray</strong> plane is the plane corresponding to the 2D plot in which the data originally lived.  </li>
+<li>The intersection of the <strong>red</strong> and <strong>gray</strong> planes is the line of best fit with the bias term added!</li>
+</ol>
+<p>You will notice that our data lives on the plane 3 dimensions and that the plane (in red) passes through the origin.</p>
+<p>This is a key theme with linear regression. That is by transforming the input we can often make complex data live on a plane that passes through the origin.</p>
 
 </div>
 </div>
