@@ -347,6 +347,10 @@ In this lecture dives into the details of least squares regression through the l
 
 ### Feature Engineering, Over-fitting, and Cross Validation [Gonzalez]
 In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
+
+* Notebook Review of Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Linear_Regression.html), [ipynb](assets/notebooks/linear_regression/Linear_Regression.ipynb)) this has some fun visualizations (in 3D!) as well as alternative derivations and notational clarifications.
+
+
 {% include syllabus_entry end=true %}
 
 
