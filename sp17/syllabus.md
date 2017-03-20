@@ -339,6 +339,7 @@ In this lecture dives into the details of least squares regression through the l
 [pdf](https://drive.google.com/open?id=0Bze55lezLJhIclZGSFpUczVMWXc), 
 [pdf 6up](https://drive.google.com/open?id=0Bze55lezLJhIQWE0emd6bWh3N0k)).
 
+* Reading [Chapter 3.1](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf)
 
 {% include syllabus_entry end=true %}
 
@@ -351,6 +352,7 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 * Least-Squares Linear Regression (Draft): ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), [ipynb](assets/notebooks/linear_regression/Least_Squares_Regression.ipynb)) 
 * Feature Engineering (Draft): ([html](assets/notebooks/linear_regression/Feature_Engineering_Draft.html)
 
+* Optional reading: [Chapter 3.1, 3.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf).  
 
 {% include syllabus_entry end=true %}
 
@@ -362,6 +364,9 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 ### Regularization and the Bias Variance tradeoff [Gonzalez]
 
 In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
+
+* Optional reading [Chapter 2.1, 2.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf)
+
 
 {% include syllabus_entry end=true %}
 
