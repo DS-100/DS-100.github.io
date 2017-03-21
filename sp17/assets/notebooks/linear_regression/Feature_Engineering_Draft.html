@@ -11758,21 +11758,6 @@ div#notebook {
 <span class="c1"># import plotly.offline as py</span>
 <span class="c1"># py.init_notebook_mode()</span>
 
-<span class="c1"># # Fixing a bug in plotly :-( </span>
-<span class="c1"># from IPython.display import display, HTML</span>
-<span class="c1"># display(HTML(</span>
-<span class="c1">#     &#39;&lt;script&gt;&#39;</span>
-<span class="c1">#         &#39;var waitForPlotly = setInterval( function() {&#39;</span>
-<span class="c1">#             &#39;if( typeof(window.Plotly) !== &quot;undefined&quot; ){&#39;</span>
-<span class="c1">#                 &#39;MathJax.Hub.Config({ SVG: { font: &quot;STIX-Web&quot; }, displayAlign: &quot;center&quot; });&#39;</span>
-<span class="c1">#                 &#39;MathJax.Hub.Queue([&quot;setRenderer&quot;, MathJax.Hub, &quot;SVG&quot;]);&#39;</span>
-<span class="c1">#                 &#39;clearInterval(waitForPlotly);&#39;</span>
-<span class="c1">#             &#39;}}, 250 );&#39;</span>
-<span class="c1">#     &#39;&lt;/script&gt;&#39;</span>
-<span class="c1"># ))</span>
-<span class="c1"># import cufflinks as cf</span>
-<span class="c1"># cf.go_offline() # required to use plotly offline (no account required).</span>
-
 <span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="k">as</span> <span class="nn">go</span>
 <span class="kn">import</span> <span class="nn">plotly.figure_factory</span> <span class="k">as</span> <span class="nn">ff</span>
 
@@ -11796,6 +11781,8 @@ div#notebook {
 <li>capture <strong>domain knowledge</strong> (e.g., the perceived loudness or sound is the log of the intensity)</li>
 <li><strong>transform</strong> complex relationships into simple linear relationships</li>
 </ol>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -11805,15 +11792,26 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What-is-are-features?">What is are features?<a class="anchor-link" href="#What-is-are-features?">&#182;</a></h2><p>Recall that we are given data encoding pairs representing some form of <em>stochastic</em> (e.g., noisy or approximate) functional dependency.  For example, given pairs of square footage and price we are trying to learn a function that captures (or at least approximates) the relationship between square feet and price.  Our functional approximation is some form of typically parametric mapping from some <strong>domain</strong> to some <strong>range</strong>:</p>
+<h2 id="Mapping-from-Domain-to-Range">Mapping from Domain to Range<a class="anchor-link" href="#Mapping-from-Domain-to-Range">&#182;</a></h2><p>In the supervised learning setting were are given $(X,Y)$ paris with the goal of learning the mapping from $X$ to $Y$. For example, given pairs of square footage and price we want to learn a function that captures (or at least approximates) the relationship between square feet and price.  Our functional approximation is some form of typically parametric mapping from some <strong>domain</strong> to some <strong>range</strong>:</p>
 <p><img src="domain_range.png" width="400px"></p>
-<p><strong>Univariate Regression:</strong> For now we will focus on the range being real valued (i.e., $y \in \mathbb{R}$):</p>
+<p>In this class we will focus on <strong>Multiple Regression</strong> in which we consider mappings from potentially high-dimensional input spaces onto the real line (i.e., $y \in \mathbb{R}$):</p>
 <p><img src="domain_real_range.png" width="400px"></p>
-<p><br/></p>
-<p>Suppose we are given the following table:</p>
+<p>It is worth noting that this is distinct from <strong>Multivariate Regression</strong> in which we are predicting multiple (confusing?) response values (e.g., $y \in \mathbb{R}^q$).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-is-the-Domain-(Features)">What is the Domain (Features)<a class="anchor-link" href="#What-is-the-Domain-(Features)">&#182;</a></h1><p>Suppose we are given the following table:</p>
 <p><img src="input_table.png" width="600px"></p>
 <p>Our goal is to learn a function that approximates the relationship between the blue and red columns.  Let's assume the range, <code>"Ratings"</code>, are the real numbers (this may be a problem if ratings are between [0, 5] but more on that later).</p>
-<p><strong>What is the <em>domain</em> for this table?</strong></p>
+<p><strong>What is the <em>domain</em> of this function?</strong></p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -11823,8 +11821,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><br/><br/><br/><br/></p>
-<p>One possible answer would be to return to our relational model and define the schema of the table:</p>
+<p>The schema of the relational model provides one possible answer:</p>
 <div class="highlight"><pre><span></span><span class="n">RatingsData</span><span class="p">(</span><span class="n">uid</span> <span class="k">AS</span> <span class="nb">INTEGER</span><span class="p">,</span> <span class="n">age</span> <span class="k">AS</span> <span class="nb">FLOAT</span><span class="p">,</span> 
             <span class="k">state</span> <span class="k">AS</span> <span class="n">STRING</span><span class="p">,</span> <span class="n">hasBought</span> <span class="k">AS</span> <span class="nb">BOOLEAN</span><span class="p">,</span>
             <span class="n">review</span> <span class="k">AS</span> <span class="n">STRING</span><span class="p">,</span> <span class="n">rating</span> <span class="k">AS</span> <span class="nb">FLOAT</span><span class="p">)</span>
@@ -11832,7 +11829,9 @@ div#notebook {
 <p>Which would suggest that the domain is then:</p>
 $$
 \textbf{Domain} = \mathbb{Z} \times \mathbb{R} \times \mathbb{S} \times \mathbb{B} \times \mathbb{S} \times \mathbb{R}
-$$<p>Unfortunately, the techniques we have discussed so far and most of the techniques in machine learning and statistics operate on real-valued vector inputs $x \in \mathbb{R}^d$ (or for the statisticians $x \in \mathbb{R}^p$). Moreover, many of these techniques, especially the linear models we have been studying, assume the inputs are <strong>continuous</strong> variables in which the relative magnitude of the feature encode information about the response variable.</p>
+$$<p>Unfortunately, the techniques we have discussed so far and most of the techniques in machine learning and statistics operate on real-valued vector inputs $x \in \mathbb{R}^d$ (or for the statisticians $x \in \mathbb{R}^p$).</p>
+<h3 id="Goal:">Goal:<a class="anchor-link" href="#Goal:">&#182;</a></h3><p><img src="real_domain_range.png" width="400px"></p>
+<p>Moreover, many of these techniques, especially the linear models we have been studying, assume the inputs are <strong>continuous</strong> variables in which the relative magnitude of the feature encode information about the response variable.</p>
 <p>In the following we define several basic transformations to encode features as real numbers.</p>
 
 </div>
@@ -11843,7 +11842,9 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Basic-Feature-Engineering:--Keeping-it-$\mathbb{R}$">Basic Feature Engineering:  <em>Keeping it $\mathbb{R}$</em><a class="anchor-link" href="#Basic-Feature-Engineering:--Keeping-it-$\mathbb{R}$">&#182;</a></h1><p>Our first step as feature engineers is to translate our data into a form that encodes each feature as a continuous variable.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+<h1 id="Basic-Feature-Engineering:--Get-$\mathbb{R}$">Basic Feature Engineering:  <em>Get $\mathbb{R}$</em><a class="anchor-link" href="#Basic-Feature-Engineering:--Get-$\mathbb{R}$">&#182;</a></h1><p>Our first step as feature engineers is to translate our data into a form that encodes each feature as a continuous variable.</p>
 
 </div>
 </div>
@@ -11853,18 +11854,20 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Uninformative-uid-Feature">The <em>Uninformative</em> <code>uid</code> Feature<a class="anchor-link" href="#The-Uninformative-uid-Feature">&#182;</a></h2><p>This feature was likely used to join the user information (e.g., <code>age</code>, and <code>state</code>) with some <code>Reviews</code> table.  The <code>uid</code> presents several tricky questions:</p>
+<h2 id="The-Uninformative--Feature:-uid">The <em>Uninformative</em>  Feature: <code>uid</code><a class="anchor-link" href="#The-Uninformative--Feature:-uid">&#182;</a></h2><p>The <code>uid</code> was likely used to join the user information (e.g., <code>age</code>, and <code>state</code>) with some <code>Reviews</code> table.  The <code>uid</code> presents several questions:</p>
 <ul>
 <li>What is the meaning of the <code>uid</code> <em>number</em>? </li>
 <li>Does the magnitude of the <code>uid</code> reveal information about the rating? </li>
 </ul>
 <p>There are several answers:</p>
 <ol>
-<li><p>User identifiers are typically categorical values (like strings) in which the magnitude has no inherent value.  In these settings we would either <strong>drop</strong> or <strong>one-hot encode</strong> the <code>uid</code>.  We will return to feature dropping and one-hot-encoding in a moment.</p>
+<li><p>Although numbers, identifiers are <strong>typically categorical</strong> (like strings) and as a consequence the magnitude has little meaning.  In these settings we would either <strong>drop</strong> or <strong>one-hot encode</strong> the <code>uid</code>.  We will return to feature dropping and one-hot-encoding in a moment.</p>
 </li>
 <li><p>There are scenarios where the magnitude of the numerical <code>uid</code> value contains important information. When user ids are created in consecutive order, larger user ids would imply more recent users.  In these cases we might to interpret the <code>uid</code> feature as a real number.</p>
 </li>
 </ol>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -11874,14 +11877,16 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Dropping-Features">Dropping Features<a class="anchor-link" href="#Dropping-Features">&#182;</a></h2><p>While it is uncommon to manually drop features there are certain scenarios where manually dropping features might be helpful:</p>
+<h2 id="Dropping-Features">Dropping Features<a class="anchor-link" href="#Dropping-Features">&#182;</a></h2><p>While uncommon there are certain scenarios where manually dropping features might be helpful:</p>
 <ol>
-<li><p>when it is known that the features <strong>does not to contain information</strong> associated with the prediction task.  Dropping uninformative features can help to address over-fitting, an issue we will discuss in great detail soon.</p>
+<li><p>when the features <strong>does not to contain information</strong> associated with the prediction task.  Dropping uninformative features can help to address over-fitting, an issue we will discuss in great detail soon.</p>
 </li>
-<li><p>when a feature is <strong>not available when making predictions.</strong>  For example, the feature might contain information collected after the user entered a rating.  This is a common scenario in time-series analysis.</p>
+<li><p>when the feature is <strong>not available when at prediction time.</strong>  For example, the feature might contain information collected after the user entered a rating.  This is a common scenario in time-series analysis.</p>
 </li>
 </ol>
 <p>However in the absence of substantial domain knowledge, we would prefer to use algorithmic techniques to help eliminate features.  We will discuss this more when we return to regularization.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -11891,7 +11896,9 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Continuous-age-Feature">The <em>Continuous</em> <code>age</code> Feature<a class="anchor-link" href="#The-Continuous-age-Feature">&#182;</a></h2><p>The <code>age</code> feature encodes the users age.  This is already a continuous real number so no additional feature transformations are required.  However, as we will soon see, we may introduce additional related features (e.g., indicators for various age groups).</p>
+<h2 id="The-Continuous-age-Feature">The <em>Continuous</em> <code>age</code> Feature<a class="anchor-link" href="#The-Continuous-age-Feature">&#182;</a></h2><p>The <code>age</code> feature encodes the users age.  This is already a continuous real number so no additional feature transformations are required.  However, as we will soon see, we may introduce additional related features (e.g., indicators for various age groups or non-linear transformations).</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -11902,8 +11909,8 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="The-Categorical-state-Feature">The <em>Categorical</em> <code>state</code> Feature<a class="anchor-link" href="#The-Categorical-state-Feature">&#182;</a></h2><p>The <code>state</code> feature is a string encoding the category (one of the 50 states).  How do we meaningfully encode such a feature as one or more real-numbers?</p>
-<p>We could enumerate the states in alphabetical order <code>AL=0</code>, <code>AK=2</code>, ... <code>WY=49</code>.  This is a form of <strong>dictionary encoding</strong> which maps each category to an integer.  However, this would likely be a poor feature encoding since the magnitude is unlikely to provide information about the rating.</p>
-<p>Alternatively, we might enumerate the states based on their geographical region.  While this alternative dictionary encoding may provide information there is better way to encode categorical features for machine learning algorithms: <strong>one-hot-encoding</strong>.</p>
+<p>We could enumerate the states in alphabetical order <code>AL=0</code>, <code>AK=2</code>, ... <code>WY=49</code>.  This is a form of <strong>dictionary encoding</strong> which maps each category to an integer.  However, this would likely be a poor feature encoding since the magnitude provides little information about the rating.</p>
+<p>Alternatively, we might enumerate the states based on their geographic region (e.g., lower numbers for coastal states.). While this alternative dictionary encoding may provide information there is better way to encode categorical features for machine learning algorithms.</p>
 
 </div>
 </div>
@@ -11913,19 +11920,59 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="One-Hot-Encoding">One-Hot Encoding<a class="anchor-link" href="#One-Hot-Encoding">&#182;</a></h2><p><img src="one_hot_encoding.png" width="400px"></p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
+<h1 id="One-Hot-Encoding">One-Hot Encoding<a class="anchor-link" href="#One-Hot-Encoding">&#182;</a></h1><p><img src="one_hot_encoding.png" width="400px"></p>
 <p>One-Hot encoding, sometimes also called <strong>dummy encoding</strong> is a simple mechanism to encode categorical data as real numbers such that the magnitude of each dimension is meaningful.  Suppose a feature can take on $k$ distinct values (e.g., $k=50$ for 50 states in the United Stated).  For each distinct <em>possible</em> value a new feature (dimension) is created.  For each record, all the new features are set to zero except the one corresponding to the value in the original feature.</p>
-<p>Confused? Let's look at an example in Pandas:</p>
+<p>The following is a relatively inefficient (why?) implementation:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">one_hot_encoding</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
+    <span class="n">dictionary</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">categories</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">))))</span>
+    <span class="n">enc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">categories</span><span class="p">))</span>
+    <span class="n">enc</span><span class="p">[</span><span class="n">dictionary</span><span class="p">[</span><span class="n">x</span><span class="p">]]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">enc</span>
+
+<span class="n">categories</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">]</span>
+<span class="n">one_hot_encoding</span><span class="p">(</span><span class="s2">&quot;dog&quot;</span><span class="p">,</span> <span class="n">categories</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 0.,  1.,  0.])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="One-Hot-Encoding-in-Pandas">One-Hot Encoding in Pandas<a class="anchor-link" href="#One-Hot-Encoding-in-Pandas">&#182;</a></h3>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
+<h2 id="One-Hot-Encoding-in-Pandas">One-Hot Encoding in Pandas<a class="anchor-link" href="#One-Hot-Encoding-in-Pandas">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11941,13 +11988,14 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Goldy&quot;</span><span class="p">,</span> <span class="s2">&quot;Scooby&quot;</span><span class="p">,</span> <span class="s2">&quot;Brian&quot;</span><span class="p">,</span> <span class="s2">&quot;Francine&quot;</span><span class="p">,</span> <span class="s2">&quot;Goldy&quot;</span><span class="p">],</span>
-    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fish&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">]</span>
-<span class="p">})</span>
+    <span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Fish&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">,</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]</span>
+<span class="p">},</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;kind&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">])</span>
 <span class="n">df</span>
 </pre></div>
 
@@ -11959,7 +12007,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -11967,35 +12015,41 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>kind</th>
       <th>name</th>
+      <th>kind</th>
+      <th>age</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Fish</td>
       <td>Goldy</td>
+      <td>Fish</td>
+      <td>0.5</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Dog</td>
       <td>Scooby</td>
+      <td>Dog</td>
+      <td>7.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Dog</td>
       <td>Brian</td>
+      <td>Dog</td>
+      <td>3.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Cat</td>
       <td>Francine</td>
+      <td>Cat</td>
+      <td>10.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Dog</td>
       <td>Goldy</td>
+      <td>Dog</td>
+      <td>1.0</td>
     </tr>
   </tbody>
 </table>
@@ -12020,7 +12074,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;kind&#39;</span><span class="p">])</span>
@@ -12034,7 +12088,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12091,7 +12145,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -12105,7 +12159,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -12113,50 +12167,55 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>kind_Cat</th>
-      <th>kind_Dog</th>
-      <th>kind_Fish</th>
+      <th>age</th>
       <th>name_Brian</th>
       <th>name_Francine</th>
       <th>name_Goldy</th>
       <th>name_Scooby</th>
+      <th>kind_Cat</th>
+      <th>kind_Dog</th>
+      <th>kind_Fish</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>0.5</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
-      <td>1</td>
       <td>0</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
+      <td>7.0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>0</td>
+      <td>3.0</td>
       <td>1</td>
       <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
       <td>0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1</td>
+      <td>10.0</td>
       <td>0</td>
+      <td>1</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -12165,9 +12224,10 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
     </tr>
     <tr>
       <th>4</th>
+      <td>1.0</td>
+      <td>0</td>
       <td>0</td>
       <td>1</td>
-      <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>1</td>
@@ -12189,7 +12249,10 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Issue:</strong> While the Pandas <code>pandas.get_dummies</code> function is very convenient and even retains meaningful column labels there is an important issues.  It does not take the dictionary of possible values and so will not produce the same encoding if applied across multiple dataframes perhaps when moving from training to rendering predictions.</p>
+<p><strong>Issue:</strong> While the Pandas <code>pandas.get_dummies</code> function is very convenient and even retains meaningful column labels it has one key downside.</p>
+<p>The <code>get_dummies</code> function does not take the dictionary of possible values and so will not produce the same encoding if applied across multiple dataframes with different values. This can be a big issue when rendering predictions on a new dataset.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12199,7 +12262,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="One-Hot-Encoding-in-Scikit-Learn">One-Hot Encoding in Scikit-Learn<a class="anchor-link" href="#One-Hot-Encoding-in-Scikit-Learn">&#182;</a></h3>
+<h2 id="One-Hot-Encoding-in-Scikit-Learn">One-Hot Encoding in Scikit-Learn<a class="anchor-link" href="#One-Hot-Encoding-in-Scikit-Learn">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -12208,7 +12271,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Scikit-learn, the widely used machine learning package in Python provides several implementations of feature encoders for categorical data.  While, neither are as convenient to use as the Pandas <code>get_dummies</code>, both <code>fit</code> an encoder that can be re-used to apply the same transformation to other data.</p>
+<p>Scikit-learn is a widely used machine learning package in Python and provides several implementations of feature encoders for categorical data.</p>
 
 </div>
 </div>
@@ -12218,7 +12281,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="DictVectorizer">DictVectorizer<a class="anchor-link" href="#DictVectorizer">&#182;</a></h4>
+<h3 id="DictVectorizer">DictVectorizer<a class="anchor-link" href="#DictVectorizer">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12234,48 +12297,13 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction</span> <span class="k">import</span> <span class="n">DictVectorizer</span>
 
 <span class="n">vec_enc</span> <span class="o">=</span> <span class="n">DictVectorizer</span><span class="p">()</span>
-
 <span class="n">vec_enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span>
-<span class="n">vec_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[ 0.,  0.,  1.,  0.,  0.,  1.,  0.],
-       [ 0.,  1.,  0.,  0.,  0.,  0.,  1.],
-       [ 0.,  1.,  0.,  1.,  0.,  0.,  0.],
-       [ 1.,  0.,  0.,  0.,  1.,  0.,  0.],
-       [ 0.,  1.,  0.,  0.,  0.,  1.,  0.]])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_enc</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12290,7 +12318,71 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&#39;kind=Cat&#39;,
+<pre>DictVectorizer(dtype=&lt;class &#39;numpy.float64&#39;&gt;, separator=&#39;=&#39;, sort=True,
+        sparse=True)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([[  0.5,   0. ,   0. ,   1. ,   0. ,   0. ,   1. ,   0. ],
+       [  7. ,   0. ,   1. ,   0. ,   0. ,   0. ,   0. ,   1. ],
+       [  3. ,   0. ,   1. ,   0. ,   1. ,   0. ,   0. ,   0. ],
+       [ 10. ,   1. ,   0. ,   0. ,   0. ,   1. ,   0. ,   0. ],
+       [  1. ,   0. ,   1. ,   0. ,   0. ,   0. ,   1. ,   0. ]])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_enc</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[&#39;age&#39;,
+ &#39;kind=Cat&#39;,
  &#39;kind=Dog&#39;,
  &#39;kind=Fish&#39;,
  &#39;name=Brian&#39;,
@@ -12317,11 +12409,11 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vec_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span>
-    <span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Goldy&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Goldy&quot;</span><span class="p">,</span> <span class="s2">&quot;age&quot;</span><span class="p">:</span> <span class="mi">35</span><span class="p">},</span>
     <span class="p">{</span><span class="s2">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;Bird&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Fluffy&quot;</span><span class="p">},</span>
     <span class="p">{</span><span class="s2">&quot;breed&quot;</span><span class="p">:</span> <span class="s2">&quot;Chihuahua&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Goldy&quot;</span><span class="p">},</span>
 <span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
@@ -12335,13 +12427,13 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([[ 1.,  0.,  0.,  0.,  0.,  1.,  0.],
-       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.],
-       [ 0.,  0.,  0.,  0.,  0.,  1.,  0.]])</pre>
+<pre>array([[ 35.,   1.,   0.,   0.,   0.,   0.,   1.,   0.],
+       [  0.,   0.,   0.,   0.,   0.,   0.,   0.,   0.],
+       [  0.,   0.,   0.,   0.,   0.,   0.,   1.,   0.]])</pre>
 </div>
 
 </div>
@@ -12355,7 +12447,9 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice that for categories that it has not seen or dimensions that didn't exist when the encoder was fit no result in output.</p>
+<p>Notice that the second record <code>{"kind": "Bird", "name": "Fluffy"}</code> has invalid categories and missing fields and it's encoding is entirely zero.  Is this reasonable?</p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12365,7 +12459,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="OneHotEncoder">OneHotEncoder<a class="anchor-link" href="#OneHotEncoder">&#182;</a></h4>
+<h3 id="Bonus:-sklearn-OneHotEncoder"><em>Bonus:</em> sklearn <code>OneHotEncoder</code><a class="anchor-link" href="#Bonus:-sklearn-OneHotEncoder">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12381,11 +12475,11 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">kind_codes</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="c1"># Convert the kind column into a category column</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert the &quot;kind&quot; column into a category column</span>
+<span class="n">kind_codes</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;kind&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Cat&quot;</span><span class="p">,</span> <span class="s2">&quot;Dog&quot;</span><span class="p">,</span><span class="s2">&quot;Fish&quot;</span><span class="p">])</span>
         <span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">codes</span> <span class="c1"># Extract the category codes</span>
 <span class="p">)</span>
@@ -12400,7 +12494,7 @@ $$<p>Unfortunately, the techniques we have discussed so far and most of the tech
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12420,7 +12514,7 @@ dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">OneHotEncoder</span>
@@ -12433,6 +12527,7 @@ dtype: int8</pre>
 
 <span class="c1"># Fit the encoder (which can be resued to transform other data)</span>
 <span class="n">onehot</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">column_vec_kinds</span><span class="p">)</span>
+
 <span class="c1"># Transform the column vector</span>
 <span class="n">onehot</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">column_vec_kinds</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
 </pre></div>
@@ -12445,7 +12540,7 @@ dtype: int8</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12467,20 +12562,27 @@ dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Key-Points-on-One-Hot-Encoding">Key Points on One-Hot Encoding<a class="anchor-link" href="#Key-Points-on-One-Hot-Encoding">&#182;</a></h3><p>While one-hot encoding is the standard mechanism for encoding <strong>categorical</strong> data there are a few issues to keep in mind:</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+<h2 id="Key-Points-on-One-Hot-Encoding">Key Points on One-Hot Encoding<a class="anchor-link" href="#Key-Points-on-One-Hot-Encoding">&#182;</a></h2><p>While one-hot encoding is the standard mechanism for encoding <strong>categorical</strong> data there are a few issues to keep in mind:</p>
 <ol>
-<li>may generate <strong>too many</strong> dimensions/features<ol>
+<li><p>may generate <strong>too many</strong> dimensions/features</p>
+<ol>
 <li>sparse representations are often necessary</li>
 <li>watch out for issues with over-fitting (more on this soon)</li>
 </ol>
 </li>
-<li>all possible <strong>values must be known in advance</strong><ol>
+<li><p>all possible <strong>values must be known in advance</strong></p>
+<ol>
 <li>unable introduce new categories when making predictions</li>
 <li>be sure to use the same encoding when making predictions</li>
 </ol>
 </li>
-<li><strong>missing values</strong> are naturally captured by a zero in all dummy features</li>
+<li><p><strong>missing values</strong> are reasonably captured by a zero in all dummy features.</p>
+</li>
 </ol>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12490,22 +12592,24 @@ dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Boolean-hasBought-Feature">The <em>Boolean</em> <code>hasBought</code> Feature<a class="anchor-link" href="#The-Boolean-hasBought-Feature">&#182;</a></h2><p>The <code>hasBought</code> feature is a boolean (0/1) valued feature but we notice that it can have missing values:</p>
+<h2 id="The-Boolean-hasBought-Feature">The <em>Boolean</em> <code>hasBought</code> Feature<a class="anchor-link" href="#The-Boolean-hasBought-Feature">&#182;</a></h2><p>The <code>hasBought</code> feature is a boolean (0/1) valued feature but we it can have missing values:</p>
 <p><img src="input_table.png" width="600px"></p>
 <p>There are a few options for encoding <code>hasBought</code>:</p>
 <ol>
-<li><p>If there were no missing values then the booleans are typically treated directly as continuous values.</p>
+<li><p><strong>Interpret directly as numbers.</strong> If there were no missing values then the booleans are typically treated directly as continuous values.</p>
 </li>
-<li><p><strong>one-hot encoding</strong>: This would create two new features <code>hasBought=True</code> and <code>hasBought=False</code>.  This is probably the most general encoding but suffers from increased complexity.</p>
+<li><p><strong>Apply one-hot encoding.</strong> This would create two new features <code>hasBought=True</code> and <code>hasBought=False</code>.  This is probably the most general encoding but suffers from increased complexity.</p>
 </li>
-<li><p>Another common encoding for booleans with missing values is to map:</p>
+<li><p><strong>1/-1 Encoding.</strong> Another common encoding for booleans with missing values is:</p>
 </li>
 </ol>
 \begin{align}
 \textbf{True} & \Rightarrow 1 \\
 \textbf{Null} & \Rightarrow 0 \\
 \textbf{False} & \Rightarrow -1 
-\end{align}
+\end{align}<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
+
 </div>
 </div>
 </div>
@@ -12514,13 +12618,15 @@ dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Text-review-Feature">The <em>Text</em> <code>review</code> Feature<a class="anchor-link" href="#The-Text-review-Feature">&#182;</a></h2><p>Encoding text as a real-valued feature is especially challenging and many of the standard transformations are <strong>lossy</strong>.  Moreover, all of the earlier transformations (e.g., one-hot encoding and Boolean representations) preserve the information in the feature. In contrast, most of the techniques for encoding text destroy information about the word order and in many cases key parts of the grammar.</p>
+<h2 id="The-Text-review-Feature">The <em>Text</em> <code>review</code> Feature<a class="anchor-link" href="#The-Text-review-Feature">&#182;</a></h2><p>Encoding text as a real-valued feature is especially challenging and many of the standard transformations are <strong>lossy</strong>. Moreover, all of the earlier transformations (e.g., one-hot encoding and Boolean representations) preserve the information in the feature. In contrast, most of the techniques for encoding text destroy information about the word order and in many cases key parts of the grammar.</p>
 <p>Here we will discuss two widely used representations of text:</p>
 <ul>
 <li><strong>Bag-of-Words Encoding</strong>: encodes text by the frequency of each word</li>
 <li><strong>N-Gram Encoding</strong>: encodes text by the frequency of sequences of words of length $N$</li>
 </ul>
 <p>Both of these encoding strategies are related to the one-hot encoding with dummy features created for every word or sequence of words and with multiple dummy features having counts greater than zero.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12534,12 +12640,15 @@ dtype: int8</pre>
 <p><img src="bag_of_words.png" width="600px"></p>
 <p><strong>Notice</strong></p>
 <ol>
-<li><strong>Order information is lost:</strong> while we dropped words and lost the word order, the vector still suggests that the sentence is about <code>fun</code>, <code>machines</code>, and <code>learning</code>.  Thought there are many possible meanings <em>learning machines have fun learning</em> or <em>learning about machines is fun learning</em> ...</li>
-<li><strong>Stop words:</strong> certain words like <code>is</code> and <code>about</code> are not counted. These words encode very little information about the meaning of the sentence.  Here is a good list of <a href="https://code.google.com/archive/p/stop-words/">stop-words in many languages</a>. </li>
-<li><strong>capitalization and punctuation</strong> are typically removed</li>
+<li><strong>Stop words are removed.</strong> Stop-words are words like <code>is</code> and <code>about</code> that in isolation contain very little information about the meaning of the sentence.  Here is a good list of <a href="https://code.google.com/archive/p/stop-words/">stop-words in many languages</a>. </li>
+<li><strong>Word order information is lost.</strong>  Nonetheless the vector still suggests that the sentence is about <code>fun</code>, <code>machines</code>, and <code>learning</code>.  Thought there are many possible meanings <em>learning machines have fun learning</em> or <em>learning about machines is fun learning</em> ...</li>
+<li><strong>Capitalization and punctuation are typically removed.</strong>  </li>
 <li><strong>Sparse Encoding:</strong> is necessary to represent the bag-of-words efficiently.  There are millions of possible words (including terminology, names, and misspellings) and so instantiating a <code>0</code> for every word that is not in each record would be incredibly inefficient.  </li>
 </ol>
-<p>Why is it called a bag-of-words?  A bag is another term for a multiset: <em>an unordered collection which may contain multiple instances of each element.</em></p>
+<p><strong>Why is it called a bag-of-words?</strong>  A bag is another term for a <strong>multiset</strong>: <em>an unordered 
+collection which may contain multiple instances of each element.</em></p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12549,7 +12658,7 @@ dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When professor Gonzalez was a graduate student at Carnegie Mellon University, he and several other computer scientists created the following art piece on display at the Gates Center:</p>
+<h1 id="Break?">Break?<a class="anchor-link" href="#Break?">&#182;</a></h1><p>When professor Gonzalez was a graduate student at Carnegie Mellon University, he and several other computer scientists created the following art piece on display at the Gates Center:</p>
 <p><img src="bag_of_words_art.jpg" width="300px"></p>
 <p><strong>Notice</strong></p>
 <ol>
@@ -12557,6 +12666,8 @@ dtype: int8</pre>
 <li>The stop words on the floor.</li>
 <li><em>The missing broom.</em>  The original sculpture had a broom attached but the janitor got confused .... </li>
 </ol>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -12598,7 +12709,7 @@ dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">frost_text</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s2">&quot;&quot;&quot;</span>
@@ -12619,7 +12730,7 @@ dtype: int8</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12637,7 +12748,7 @@ dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">CountVectorizer</span>
@@ -12657,7 +12768,7 @@ dtype: int8</pre>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12677,7 +12788,7 @@ dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the words that are kept</span>
@@ -12707,7 +12818,7 @@ Words: [(0, &#39;desire&#39;), (1, &#39;end&#39;), (2, &#39;favor&#39;), (3, &#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sentence Encoding: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -12759,7 +12870,7 @@ I hold with those who favor fire.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Construct the tokenizer with English stop words</span>
@@ -12776,7 +12887,7 @@ I hold with those who favor fire.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12796,7 +12907,7 @@ I hold with those who favor fire.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the words that are kept</span>
@@ -12826,7 +12937,7 @@ Words: [(0, &#39;desire&#39;), (1, &#39;end&#39;), (2, &#39;favor&#39;), (3, &#3
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sentence Encoding: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -12894,7 +13005,7 @@ I hold with those who favor fire.
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="p">(</span><span class="n">ndocs</span><span class="p">,</span> <span class="n">nwords</span><span class="p">)</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
     <span class="n">tf</span> <span class="o">=</span> <span class="n">X</span> <span class="o">/</span> <span class="n">X</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-    <span class="n">idf</span> <span class="o">=</span> <span class="n">ndocs</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+    <span class="n">idf</span> <span class="o">=</span> <span class="n">ndocs</span> <span class="o">/</span> <span class="p">(</span><span class="n">X</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
     <span class="k">return</span> <span class="n">tf</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">idf</span><span class="p">)</span>
 </pre></div>
 <p>While these transformations are especially important when computing similarities between vector encodings of text.  We will not cover these transformations in DS100 but it is worth knowing that they exist.</p>
@@ -12907,7 +13018,7 @@ I hold with those who favor fire.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Summary-of-Feature-Encoding">Summary of Feature Encoding<a class="anchor-link" href="#Summary-of-Feature-Encoding">&#182;</a></h1><p>Most machine learning (ML) and statistics techniques are take in continuous vector inputs.  As a consequence, we need methods to encode various non-continuous datatypes into meaningful continuous forms.  We discussed:</p>
+<h1 id="Summary-of-Feature-Encoding">Summary of Feature Encoding<a class="anchor-link" href="#Summary-of-Feature-Encoding">&#182;</a></h1><p>Most machine learning (ML) and statistics techniques operate on multivariate real-valued domains (i.e., vectors).  As a consequence, we need methods to encode non-continuous datatypes into meaningful continuous forms.  We discussed:</p>
 <ol>
 <li><strong>one-hot</strong> (a.k.a. <strong>dummy variable</strong>) encoding transform categorical values into vectors of binary values with dimension equal to the number of possible values.</li>
 <li><strong>bag-of-words</strong> and <strong>n-gram</strong> encoding transform text into frequency statistics for individual terms and groups of terms. </li>
@@ -12924,7 +13035,7 @@ I hold with those who favor fire.
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><br/><br/><br/><br/></p>
 <hr>
-<h1 id="Feature-Transformations">Feature Transformations<a class="anchor-link" href="#Feature-Transformations">&#182;</a></h1><p>In addition to transforming categorical and text features to real number representations, we can also often improve model performance through the use of additional feature transformations.  Let's start with a simple toy example</p>
+<h1 id="Feature-Transformations">Feature Transformations<a class="anchor-link" href="#Feature-Transformations">&#182;</a></h1><p>In addition to transforming categorical and text features to real valued representations, we can also often improve model performance through the use of additional feature transformations.  Let's start with a simple toy example</p>
 
 </div>
 </div>
@@ -12950,7 +13061,7 @@ I hold with those who favor fire.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;toy_training_data.csv&quot;</span><span class="p">)</span>
@@ -12981,7 +13092,7 @@ max     9.737739  22.921518
 </div>
 </div>
 
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
@@ -13043,7 +13154,7 @@ max     9.737739  22.921518
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_points</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Training Data&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> 
@@ -13060,10 +13171,10 @@ max     9.737739  22.921518
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/403.embed" height="600px" width="800px"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/689.embed" height="600px" width="800px"></iframe>
 </div>
 
 </div>
@@ -13112,7 +13223,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
@@ -13135,7 +13246,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">line_reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13151,7 +13262,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13186,7 +13297,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
@@ -13214,7 +13325,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">line_Yhat</span> <span class="o">=</span> <span class="n">line_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">]])</span>
@@ -13237,7 +13348,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the least squares regression line </span>
@@ -13262,10 +13373,10 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/405.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/691.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13294,7 +13405,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">residuals</span> <span class="o">=</span> <span class="n">line_Yhat</span> <span class="o">-</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> 
@@ -13307,7 +13418,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot.ly plotting code</span>
@@ -13325,10 +13436,10 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/407.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/693.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13349,7 +13460,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.kernel_ridge</span> <span class="k">import</span> <span class="n">KernelRidge</span>
@@ -13377,10 +13488,10 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/409.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/695.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13401,7 +13512,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p5&quot;</span><span class="p">)</span>
@@ -13415,10 +13526,10 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/413.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/697.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13458,7 +13569,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
@@ -13477,10 +13588,10 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/409.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/695.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13555,7 +13666,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sin_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -13579,7 +13690,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sin_phi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]])</span>
@@ -13596,7 +13707,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13637,7 +13748,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sin_reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13652,7 +13763,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13667,7 +13778,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot the regression line</span>
@@ -13695,10 +13806,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/457.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/699.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13719,7 +13830,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sin_Yhat</span> <span class="o">=</span> <span class="n">sin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
@@ -13749,10 +13860,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/425.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/701.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13773,7 +13884,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p12&quot;</span><span class="p">)</span>
@@ -13787,10 +13898,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/427.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/703.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13821,7 +13932,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data in higher dimensions</span>
@@ -13874,10 +13985,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/433.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/705.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13900,7 +14011,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
@@ -13924,10 +14035,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/577.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/707.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13954,7 +14065,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_basis</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">desc</span><span class="p">):</span>
@@ -13998,7 +14109,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">poly_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -14018,10 +14129,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/509.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/709.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14041,7 +14152,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">poly_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -14050,7 +14161,8 @@ $$
 <span class="p">(</span><span class="n">poly_line</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">,</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">)</span>
 
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">train_points</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> 
-        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p17&quot;</span><span class="p">)</span>
+        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> 
+        <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p17&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14061,10 +14173,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/535.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/711.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14085,7 +14197,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
@@ -14103,10 +14215,10 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/533.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/713.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14142,7 +14254,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">radial_basis_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
@@ -14163,10 +14275,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/579.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/715.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14187,7 +14299,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -14206,10 +14318,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/537.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/717.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14229,7 +14341,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -14248,10 +14360,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/571.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/719.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14272,7 +14384,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
@@ -14291,10 +14403,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/573.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/721.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14314,7 +14426,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">crazy_rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -14335,10 +14447,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/575.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/723.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14349,7 +14461,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_bars</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Train&quot;</span><span class="p">,</span>
@@ -14370,10 +14482,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/581.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/725.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14395,7 +14507,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;toy_test_data.csv&quot;</span><span class="p">)</span>
@@ -14413,10 +14525,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/583.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/727.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -14427,7 +14539,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_rmse</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
@@ -14442,7 +14554,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_bars</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span>
@@ -14469,10 +14581,10 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/569.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/729.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
