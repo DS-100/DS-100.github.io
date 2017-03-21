@@ -13054,7 +13054,7 @@ I hold with those who favor fire.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To illustrate the power of feature transformations consider the following synthetic dataset:</p>
+<p>To illustrate the potential for feature transformations consider the following <em>synthetic dataset</em>:</p>
 
 </div>
 </div>
@@ -13146,8 +13146,8 @@ max     9.737739  22.921518
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Goals:</strong> We would like to predict the value of $Y$ given the value of $X$.</p>
-<p>We begin by visualizing the data</p>
+<p><strong>Goal:</strong> As usual we would like to learn a model that predicts $Y$ given $X$.</p>
+<p>What does this relationship between $X \rightarrow Y$ look like?</p>
 
 </div>
 </div>
@@ -13157,10 +13157,12 @@ max     9.737739  22.921518
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_points</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Training Data&quot;</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_points</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Training Data&quot;</span><span class="p">,</span> 
+                          <span class="n">x</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> 
                           <span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;markers&#39;</span><span class="p">)</span>
-<span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">)</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">train_points</span><span class="p">],</span> <span class="n">layout</span><span class="o">=</span><span class="n">layout</span><span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p1&quot;</span><span class="p">)</span>
+<span class="c1"># layout = go.Layout(autosize=False, width=800, height=600)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">train_points</span><span class="p">]),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p1&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13174,7 +13176,7 @@ max     9.737739  22.921518
 <div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/689.embed" height="600px" width="800px"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/689.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13195,6 +13197,8 @@ max     9.737739  22.921518
 <li>How noisy is the data?</li>
 <li>Do we see obvious outliers?</li>
 </ol>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -13204,19 +13208,39 @@ max     9.737739  22.921518
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Fitting-an-Least-Squares-Linear-Regression-Model">Fitting an Least Squares Linear Regression Model<a class="anchor-link" href="#Fitting-an-Least-Squares-Linear-Regression-Model">&#182;</a></h1><p>For the remainder of this lecture we will focus on fitting least squares linear regression models.  Recall that <strong>linear regression</strong> models are functions of the form:</p>
-\begin{align}
+<h1 id="Least-Squares-Linear-Regression--(Review)">Least Squares Linear Regression  (Review)<a class="anchor-link" href="#Least-Squares-Linear-Regression--(Review)">&#182;</a></h1><p>For the remainder of this lecture we will focus on fitting least squares linear regression models.  Recall that <strong>linear regression</strong> models are functions of the form:</p>
+\begin{align}\large
 f_\theta(x) = x^T \theta = \sum_{j=1}^p \theta_j x_j
-\end{align}<p>and <strong>least squares</strong> implies the following loss function of the form:</p>
-\begin{align}
+\end{align}<p>and <strong>least squares</strong> implies a loss function of the form:</p>
+\begin{align} \large
 L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)^2
-\end{align}<p>In the previous lecture, we derived the <strong>normal equation</strong> which defines the loss minimizing $\hat{\theta}$ for least squares linear regression:</p>
-\begin{align}
+\end{align}<p>In the previous lecture, we derived the <strong>normal equations</strong> which define the loss minimizing $\hat{\theta}$ for:</p>
+\begin{align}\large
 \hat{\theta} 
-& = \arg\min L_\mathcal{D}(\theta) \\
-& = \arg\min \frac{1}{n} \sum_{i=1}^n \left(y_i - X \theta \right)^2 \\
-& = \left( X^T X \right)^{-1} X^T Y
-\end{align}<p>In this lecture we will use the <a href="http://scikit-learn.org/stable/modules/linear_model.html">scikit-learn <code>linear_model</code> package</a> to compute the normal equations. This package supports a wide range of <strong>generalized linear models</strong>.  For those who are interested in studying machine learning, I would encourage you to skim through the descriptions of the various models in the <code>linear_model</code> package. These are the foundation of most practical applications of supervised machine learning.</p>
+& \large = \arg\min L_\mathcal{D}(\theta) \\
+& \large = \arg\min \frac{1}{n} \sum_{i=1}^n \left(y_i - X \theta \right)^2 \\
+& \large = \left( X^T X \right)^{-1} X^T Y
+\end{align}
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Linear-Regression-with-scikit-learn">Linear Regression with scikit-learn<a class="anchor-link" href="#Linear-Regression-with-scikit-learn">&#182;</a></h2><p>In this lecture we will use the <a href="http://scikit-learn.org/stable/modules/linear_model.html">scikit-learn <code>linear_model</code> package</a> to compute the normal equations. This package supports a wide range of <strong>generalized linear models</strong>.  For those who are interested in studying machine learning, I would encourage you to skim through the descriptions of the various models in the <code>linear_model</code> package. These are the foundation of most practical applications of supervised machine learning.</p>
 
 </div>
 </div>
@@ -13280,7 +13304,9 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Notice the following in the above code-block that explicitly added a <strong>bias</strong> (<strong>intercept</strong>) term by setting <code>fit_intercept=True</code>.  Therefore we will not need to add an additional <code>constant</code> feature.</p>
+<p><strong>Notice:</strong> In the above code block we explicitly added a <strong>bias</strong> (<strong>intercept</strong>) term by setting <code>fit_intercept=True</code>.  Therefore we will not need to add an additional <code>constant</code> feature.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -13290,7 +13316,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Plotting-the-Model">Plotting the Model<a class="anchor-link" href="#Plotting-the-Model">&#182;</a></h3><p>To plot the model we will predict the value of $Y$ for a range of $X$ values:</p>
+<h3 id="Plotting-the-Model">Plotting the Model<a class="anchor-link" href="#Plotting-the-Model">&#182;</a></h3><p>To plot the model we will predict the value of $Y$ for a range of $X$ values.  I will call these <strong>query points</strong> <code>X_query</code>.</p>
 
 </div>
 </div>
@@ -13301,11 +13327,32 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+</pre></div>
 
-<span class="c1"># Make Predictions for each test X_query value</span>
-<span class="c1">#   Note that np.linspace returns a 1d vector </span>
-<span class="c1">#   therefore we must transform it into a 2d column vector</span>
-<span class="n">line_Yhat_query</span> <span class="o">=</span> <span class="n">line_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_query</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_query</span><span class="p">),</span><span class="mi">1</span><span class="p">)))</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Use the regression model to render predictions at each <code>X_query</code> point.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Note that np.linspace returns a 1d vector therefore </span>
+<span class="c1"># we must transform it into a 2d column vector</span>
+<span class="n">line_Yhat_query</span> <span class="o">=</span> <span class="n">line_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_query</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_query</span><span class="p">),</span><span class="mi">1</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -13325,7 +13372,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">line_Yhat</span> <span class="o">=</span> <span class="n">line_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">]])</span>
@@ -13341,23 +13388,26 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The following Plot.ly code constructs a line as well as the residual plot</p>
+<p>The following visualization code constructs a line as well as the residual plot</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the least squares regression line </span>
-<span class="n">basic_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">r&quot;$\theta x$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">line_Yhat_query</span><span class="p">)</span>
+<span class="n">basic_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">r&quot;$\theta x$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+                        <span class="n">y</span><span class="o">=</span><span class="n">line_Yhat_query</span><span class="p">)</span>
 
-<span class="c1"># Definethe residual lines segments, a separate line for each training point</span>
+<span class="c1"># Definethe residual lines segments, a separate line for each </span>
+<span class="c1"># training point</span>
 <span class="n">residual_lines</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">],</span>
-                       <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
+               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+               <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">line_Yhat</span><span class="p">)</span>
 <span class="p">]</span>
 
@@ -13373,7 +13423,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/691.embed" height="525px" width="100%"></iframe>
@@ -13390,22 +13440,31 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Assessing-the-Fit">Assessing the Fit<a class="anchor-link" href="#Assessing-the-Fit">&#182;</a></h2><p>Starting Questions:</p>
-<ol>
+<h2 id="Assessing-the-Fit">Assessing the Fit<a class="anchor-link" href="#Assessing-the-Fit">&#182;</a></h2><ol>
 <li>Is our simple linear model a good fit?  </li>
 <li>What do we see in the above plot?</li>
 <li>Are there clear outliers?  </li>
 <li>Are there patterns to the residuals?</li>
 </ol>
-<p>To help answer these questions it can often be helpful to plot the residuals in a <strong>residual plot</strong>.  Residual plots plot the difference between the predicted value and the observed value in response to a particular covariate ($X$ dimension).  The residual plot can help reveal patterns in the residual that might support additional modeling.</p>
-<p>In the following we compute the residuals and then plot their values in response to our single $X$ feature dimension.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Residual-Analysis">Residual Analysis<a class="anchor-link" href="#Residual-Analysis">&#182;</a></h1><p>To help answer these questions it can often be helpful to plot the residuals in a <strong>residual plot</strong>.  Residual plots plot the difference between the predicted value and the observed value in response to a particular covariate ($X$ dimension).  The residual plot can help reveal patterns in the residual that might support additional modeling.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">residuals</span> <span class="o">=</span> <span class="n">line_Yhat</span> <span class="o">-</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> 
@@ -13418,13 +13477,14 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot.ly plotting code</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
     <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">)],</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> 
+                  <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
 <span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p3&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13436,7 +13496,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/693.embed" height="525px" width="100%"></iframe>
@@ -13453,30 +13513,46 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Do we see a pattern?  It looks like there is a cyclic pattern. To get an understanding of the pattern we could apply another regression package. In the following plotting code we call a more sophisticated regression package <code>sklearn.kernel_ridge</code> to estimate a smoothed approximation to the residuals.</p>
+<p><strong> Do we see a pattern? </strong></p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Using-a-Smoothing-Model">Using a Smoothing Model<a class="anchor-link" href="#Using-a-Smoothing-Model">&#182;</a></h2><p>To better visualize the pattern we could apply another regression package. In the following plotting code we call a more sophisticated regression package <code>sklearn.kernel_ridge</code> to estimate a smoothed approximation to the residuals.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.kernel_ridge</span> <span class="k">import</span> <span class="n">KernelRidge</span>
 
-<span class="c1"># Use Kernelized Ridge Regression with Radial Basis Functions to compute a smoothed </span>
-<span class="c1"># estimator.  Later in this lecture we will actually implement part of this function ...</span>
-<span class="n">clf</span> <span class="o">=</span> <span class="n">KernelRidge</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
+<span class="c1"># Use Kernelized Ridge Regression with Radial Basis Functions to </span>
+<span class="c1"># compute a smoothed estimator.  Later in this notebook we will </span>
+<span class="c1"># actually implement part of this  ...</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">KernelRidge</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">]],</span> <span class="n">residuals</span><span class="p">)</span>
 <span class="n">residual_smoothed</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_query</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_query</span><span class="p">),</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="c1"># Plot the residuals with with a kernel smoothing curve</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
-            <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> 
+                 <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> 
+                 <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
                  <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">))],</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> 
+                  <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
 <span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p4&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13488,7 +13564,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[28]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/695.embed" height="525px" width="100%"></iframe>
@@ -13505,17 +13581,18 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Again, the above plot suggests a cyclic pattern to the residuals. In higher dimensional settings and when many features are binary indicators (e.g., one-hot encoding) it will become difficult to interpret <strong>residual plots</strong>.  In these, cases we may instead examine the distribution of the residual to identify skew and outliers.</p>
+<p>Again, the above plot suggests a cyclic pattern to the residuals. In higher dimensional settings or when many features are binary indicators (e.g., one-hot encoding) it will become difficult to interpret <strong>residual plots</strong>.  In these, cases we may instead examine the distribution of the residual to identify skew and outliers.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p5&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p5&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13526,7 +13603,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/697.embed" height="525px" width="100%"></iframe>
@@ -13543,7 +13620,9 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>From the above plot we see that there are several large outliers but otherwise the residuals are concentrated around 0.  A good sign!</p>
+<p>From the above plot we see that there are several large outliers and there  appears to be a gap just above 0.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -13553,7 +13632,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Improving-the-Fit-through-Feature-Engineering">Improving the Fit through Feature Engineering<a class="anchor-link" href="#Improving-the-Fit-through-Feature-Engineering">&#182;</a></h2>
+<h2 id="Cyclic-Non-linearity">Cyclic Non-linearity<a class="anchor-link" href="#Cyclic-Non-linearity">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13569,14 +13648,18 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
-            <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
-                 <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">))],</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> 
+             <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
+        <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> 
+             <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
+             <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">))],</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> 
+                  <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
 <span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p4&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13588,7 +13671,7 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/695.embed" height="525px" width="100%"></iframe>
@@ -13608,8 +13691,8 @@ L_\mathcal{D}(\theta) = \frac{1}{n} \sum_{i=1}^n \left(y_i - f_\theta(x) \right)
 <p><strong>Question:</strong> Can we fit this non-linear cyclic structure with a linear model?</p>
 <p><br/><br/><br/></p>
 <hr>
-<h2 id="Feature-Transformations-and-Non-Linearity">Feature Transformations and Non-Linearity<a class="anchor-link" href="#Feature-Transformations-and-Non-Linearity">&#182;</a></h2><p>Let's return to what it means to be a linear model:</p>
-$$
+<h2 id="What-does-it-mean-to-be-a-linear-model">What does it mean to be a <em>linear model</em><a class="anchor-link" href="#What-does-it-mean-to-be-a-linear-model">&#182;</a></h2><p>Let's return to what it means to be a linear model:</p>
+$$\large
 f_\theta(x) = x^T \theta = \sum_{j=1}^p x_j \theta_j
 $$<p>In what sense is the above model <strong>linear</strong>?</p>
 <ol>
@@ -13617,37 +13700,9 @@ $$<p>In what sense is the above model <strong>linear</strong>?</p>
 <li>Linear in the parameters $\theta$?</li>
 </ol>
 <hr>
-<p>The answer is <strong>yes</strong> to all the above questions!  However, consider the following alternative model formulation:</p>
-$$
-f_\theta\left( \phi(x) \right) = \phi(x)^T \theta = \sum_{j=1}^{k} \phi(x)_j \theta_j
-$$<p>where $\phi_j$ is an <em>arbitrary function</em> from $x\in \mathbb{R}^p$ to $\phi(x)_j \in \mathbb{R}$ and we define $k$ of these functions.  We often refer to these functions $\phi_j$ as <strong>feature functions</strong> or <strong>basis functions</strong> (especially in the context of linear models) and their design plays a critical role in both how we capture prior knowledge and our ability to fit complicated data.</p>
-<p>Let's consider basic example <strong>feature functions</strong> that might reveal important information:</p>
-\begin{align}
-\phi(\text{date}, \text{lat}, \text{lon}, \text{income})_1 
-&= \textbf{isWinter}(\text{date}) \\
-\phi(\text{date}, \text{lat}, \text{lon}, \text{income})_2 
-&= \cos\left( \frac{\textbf{Hour}(\text{date})}{12} \pi \right)  \\
-\phi(\text{date}, \text{lat}, \text{lon}, \text{income})_3 
-&= \frac{\text{income}}{\textbf{avg_income}[\textbf{ZipCode}[\text{lat}, \text{lon}]]} \\
-\phi(\text{date}, \text{lat}, \text{lon}, \text{income})_4 
-&= \exp\left(-\textbf{Distance}\left((\text{lat},\text{lon}),  \textbf{StoreA}\right)\right)^2 \\
-\phi(\text{date}, \text{lat}, \text{lon}, \text{income})_5 
-&= \exp\left(-\textbf{Distance}\left((\text{lat},\text{lon}),  \textbf{StoreB}\right)\right)^2 
-\end{align}<p><strong>Notice:</strong> In the above feature functions:</p>
-<ol>
-<li>The transformations are non-linear</li>
-<li>They may pull in additional information (e.g., seasons, relationship between lat-lon and zipcode)</li>
-<li>They may encode implicit knowledge about a problem.</li>
-<li>The functions $\phi$ <strong>do not</strong> depend on $\theta$</li>
-</ol>
-<p>As a consequence, while the model $f_\theta\left( \phi(x) \right)$ is no longer linear in $x$ it is still a <strong>linear model</strong> because it <em>is linear in $\theta$</em>.  This means we can continue to use the normal equations to compute the optimal parameters.</p>
-<p>To apply the normal equations we define the transformed feature matrix:</p>
-<p><img src="phi_matrix.png" width="400px"></p>
-<p>Then substituting $\Phi$ for $X$ we obtain the <strong>normal equations</strong>:</p>
-$$
-\hat{\theta} = \left( \Phi^T \Phi \right)^{-1} \Phi^T Y
-$$<p>It is worth noting that the model is also linear in $\Phi$ and that the $\phi_j$ form a new <strong>basis</strong> (hence the term <strong>basis functions</strong>) in which the data live.  As a consequence we can think of $\phi$ as mapping the data into a new (often higher dimensional space) in which the relationship between $y$ and $\phi(x)$ is defined by a <strong>hyperplane</strong>.</p>
-<p>In the following we construct a $\phi$ to capture the cyclic nature of our data and visualize the corresponding hyperplane.</p>
+<p><br/><br/><br/><br/><br/> <br/></p>
+<p>The answer is <strong>yes</strong> to all the above questions!</p>
+<p><br/><br/></p>
 
 </div>
 </div>
@@ -13657,16 +13712,93 @@ $$<p>It is worth noting that the model is also linear in $\Phi$ and that the $\p
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Transforming-the-data-with-$\phi$">Transforming the data with $\phi$<a class="anchor-link" href="#Transforming-the-data-with-$\phi$">&#182;</a></h2><p>In the following cell we define a function $\phi$ that maps $x\in \mathbb{R}$ to the vector $[x,\sin(x)] \in \mathbb{R}^2$</p>
-$$
+<h1 id="Feature-Functions">Feature Functions<a class="anchor-link" href="#Feature-Functions">&#182;</a></h1><p>Consider the following alternative model formulation:</p>
+$$\large
+f_\theta\left( \phi(x) \right) = \phi(x)^T \theta = \sum_{j=1}^{k} \phi(x)_j \theta_j
+$$<p>where $\phi_j$ is an <em>arbitrary function</em> from $x\in \mathbb{R}^p$ to $\phi(x)_j \in \mathbb{R}$ and we define $k$ of these functions.  We often refer to these functions $\phi_j$ as <strong>feature functions</strong> or <strong>basis functions</strong> and their design plays a critical role in both how we capture prior knowledge and our ability to fit complicated data.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Capturing-Domain-Knowledge">Capturing Domain Knowledge<a class="anchor-link" href="#Capturing-Domain-Knowledge">&#182;</a></h1><p>Feature functions can be used to capture domain knowledge by:</p>
+<ol>
+<li>Introducing additional information from other sources</li>
+<li>Combining related features</li>
+<li>Encoding non-linear patterns</li>
+</ol>
+<p>Suppose I had data about customer purchases and I wanted to estimate their income:</p>
+\begin{align}
+\phi(\text{date}, \text{lat}, \text{lon}, \text{amount})_1 
+&= \textbf{isWinter}(\text{date}) \\
+\phi(\text{date}, \text{lat}, \text{lon}, \text{amount})_2 
+&= \cos\left( \frac{\textbf{Hour}(\text{date})}{12} \pi \right)  \\
+\phi(\text{date}, \text{lat}, \text{lon}, \text{amount})_3 
+&= \frac{\text{amount}}{\textbf{avg_spend}[\textbf{ZipCode}[\text{lat}, \text{lon}]]} \\
+\phi(\text{date}, \text{lat}, \text{lon}, \text{amount})_4 
+&= \exp\left(-\textbf{Distance}\left((\text{lat},\text{lon}),  \textbf{StoreA}\right)\right)^2 \\
+\phi(\text{date}, \text{lat}, \text{lon}, \text{amount})_5 
+&= \exp\left(-\textbf{Distance}\left((\text{lat},\text{lon}),  \textbf{StoreB}\right)\right)^2 
+\end{align}<p><strong>Notice:</strong> In the above feature functions:</p>
+<ol>
+<li>The transformations are non-linear</li>
+<li>They pull in additional information</li>
+<li>They may encode implicit knowledge</li>
+<li>The functions $\phi$ <strong>do not</strong> depend on $\theta$</li>
+</ol>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Linear-in-$\theta$">Linear in $\theta$<a class="anchor-link" href="#Linear-in-$\theta$">&#182;</a></h2><p>As a consequence, while the model $f_\theta\left( \phi(x) \right)$ is no longer linear in $x$ it is still a <strong>linear model</strong> because it <em>is linear in $\theta$</em>.  This means we can continue to use the normal equations to compute the optimal parameters.</p>
+<p>To apply the normal equations we define the transformed feature matrix:</p>
+<p><img src="phi_matrix.png" width="400px"></p>
+<p>Then substituting $\Phi$ for $X$ we obtain the <strong>normal equation</strong>:</p>
+$$ \large
+\hat{\theta} = \left( \Phi^T \Phi \right)^{-1} \Phi^T Y
+$$<p>It is worth noting that the model is also linear in $\Phi$ and that the $\phi_j$ form a new <strong>basis</strong> (hence the term <strong>basis functions</strong>) in which the data live.  As a consequence we can think of $\phi$ as mapping the data into a new (often higher dimensional space) in which the relationship between $y$ and $\phi(x)$ is defined by a <strong>hyperplane</strong>.</p>
+<hr>
+<p><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Transforming-the-data-with-$\phi$">Transforming the data with $\phi$<a class="anchor-link" href="#Transforming-the-data-with-$\phi$">&#182;</a></h2><p>In our toy data set we observed a cyclic pattern.  Here we construct a $\phi$ to capture the cyclic nature of our data and visualize the corresponding hyperplane.</p>
+<p>In the following cell we define a function $\phi$ that maps $x\in \mathbb{R}$ to the vector $[x,\sin(x)] \in \mathbb{R}^2$</p>
+$$ \large
 \phi(x) = [x, \sin(x)]
-$$
+$$<p><strong>Why not:</strong></p>
+$$ \large
+\phi(x) = [x, \sin(\theta_3 x + \theta_4)]
+$$<p>This would no longer be linear $\theta$.  However, in practice we might want to consider a range of $\sin$ basis:</p>
+$$ \large
+\phi_{\alpha,\beta}(x) = \sin(\alpha x + \beta)
+$$<p>for different values of $\alpha$ and $\beta$.  The parameters $\alpha$ and $\beta$ are typically called <strong>hyperparameters</strong> because (at least in this setting) they are not set automatically through learning.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sin_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -13683,14 +13815,14 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We then compute the $\Phi$ matrix by applying $phi$ to reach row (record) in the matrix $X$.</p>
+<p>We then compute the matrix $\Phi$ by applying $\phi$ to reach row (record) in the matrix $X$.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sin_phi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">]])</span>
@@ -13707,7 +13839,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13733,6 +13865,8 @@ $$
 <div class="highlight"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">])))</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 <p>however in this notebook we will use more explicit <code>for</code> loop notation.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -13742,13 +13876,23 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Fit-a-Second-Linear-Model-on-$\Phi$">Fit a Second <em>Linear Model</em> on $\Phi$<a class="anchor-link" href="#Fit-a-Second-Linear-Model-on-$\Phi$">&#182;</a></h2>
+<h1 id="Fit-a-Linear-Model-on-$\Phi$">Fit a <em>Linear Model</em> on $\Phi$<a class="anchor-link" href="#Fit-a-Linear-Model-on-$\Phi$">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can again use the scikit-learn package to fit a linear model on the transformed space.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sin_reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -13763,7 +13907,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13778,24 +13922,30 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># plot the regression line</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Making predictions at the transformed query points</span>
 <span class="n">Phi_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">sin_phi</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">X_query</span><span class="p">])</span>
 <span class="n">sin_Yhat_query</span> <span class="o">=</span> <span class="n">sin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Phi_query</span><span class="p">)</span>
+
+<span class="c1"># plot the regression line</span>
 <span class="n">sin_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">r&quot;$\theta_0 x + \theta_1 \sin(x)$ &quot;</span><span class="p">,</span> 
                        <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sin_Yhat_query</span><span class="p">)</span>
 
-<span class="c1"># Plot the residual segments</span>
+<span class="c1"># Make predictions at the training points</span>
 <span class="n">sin_Yhat</span> <span class="o">=</span> <span class="n">sin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
+
+<span class="c1"># Plot the residual segments</span>
 <span class="n">residual_lines</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">,</span><span class="n">yhat</span><span class="p">],</span>
-               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
+               <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+               <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">))</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">sin_Yhat</span><span class="p">)</span>
 <span class="p">]</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">]</span> <span class="o">+</span> <span class="n">residual_lines</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p10&quot;</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">]</span> <span class="o">+</span> <span class="n">residual_lines</span><span class="p">,</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p10&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13806,7 +13956,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/699.embed" height="525px" width="100%"></iframe>
@@ -13830,25 +13980,28 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sin_Yhat</span> <span class="o">=</span> <span class="n">sin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
 <span class="n">residuals</span> <span class="o">=</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">sin_Yhat</span>
 
 
-<span class="c1"># Use Kernelized Ridge Regression with Radial Basis Functions to compute a smoothed </span>
-<span class="c1"># estimator.  Later in this lecture we will actually implement part of this function ...</span>
+<span class="c1"># Use Kernelized Ridge Regression with Radial Basis Functions to </span>
+<span class="c1"># compute a smoothed estimator. </span>
 <span class="n">clf</span> <span class="o">=</span> <span class="n">KernelRidge</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;rbf&#39;</span><span class="p">)</span>
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_data</span><span class="p">[[</span><span class="s1">&#39;X&#39;</span><span class="p">]],</span> <span class="n">residuals</span><span class="p">)</span>
 <span class="n">residual_smoothed</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">X_query</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X_query</span><span class="p">),</span><span class="mi">1</span><span class="p">)))</span>
 
 <span class="c1"># Plot the residuals with with a kernel smoothing curve</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
-            <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Residuals&quot;</span><span class="p">,</span> 
+                 <span class="n">x</span><span class="o">=</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;X&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">residuals</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">),</span>
+            <span class="nb">dict</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Smoothed Approximation&quot;</span><span class="p">,</span> 
+                 <span class="n">x</span><span class="o">=</span><span class="n">X_query</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">residual_smoothed</span><span class="p">,</span> 
                  <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dash&quot;</span><span class="p">))],</span>
-    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
+    <span class="n">layout</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual Plot&quot;</span><span class="p">,</span> 
+                  <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;X&quot;</span><span class="p">),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Residual&quot;</span><span class="p">))</span>
 <span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p11&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -13860,7 +14013,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/701.embed" height="525px" width="100%"></iframe>
@@ -13884,10 +14037,11 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p12&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residuals</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">]),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p12&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13898,7 +14052,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/703.embed" height="525px" width="100%"></iframe>
@@ -13915,7 +14069,9 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Recall earlier that our residuals were more spread from -10 to 10 and now they have become more concentrated.  However, the outliers remain.  Is that a problem?</p>
+<p><strong>Recall</strong> earlier that our residuals were more spread from -10 to 10 and now they have become more concentrated.  However, the outliers remain.  Is that a problem?</p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -13932,7 +14088,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data in higher dimensions</span>
@@ -13959,7 +14115,8 @@ $$
 <span class="n">Yhat</span> <span class="o">=</span> <span class="n">sin_reg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">Phi</span><span class="p">)</span>
 <span class="n">residual_lines</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">],</span>
-                 <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
+                 <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                 <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
     <span class="k">for</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">Yhat</span><span class="p">)</span>
 <span class="p">]</span>
 
@@ -13970,7 +14127,8 @@ $$
         <span class="n">xaxis</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">XAxis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">),</span>
         <span class="n">yaxis</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">YAxis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;sin(X)&#39;</span><span class="p">),</span>
         <span class="n">zaxis</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">ZAxis</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Y&#39;</span><span class="p">),</span>
-        <span class="n">aspectratio</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.</span><span class="p">),</span> <span class="n">camera</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">aspectratio</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mf">1.</span><span class="p">),</span> 
+        <span class="n">camera</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">eye</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
     <span class="p">)</span>
 <span class="p">)</span>
 
@@ -13985,7 +14143,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/705.embed" height="525px" width="100%"></iframe>
@@ -14002,8 +14160,19 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<p><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Loss-Minimization">Loss Minimization<a class="anchor-link" href="#Loss-Minimization">&#182;</a></h1><p>Recall that in each stage of the process we have been minimizing the squared prediction error while increasing the sophistication of our model by introducing new features. When plotting the prediction error it is common to compute the <strong>root mean squared error (RMSE)</strong> which is the square-root of the average squared loss over the training data.</p>
-$$
+$$ \large
 \textbf{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^n \left(Y_i - f_\theta(X_i)\right)^2}
 $$
 </div>
@@ -14011,7 +14180,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sq_loss</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
@@ -14020,11 +14189,25 @@ $$
 <span class="n">const_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 <span class="n">line_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">line_Yhat</span><span class="p">))</span>
 <span class="n">sin_rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">train_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">sin_Yhat</span><span class="p">))</span>
+</pre></div>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">],</span>
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> 
+               <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">],</span>
             <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">const_rmse</span><span class="p">,</span> <span class="n">line_rmse</span><span class="p">,</span> <span class="n">sin_rmse</span><span class="p">]</span>
-    <span class="p">)],</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Loss Comparison&quot;</span><span class="p">,</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;RMSE&quot;</span><span class="p">))),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p15&quot;</span><span class="p">)</span>
+            <span class="p">)],</span> <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;Loss Comparison&quot;</span><span class="p">,</span> 
+                           <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;RMSE&quot;</span><span class="p">))),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p15&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14035,7 +14218,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/707.embed" height="525px" width="100%"></iframe>
@@ -14052,20 +14235,69 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By adding the addition <code>sine</code> feature function were were able to reduce the prediction error. Could we improve further?</p>
-<h3 id="Quick-Note-on-Feature-Functions:">Quick Note on Feature Functions:<a class="anchor-link" href="#Quick-Note-on-Feature-Functions:">&#182;</a></h3><ol>
-<li><strong>Domain Specific Features:</strong> In settings where our goal is to understand the model (e.g., identify important features that predict customer churn) we may want to manually construct meaningful features based on our understanding of the domain.  </li>
-<li><strong>Generic Features:</strong> However, in other settings where our primary goals is to make accurate predictions we may instead introduce generic feature functions that enable our models to fit <em>and generalize</em> complex relationships. </li>
+<p>By adding the <code>sine</code> feature function were were able to reduce the prediction error. How could we improve further?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Generic-Feature-Functions">Generic Feature Functions<a class="anchor-link" href="#Generic-Feature-Functions">&#182;</a></h1><p>We will now explore a range of generic feature transformations. However before we proceed it is worth contrasting two categories of feature functions and their applications.</p>
+<ol>
+<li><p><strong>Domain Specific Features:</strong> In settings where our goal is to understand the model (e.g., identify important features that predict customer churn) we may want to construct meaningful features based on our understanding of the domain.</p>
+</li>
+<li><p><strong>Generic Features:</strong> However, in other settings where our primary goals is to make accurate predictions we may instead introduce generic feature functions that enable our models to fit <em>and generalize</em> complex relationships.</p>
+</li>
 </ol>
-<p><br/><br/><br/></p>
-<h2 id="Generating-Synthetic-Basis-Functions">Generating Synthetic Basis Functions<a class="anchor-link" href="#Generating-Synthetic-Basis-Functions">&#182;</a></h2><p>We will now explore a range of generic feature transformations.  To simply the comparison of feature functions we define the following routine:</p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-Polynomial-Basis:">The Polynomial Basis:<a class="anchor-link" href="#The-Polynomial-Basis:">&#182;</a></h2><p>The first set of generic feature functions we will consider is the polynomial basis:</p>
+\begin{align}
+\phi(x) = [x, x^2, x^3, \ldots, x^k]
+\end{align}<p>We can define a generic python function to implement this basis:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">poly_phi</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To simply the comparison of feature functions we define the following routine:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">evaluate_basis</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">desc</span><span class="p">):</span>
@@ -14100,25 +14332,23 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We first consider the polynomial basis:</p>
-\begin{align}
-\phi(x) = [x, x^2, x^3, \ldots, x^k]
-\end{align}<h3 id="Starting-with-$k=4$-degree-polynomials">Starting with $k=4$ degree polynomials<a class="anchor-link" href="#Starting-with-$k=4$-degree-polynomials">&#182;</a></h3>
+<h3 id="Starting-with-$k=5$-degree-polynomials">Starting with $k=5$ degree polynomials<a class="anchor-link" href="#Starting-with-$k=5$-degree-polynomials">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">poly_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
-
-<span class="p">(</span><span class="n">poly_line</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">,</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">poly_line</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">train_points</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> 
-        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p16&quot;</span><span class="p">)</span>
+                   <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> 
+                                      <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p16&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14129,7 +14359,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/709.embed" height="525px" width="100%"></iframe>
@@ -14152,17 +14382,17 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">poly_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">x</span> <span class="o">**</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">16</span><span class="p">)]</span>
-
-<span class="p">(</span><span class="n">poly_line</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">,</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">poly_line</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="s2">&quot;Polynomial&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">train_points</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> 
-        <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> 
-        <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p17&quot;</span><span class="p">)</span>
+                   <span class="n">layout</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">]),</span> 
+                                      <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">]))),</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p17&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14173,7 +14403,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/711.embed" height="525px" width="100%"></iframe>
@@ -14197,11 +14427,12 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> 
+               <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">,</span> 
                <span class="s1">&#39;Polynomial&#39;</span><span class="p">],</span>
             <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">const_rmse</span><span class="p">,</span> <span class="n">line_rmse</span><span class="p">,</span> <span class="n">sin_rmse</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">]</span>
     <span class="p">)],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p18&quot;</span><span class="p">)</span>
@@ -14215,7 +14446,7 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/713.embed" height="525px" width="100%"></iframe>
@@ -14233,6 +14464,8 @@ $$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This was a slight improvement.  Perhaps we should increase to a higher degree polynomial? Why or why not?  We will return to this soon.</p>
+<hr>
+<p><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
@@ -14242,11 +14475,11 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Radial-Basis-Functions">Radial Basis Functions<a class="anchor-link" href="#Radial-Basis-Functions">&#182;</a></h2><p>One of the more widely used generic feature functions are radial basis functions.  These feature functions take the form:</p>
+<h2 id="Gaussian-Radial-Basis-Functions">Gaussian Radial Basis Functions<a class="anchor-link" href="#Gaussian-Radial-Basis-Functions">&#182;</a></h2><p>One of the more widely used generic feature functions are Gaussian radial basis functions.  These feature functions take the form:</p>
 $$
 \phi_{(\lambda, u_1, \ldots, u_k)}(x) = \left[\exp\left( - \frac{\left|\left|x-u_1\right|\right|_2^2}{\lambda} \right), \ldots, 
 \exp\left( - \frac{\left|\left| x-u_k \right|\right|_2^2}{\lambda} \right) \right]
-$$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lambda$ are not optimized with $\theta$ but instead are set externally.  In many cases the $u_i$ may correspond to points in the training data.  The term $\lambda$ defines the spread of the basis function and determines the "smoothness" of the function $f_\theta(\phi(x))$.</p>
+$$<p>The <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lambda$ are not optimized with $\theta$ but instead are set externally.  In many cases the $u_i$ may correspond to points in the training data.  The term $\lambda$ defines the spread of the basis function and determines the "smoothness" of the function $f_\theta(\phi(x))$.</p>
 <p>The following is a plot of three radial basis function centered at 2 with different values of $\lambda$.</p>
 
 </div>
@@ -14254,16 +14487,31 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">radial_basis_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">lam</span><span class="p">)</span>
-<span class="n">tmpX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_rbf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">lam</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tmpX</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span>
-    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=0.5$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">tmpX</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)),</span>
-    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=1$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">tmpX</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">1.</span><span class="p">)),</span>
-    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=2$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">tmpX</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">2.</span><span class="p">))</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=0.5$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> 
+         <span class="n">y</span><span class="o">=</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)(</span><span class="n">tmpX</span><span class="p">)),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=1$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> 
+         <span class="n">y</span><span class="o">=</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">1.</span><span class="p">)(</span><span class="n">tmpX</span><span class="p">)),</span>
+    <span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">r&quot;$\lambda=2$&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">tmpX</span><span class="p">,</span> 
+         <span class="n">y</span><span class="o">=</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mf">2.</span><span class="p">)(</span><span class="n">tmpX</span><span class="p">))</span>
 <span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p19&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -14275,7 +14523,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/715.embed" height="525px" width="100%"></iframe>
@@ -14299,11 +14547,11 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 
 <span class="p">(</span><span class="n">rbf_line</span><span class="p">,</span> <span class="n">rbf_rmse</span><span class="p">,</span> <span class="n">rbf_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">rbf_phi</span><span class="p">,</span> <span class="s2">r&quot;RBF&quot;</span><span class="p">)</span>
 
@@ -14318,7 +14566,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/717.embed" height="525px" width="100%"></iframe>
@@ -14341,15 +14589,19 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mf">10.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">)]</span>
 
-<span class="p">(</span><span class="n">rbf_line</span><span class="p">,</span> <span class="n">rbf_rmse</span><span class="p">,</span> <span class="n">rbf_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">rbf_phi</span><span class="p">,</span> <span class="s2">r&quot;RBF&quot;</span><span class="p">)</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">rbf_line</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p21&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">rbf_line</span><span class="p">,</span> <span class="n">rbf_rmse</span><span class="p">,</span> <span class="n">rbf_reg</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">rbf_phi</span><span class="p">,</span> <span class="s2">r&quot;RBF&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">rbf_line</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span>
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p21&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14360,7 +14612,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/719.embed" height="525px" width="100%"></iframe>
@@ -14384,11 +14636,12 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">,</span> 
+            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s1">r&#39;$\theta $&#39;</span><span class="p">,</span> <span class="s1">r&#39;$\theta x$&#39;</span><span class="p">,</span> 
+               <span class="s1">r&#39;$\theta_0 x + \theta_1 \sin(x)$&#39;</span><span class="p">,</span> 
                <span class="s2">r&quot;Polynomial&quot;</span><span class="p">,</span>
                <span class="s2">r&quot;RBF&quot;</span><span class="p">],</span>
             <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">const_rmse</span><span class="p">,</span> <span class="n">line_rmse</span><span class="p">,</span> <span class="n">sin_rmse</span><span class="p">,</span> <span class="n">poly_rmse</span><span class="p">,</span> <span class="n">rbf_rmse</span><span class="p">]</span>
@@ -14403,7 +14656,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[50]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/721.embed" height="525px" width="100%"></iframe>
@@ -14426,17 +14679,20 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">crazy_rbf_phi</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span>
-        <span class="p">[</span><span class="n">radial_basis_function</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
+        <span class="p">[</span><span class="n">gaussian_rbf</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="mf">1.</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
     <span class="p">)</span>
 
-<span class="p">(</span><span class="n">crazy_rbf_line</span><span class="p">,</span> <span class="n">crazy_rbf_rmse</span><span class="p">,</span> <span class="n">crazy_rbf_reg</span><span class="p">)</span> <span class="o">=</span> <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">crazy_rbf_phi</span><span class="p">,</span> <span class="s2">&quot;RBF + Crazy&quot;</span><span class="p">)</span>
+<span class="p">(</span><span class="n">crazy_rbf_line</span><span class="p">,</span> <span class="n">crazy_rbf_rmse</span><span class="p">,</span> <span class="n">crazy_rbf_reg</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">evaluate_basis</span><span class="p">(</span><span class="n">crazy_rbf_phi</span><span class="p">,</span> <span class="s2">&quot;RBF + Crazy&quot;</span><span class="p">)</span>
+<span class="p">)</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">crazy_rbf_line</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p24&quot;</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">train_points</span><span class="p">,</span> <span class="n">crazy_rbf_line</span><span class="p">,</span> <span class="n">poly_line</span><span class="p">,</span> <span class="n">sin_line</span><span class="p">,</span> <span class="n">basic_line</span><span class="p">],</span> 
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;L19_b_p24&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -14447,7 +14703,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/723.embed" height="525px" width="100%"></iframe>
@@ -14461,7 +14717,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_bars</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Train&quot;</span><span class="p">,</span>
@@ -14482,7 +14738,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[52]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/725.embed" height="525px" width="100%"></iframe>
@@ -14507,7 +14763,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;toy_test_data.csv&quot;</span><span class="p">)</span>
@@ -14525,7 +14781,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[49]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[53]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/727.embed" height="525px" width="100%"></iframe>
@@ -14539,7 +14795,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">test_rmse</span><span class="p">(</span><span class="n">phi</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
@@ -14554,7 +14810,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">test_bars</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Test&quot;</span><span class="p">,</span>
@@ -14565,7 +14821,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
     <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sq_loss</span><span class="p">(</span><span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="n">test_data</span><span class="p">[</span><span class="s1">&#39;Y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())),</span> 
        <span class="n">test_rmse</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">line_reg</span><span class="p">),</span>
        <span class="n">test_rmse</span><span class="p">(</span><span class="n">sin_phi</span><span class="p">,</span> <span class="n">sin_reg</span><span class="p">),</span>
-       <span class="n">test_rmse</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">,</span> <span class="n">poly_reg</span><span class="p">),</span>
+       <span class="n">test_rmse</span><span class="p">(</span><span class="n">poly_phi</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span> <span class="n">poly_reg</span><span class="p">),</span>
        <span class="n">test_rmse</span><span class="p">(</span><span class="n">rbf_phi</span><span class="p">,</span> <span class="n">rbf_reg</span><span class="p">),</span>
        <span class="n">test_rmse</span><span class="p">(</span><span class="n">crazy_rbf_phi</span><span class="p">,</span> <span class="n">crazy_rbf_reg</span><span class="p">)]</span>
     <span class="p">)</span>
@@ -14581,7 +14837,7 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[51]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[55]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/729.embed" height="525px" width="100%"></iframe>
@@ -14611,25 +14867,68 @@ $$<p>The points <strong>hyper-parameters</strong> $u_1$ through $u_k$ and $\lamb
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="What's-happening:-Over-fitting">What's happening: <em>Over-fitting</em><a class="anchor-link" href="#What's-happening:-Over-fitting">&#182;</a></h1><p>As we increase the expressiveness of our model we begin to <strong>over-fit</strong> to the variability in our training data.  In a sense, we are finding patterns that do not <strong>generalize</strong> to the data we have not yet seen.</p>
-<p><strong>Over-fitting</strong> is the dominant challenge in machine learning and statistical inference.  At it's core is a fundamental trade-off between <strong>bias</strong> and <strong>variance</strong></p>
-<p>between our desire to explain what we observe and yet be able to use that explanation to reason about what we have not observed.</p>
+<h1 id="What's-happening:-Over-fitting">What's happening: <em>Over-fitting</em><a class="anchor-link" href="#What's-happening:-Over-fitting">&#182;</a></h1><p>As we increase the expressiveness of our model we begin to <strong>over-fit</strong> to the variability in our training data.  That is we are learning patterns that do not <strong>generalize</strong> beyond our training dataset</p>
+<p><strong>Over-fitting</strong> is a key challenge in machine learning and statistical inference.  At it's core is a fundamental trade-off between <strong>bias</strong> and <strong>variance</strong>: <em>the desire to explain the training data and yet be robust to variation in the training data</em>.</p>
+<p>We will study the <strong>bias-variance</strong> trade-off more in the next lecture but for now we will focus on the trade-off between under fitting and over fitting:</p>
+<p><img src="under_over_fitting.png" width="500px"></p>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
 <div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Train,-Test,-and-Validation-Splitting">Train, Test, and Validation Splitting<a class="anchor-link" href="#Train,-Test,-and-Validation-Splitting">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To manage over-fitting it is essential to split your initial training data into a training and testing dataset.</p>
+<p><img src="train_test_split.png" width="500px"></p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Cross-Validation">Cross Validation<a class="anchor-link" href="#Cross-Validation">&#182;</a></h1><p>Before running cross validation split the data into train and test subsets (typically a 90-10 split). <strong>Do not look at the test data until after selecting your final model.</strong></p>
+<p>With the remaining training data:</p>
+<ol>
+<li>Split the remaining training dataset k-different ways (as in the figure above)</li>
+<li>For each split train the model on the training fraction and then compute the error (RMSE) on the validation fraction.</li>
+<li>Average the error across each validation fraction to <em>estimate</em> the test error.</li>
+</ol>
+<p><strong>Questions:</strong></p>
+<ol>
+<li>What is this accomplishing?</li>
+<li>What are the implication on the choice of $k$? </li>
+</ol>
+<hr>
+<p><br/><br/><br/><br/><br/><br/></p>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Next-time:">Next time:<a class="anchor-link" href="#Next-time:">&#182;</a></h1><p>We will dig more into the bias variance trade-off and introduce the concept of regularization to parametrically explore the space of model complexity.</p>
+
+</div>
+</div>
 </div>
     </div>
   </div>
