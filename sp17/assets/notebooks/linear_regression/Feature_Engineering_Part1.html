@@ -12578,7 +12578,7 @@ dtype: int8</pre>
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="One-Hot-Encoding-Icecream">One-Hot Encoding Icecream<a class="anchor-link" href="#One-Hot-Encoding-Icecream">&#182;</a></h1><p>Suppose you obtain the log of icecream sales for a popular icecream shop.</p>
 <p><img src="http://mitchellsicecream.com/wp-content/uploads/wow-slider-plugin/7/images/home.jpg" width="400px"></p>
-<p>The data consists of the flavor and topping, the total icecream weight, and the price charged.</p>
+<p>The data consists of the flavor and topping, the total icecream mass (mass), and the price charged.</p>
 
 </div>
 </div>
@@ -12610,45 +12610,45 @@ dtype: int8</pre>
       <th></th>
       <th>flavor</th>
       <th>topping</th>
-      <th>weight</th>
+      <th>mass</th>
       <th>price</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>Strawberry</td>
-      <td>None</td>
+      <td>Chocolate</td>
+      <td>Chocolate</td>
       <td>2.5</td>
-      <td>1.25</td>
+      <td>2.50</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>Vanilla</td>
       <td>Chocolate</td>
-      <td>None</td>
       <td>4.8</td>
-      <td>3.84</td>
+      <td>4.10</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Vanilla</td>
+      <td>Strawberry</td>
       <td>Sprinkles</td>
       <td>3.9</td>
-      <td>3.25</td>
+      <td>2.26</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Vanilla</td>
+      <td>Strawberry</td>
       <td>Sprinkles</td>
       <td>3.4</td>
-      <td>2.85</td>
+      <td>2.00</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Strawberry</td>
-      <td>None</td>
+      <td>Chocolate</td>
+      <td>Chocolate</td>
       <td>1.6</td>
-      <td>0.81</td>
+      <td>1.80</td>
     </tr>
   </tbody>
 </table>
@@ -12666,10 +12666,10 @@ dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Predicting-the-price-of-icecream">Predicting the price of icecream<a class="anchor-link" href="#Predicting-the-price-of-icecream">&#182;</a></h3><p><strong>How would you predict the price of icecream given the flavor, topping, and weight?</strong></p>
+<h3 id="Predicting-the-price-of-icecream">Predicting the price of icecream<a class="anchor-link" href="#Predicting-the-price-of-icecream">&#182;</a></h3><p><strong>How would you predict the price of icecream given the flavor, topping, and mass?</strong></p>
 <hr>
 <p><br/><br/><br/><br/><br/>
-Let's start simple and focus on predicting the price from the weight:</p>
+Let's start simple and focus on predicting the price from the mass:</p>
 
 </div>
 </div>
@@ -12681,12 +12681,12 @@ Let's start simple and focus on predicting the price from the weight:</p>
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">linear_model</span>
 
-<span class="c1"># Train a linear regression modle to predict price from weight</span>
-<span class="n">reg_weight</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">reg_weight</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">icecream</span><span class="p">[[</span><span class="s1">&#39;weight&#39;</span><span class="p">]],</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="c1"># Train a linear regression modle to predict price from mass</span>
+<span class="n">reg_mass</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">reg_mass</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">icecream</span><span class="p">[[</span><span class="s1">&#39;mass&#39;</span><span class="p">]],</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
 
 <span class="c1"># Make predictions for each of the purchases in our dataset </span>
-<span class="n">yhat_weight</span> <span class="o">=</span> <span class="n">reg_weight</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">icecream</span><span class="p">[[</span><span class="s1">&#39;weight&#39;</span><span class="p">]])</span>
+<span class="n">yhat_mass</span> <span class="o">=</span> <span class="n">reg_mass</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">icecream</span><span class="p">[[</span><span class="s1">&#39;mass&#39;</span><span class="p">]])</span>
 </pre></div>
 
 </div>
@@ -12726,7 +12726,7 @@ Let's start simple and focus on predicting the price from the weight:</p>
     <span class="k">return</span> <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">model_line</span><span class="p">]</span> <span class="o">+</span> <span class="n">residual_lines</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename</span><span class="p">)</span>
 
 
-<span class="n">plot_fit_line</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">],</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">reg_weight</span><span class="p">,</span> <span class="s2">&quot;FE_Part1_0&quot;</span><span class="p">)</span> 
+<span class="n">plot_fit_line</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">reg_mass</span><span class="p">,</span> <span class="s2">&quot;FE_Part1_0&quot;</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -12740,7 +12740,7 @@ Let's start simple and focus on predicting the price from the weight:</p>
 <div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/735.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/773.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12754,7 +12754,7 @@ Let's start simple and focus on predicting the price from the weight:</p>
 <div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">residual</span> <span class="o">=</span> <span class="n">yhat_weight</span> <span class="o">-</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">residual</span> <span class="o">=</span> <span class="n">yhat_mass</span> <span class="o">-</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span><span class="n">residual</span><span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Residuals&#39;</span><span class="p">],</span> <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;FE_Part1_1&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12769,7 +12769,7 @@ Let's start simple and focus on predicting the price from the weight:</p>
 <div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/737.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/775.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -12787,9 +12787,9 @@ Let's start simple and focus on predicting the price from the weight:</p>
 $$ \large
 \textbf{RMSE} = \sqrt{\frac{1}{n} \sum_{i=1}^n \left(Y_i - f_\theta(X_i)\right)^2}
 $$<p>The RMSE <strong>error</strong> in the <strong>units of $Y$</strong> (in this case price) and is biased towards points with the highest error.</p>
-<p>Another error metric that is a bit more robust is the <strong>mean absolute devaiation (MAD)</strong> error.</p>
+<p>Another error metric that is a bit more robust is the <strong>median absolute devaiation (MAD)</strong> error.</p>
 $$ \large
-\textbf{MAD} = \frac{1}{n} \sum_{i=1}^n \left|Y_i - f_\theta(X_i)\right|
+\textbf{MAD} = \textbf{median}\left(Y_i - f_\theta(X_i)\right)
 $$<p>The RMSE error metric is closer to our squared loss objective and the MAD error is closer to an L1 loss and the corresponding Least Absolute Deviation Regression which we have not yet covered.</p>
 <p>Let's take a look at both:</p>
 
@@ -12805,7 +12805,7 @@ $$<p>The RMSE error metric is closer to our squared loss objective and the MAD e
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">yhat</span><span class="o">-</span><span class="n">y</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">mad</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">yhat</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yhat</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">yhat</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12818,8 +12818,8 @@ $$<p>The RMSE error metric is closer to our squared loss objective and the MAD e
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MAD:&quot;</span><span class="p">,</span> <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MAD:&quot;</span><span class="p">,</span> <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12832,8 +12832,8 @@ $$<p>The RMSE error metric is closer to our squared loss objective and the MAD e
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>RMSE: 0.526773946084
-MAD: 0.410985714334
+<pre>RMSE: 0.537536988756
+MAD: 0.315943896294
 </pre>
 </div>
 </div>
@@ -12850,7 +12850,7 @@ MAD: 0.410985714334
 <h3 id="Is-this-a-good-fit?">Is this a good fit?<a class="anchor-link" href="#Is-this-a-good-fit?">&#182;</a></h3><hr>
 <p><br/><br/><br/><br/><br/><br/></p>
 <p>Often a very basic model is enough.  However we notice something intresting.</p>
-<p><strong>At the same weight value there appears to be multiple icecream prices.</strong></p>
+<p><strong>At the same mass value there appears to be multiple icecream prices.</strong></p>
 <p><strong>Why?</strong></p>
 
 </div>
@@ -12874,7 +12874,7 @@ MAD: 0.410985714334
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ind</span> <span class="o">=</span> <span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Chocolate&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;topping&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Chocolate&quot;</span><span class="p">)</span>
 <span class="n">reg_chocolate</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">reg_chocolate</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][[</span><span class="s1">&#39;weight&#39;</span><span class="p">]],</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+<span class="n">reg_chocolate</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][[</span><span class="s1">&#39;mass&#39;</span><span class="p">]],</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
 </pre></div>
 
 </div>
@@ -12915,26 +12915,26 @@ MAD: 0.410985714334
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">choc_choc_points</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Chocolate+Chocolate&quot;</span><span class="p">,</span> 
-               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> 
+               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> 
                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;triangle-up&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)))</span>
 
 <span class="n">ind_flav</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;flavor&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Chocolate&quot;</span>
 <span class="n">chocolate_points</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Choc. Flavored&quot;</span><span class="p">,</span> 
-               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind_flav</span><span class="p">][</span><span class="s1">&#39;weight&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind_flav</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> 
+               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind_flav</span><span class="p">][</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="n">ind_flav</span><span class="p">][</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> 
                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;circle-open&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)))</span>
 
 <span class="n">all_data</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> 
-               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+               <span class="n">x</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">],</span> <span class="n">y</span> <span class="o">=</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
                <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)))</span>
 
-<span class="n">x_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">line_weight</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Weight Only&quot;</span><span class="p">,</span> 
-               <span class="n">x</span> <span class="o">=</span> <span class="n">x_query</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">reg_weight</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_query</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> 
+<span class="n">x_query</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">500</span><span class="p">)</span>
+<span class="n">line_mass</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mass Only&quot;</span><span class="p">,</span> 
+               <span class="n">x</span> <span class="o">=</span> <span class="n">x_query</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">reg_mass</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_query</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> 
                <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)))</span>
 
 <span class="n">line_choclate</span> <span class="o">=</span> <span class="p">(</span>
@@ -12942,7 +12942,7 @@ MAD: 0.410985714334
                <span class="n">x</span> <span class="o">=</span> <span class="n">x_query</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">reg_chocolate</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_query</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> 
                <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)))</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">all_data</span><span class="p">,</span> <span class="n">chocolate_points</span><span class="p">,</span> <span class="n">choc_choc_points</span><span class="p">,</span>  <span class="n">line_weight</span><span class="p">,</span> <span class="n">line_choclate</span><span class="p">],</span> 
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">all_data</span><span class="p">,</span> <span class="n">chocolate_points</span><span class="p">,</span> <span class="n">choc_choc_points</span><span class="p">,</span>  <span class="n">line_mass</span><span class="p">,</span> <span class="n">line_choclate</span><span class="p">],</span> 
          <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;FE_Part1_2&quot;</span><span class="p">)</span>
 </pre></div>
 
@@ -12957,7 +12957,7 @@ MAD: 0.410985714334
 <div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/739.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/777.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13002,7 +13002,7 @@ MAD: 0.410985714334
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">one_hot_enc</span> <span class="o">=</span> <span class="n">DictVectorizer</span><span class="p">()</span>
-<span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;topping&quot;</span><span class="p">,</span> <span class="s2">&quot;weight&quot;</span><span class="p">]</span>
+<span class="n">feature_columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;flavor&quot;</span><span class="p">,</span> <span class="s2">&quot;topping&quot;</span><span class="p">,</span> <span class="s2">&quot;mass&quot;</span><span class="p">]</span>
 <span class="n">one_hot_enc</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span>
 <span class="n">one_hot_features</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">one_hot_enc</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="n">feature_columns</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;records&#39;</span><span class="p">))</span>
@@ -13062,11 +13062,11 @@ MAD: 0.410985714334
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>matrix([[ 0. ,  1. ,  0. ,  0. ,  0. ,  1. ,  0. ,  2.5],
-        [ 1. ,  0. ,  0. ,  0. ,  0. ,  1. ,  0. ,  4.8],
-        [ 0. ,  0. ,  1. ,  0. ,  0. ,  0. ,  1. ,  3.9],
-        [ 0. ,  0. ,  1. ,  0. ,  0. ,  0. ,  1. ,  3.4],
-        [ 0. ,  1. ,  0. ,  0. ,  0. ,  1. ,  0. ,  1.6]])</pre>
+<pre>matrix([[ 1. ,  0. ,  0. ,  2.5,  1. ,  0. ,  0. ,  0. ],
+        [ 0. ,  0. ,  1. ,  4.8,  1. ,  0. ,  0. ,  0. ],
+        [ 0. ,  1. ,  0. ,  3.9,  0. ,  0. ,  0. ,  1. ],
+        [ 0. ,  1. ,  0. ,  3.4,  0. ,  0. ,  0. ,  1. ],
+        [ 1. ,  0. ,  0. ,  1.6,  1. ,  0. ,  0. ,  0. ]])</pre>
 </div>
 
 </div>
@@ -13090,7 +13090,7 @@ MAD: 0.410985714334
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train a linear regression modle to predict price from weight</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train a linear regression modle to predict price from mass</span>
 <span class="n">one_hot_reg</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
 <span class="n">one_hot_reg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">one_hot_features</span><span class="p">,</span> <span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
 
@@ -13134,7 +13134,7 @@ MAD: 0.410985714334
 <div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/739.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/779.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13149,11 +13149,11 @@ MAD: 0.410985714334
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Weight Only&quot;</span><span class="p">,</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mass Only&quot;</span><span class="p">,</span>
        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">,</span> <span class="s2">&quot;MAD&quot;</span><span class="p">],</span> 
-       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">),</span> 
-          <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">)]),</span>
-      <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OneHot + Weight&quot;</span><span class="p">,</span>
+       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">),</span> 
+          <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">)]),</span>
+      <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OneHot + mass&quot;</span><span class="p">,</span>
        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">,</span> <span class="s2">&quot;MAD&quot;</span><span class="p">],</span>
        <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_one_hot</span><span class="p">),</span> 
           <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_one_hot</span><span class="p">)])</span>
@@ -13171,7 +13171,7 @@ MAD: 0.410985714334
 <div class="output_area"><div class="prompt output_prompt">Out[24]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/741.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/781.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13203,7 +13203,7 @@ MAD: 0.410985714334
 <div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/753.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/783.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13220,7 +13220,7 @@ MAD: 0.410985714334
 <h2 id="How-could-we-improve-the-model?">How could we improve the model?<a class="anchor-link" href="#How-could-we-improve-the-model?">&#182;</a></h2><p><br/><br/><br/><br/><br/></p>
 <p><strong>Icecream Pricing Model:</strong></p>
 $$\large
-\text{price} = \text{weight} * \theta_\text{flavor} + \theta_\text{topping}
+\text{price} = \text{mass} * \theta_\text{flavor} + \theta_\text{topping}
 $$<p><strong>Question</strong> How could we encode this model so that we can learn it using linear regression?</p>
 <hr>
 <p><br/><br/><br/><br/><br/></p>
@@ -13235,8 +13235,8 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here is a proposal:</p>
 \begin{align}
-\phi\left(\text{weight}, \text{flavor}, \text{topping} \right)  & = 
-    \left[\text{weight} * \textbf{OneHot}\left(\text{flavor}\right), 
+\phi\left(\text{mass}, \text{flavor}, \text{topping} \right)  & = 
+    \left[\text{mass} * \textbf{OneHot}\left(\text{flavor}\right), 
     \textbf{OneHot}\left(\text{topping}\right)\right] 
 \end{align}<p>To see how this works lets look at $\theta_\text{topping}$.</p>
 \begin{align}
@@ -13295,7 +13295,7 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To scale the sparse matrix fo encodings by the weight we need to multiply by a sparse diaganol matrix.</p>
+<p>To scale the sparse matrix fo encodings by the mass we need to multiply by a sparse diaganol matrix.</p>
 
 </div>
 </div>
@@ -13307,11 +13307,11 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">spdiags</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+<span class="n">scaling_matrix</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">spdiags</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;mass&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 
-<span class="n">weight_times_flavor</span> <span class="o">=</span> <span class="n">scaling_matrix</span> <span class="o">@</span> <span class="n">onehot_flavor</span>
+<span class="n">mass_times_flavor</span> <span class="o">=</span> <span class="n">scaling_matrix</span> <span class="o">@</span> <span class="n">onehot_flavor</span>
 </pre></div>
 
 </div>
@@ -13324,7 +13324,7 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Combining the sparse <code>weight_times_flavor</code> columns with the <code>onehot_topping</code> columns we get a new feature matrix <code>Phi</code></p>
+<p>Combining the sparse <code>mass_times_flavor</code> columns with the <code>onehot_topping</code> columns we get a new feature matrix <code>Phi</code></p>
 
 </div>
 </div>
@@ -13334,7 +13334,7 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 <div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">weight_times_flavor</span><span class="p">,</span> <span class="n">onehot_topping</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">mass_times_flavor</span><span class="p">,</span> <span class="n">onehot_topping</span><span class="p">])</span>
 <span class="n">Phi</span>
 </pre></div>
 
@@ -13390,11 +13390,11 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>matrix([[ 0. ,  2.5,  0. ,  0. ,  0. ,  1. ,  0. ],
-        [ 4.8,  0. ,  0. ,  0. ,  0. ,  1. ,  0. ],
-        [ 0. ,  0. ,  3.9,  0. ,  0. ,  0. ,  1. ],
-        [ 0. ,  0. ,  3.4,  0. ,  0. ,  0. ,  1. ],
-        [ 0. ,  1.6,  0. ,  0. ,  0. ,  1. ,  0. ]])</pre>
+<pre>matrix([[ 2.5,  0. ,  0. ,  1. ,  0. ,  0. ,  0. ],
+        [ 0. ,  0. ,  4.8,  1. ,  0. ,  0. ,  0. ],
+        [ 0. ,  3.9,  0. ,  0. ,  0. ,  0. ,  1. ],
+        [ 0. ,  3.4,  0. ,  0. ,  0. ,  0. ,  1. ],
+        [ 1.6,  0. ,  0. ,  1. ,  0. ,  0. ,  0. ]])</pre>
 </div>
 
 </div>
@@ -13445,11 +13445,11 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Weight Only&quot;</span><span class="p">,</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mass Only&quot;</span><span class="p">,</span>
        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">,</span> <span class="s2">&quot;MAD&quot;</span><span class="p">],</span> 
-       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">),</span> 
-          <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_weight</span><span class="p">)]),</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OneHot + Weight&quot;</span><span class="p">,</span>
+       <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">),</span> 
+          <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_mass</span><span class="p">)]),</span>
+    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;OneHot + mass&quot;</span><span class="p">,</span>
        <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">,</span> <span class="s2">&quot;MAD&quot;</span><span class="p">],</span>
        <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">rmse</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_one_hot</span><span class="p">),</span> 
           <span class="n">mad</span><span class="p">(</span><span class="n">icecream</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">yhat_one_hot</span><span class="p">)]),</span>
@@ -13471,7 +13471,7 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 <div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/751.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/785.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13503,7 +13503,7 @@ $$<p><strong>Question</strong> How could we encode this model so that we can lea
 <div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/755.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/787.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13825,7 +13825,7 @@ I hold with those who favor fire.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Construct the tokenizer with English stop words</span>
@@ -13842,7 +13842,7 @@ I hold with those who favor fire.
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13862,7 +13862,7 @@ I hold with those who favor fire.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Print the words that are kept</span>
@@ -13892,7 +13892,7 @@ Words: [(0, &#39;desire&#39;), (1, &#39;end&#39;), (2, &#39;end in&#39;), (3, &#
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Sentence Encoding: </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
