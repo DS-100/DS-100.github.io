@@ -350,7 +350,9 @@ In this lecture dives into the details of least squares regression through the l
 In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
 
 * Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), [ipynb](assets/notebooks/linear_regression/Least_Squares_Regression.ipynb)) 
-* Feature Engineering: ([html](assets/notebooks/linear_regression/Feature_Engineering.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering.ipynb))
+
+* Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb), [data](assets/notebooks/linear_regression/data.zip))
+
 
 * Optional reading: [Chapter 3.1, 3.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf).  
 
@@ -364,6 +366,10 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 ### Regularization and the Bias Variance tradeoff [Gonzalez]
 
 In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
+
+* Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb))
+
+* Feature Engineering Part 2: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part2.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part2.ipynb), [data](assets/notebooks/linear_regression/data.zip))
 
 * Optional reading [Chapter 2.1, 2.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf)
 
