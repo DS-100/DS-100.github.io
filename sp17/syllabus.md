@@ -453,12 +453,9 @@ This lecture explores unsupervised learning techniques to aid in exploratory dat
 
 
 {% include syllabus_entry dates=dates %}
-### Analytics at Scale [Hellerstein]
 
-Streaming algorithms and online estimation: sketching and sampling.
+### Guest Lecturer on Data Science and Ethics [Charis Thompson]
 
-
-<!-- joey finish -->
 
 {% include syllabus_entry end=true %}
 
@@ -466,9 +463,13 @@ Streaming algorithms and online estimation: sketching and sampling.
 
 
 {% include syllabus_entry dates=dates %}
-### The Big-data Ecosystem and Technologies [Gonzalez]
-In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis, map-reduce, etl ...
+
+### Analytics at Scale and the Big-data Ecosystem [Gonzalez and Hellerstein]
+
+In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis.  We will provide a brief overview of map-reduce and streaming algorithms and discuss various sketching techniques for stream summarization.
+
 {% include syllabus_entry end=true %} 
+
 
 
 {% include syllabus_entry dates=dates %}
