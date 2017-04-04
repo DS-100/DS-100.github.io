@@ -363,9 +363,9 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 
 {% include syllabus_entry dates=dates %}
 
-### Regularization and the Bias Variance tradeoff [Gonzalez]
+### Feature Engineering, Over-fitting, and Cross Validation Continued [Gonzalez]
 
-In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
+In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb))
 
@@ -390,9 +390,15 @@ In this lecture will continue our exploration of over-fitting and derive the fun
 
 
 {% include syllabus_entry dates=dates %}
-### Generalized Linear Model and Loss Functions [Gonzalez]
+### Regularization and the Bias Variance tradeoff [Gonzalez]
+
+In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
 
 This lecture extends the earlier discussion on least squares regression to categorical data and introduce the gradient descent algorithm.
+
+* Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhISzUzazFHQnBwSEk), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhINE1kd3VSODJpYXM), [handout](https://drive.google.com/open?id=0Bze55lezLJhIeFFTdVFScDdsc3M))
+
 
 #### Homework 5 Due
 
