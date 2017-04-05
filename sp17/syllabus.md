@@ -349,10 +349,11 @@ In this lecture dives into the details of least squares regression through the l
 ### Feature Engineering, Over-fitting, and Cross Validation [Gonzalez]
 In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
 
+The following interactive (html) notebooks walk through the concepts we use in lecture and are suggested reading materials.
+
 * Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), [ipynb](assets/notebooks/linear_regression/Least_Squares_Regression.ipynb)) 
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb), [data](assets/notebooks/linear_regression/data.zip))
-
 
 * Optional reading: [Chapter 3.1, 3.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf).  
 
@@ -365,7 +366,7 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 
 ### Feature Engineering, Over-fitting, and Cross Validation Continued [Gonzalez]
 
-In this lecture we will begin to do some machine learning.  We will explore how simple linear techniques can be used to address complex non-linear relationships on a wide range of data types.  We will start to use scikit-learn to build and visualize models in higher dimensional spaces. We will address a key challenge in machine learning -- over-fitting and discuss how cross-validation can be used to address over-fitting.
+In this lecture we continue the discussion from the last lecture pushing further into feature engineering.
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb))
 
@@ -392,13 +393,14 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 {% include syllabus_entry dates=dates %}
 ### Regularization and the Bias Variance tradeoff [Gonzalez]
 
-In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and empirical risk minimization.
-
-This lecture extends the earlier discussion on least squares regression to categorical data and introduce the gradient descent algorithm.
+In this lecture will continue our exploration of over-fitting and derive the fundamental bias variance tradeoff for the least squares model.  We will then introduce the concept of regularization and explore the commonly used L1 and L2 regularization functions.
 
 * Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhISzUzazFHQnBwSEk), 
 [pdf](https://drive.google.com/open?id=0Bze55lezLJhINE1kd3VSODJpYXM), [handout](https://drive.google.com/open?id=0Bze55lezLJhIeFFTdVFScDdsc3M))
 
+* Interactive Notebook on Cross Validation and the Bias Variance Tradeoff: ([html](assets/notebooks/linear_regression/Cross_Validation_and_the_Bias_Variance_Tradeoff.html), [ipynb](assets/notebooks/linear_regression/Cross_Validation_and_the_Bias_Variance_Tradeoff.ipynb))
+
+* An alternative derivation of the Bias Variance Trade-Off provided by Professor Yu ([pdf](assets/bias-var.pdf))
 
 #### Homework 5 Due
 
@@ -411,9 +413,9 @@ This lecture extends the earlier discussion on least squares regression to categ
 
 
 {% include syllabus_entry dates=dates %}
-### Generalized Linear Model and Loss Functions [Gonzalez]
+### Logistic Regression [Gonzalez]
 
-We continue our earlier discussion on Generalized linear models.
+In this lecture we will finish our discussion on regularization and begin to study how linear models can be used to build classifiers through logistic regression.   
 
 {% include syllabus_entry end=true %}
 
