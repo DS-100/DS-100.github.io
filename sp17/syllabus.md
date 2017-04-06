@@ -417,6 +417,13 @@ In this lecture will continue our exploration of over-fitting and derive the fun
 
 In this lecture we will finish our discussion on regularization and begin to study how linear models can be used to build classifiers through logistic regression.   
 
+* Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhISHFQSEdFVExPMEU), 
+[pdf](https://drive.google.com/open?id=0Bze55lezLJhIazNpOW10WDY4OVk), [handout](https://drive.google.com/open?id=0Bze55lezLJhIYkxGcGI0d1RmUDQ))
+
+* Interactive Notebook on Regularization: ([html](assets/notebooks/linear_regression/Regularization.html), [ipynb](assets/notebooks/linear_regression/Regularization.ipynb))
+
+* Interactive Notebook on Logistic Regression: ([html](assets/notebooks/linear_regression/LogisticRegression.html), [ipynb](assets/notebooks/linear_regression/LogisticRegression.ipynb))
+
 {% include syllabus_entry end=true %}
 
 
