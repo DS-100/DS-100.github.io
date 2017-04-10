@@ -430,22 +430,12 @@ In this lecture we will finish our discussion on regularization and begin to stu
 
 
 {% include syllabus_entry dates=dates %}
-### Classification and Regression Trees [Nolan]
+### Finish Logistic Regression and Start K-Means [Gonzalez and Yu]
 
-This lecture introduces an alternative approach to feature engineering using classification and regression trees (CART).
-
-{% include syllabus_entry end=true %}
-
-
-
-
-{% include syllabus_entry dates=dates %}
-
-### Dimensionality Reduction [Gonzalez]
-
-This lecture introduces the Singular Value Decomposition algorithm for dimensionality reduction.
+In this lecture we will finish our discussion on logistic regression and begin to explore unsupervised learning techniques.  In particular we will start with K-means work towards the more general EM algorithm. 
 
 {% include syllabus_entry end=true %}
+
 
 
 
@@ -454,8 +444,18 @@ This lecture introduces the Singular Value Decomposition algorithm for dimension
 
 ### Clustering and the EM [Yu]
 
-This lecture explores unsupervised learning techniques to aid in exploratory data analysis.  In this lecture we will cover mixture of guassians and th EM algorithm.
+This lecture will continue to cover EM and more general mixed membership clustering techniques.
 
+{% include syllabus_entry end=true %}
+
+
+
+
+{% include syllabus_entry dates=dates %}
+
+### Map-Reduce, Spark, and Big Data [Gonzalez]
+
+In this lecture we will introduce the Map-Reduce model of distributed computation and then dive into the Apache Spark Map-Reduce system developed at Berkeley.  We will talk about how to use the computational frameworks to scale data processing.  
 
 #### Homework 6 Due
 
@@ -463,6 +463,7 @@ This lecture explores unsupervised learning techniques to aid in exploratory dat
 
 
 {% include syllabus_entry end=true %}
+
 
 
 
@@ -479,9 +480,9 @@ This lecture explores unsupervised learning techniques to aid in exploratory dat
 
 {% include syllabus_entry dates=dates %}
 
-### Analytics at Scale and the Big-data Ecosystem [Gonzalez and Hellerstein]
+### Decision Trees [Nolan]
 
-In this lecture we provide an overview of the data technologies commonly used today and their implications on data analysis.  We will provide a brief overview of map-reduce and streaming algorithms and discuss various sketching techniques for stream summarization.
+In this lecture we will cover a widely used technique for classification (and regression) that offers an algorithmic method to learn informative features. 
 
 {% include syllabus_entry end=true %} 
 
