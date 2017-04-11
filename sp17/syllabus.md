@@ -434,6 +434,10 @@ In this lecture we will finish our discussion on regularization and begin to stu
 
 In this lecture we will finish our discussion on logistic regression and begin to explore unsupervised learning techniques.  In particular we will start with K-means work towards the more general EM algorithm. 
 
+* Part 2 of Logistic Regression Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIR2tZZWNQMVZtbVU), [pdf](https://drive.google.com/open?id=0Bze55lezLJhINU8xZzlBejhqQXM) [handout](https://drive.google.com/open?id=0Bze55lezLJhIM3VTU0VVUVpraUU))
+
+* We will continue to use the previous notebook on logistic regression.
+
 {% include syllabus_entry end=true %}
 
 

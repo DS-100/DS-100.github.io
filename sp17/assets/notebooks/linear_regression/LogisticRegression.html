@@ -11,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1107,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2536,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3027,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8758,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8960,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8984,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9120,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9209,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9253,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9549,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9569,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11244,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11556,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11569,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11629,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11641,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11826,7 +11855,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11866,7 +11897,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/901.embed" height="525px" width="100%"></iframe>
@@ -11906,7 +11939,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/903.embed" height="525px" width="100%"></iframe>
@@ -11947,7 +11982,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[6]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/905.embed" height="525px" width="100%"></iframe>
@@ -12012,7 +12049,9 @@ div#notebook {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training Data Size:  426
 Test Data Size:  143
@@ -12077,7 +12116,9 @@ Test Data Size:  143
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12123,7 +12164,9 @@ Test Data Size:  143
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/907.embed" height="525px" width="100%"></iframe>
@@ -12177,7 +12220,9 @@ Test Data Size:  143
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training RMSE: 0.338350570944
 </pre>
@@ -12223,7 +12268,9 @@ Test Data Size:  143
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min Validation Error:    0.296672238481
 Median Validation Error: 0.337995623696
@@ -12297,7 +12344,7 @@ $$<p>However to use the classification error we need to define a decision rule t
                     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="o">~</span><span class="n">ind_mal</span><span class="p">]),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">jitter_y</span><span class="p">[</span><span class="o">~</span><span class="n">ind_mal</span><span class="p">],</span> 
                     <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;markers&quot;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">))</span>
 <span class="n">dec_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">least_squares_model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span><span class="o">/</span><span class="n">least_squares_model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">dec_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Decision Boundary&quot;</span><span class="p">,</span> 
+<span class="n">dec_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Least Squares Decision Boundary&quot;</span><span class="p">,</span> 
                       <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">dec_boundary</span><span class="p">,</span><span class="n">dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
                      <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">))</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">mal_points</span><span class="p">,</span> <span class="n">ben_points</span><span class="p">,</span> <span class="n">model_line</span><span class="p">,</span><span class="n">dec_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-05&quot;</span><span class="p">)</span>
@@ -12311,7 +12358,9 @@ $$<p>However to use the classification error we need to define a decision rule t
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/909.embed" height="525px" width="100%"></iframe>
@@ -12350,7 +12399,9 @@ $$<p>However to use the classification error we need to define a decision rule t
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training Fraction incorrect: 0.133802816901
 </pre>
@@ -12403,7 +12454,9 @@ $$<p>However to use the classification error we need to define a decision rule t
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Fraction of Malignant Samples: 0.370892018779
 </pre>
@@ -12511,7 +12564,9 @@ $$<p>However to use the classification error we need to define a decision rule t
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Min Validation Error:    0.0845070422535
 Median Validation Error: 0.161971830986
@@ -12622,7 +12677,9 @@ $$<p>this would look like:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[20]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[20]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/911.embed" height="525px" width="100%"></iframe>
@@ -12677,7 +12734,9 @@ $$<p>this would look like:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12726,7 +12785,9 @@ $$<p>this would look like:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[22]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/913.embed" height="525px" width="100%"></iframe>
@@ -12757,7 +12818,9 @@ $$<p>this would look like:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Before: 0.133489461358
 After: 0.182669789227
@@ -12827,7 +12890,9 @@ After: 0.182669789227
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[25]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/913.embed" height="525px" width="100%"></iframe>
@@ -12884,7 +12949,9 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[27]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/919.embed" height="525px" width="100%"></iframe>
@@ -12912,7 +12979,18 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent<a class="anchor-link" href="#Stochastic-Gradient-Descent">&#182;</a></h1><p>In the following we implement <strong>stochastic gradient descent (SGD)</strong> to solve the logistic regression problem.  Afterwards we use much more efficient and robust libraries (and you should do the same).  However we implement SGD here for pedagogical value.</p>
+<h1 id="Gradient-Descent">Gradient Descent<a class="anchor-link" href="#Gradient-Descent">&#182;</a></h1><p>Recall the algorithm consists of iteratively computing:</p>
+$$\large
+\theta^{(t+1)} \leftarrow \theta^{(t)} - \rho(t)
+\nabla_\theta \left(- \log\mathcal{L}(\theta) \right) 
+$$<p>where $\rho(t)$ (sometimes called the learning rate) is typically:</p>
+$$
+\large \rho(t) = \frac{1}{t}
+$$<p>and for logistic regression the gradient of the negative log-likelihood is given by:</p>
+$$\large
+\nabla_\theta \left(- \log\mathcal{L}(\theta) \right)  = \large \sum_{i=1}^n 
+ \left(\sigma\left(x_i^T \theta\right) - y_i \right) x_i
+$$<p>See the lecture slides for a derivation.</p>
 
 </div>
 </div>
@@ -12920,6 +12998,54 @@ $$
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">gradient_function</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">,</span>  
+                     <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">t</span>
+        <span class="n">grad</span> <span class="o">=</span> <span class="n">gradient_function</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">grad</span>
+        <span class="c1"># Track Convergence</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">theta</span>
+    <span class="k">return</span> <span class="n">theta</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Convergence:-When-to-stop-iterating">Convergence: When to stop iterating<a class="anchor-link" href="#Convergence:-When-to-stop-iterating">&#182;</a></h2><p>The gradient descent algorithm is typically run until one of the following conditions is met:</p>
+<ol>
+<li>$\theta$ stops changing (by more than epsilon)</li>
+<li>a maximum number of iterations are run (i.e., user gets impatient)</li>
+<li>the gradient of the objective is zero (this is always a stopping condition, why?)</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Defining-$\nabla_\theta-\left(--\log\mathcal{L}(\theta)-\right)$">Defining $\nabla_\theta \left(- \log\mathcal{L}(\theta) \right)$<a class="anchor-link" href="#Defining-$\nabla_\theta-\left(--\log\mathcal{L}(\theta)-\right)$">&#182;</a></h2><p>In the following we implement the gradient function for a dataset X and Y.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">neg_gradL</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
@@ -12931,22 +13057,25 @@ $$
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the following we standardize this dataset for numerical stability.  Note that due to the exponents extreme values can be an issue.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">batch_gd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">,</span>  <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">):</span>
-    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
-        <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">t</span>
-        <span class="n">g</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">g</span>
-        <span class="c1"># Track Convergence</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">theta</span>
-    <span class="k">return</span> <span class="n">theta</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<span class="n">standardizer</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">standardizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">Xst</span> <span class="o">=</span> <span class="n">standardizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12954,18 +13083,413 @@ $$
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We will also add a constant (bias or offset) term.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sgd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100000</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">bs</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xst</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">Xst</span><span class="p">),</span><span class="mi">1</span><span class="p">])])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Run the batch gradient descent solver</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta_batch</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">neg_gradL</span><span class="p">)</span>
+<span class="n">theta_batch</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([ 3.30903971, -0.63546791])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Examining-the-solution">Examining the solution<a class="anchor-link" href="#Examining-the-solution">&#182;</a></h1><p>In the following we plot the logistic regression probability model and the corresponding decision boundary.  To compute the decision boundary recall that from the model definition that $\textbf{P}(Y = 1 | X) = \sigma(x^T \theta)$ and therefore the probability that $\textbf{P}(Y = 1 | X) > 0.5$ occurs when $\sigma(x^T \theta) > 0.5$ and therefore $x^T \theta > \sigma^{-1}(0.5) = 0$.  Note however that we standardized the features in $X$ to construct $\Phi$ and therefore after solving for $X$ at the decision boundary we will need to apply the inverse standardization (multiply by the standard deviation and add back the mean).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Phi_plt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
+    <span class="n">standardizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X_plt</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> 
+    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">X_plt</span><span class="p">),</span><span class="mi">1</span><span class="p">))])</span>
+
+<span class="c1"># The logistic regression decision boundary is when the underlying linear</span>
+<span class="c1"># model passes through zero</span>
+<span class="n">lr_dec_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span> <span class="o">-</span> <span class="n">theta_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">theta_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lr_dec_boundary</span> <span class="o">=</span> <span class="n">standardizer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">lr_dec_boundary</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lr_dec_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Reg. Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_dec_boundary</span><span class="p">,</span><span class="n">lr_dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">))</span>
+
+<span class="n">lr_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SGD Logistic Regression&quot;</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">X_plt</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">Phi_plt</span> <span class="o">@</span> <span class="n">theta_batch</span><span class="p">),</span> 
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">lr_line</span><span class="p">,</span> <span class="n">dec_line</span><span class="p">,</span> <span class="n">lr_dec_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-09&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[33]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/921.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Adding the decision boundaries to our earlier histograms:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">]</span>
+<span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">,</span> <span class="s1">&#39;benign&#39;</span><span class="p">],</span>  <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Reg. Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_dec_boundary</span><span class="p">,</span><span class="n">lr_dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Least Squares Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">dec_boundary</span><span class="p">,</span><span class="n">dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-10&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[34]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/923.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Comparison-in-Accuracy">Comparison in Accuracy<a class="anchor-link" href="#Comparison-in-Accuracy">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Least Squares Training Prediction Error:&quot;</span><span class="p">,</span> 
+      <span class="n">zero_one_loss</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">least_squares_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Logistic Regression Prediction Error:&quot;</span><span class="p">,</span> 
+      <span class="n">zero_one_loss</span><span class="p">(</span><span class="n">Y</span><span class="p">,</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Phi</span> <span class="o">@</span> <span class="n">theta_batch</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Least Squares Training Prediction Error: 0.133802816901
+Logistic Regression Prediction Error: 0.129107981221
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-does-the-loss-surface-look-like?">What does the loss surface look like?<a class="anchor-link" href="#What-does-the-loss-surface-look-like?">&#182;</a></h1><p>Let's examine the loss function surface and our solution.  Recall that the <strong>loss function</strong> is the negative of the log-likelihood (minimize loss = maximize likelihood) and has the following form:
+$$\large
+\log \mathcal{L}(\theta) = -\sum_{i=1}^n \left[ y_i  \log\left(  \sigma\left(x_i^T \theta \right) \right)+ 
+\left(1-y_i \right)\log \left(1 - \sigma\left(x_i^T \theta\right) \right) \right]
+$$</p>
+<p>We can implement this in the following python expression:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">lr_loss</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">sigmoid</span><span class="p">(</span><span class="n">Phi</span> <span class="o">@</span> <span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">Y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">+</span> 
+                    <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">Y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)),</span> 
+                   <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>By evaluating the loss at a grid of points we can can construct the loss surface:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">uvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
+<span class="n">vvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
+<span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">uvalues</span><span class="p">,</span> <span class="n">vvalues</span><span class="p">)</span>
+<span class="n">thetas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">v</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span>
+<span class="n">lr_loss_values</span> <span class="o">=</span> <span class="n">lr_loss</span><span class="p">(</span><span class="n">thetas</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="n">lr_loss_surface</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Regression Loss&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">lr_loss_values</span><span class="p">,(</span><span class="nb">len</span><span class="p">(</span><span class="n">uvalues</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">vvalues</span><span class="p">))),</span>
+        <span class="n">contours</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span> <span class="n">project</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">z</span><span class="o">=</span><span class="kc">True</span><span class="p">)))</span>
+    <span class="p">)</span>
+<span class="n">optimal_batch_lr_point</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter3d</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Optimal Point&quot;</span><span class="p">,</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> 
+        <span class="n">z</span> <span class="o">=</span> <span class="n">lr_loss</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">theta_batch</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">),</span>
+        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">lr_loss_surface</span><span class="p">,</span> <span class="n">optimal_batch_lr_point</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-11&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[37]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/925.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Visualizing-the-gradient-descent-path">Visualizing the gradient descent path<a class="anchor-link" href="#Visualizing-the-gradient-descent-path">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the following we plot the solution path taken by gradient descent.</p>
+<p>However, to make the plot easy to visualize (solve in fewer more consistent iterations) I constrained the gradient descent procedure to take step's of at most length one.  This prevents the solution from exploding in the first few iterations. For those who are interested in optimization techniques this is a formal of <strong>proximal</strong> gradient descent.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">batch_gd_thetas</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">1000000</span><span class="p">,</span>  
+             <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>
+    <span class="n">thetas</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta0</span><span class="p">]</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">t</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+        <span class="c1"># To make the solution (and plot) more stable </span>
+        <span class="c1"># I have constrained the gradient step size to</span>
+        <span class="c1"># the unit ball.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">g</span>
+        <span class="n">thetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="c1"># Track Convergence</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span>
+
+<span class="n">all_thetas</span> <span class="o">=</span> <span class="n">batch_gd_thetas</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]),</span> <span class="n">neg_gradL</span><span class="p">)</span>
+
+<span class="n">thata_points</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Theta Values&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">all_thetas</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">all_thetas</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+                          <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines+markers&quot;</span><span class="p">)</span>
+<span class="n">lr_loss_contours</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Contour</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Regression Loss&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">uvalues</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vvalues</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">lr_loss_values</span><span class="p">,</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">uvalues</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">vvalues</span><span class="p">))),</span>
+        <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;Viridis&#39;</span><span class="p">,</span> <span class="n">reversescale</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+
+<span class="n">optimal_batch_lr_point</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Optimal Point&quot;</span><span class="p">,</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_batch</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">lr_loss_contours</span><span class="p">,</span> <span class="n">thata_points</span><span class="p">,</span> <span class="n">optimal_batch_lr_point</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-12&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[38]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/927.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Stochastic-Gradient-Descent">Stochastic Gradient Descent<a class="anchor-link" href="#Stochastic-Gradient-Descent">&#182;</a></h1><p>In the following we implement <strong>stochastic gradient descent (SGD)</strong> to solve the logistic regression problem.  Afterwards we use much more efficient and robust libraries (and you should do the same).  However we implement SGD here for pedagogical value.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sgd</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">):</span>
     <span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
         <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="n">t</span>
         <span class="n">i</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="n">n</span>
-        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">n</span><span class="o">/</span><span class="n">bs</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">bs</span><span class="p">),],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">bs</span><span class="p">)])</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">batch_size</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">),],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">g</span>
         <span class="c1"># Track Convergence</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">t</span> <span class="o">%</span> <span class="mi">10000</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">epsilon</span><span class="p">:</span>
@@ -12983,63 +13507,17 @@ $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It will be important to Standardize this data for stability in logistic regression.</p>
+<p>Computing the theta values:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
-<span class="n">standardizer</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">standardizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">Xst</span> <span class="o">=</span> <span class="n">standardizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">batch_theta</span> <span class="o">=</span> <span class="n">batch_gd</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xst</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">Xst</span><span class="p">),</span><span class="mi">1</span><span class="p">])]),</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">neg_gradL</span><span class="p">)</span>
-<span class="n">batch_theta</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([ 3.30903971, -0.63546791])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta_sgd</span> <span class="o">=</span> <span class="n">sgd</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">Xst</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">Xst</span><span class="p">),</span><span class="mi">1</span><span class="p">])]),</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">neg_gradL</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">theta_sgd</span> <span class="o">=</span> <span class="n">sgd</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]),</span> <span class="n">neg_gradL</span><span class="p">)</span>
 <span class="n">theta_sgd</span>
 </pre></div>
 
@@ -13051,11 +13529,13 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[40]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([ 3.31584911, -0.64851792])</pre>
+<pre>array([ 3.29127697, -0.71010776])</pre>
 </div>
 
 </div>
@@ -13063,20 +13543,60 @@ $$
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Visualizing-the-SGD-Solution-Path">Visualizing the SGD Solution Path<a class="anchor-link" href="#Visualizing-the-SGD-Solution-Path">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Plotting the solution path</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_bias</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
-    <span class="n">standardizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X_plt</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> 
-    <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">X_plt</span><span class="p">),</span><span class="mi">1</span><span class="p">))])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">sgd_thetas</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">theta0</span><span class="p">,</span> <span class="n">grad</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">):</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta0</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+    <span class="n">thetas</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">rho</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">t</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">t</span> <span class="o">%</span> <span class="n">n</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">n</span><span class="o">/</span><span class="n">batch_size</span> <span class="o">*</span> <span class="n">grad</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">),],</span> <span class="n">Y</span><span class="p">[</span><span class="n">i</span><span class="p">:(</span><span class="n">i</span><span class="o">+</span><span class="n">batch_size</span><span class="p">)])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+        <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span> <span class="o">-</span> <span class="n">rho</span> <span class="o">*</span> <span class="n">g</span>
+        <span class="n">thetas</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">thetas</span><span class="p">)</span>
 
-<span class="n">lr_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SGD Logistic Regression&quot;</span><span class="p">,</span>
-    <span class="n">x</span><span class="o">=</span><span class="n">X_plt</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">X_bias</span> <span class="o">@</span> <span class="n">theta_sgd</span><span class="p">),</span> 
-    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">mal_points</span><span class="p">,</span> <span class="n">ben_points</span><span class="p">,</span> <span class="n">lr_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-09&quot;</span><span class="p">)</span>
+
+<span class="n">all_thetas</span> <span class="o">=</span> <span class="n">sgd_thetas</span><span class="p">(</span><span class="n">Phi</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]),</span> <span class="n">neg_gradL</span><span class="p">)</span>
+
+<span class="n">thata_points</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Theta Values&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">all_thetas</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">all_thetas</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines+markers&quot;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+<span class="n">lr_loss_contours</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Contour</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Regression Loss&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">uvalues</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">vvalues</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">lr_loss_values</span><span class="p">,(</span><span class="nb">len</span><span class="p">(</span><span class="n">uvalues</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">vvalues</span><span class="p">))),</span>
+        <span class="n">colorscale</span><span class="o">=</span><span class="s1">&#39;Viridis&#39;</span><span class="p">,</span> <span class="n">reversescale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+    <span class="p">)</span>
+<span class="n">optimal_batch_lr_point</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Optimal Point&quot;</span><span class="p">,</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_sgd</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">theta_sgd</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+        <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">),</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">lr_loss_contours</span><span class="p">,</span> <span class="n">thata_points</span><span class="p">,</span> <span class="n">optimal_batch_lr_point</span><span class="p">]),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-13&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13087,10 +13607,12 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[41]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/921.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/931.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13098,6 +13620,84 @@ $$
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-is-going-on?">What is going on?<a class="anchor-link" href="#What-is-going-on?">&#182;</a></h1><hr>
+<p><br/><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Comparing-the-Solutions">Comparing the Solutions<a class="anchor-link" href="#Comparing-the-Solutions">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">]</span>
+<span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">,</span> <span class="s1">&#39;benign&#39;</span><span class="p">],</span>  <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Reg. Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_dec_boundary</span><span class="p">,</span><span class="n">lr_dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Least Squares Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">dec_boundary</span><span class="p">,</span><span class="n">dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+
+<span class="n">lr_sgd_dec_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span> <span class="o">-</span> <span class="n">theta_sgd</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="n">theta_sgd</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">lr_sgd_dec_boundary</span> <span class="o">=</span> <span class="n">standardizer</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">([</span><span class="n">lr_sgd_dec_boundary</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SGD Logistic Reg. Dec. Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_sgd_dec_boundary</span><span class="p">,</span><span class="n">lr_sgd_dec_boundary</span><span class="p">],</span> 
+                           <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-14&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/929.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Return-to-Slides">Return to Slides<a class="anchor-link" href="#Return-to-Slides">&#182;</a></h1><p><br/><br/><br/><br/><br/><br/></p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13117,7 +13717,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Xtoy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">])</span>
@@ -13131,11 +13731,12 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">toy_theta</span> <span class="o">=</span> <span class="n">batch_gd</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Xtoy</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtoy</span><span class="p">),</span><span class="mi">1</span><span class="p">])]),</span> <span class="n">Ytoy</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">neg_gradL</span><span class="p">,</span>
-                       <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">toy_theta</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Xtoy</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">Xtoy</span><span class="p">),</span><span class="mi">1</span><span class="p">])]),</span> <span class="n">Ytoy</span><span class="p">,</span> 
+                             <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">neg_gradL</span><span class="p">,</span>
+                             <span class="n">epsilon</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
 <span class="n">toy_theta</span>
 </pre></div>
 
@@ -13147,7 +13748,9 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[36]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[44]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13172,7 +13775,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_toy_plt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span>
@@ -13186,7 +13789,7 @@ $$
     <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SGD Logistic Regression&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">),</span> <span class="n">y</span><span class="o">=</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">X_toy_plt</span> <span class="o">@</span> <span class="n">toy_theta</span><span class="p">),</span> 
     <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-<span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-10&quot;</span><span class="p">)</span>
+<span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-15&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13197,10 +13800,12 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[45]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/923.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/955.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13230,7 +13835,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegressionCV</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
@@ -13245,7 +13850,9 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[46]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13261,15 +13868,24 @@ $$
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Plotting-the-predicted-probability">Plotting the predicted probability<a class="anchor-link" href="#Plotting-the-predicted-probability">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_line</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Scikit-LR&quot;</span><span class="p">,</span>
     <span class="n">x</span><span class="o">=</span><span class="n">X_plt</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">lr</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">X_plt</span><span class="p">])</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> 
     <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">mal_points</span><span class="p">,</span> <span class="n">ben_points</span><span class="p">,</span> <span class="n">lr_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-11&quot;</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">points</span><span class="p">,</span> <span class="n">lr_line</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-16&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13280,10 +13896,63 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[47]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/925.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/959.embed" height="525px" width="100%"></iframe>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">ff</span><span class="o">.</span><span class="n">create_distplot</span><span class="p">([</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">],</span>
+    <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">]][</span><span class="s1">&#39;mean radius&#39;</span><span class="p">]</span>
+<span class="p">],</span> <span class="n">group_labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;malignant&#39;</span><span class="p">,</span> <span class="s1">&#39;benign&#39;</span><span class="p">],</span>  <span class="n">bin_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Logistic Reg. Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_dec_boundary</span><span class="p">,</span><span class="n">lr_dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Least Squares Decision Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">dec_boundary</span><span class="p">,</span><span class="n">dec_boundary</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SGD Logistic Reg. Dec. Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_sgd_dec_boundary</span><span class="p">,</span><span class="n">lr_sgd_dec_boundary</span><span class="p">],</span> 
+                           <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+<span class="n">lr_sk_dec_boundary</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span> <span class="o">-</span> <span class="n">lr</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span><span class="o">/</span><span class="n">lr</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;SK Logistic Reg. Dec. Boundary&quot;</span><span class="p">,</span> 
+                      <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="n">lr_sk_dec_boundary</span><span class="p">,</span><span class="n">lr_sk_dec_boundary</span><span class="p">],</span> 
+                           <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.25</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;lines&quot;</span><span class="p">,</span>
+                     <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;pink&quot;</span><span class="p">,</span> <span class="n">dash</span><span class="o">=</span><span class="s2">&quot;dot&quot;</span><span class="p">)))</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">plt</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-17&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[48]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/957.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13304,7 +13973,7 @@ $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_errors</span> <span class="o">=</span> <span class="n">cross_val_score</span><span class="p">(</span><span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(),</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> 
@@ -13321,7 +13990,9 @@ $$
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>LeastSquares Error: 0.140845070423
 LR Error: 0.129401993355
@@ -13345,7 +14016,7 @@ LR Error: 0.129401993355
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr_extreme</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
@@ -13365,7 +14036,9 @@ LR Error: 0.129401993355
 <div class="output">
 
 
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Least Squares Extreme Point: 0.182669789227
 LR Extreme Point: 0.126463700234
@@ -13393,13 +14066,23 @@ LR Extreme Point: 0.126463700234
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Multiclass-&amp;-Feature-Engineering">Multiclass &amp; Feature Engineering<a class="anchor-link" href="#Multiclass-&amp;-Feature-Engineering">&#182;</a></h1>
+<h1 id="Multiclass-Prediction-&amp;-Feature-Engineering">Multiclass Prediction &amp; Feature Engineering<a class="anchor-link" href="#Multiclass-Prediction-&amp;-Feature-Engineering">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We temporarily return to a simple synthetic dataset</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -13421,7 +14104,7 @@ LR Extreme Point: 0.126463700234
 
 
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">blue_points</span><span class="p">,</span> <span class="n">red_points</span><span class="p">,</span> <span class="n">orange_points</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-11&quot;</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">blue_points</span><span class="p">,</span> <span class="n">red_points</span><span class="p">,</span> <span class="n">orange_points</span><span class="p">],</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-18&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13432,10 +14115,12 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[51]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/925.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/963.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13443,10 +14128,29 @@ LR Extreme Point: 0.126463700234
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Train-a-Soft-Max-Classifier">Train a Soft-Max Classifier<a class="anchor-link" href="#Train-a-Soft-Max-Classifier">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we train a soft-max classifier.  Currently scikit learn requires that we use an LBFGS solver for soft-max.  L-BFGS is a quasi second order method that uses the both the gradient and a diagonal approximation of the second derivative (the Hessian) to solve for the optimal parameters.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">lr</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s2">&quot;multinomial&quot;</span><span class="p">,</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">)</span>
@@ -13461,7 +14165,9 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[52]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13477,9 +14183,19 @@ LR Extreme Point: 0.126463700234
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Plotting-the-Decision-Surface">Plotting the Decision Surface<a class="anchor-link" href="#Plotting-the-Decision-Surface">&#182;</a></h1><p>In the following we plot the corresponding decision surface generated by the basic multiclass logistic regression model.  Notice that the limitations of the linear decision surface.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">uvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
@@ -13493,7 +14209,7 @@ LR Extreme Point: 0.126463700234
     <span class="n">colorscale</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;rgb(100,100,100)&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;rgb(150,150,150)&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">]]</span>
 <span class="p">)</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">label_contour</span><span class="p">,</span> <span class="n">blue_points</span><span class="p">,</span> <span class="n">red_points</span><span class="p">,</span> <span class="n">orange_points</span><span class="p">]),</span> 
-         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-12&quot;</span><span class="p">)</span>
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-19&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13504,10 +14220,12 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[53]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/927.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/965.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13515,17 +14233,28 @@ LR Extreme Point: 0.126463700234
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Feature-Engineering-with-Gaussian-RBFs">Feature Engineering with Gaussian RBFs<a class="anchor-link" href="#Feature-Engineering-with-Gaussian-RBFs">&#182;</a></h1><p>To capture the non-linear structure we randomly sample 20 data points and create an RBF feature centered at that point.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">gaussian_rbf</span><span class="p">(</span><span class="n">us</span><span class="p">,</span> <span class="n">lam</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">u</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="n">lam</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">us</span><span class="p">])</span>
 
+<span class="n">num_basis</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">rbf_features</span> <span class="o">=</span> <span class="n">gaussian_rbf</span><span class="p">(</span><span class="n">Xmc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xmc</span><span class="p">)),</span> <span class="mi">20</span><span class="p">,</span><span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">),:])</span>
+<span class="n">rbf_features</span> <span class="o">=</span> <span class="n">gaussian_rbf</span><span class="p">(</span><span class="n">Xmc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">Xmc</span><span class="p">)),</span> <span class="n">num_basis</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">),:])</span>
 <span class="n">Phimc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rbf_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Xmc</span><span class="p">])</span>
 
 <span class="n">lr_rbf</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">(</span><span class="n">multi_class</span><span class="o">=</span><span class="s2">&quot;multinomial&quot;</span><span class="p">,</span><span class="n">solver</span><span class="o">=</span><span class="s2">&quot;lbfgs&quot;</span><span class="p">)</span>
@@ -13540,7 +14269,9 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[54]:</div>
+
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13556,9 +14287,19 @@ LR Extreme Point: 0.126463700234
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Again fitting the logistic regression model we get a non-linear decision surface in our original space but a linear decision surface in a higher dimensional transformed space.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">uvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
@@ -13572,7 +14313,7 @@ LR Extreme Point: 0.126463700234
     <span class="n">colorscale</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;rgb(100,100,100)&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;rgb(150,150,150)&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">]]</span>
 <span class="p">)</span>
 <span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">label_contour</span><span class="p">,</span> <span class="n">blue_points</span><span class="p">,</span> <span class="n">red_points</span><span class="p">,</span> <span class="n">orange_points</span><span class="p">]),</span> 
-         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-13&quot;</span><span class="p">)</span>
+         <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-20&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13583,10 +14324,12 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[55]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/931.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/967.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
@@ -13597,7 +14340,7 @@ LR Extreme Point: 0.126463700234
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">uvalues</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span>
@@ -13605,19 +14348,8 @@ LR Extreme Point: 0.126463700234
 <span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">uvalues</span><span class="p">,</span> <span class="n">vvalues</span><span class="p">)</span>
 <span class="n">coords</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">rbf_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span><span class="n">v</span><span class="o">.</span><span class="n">flatten</span><span class="p">()))</span><span class="o">.</span><span class="n">T</span><span class="p">])</span>
 <span class="n">prb</span> <span class="o">=</span> <span class="n">lr_rbf</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
-</pre></div>
 
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">surfaces</span> <span class="o">=</span> <span class="p">[</span>
+<span class="n">surfaces</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">go</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
         <span class="n">x</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">v</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">prb</span><span class="p">[:,</span><span class="n">i</span><span class="p">],(</span><span class="nb">len</span><span class="p">(</span><span class="n">uvalues</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">vvalues</span><span class="p">))),</span> 
                <span class="n">showscale</span> <span class="o">=</span> <span class="kc">False</span>
@@ -13625,7 +14357,7 @@ LR Extreme Point: 0.126463700234
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="p">]</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">surfaces</span><span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-14&quot;</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">surfaces</span><span class="p">),</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;lr-21&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -13636,10 +14368,12 @@ LR Extreme Point: 0.126463700234
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[48]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[56]:</div>
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/929.embed" height="525px" width="100%"></iframe>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~jegonzal/961.embed" height="525px" width="100%"></iframe>
 </div>
 
 </div>
