@@ -438,6 +438,8 @@ In this lecture we will finish our discussion on logistic regression and begin t
 
 * We will continue to use the previous notebook on logistic regression.
 
+* K-Means Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIaV96SVd2bGVJMTA), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMWdDeHhpeFlxTjg) [handout](https://drive.google.com/open?id=0Bze55lezLJhIRjdvOXRTS2lRc3M))
+
 {% include syllabus_entry end=true %}
 
 
@@ -446,7 +448,7 @@ In this lecture we will finish our discussion on logistic regression and begin t
 
 {% include syllabus_entry dates=dates %}
 
-### Clustering and the EM [Yu]
+### Clustering and Expectation Maximization (EM) [Yu]
 
 This lecture will continue to cover EM and more general mixed membership clustering techniques.
 
