@@ -453,6 +453,7 @@ In this lecture we will finish our discussion on logistic regression and begin t
 This lecture will continue to cover EM and more general mixed membership clustering techniques.
 
 * EM and Hierarchical Clustering Slides: [pptx](https://drive.google.com/open?id=0B9WpyRE9TsDYTk1SZThpbzBjbms)
+
 {% include syllabus_entry end=true %}
 
 
