@@ -434,11 +434,17 @@ In this lecture we will finish our discussion on regularization and begin to stu
 
 In this lecture we will finish our discussion on logistic regression and begin to explore unsupervised learning techniques.  In particular we will start with K-means work towards the more general EM algorithm. 
 
-* Part 2 of Logistic Regression Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIR2tZZWNQMVZtbVU), [pdf](https://drive.google.com/open?id=0Bze55lezLJhINU8xZzlBejhqQXM) [handout](https://drive.google.com/open?id=0Bze55lezLJhIM3VTU0VVUVpraUU))
+* Part 2 of Logistic Regression Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIR2tZZWNQMVZtbVU), [pdf](https://drive.google.com/open?id=0Bze55lezLJhINU8xZzlBejhqQXM), [handout](https://drive.google.com/open?id=0Bze55lezLJhIM3VTU0VVUVpraUU))
+
 
 * We will continue to use the previous notebook on logistic regression.
 
-* K-Means Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIaV96SVd2bGVJMTA), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMWdDeHhpeFlxTjg) [handout](https://drive.google.com/open?id=0Bze55lezLJhIRjdvOXRTS2lRc3M))
+* K-Means Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIaV96SVd2bGVJMTA), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMWdDeHhpeFlxTjg), [handout](https://drive.google.com/open?id=0Bze55lezLJhIRjdvOXRTS2lRc3M))
+
+#### Additional Reading:
+
+* [K-Means Clustering tutorial](http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_digits.html#sphx-glr-auto-examples-cluster-plot-kmeans-digits-py) on scikit-learn
+
 
 {% include syllabus_entry end=true %}
 
@@ -452,7 +458,12 @@ In this lecture we will finish our discussion on logistic regression and begin t
 
 This lecture will continue to cover EM and more general mixed membership clustering techniques.
 
-* EM and Hierarchical Clustering Slides: [pptx](https://drive.google.com/open?id=0B9WpyRE9TsDYTk1SZThpbzBjbms)
+* EM and Hierarchical Clustering Slides: [pptx](https://drive.google.com/open?id=0B9WpyRE9TsDYTk1SZThpbzBjbms), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMWhYOGNNLTJKM0k), [handout](https://drive.google.com/open?id=0Bze55lezLJhISFZMVXE0SG5razg)
+
+#### Optional Reading:
+
+* [Silhouette analysis tutorial](http://scikit-learn.org/stable/auto_examples/cluster/plot_kmeans_silhouette_analysis.html#sphx-glr-auto-examples-cluster-plot-kmeans-silhouette-analysis-py) on scikit-learn.
+
 
 {% include syllabus_entry end=true %}
 
@@ -464,6 +475,18 @@ This lecture will continue to cover EM and more general mixed membership cluster
 ### Map-Reduce, Spark, and Big Data [Gonzalez]
 
 In this lecture we will introduce the Map-Reduce model of distributed computation and then dive into the Apache Spark Map-Reduce system developed at Berkeley.  We will talk about how to use the computational frameworks to scale data processing.  
+
+* Slides: [pptx](https://drive.google.com/open?id=0Bze55lezLJhINmQ2RkdpUk5ra00), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIN0ZUUWVRUzIyc0k), [handout](https://drive.google.com/open?id=0Bze55lezLJhIRmZxS044bzZqcDQ)
+
+* Notebook demonstrating distributed least squares linear regression in Apache Spark Map-Reduce [Cloud Notebook](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/8383153137003323/2580593937400002/1191695088252320/latest.html)
+
+#### Additional Reading:
+
+* The Apache [Spark programming guide](https://spark.apache.org/docs/latest/programming-guide.html) provides a fairly detailed overview of how to use Spark.  Be sure to switch the code examples to Python by selecting the Python tab above each code snippet. 
+  * Python [RDD API](https://spark.apache.org/docs/latest/api/python/pyspark.html#pyspark.RDD)
+  * Python [Dataframe API](https://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrame)
+* Databricks Cloud [Apache Spark tutorial](https://docs.databricks.com/spark/latest/gentle-introduction/gentle-intro.html)
+* Information about using [Databricks Cloud](https://docs.databricks.com/user-guide/getting-started.html) which we will be using for homework.
 
 #### Homework 6 Due
 
