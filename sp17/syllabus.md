@@ -355,7 +355,7 @@ The following interactive (html) notebooks walk through the concepts we use in l
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb), [data](assets/notebooks/linear_regression/data.zip))
 
-* [An archive [zip file](https://drive.google.com/open?id=0Bze55lezLJhIUVdLd0xSMnZxdXM) of all notebooks, data, and figures for regression and subsequent over-fitting lectures.
+* An archive [zip file](https://drive.google.com/open?id=0Bze55lezLJhIUVdLd0xSMnZxdXM) of all notebooks, data, and figures for regression and subsequent over-fitting lectures.
 
 * Optional reading: [Chapter 3.1, 3.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf).  
 
@@ -373,6 +373,9 @@ In this lecture we continue the discussion from the last lecture pushing further
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb))
 
 * Feature Engineering Part 2: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part2.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part2.ipynb), [data](assets/notebooks/linear_regression/data.zip))
+
+* An archive [zip file](https://drive.google.com/open?id=0Bze55lezLJhIUVdLd0xSMnZxdXM) of all notebooks, data, and figures for regression and subsequent over-fitting lectures.
+
 
 * Optional reading [Chapter 2.1, 2.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf)
 
@@ -401,6 +404,9 @@ In this lecture will continue our exploration of over-fitting and derive the fun
 [pdf](https://drive.google.com/open?id=0Bze55lezLJhINE1kd3VSODJpYXM), [handout](https://drive.google.com/open?id=0Bze55lezLJhIeFFTdVFScDdsc3M))
 
 * Interactive Notebook on Cross Validation and the Bias Variance Tradeoff: ([html](assets/notebooks/linear_regression/Cross_Validation_and_the_Bias_Variance_Tradeoff.html), [ipynb](assets/notebooks/linear_regression/Cross_Validation_and_the_Bias_Variance_Tradeoff.ipynb))
+
+* An archive [zip file](https://drive.google.com/open?id=0Bze55lezLJhIUVdLd0xSMnZxdXM) of all notebooks, data, and figures for regression and subsequent over-fitting lectures.
+
 
 * An alternative derivation of the Bias Variance Trade-Off provided by Professor Yu ([pdf](assets/bias-var.pdf))
 
