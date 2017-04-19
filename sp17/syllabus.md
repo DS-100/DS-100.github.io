@@ -351,9 +351,11 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 
 The following interactive (html) notebooks walk through the concepts we use in lecture and are suggested reading materials.
 
-* Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), [ipynb](assets/notebooks/linear_regression/Least_Squares_Regression.ipynb)) 
+* Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), 
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb), [data](assets/notebooks/linear_regression/data.zip))
+
+* [An archive [zip file](https://drive.google.com/open?id=0Bze55lezLJhIUVdLd0xSMnZxdXM) of all notebooks, data, and figures for regression and subsequent over-fitting lectures.
 
 * Optional reading: [Chapter 3.1, 3.2](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20Sixth%20Printing.pdf).  
 
