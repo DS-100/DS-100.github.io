@@ -519,9 +519,10 @@ In this lecture we will introduce the Map-Reduce model of distributed computatio
 
 {% include syllabus_entry dates=dates %}
 
-### Decision Trees [Nolan]
+### Finish Discussion on Spark and Classification
 
-In this lecture we will cover a widely used technique for classification (and regression) that offers an algorithmic method to learn informative features. 
+In the previous lectures we moved quickly through some important concepts in distributed data processing and classification.  Because both of these ideas are critical in many data science applications, we will return to the discussion on Spark and review how the relational operators we learned earlier in the class enable scalable distributed computing.  We will then return to the topic of classification and review logistic regression and how it can be made to run in a distributed computing environment.  Time permitting we will touch on Deep Learning as a generalization of the ideas in logistic regression.
+
 
 {% include syllabus_entry end=true %} 
 
@@ -529,14 +530,19 @@ In this lecture we will cover a widely used technique for classification (and re
 
 {% include syllabus_entry dates=dates %}
 
-### TBD
+### PCA and the Berkeley Data Science Major [Nolan and Cathryn Carson]
+
+In this lecture we will provide an overview of dimensionality reduction and discuss the PCA method.  We will conclude with a discussion from Cathryn Carson on the development and status of the Berkeley Data Science Major.
+
 
 #### Homework 7 Due
 {% include syllabus_entry end=true %}
 
 
 {% include syllabus_entry dates=dates %}
-### RRR Review
+### RRR Review [Hellerstein and Yu]
+
+This will be part one of a two part exam review lecture to be held during the regular lecture slot.
 
 #### Homework 7 Due (optional extension)
 
@@ -544,7 +550,11 @@ In this lecture we will cover a widely used technique for classification (and re
 
 
 {% include syllabus_entry dates=dates %}
-### RRR Review
+### RRR Review [Gonzalez and Nolan]
+
+This will be part two of a two part exam review lecture to be held during the regular lecture slot.
+
+
 {% include syllabus_entry end=true %}
 
 
