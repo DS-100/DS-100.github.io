@@ -523,6 +523,8 @@ In this lecture we will introduce the Map-Reduce model of distributed computatio
 
 In the previous lectures we moved quickly through some important concepts in distributed data processing and classification.  Because both of these ideas are critical in many data science applications, we will return to the discussion on Spark and review how the relational operators we learned earlier in the class enable scalable distributed computing.  We will then return to the topic of classification and review logistic regression and how it can be made to run in a distributed computing environment.  Time permitting we will touch on Deep Learning as a generalization of the ideas in logistic regression.
 
+* Slides: [pptx](https://drive.google.com/open?id=0Bze55lezLJhIbjROeTZVOGdCa1k)
+* Notebooks: [databricks cloud](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/8383153137003323/3949934397605030/1191695088252320/latest.html)
 
 {% include syllabus_entry end=true %} 
 
@@ -533,6 +535,8 @@ In the previous lectures we moved quickly through some important concepts in dis
 ### PCA and the Berkeley Data Science Major [Nolan and Cathryn Carson]
 
 In this lecture we will provide an overview of dimensionality reduction and discuss the PCA method.  We will conclude with a discussion from Cathryn Carson on the development and status of the Berkeley Data Science Major.
+
+* Slides: [pdf](https://drive.google.com/open?id=0Bze55lezLJhITjRoR3dGR1ZScnc)
 
 
 #### Homework 7 Due
