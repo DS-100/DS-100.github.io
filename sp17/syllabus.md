@@ -565,7 +565,7 @@ This will be part two of a two part exam review lecture to be held during the re
 {% include syllabus_entry dates=dates %}
 # Final Exam 
 
-The final exam will be from 3:00 to 6:00 PM.  For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
+The final exam will be from 3:00 to 6:00 PM on Thursday, May 11, in 100 GPB (Genetics & Plant Biology). For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
 {% include syllabus_entry end=true %}
 
 
