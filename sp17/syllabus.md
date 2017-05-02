@@ -351,7 +351,7 @@ In this lecture we will begin to do some machine learning.  We will explore how 
 
 The following interactive (html) notebooks walk through the concepts we use in lecture and are suggested reading materials.
 
-* Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), 
+* Least-Squares Linear Regression: ([html](assets/notebooks/linear_regression/Least_Squares_Regression.html), [ipynb](assets/notebooks/linear_regression/Least_Squares_Regression.ipynb))
 
 * Feature Engineering Part 1: ([html](assets/notebooks/linear_regression/Feature_Engineering_Part1.html), [ipynb](assets/notebooks/linear_regression/Feature_Engineering_Part1.ipynb), [data](assets/notebooks/linear_regression/data.zip))
 
@@ -511,6 +511,7 @@ In this lecture we will introduce the Map-Reduce model of distributed computatio
 
 ### Guest Lecturer on Data Science and Ethics [Charis Thompson]
 
+* Slides ([ppt](https://drive.google.com/open?id=0Bze55lezLJhIUE1fbjlCSi1oRWM), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIdkZ5M0RtLU8tOTQ), [handout](https://drive.google.com/open?id=0Bze55lezLJhITm1iajZ2Tm9aZWM))
 
 {% include syllabus_entry end=true %}
 
@@ -525,6 +526,7 @@ In the previous lectures we moved quickly through some important concepts in dis
 
 * Slides: [pptx](https://drive.google.com/open?id=0Bze55lezLJhIbjROeTZVOGdCa1k)
 * Notebooks: [databricks cloud](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/8383153137003323/3949934397605030/1191695088252320/latest.html)
+* Slides on Gender Bias: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIejRvaEhabVVVR1U), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMmt0d3BpbHhrNTQ), [handout](https://drive.google.com/open?id=0Bze55lezLJhIQlo3bVhONFptbHc))
 
 {% include syllabus_entry end=true %} 
 
