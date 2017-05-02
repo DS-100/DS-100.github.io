@@ -524,7 +524,7 @@ In this lecture we will introduce the Map-Reduce model of distributed computatio
 
 In the previous lectures we moved quickly through some important concepts in distributed data processing and classification.  Because both of these ideas are critical in many data science applications, we will return to the discussion on Spark and review how the relational operators we learned earlier in the class enable scalable distributed computing.  We will then return to the topic of classification and review logistic regression and how it can be made to run in a distributed computing environment.  Time permitting we will touch on Deep Learning as a generalization of the ideas in logistic regression.
 
-* Slides: [pptx](https://drive.google.com/open?id=0Bze55lezLJhIbjROeTZVOGdCa1k)
+* Slides: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIbjROeTZVOGdCa1k), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIbjROeTZVOGdCa1k), [handout](https://drive.google.com/open?id=0Bze55lezLJhIbEhPM2VPVVE3Wlk))
 * Notebooks: [databricks cloud](https://databricks-prod-cloudfront.cloud.databricks.com/public/4027ec902e239c93eaaa8714f173bcfc/8383153137003323/3949934397605030/1191695088252320/latest.html)
 * Slides on Gender Bias: ([pptx](https://drive.google.com/open?id=0Bze55lezLJhIejRvaEhabVVVR1U), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIMmt0d3BpbHhrNTQ), [handout](https://drive.google.com/open?id=0Bze55lezLJhIQlo3bVhONFptbHc))
 
