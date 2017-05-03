@@ -550,6 +550,10 @@ In this lecture we will provide an overview of dimensionality reduction and disc
 
 This will be part one of a two part exam review lecture to be held during the regular lecture slot.
 
+* Hellerstein Slides: [pptx](https://drive.google.com/open?id=0B2k285AK-3KEVGpZNzZ4V3pmZmM), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEeUwwMFRpS3FlZEU), [handout](https://drive.google.com/open?id=0B2k285AK-3KEUXZlcmlfa0lJU2s).
+
+* Yu Slides: [pptx](https://drive.google.com/open?id=0B2k285AK-3KEU0E1cGxIMmJJQUU), [pdf](https://drive.google.com/open?id=0B2k285AK-3KEVnVZNzA4WmVMZnM), [handout](https://drive.google.com/open?id=0B2k285AK-3KEV2h1V0c2M2dFak0)
+
 #### Homework 7 Due (optional extension)
 
 {% include syllabus_entry end=true %}
