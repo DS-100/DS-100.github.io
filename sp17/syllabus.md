@@ -564,6 +564,8 @@ This will be part one of a two part exam review lecture to be held during the re
 
 This will be part two of a two part exam review lecture to be held during the regular lecture slot.
 
+* Gonzalez Slides: [pptx](https://drive.google.com/open?id=0Bze55lezLJhINWVMNjk2YVNBcUE), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIOVowaHpaRTlpbjQ), [handout](https://drive.google.com/open?id=0Bze55lezLJhIWkVtM2lEcExWa1E)
+* Nolan Slides: [pptx](https://drive.google.com/open?id=0B7gkaDYGT5X5R3dtOFRxZEdmdzg), [pdf](https://drive.google.com/open?id=0Bze55lezLJhIazJzcDlNbnhYU2M), [handout](https://drive.google.com/open?id=0Bze55lezLJhIUEZkZHBaM1RTcVE)
 
 {% include syllabus_entry end=true %}
 
@@ -571,7 +573,7 @@ This will be part two of a two part exam review lecture to be held during the re
 {% include syllabus_entry dates=dates %}
 # Final Exam 
 
-The final exam will be from 3:00 to 6:00 PM on Thursday, May 11, in 100 GPB (Genetics & Plant Biology). For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
+The final exam will be from 3:00 to 6:00 PM on Thursday, May 11, in 100 GPB (Genetics and Plant Biology). For details about exam scheduling visit [the Berkeley Exam Calendar](http://registrar.berkeley.edu/sis-SC-message).
 {% include syllabus_entry end=true %}
 
 
