@@ -1,0 +1,15 @@
+{
+  "name": "Lab 7: Maximum Likelihood Estimation",
+  "endpoint": "cal/data100/sp17/lab07",
+  "src": [
+    "lab07.ipynb"
+  ],
+  "tests": {
+      "ok_tests/q*.py": "ok_test"
+  },
+  "protocols": [
+      "file_contents",
+      "grading",
+      "backup"
+  ]
+}
