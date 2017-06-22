@@ -73,7 +73,6 @@ JB :
   #   - Only the following values are falsy: ["", null, false]
   #   - When setting BASE_PATH it must be a valid url.
   #     This means always setting the protocol (http|https) or prefixing with "/"
-  # BASE_PATH : "/cs294"
   BASE_PATH : false
 
   # By default, the asset_path is automatically defined relative to BASE_PATH plus the enabled theme.
@@ -124,7 +123,7 @@ JB :
     gauges :
         site_id : 'SITE ID'
     google :
-        tracking_id : 'UA-123-12'
+        tracking_id : 'UA-101479247-2'
     getclicky :
       site_id :
     mixpanel :
