@@ -9,6 +9,7 @@ order: 1
 
 
 ## Versions:
+1. **RC1:** [Spring 2018](sp18)
 1. **Latest Version:** [Fall 2017](fa17)
 1. *Version 0.01:* [Spring 2017](sp17)
 
@@ -29,6 +30,7 @@ These include languages for transforming, querying and analyzing data; algorithm
 * **Enable** students to start careers as data scientists by providing experience in working with real-world data, tools, and techniques
 
 * **Empower** student to apply computational and inferential thinking to tackle real-world problems
+
 
 ## Prerequisites
 
