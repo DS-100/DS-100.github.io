@@ -10,7 +10,7 @@ order: 1
 
 ## Versions:
 1. **RC1:** [Spring 2018](sp18)
-1. **Latest Version:** [Fall 2017](fa17)
+1. *Alpha:* [Fall 2017](fa17)
 1. *Version 0.01:* [Spring 2017](sp17)
 
 
@@ -36,12 +36,12 @@ These include languages for transforming, querying and analyzing data; algorithm
 
 While we are working to make this class widely accessible in the initial ([beta](https://en.wikipedia.org/wiki/Software_release_life_cycle)) version of the class we plan to require the following (or equivalent):
 
-1. **Foundations of Data Science:** [**Data8**](http://data8.org/fa16/) covers much of the material in DS100 but at an introductory level.  Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
+1. **Foundations of Data Science:** [**Data8**](http://data8.org/) covers much of the material in DS100 but at an introductory level.  Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
 
 
 1. **Computing:** *The Structure and Interpretation of Computer Programs* [**CS61a**](http://cs61a.org) or *Computational Structures in Data Science* [**CS88**](http://cs88-website.github.io).   These courses provide additional background in python programming (e.g., *for loops*, *lambdas*, *debugging*, and *complexity*) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.
 
-1. **Math:** *Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2015.html) or [EE 16a](http://inst.eecs.berkeley.edu/~ee16a/fa16/)): We will need some basic concepts like linear operators, eigenvectors, derivatives, and integrals to enable statistical inference and derive new prediction algorithms.  This may be satisfied concurrently to DS100.
+1. **Math:** *Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2017.html), [EE 16a](https://inst.eecs.berkeley.edu/~ee16a/), or [Stat89a](https://www.stat.berkeley.edu/~mmahoney/s18-lads/)): We will need some basic concepts like linear operators, eigenvectors, derivatives, and integrals to enable statistical inference and derive new prediction algorithms.  This may be satisfied concurrently to DS100.
 
 
 
