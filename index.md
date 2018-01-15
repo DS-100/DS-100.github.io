@@ -9,8 +9,8 @@ order: 1
 
 
 ## Versions:
-1. **RC1:** [Spring 2018](sp18)
-1. **Latest Version:** [Fall 2017](fa17)
+1. *Latest Version:* [Spring 2018](sp18)
+1. *Version 0.10:* [Fall 2017](fa17)
 1. *Version 0.01:* [Spring 2017](sp17)
 
 
