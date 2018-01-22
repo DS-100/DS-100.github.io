@@ -7,11 +7,15 @@ order: 1
 {% include JB/setup %}
 
 
+# [Data 100 Spring 2018 Course Website](sp18)
 
-## Versions:
-1. *Latest Version:* [Spring 2018](sp18)
-1. *Version 0.10:* [Fall 2017](fa17)
-1. *Version 0.01:* [Spring 2017](sp17)
+## [Spring 2018 DataHub](http://data100.datahub.berkeley.edu)
+
+
+
+## Older Versions
+1. [Fall 2017](fa17)
+1. [Spring 2017](sp17)
 
 
 
