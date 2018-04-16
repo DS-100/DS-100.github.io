@@ -6,7 +6,7 @@
 
 **Q. I wasn’t able to officially enroll, why?**
 
-**A.** The enrollment system will only allow you to enroll if you meet
+**A.** The enrollment system as currently configured will only allow you to enroll if you meet
 **all** of the requirements below:
 
 -   Completion of Engineering 7 or Data 8.
