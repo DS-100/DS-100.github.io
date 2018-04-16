@@ -15,7 +15,7 @@
 
 -   EE16A or Math54 (co-requisite - you have to actually **be enrolled** for the system to let you enroll in Data100).
 
-**Q.** How can I enroll in the course if I have not met the exact list of
+**Q. How can I enroll in the course if I have not met the exact list of
 prerequisites above?**
 
 **A.** You’ll need to fill out the [enrollment appeals form](https://goo.gl/forms/SIH49z8JE8VrvNbk1), which certifies
