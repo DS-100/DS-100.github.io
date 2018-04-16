@@ -12,6 +12,9 @@ order: 1
 ## [Spring 2018 DataHub](http://data100.datahub.berkeley.edu)
 
 
+## Fall 2018
+
+[Fall 2018 Frequently Asked Questions](fa18faq)
 
 ## Older Versions
 1. [Fall 2017](fa17)
