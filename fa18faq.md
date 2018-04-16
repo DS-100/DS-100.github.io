@@ -29,9 +29,9 @@ course.
 
 To satisfy the statistics requirement, we accept the following on-campus
 Berkeley courses: Data 8, E7, Stat 20, Stat 21, Stat W21, Stat 131A,
-Stat 133, Stat 135. We also accept the edx version of Data 8 (link).
-\[some sort of note about how E7 isn’t a great way to meet stat
-requirement\]
+Stat 133, Stat 135. Tentatively, we may aslso be accepting the [edx version 
+of Data 8](https://www.edx.org/course/foundations-data-science-computational-uc-berkeleyx-data8-1x. More details
+here once they are available.
 
 To satisfy the Python Programming requirement, we accept the following
 Berkeley courses: CS61A and CS88.
