@@ -13,7 +13,7 @@
 
 -   Completion of CS61A or CS88 or Engineering 7.
 
--   Completion or current enrollment in EE16A or Math54. Note: You must add EE16A or Math54 before DS100, otherwise the course enrollment system will not allow you to enroll.
+-   Completion or current enrollment in EE16A or Math54 or Stat 89A. Note: You must add EE16A or Math54 or Stat89A before DS100, otherwise the course enrollment system will not allow you to enroll.
 
 **Q. How can I enroll in the course if I have not met the exact list of
 requirements above?**
