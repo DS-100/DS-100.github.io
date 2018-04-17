@@ -9,9 +9,9 @@
 **A.** The enrollment system as currently configured will only allow you to enroll if you meet
 **all** of the requirements below:
 
--   Completion of Engineering 7 or Data 8.
+-   Completion of Data 8.
 
--   Completion of CS61A or CS88.
+-   Completion of CS61A or CS88 or Engineering 7.
 
 -   Completion or current enrollment in EE16A or Math54. Note: You must add EE16A or Math54 before DS100, otherwise the course enrollment system will not allow you to enroll.
 
