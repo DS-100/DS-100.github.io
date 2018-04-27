@@ -56,9 +56,15 @@ Form signatories will be processed for the first time after Phase I enrollment i
 
 ---
 
+**Q. Will waitlist processing take into consideration grades or other factors?**
+
+**A.** No, the waitlist will be processed strictly in order, without ranking students first by grades or any other criteria.
+
+---
+
 **Q. I was not able to add to the waitlist, why?**
 
-**A.**
+**A.** Please check these first:
 
 - Did you mark the box to Add to the Waiting List if course is full?
 - Did you select 999 as your lab and 999A as your discussion?
