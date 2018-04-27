@@ -113,4 +113,10 @@ Form signatories will be processed for the first time after Phase I enrollment i
 
 **Q. Is it worth Phase-1ing Data 100 if I will be filling out an Enrollment Appeals Form?**
 
-As indicated in the previous question, we continue to grow the course capacity. We can't make exact promises so this decision is ultimately up to you, but we will do our best to process this waitlist promptly and hope to be able to admit most of those who filled out the Appeals Form.
+**A.** As indicated in the previous question, we continue to grow the course capacity. We can't make exact promises so this decision is ultimately up to you, but we will do our best to process this waitlist promptly and hope to be able to admit most of those who filled out the Appeals Form.
+
+---
+
+**Q. What will be the policy for final conflicts in this class; will there be an alternate final?**
+
+**A.** There will be a single time slot for an alternate final, offered after polling the class for the optimal time that satisfies the most students. If the alternate time doesn't work for you, you will have to take an incomplete and take the final the next semester.
