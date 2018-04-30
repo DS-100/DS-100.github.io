@@ -126,3 +126,11 @@ Form signatories will be processed for the first time after Phase I enrollment i
 **Q. What will be the policy for final conflicts in this class; will there be an alternate final?**
 
 **A.** There will be a single time slot for an alternate final, offered after polling the class for the optimal time that satisfies the most students. If the alternate time doesn't work for you, you will have to take an incomplete and take the final the next semester.
+
+---
+
+**Q. Will there be webcasts/lecture videos?**
+
+**A.** Yes, all lectures will be captured on video and posted promptly on bCourses. Video from previous years is also still available by navigating to the archived website for each year.  These can provide useful complementary perspectives on a given topic, sometimes covered by a different lecturer.
+
+Note that to view those videos, you must be logged in with your Berkeley credentials into YouTube, otherwise you'll get an error message about the video not being available.
