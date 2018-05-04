@@ -95,7 +95,9 @@ Form signatories will be processed for the first time after Phase I enrollment i
 
 **Q. What is the status of the L&S Data Science Major and/or Minor?**
 
-**A.** As you plan your classes for fall, the Division of Data Sciences hopes and expects that the L&S Data Science Major will be available to students in the fall.  You can learn more about the current status of the Major (and Minor) on [this website](https://data.berkeley.edu/degrees/data-science-ba).  Frequently Asked Questions about the Major and Minor are [discussed here](https://data.berkeley.edu/education/faqs).  The [Data001 Piazza site](https://piazza.com/class/j7s01y165odq5?cid=496) will reopen later for you to ask questions from advising staff as they are hired.  At this time we (your Data 100 staff) do not have any further information.
+**A.** As you plan your classes for fall, the Division of Data Sciences hopes and expects that the L&S Data Science Major will be available to students in the fall.  You can learn more about the current status of the Major (and Minor) on [this website](https://data.berkeley.edu/degrees/data-science-ba).  Frequently Asked Questions about the Major and Minor are [discussed here](https://data.berkeley.edu/education/faqs).
+
+You can use the official [Data001 Piazza site](https://piazza.com/class/j7s01y165odq5?cid=496) to ask questions from advising staff from the Division of Data Sciences.
 
 ---
 
