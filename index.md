@@ -7,16 +7,13 @@ order: 1
 {% include JB/setup %}
 
 
-# [Data 100 Spring 2018 Course Website](sp18)
+# Fall 2018
+## [Course Website](fa18)
+## [DataHub](http://data100.datahub.berkeley.edu)
+## [FAQ](fa18faq)
 
-## [Spring 2018 DataHub](http://data100.datahub.berkeley.edu)
-
-
-## Fall 2018
-
-[Fall 2018 Frequently Asked Questions](fa18faq)
-
-## Older Versions
+# Older Versions
+1. [Spring 2018](sp18)
 1. [Fall 2017](fa17)
 1. [Spring 2017](sp17)
 
@@ -29,7 +26,6 @@ This intermediate level class bridges between [Data8](http://data8.org/fa16/) an
 In this class, we explore key areas of data science including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision making.​
 Through a strong emphasizes on data centric computing, quantitative critical thinking, and exploratory data analysis this class covers key principles and techniques of data science.
 These include languages for transforming, querying and analyzing data; algorithms for machine learning methods including regression, classification and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
-
 
 
 ### Goals
