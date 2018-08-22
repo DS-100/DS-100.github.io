@@ -30,11 +30,11 @@ If it's really something completely specific to your personal situation that can
 
 **A.** You must:
 
-1. Join the course waitlist.
+1. Join the Stat C100 (25289) waitlist.
 
 1. Fill out the [enrollment appeals
    form](https://goo.gl/forms/SIH49z8JE8VrvNbk1), which certifies that you will
-   have the needed background knowledge to succeed in CS100.
+   have the needed background knowledge to succeed in Stat C100.
 
 Broadly speaking, the pre/corequisites listed above represent fundamentals in
 three areas: Statistics, Python Programming, and Linear Algebra. Statistics and
