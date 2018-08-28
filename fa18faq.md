@@ -8,7 +8,7 @@
 
 **Q. Will I get off the waitlist?**
 
-**A.** ~~If you're not on the waitlist by Wednesday, 8/22, it's unfortunately highly unlikely that you will get into the class, especially with the earlier drop deadline in mind. ~~
+**A.** <del>If you're not on the waitlist by Wednesday, 8/22, it's unfortunately highly unlikely that you will get into the class, especially with the earlier drop deadline in mind. </del>
 We're trying our best to accommodate everyone into the class. If you're still interested, stay on the waitlist and complete the other assignments as they come! We're not sure yet when or how many people we'll be letting people off the waitlist unfortunately, but please stay tuned!
 
 ---
