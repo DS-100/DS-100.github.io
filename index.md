@@ -6,6 +6,8 @@ order: 1
 ---
 {% include JB/setup %}
 
+# Spring 2019
+## [FAQ](sp19faq)
 
 # Fall 2018
 ## [Course Website](fa18)
@@ -21,7 +23,7 @@ order: 1
 
 ### Overview
 
-Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world. 
+Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world.
 This intermediate level class bridges between [Data8](http://data8.org/fa16/) and upper division computer science and statistics courses as well as methods courses in other fields.
 In this class, we explore key areas of data science including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision making.​
 Through a strong emphasizes on data centric computing, quantitative critical thinking, and exploratory data analysis this class covers key principles and techniques of data science.
@@ -49,16 +51,3 @@ While we are working to make this class widely accessible we currently require t
 
 
 1. **Math:** *Linear Algebra* ([Math 54](https://math.berkeley.edu/~nadler/54fall2015.html), [EE 16a](http://inst.eecs.berkeley.edu/~ee16a/fa16/), or [Stat89a](https://www.stat.berkeley.edu/~mmahoney/s18-lads/)): We will need some basic concepts like linear operators and derivatives to enable statistical inference and derive new prediction algorithms.  This may be satisfied concurrently to DS100.
-
-
-
-
-
-
-
-
-
-
-
-
-
