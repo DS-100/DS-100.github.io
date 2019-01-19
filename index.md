@@ -7,14 +7,12 @@ order: 1
 {% include JB/setup %}
 
 # Spring 2019
+## [Course Website](sp19)
+## [DataHub](http://data100.datahub.berkeley.edu)
 ## [FAQ](sp19faq)
 
-# Fall 2018
-## [Course Website](fa18)
-## [DataHub](http://data100.datahub.berkeley.edu)
-## [FAQ](fa18faq)
-
 # Older Versions
+1. [Fall 2018](fa18)
 1. [Spring 2018](sp18)
 1. [Fall 2017](fa17)
 1. [Spring 2017](sp17)
