@@ -6,6 +6,9 @@ order: 1
 ---
 {% include JB/setup %}
 
+# Fall 2019
+## [FAQ](fa19faq)
+
 # Spring 2019
 ## [Course Website](sp19)
 ## [DataHub](http://data100.datahub.berkeley.edu)
