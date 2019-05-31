@@ -88,7 +88,7 @@ to enroll were eventually able to do so (if not right at the start). In Summer
 an alternate final?**
 
 **A.** The final is tentatively scheduled to be a 2-part exam given on the last
-two days of lecture (Wed and Thurs, August 14-15, 9:00-10:30am). If you cannot
+two days of lecture (Wed and Thurs, August 14-15, 9:30-11:00am). If you cannot
 make this time, you should not enroll in the course since we will not hold
 alternate final times.
 
