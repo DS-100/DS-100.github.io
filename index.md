@@ -11,20 +11,17 @@ order: 1
 
 ## [FAQ](su19faq)
 
+## [Course Website](su19)
+
+## [DataHub](http://data100.datahub.berkeley.edu)
+
 # Fall 2019
 
 ## [FAQ](fa19faq)
 
-# Spring 2019
-
-## [Course Website](sp19)
-
-## [DataHub](http://data100.datahub.berkeley.edu)
-
-## [FAQ](sp19faq)
-
 # Older Versions
 
+1. [Spring 2019](sp19)
 1. [Fall 2018](fa18)
 1. [Spring 2018](sp18)
 1. [Fall 2017](fa17)
