@@ -9,8 +9,6 @@ order: 1
 
 # Summer 2019
 
-## [FAQ](su19faq)
-
 ## [Course Website](su19)
 
 ## [DataHub](http://data100.datahub.berkeley.edu)
