@@ -7,14 +7,14 @@ order: 1
 
 {% include JB/setup %}
 
-## Fall 2019
+## Spring 2020
 
-### [Course Website](fa19)
+### [Course Website](sp20)
 
 <br>
 
 ## Older Versions
-
+1. [Summer 2019](fa19)
 1. [Summer 2019](su19)
 1. [Spring 2019](sp19)
 1. [Fall 2018](fa18)
