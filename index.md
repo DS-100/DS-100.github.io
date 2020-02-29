@@ -7,8 +7,6 @@ order: 1
 
 {% include JB/setup %}
 
-[Summer 2020 Frequently Asked Questions](su20)
-
 ## Offerings
 1. [Spring 2020](sp20)
 1. [Fall 2019](fa19)
@@ -19,12 +17,14 @@ order: 1
 1. [Fall 2017](fa17)
 1. [Spring 2017](sp17)
 
+[Summer 2020 Frequently Asked Questions](su20)
+
 <br>
 
 ### Overview
 
 Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world.
-This intermediate level class bridges between [Data8](http://data8.org/fa16/) and upper division computer science and statistics courses as well as methods courses in other fields.
+This intermediate level class bridges between [Data8](http://data8.org/) and upper division computer science and statistics courses as well as methods courses in other fields.
 In this class, we explore key areas of data science including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision making.​
 Through a strong emphasizes on data centric computing, quantitative critical thinking, and exploratory data analysis this class covers key principles and techniques of data science.
 These include languages for transforming, querying and analyzing data; algorithms for machine learning methods including regression, classification and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
@@ -41,7 +41,7 @@ These include languages for transforming, querying and analyzing data; algorithm
 
 While we are working to make this class widely accessible we currently require the following (or equivalent) prerequisites:
 
-1. **Foundations of Data Science:** [**Data8**](http://data8.org/fa16/) covers much of the material in DS100 but at an introductory level. Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
+1. **Foundations of Data Science:** [**Data8**](http://data8.org/) covers much of the material in DS100 but at an introductory level. Data8 provides basic exposure to python programming and working with tabular data as well as visualization, statistics, and machine learning.
 
 1. **Computing:** _The Structure and Interpretation of Computer Programs_ [**CS61A**](http://cs61a.org) or _Computational Structures in Data Science_ [**CS88**](http://cs88-website.github.io). These courses provide additional background in python programming (e.g., _for loops_, _lambdas_, _debugging_, and _complexity_) that will enable DS100 to focus more on the concepts in Data Science and less on the details of programming in python.
 
