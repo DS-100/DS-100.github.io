@@ -8,6 +8,7 @@ order: 1
 {% include JB/setup %}
 
 ## Offerings
+1. [Summer 2020](su20)
 1. [Spring 2020](sp20)
 1. [Fall 2019](fa19)
 1. [Summer 2019](su19)
@@ -16,8 +17,6 @@ order: 1
 1. [Spring 2018](sp18)
 1. [Fall 2017](fa17)
 1. [Spring 2017](sp17)
-
-[Summer 2020 Frequently Asked Questions](su20)
 
 <br>
 
