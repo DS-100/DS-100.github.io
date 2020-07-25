@@ -10,6 +10,8 @@ nav_exclude: true
 UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
+### [Fall 2020 Frequently Asked Questions](fa20faq)
+
 ## Offerings
 1. [Summer 2020](su20)
 1. [Spring 2020](sp20)
