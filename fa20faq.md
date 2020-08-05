@@ -31,7 +31,18 @@ Data 100 will be taught entirely remotely for the fall semester, even if campus 
 
 **Q. What is the proctoring policy given the online nature of the course?**
 
-**A.** We will use Zoom proctoring for at least one exam during the semester (the exam(s) that we choose to proctor will be announced later into the semester). We will follow all new campus guidelines to ensure a fair setup for all students that is respectful of their individual privacy.
+**A.** We will use Zoom proctoring for at least one exam during the semester (the exam(s) that we choose to proctor will be announced later into the semester). We are still learning about the tradeoffs involved and will update this page.
+
+We will follow all new campus guidelines on remote proctoring, such as:
+
+* Provide accommodations for students with letters of accommodation from DSP services: we will honor all DSP accommodations, including no remote proctoring if so specified.
+
+* We will provide at least one optional time for the exam so that students in time zones that are markedly different than UC Berkeley’s are not at a disadvantage.
+
+* Types of backgrounds permitted: we will use Zoom and will allow you to use its virtual background feature with any of the campus-provided backgrounds (which are available to you when signed-in).  If your system doesn't support virtual backgrounds or you have hardware/camera issues or other constraints in your space regarding backgrounds, we will offer a contact form to develop alternatives.
+
+* Similarly, if you have wifi issues we will take that into consideration by allowing you to turn your camera off for periods, as long as you turn it on upon request from the proctors.
+
 
 ---
 
