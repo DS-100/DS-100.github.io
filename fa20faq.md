@@ -41,6 +41,10 @@ Data 100 will be taught entirely remotely for the fall semester, even if campus 
 
 ---
 
+**Q. When will the full schedule of labs and discussions be announced?**
+
+**A.** We are still developing the schedule, we will post a complete version with all our options for online-based labs, discussions and other activities by Friday August 21.
+
 
 <!-- **Q. My question isn't answered in this FAQ, what can I do?**
 
