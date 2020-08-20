@@ -13,6 +13,7 @@ UC Berkeley
 ### [Fall 2020 Frequently Asked Questions](fa20faq)
 
 ## Offerings
+1. [Fall 2020](fa20)
 1. [Summer 2020](su20)
 1. [Spring 2020](sp20)
 1. [Fall 2019](fa19)
