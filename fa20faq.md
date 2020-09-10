@@ -9,6 +9,32 @@ nav_exclude: true
 
 Data 100 will be taught entirely remotely for the fall semester, even if campus begins allowing some in-person instruction.
 
+<!-- Template to copy/paste
+
+---
+**Q. **
+
+**A.** 
+--- -->
+
+---
+
+**Q. I have a general logistics/grading/etc question not answered here. What should I do?**
+
+**A.** Since the course is very large (over 1,000 students) we ask that you don't personally email the two professors for most such issues, instead you should post your question on the [class Piazza as per these instructions](https://piazza.com/class/ke37haavnl86ul?cid=174).
+
+You will receive a faster answer (most issues are handled by members of the instructional team and not directly by the faculty anyways), and it will leave us some bandwidth to resolve issues that require a direct response from us.
+
+---
+
+**Q. I would like to make a class-wide announcement about my project/group/initiative/etc.**
+
+**A.** We only allow posts made on Piazza and you must make it yourself, we do not make posts on your behalf.  These are our guidelines for Piazza posts from student groups - they must be text-only posts (no videos) where the announcement:
+
+1. Has to do with teaching or tutoring in a non-commercial setting, or
+2. is directly related to the material in the course, or
+3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
+
 ---
 
 **Q. What are the official prerequisites for this course?**
