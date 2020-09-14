@@ -25,6 +25,14 @@ Data 100 will be taught entirely remotely for the fall semester, even if campus 
 
 You will receive a faster answer (most issues are handled by members of the instructional team and not directly by the faculty anyways), and it will leave us some bandwidth to resolve issues that require a direct response from us.
 
+
+---
+**Q. I have added the course later in the semester. Can I catch up? Can I be excused for all late work**
+
+**A.** The answer to the first question is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
+
+As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
+
 ---
 
 **Q. I would like to make a class-wide announcement about my project/group/initiative/etc.**
