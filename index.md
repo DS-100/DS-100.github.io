@@ -13,6 +13,7 @@ UC Berkeley
 ### [Spring 2021 Frequently Asked Questions](sp21faq)
 
 ## Offerings
+1. [Spring 2021](sp21)
 1. [Fall 2020](fa20)
 1. [Summer 2020](su20)
 1. [Spring 2020](sp20)
