@@ -16,7 +16,6 @@
 title: Data 100
 description: Principles and Techniques of Data Science
 author: UC Berkeley
-email: suraj.rampure@berkeley.edu
 baseurl: ~ # the subpath of your site, e.g. /blog
 url: 'http://ds100.org' # the base hostname & protocol for your site, e.g. http://example.com
 
