@@ -10,7 +10,7 @@ nav_exclude: true
 UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
-### [Spring 2021 Frequently Asked Questions](sp21faq)
+### [Summer 2021 Frequently Asked Questions](su21faq)
 
 ## Offerings
 1. [Spring 2021](sp21)
