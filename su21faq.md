@@ -67,6 +67,12 @@ Data 100 will be taught entirely remotely for the summer semester.
 
 ---
 
+**Q. Where can I find information about the Fall 2021 offering of Data 100?**
+
+**A.** Not here. Not much has been decided yet, but stay tuned to the [Data 001 Piazza](https://piazza.com/class/j7s01y165odq5).
+
+---
+
 **Q. Who do I contact if I have further questions?**
 
 **A.** Please e-mail data100 DOT instructors AT berkeley DOT edu, and one of the instructors will get back to you.
