@@ -11,6 +11,7 @@ UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
 ## Offerings
+1. [Fall 2021](fa21)
 1. [Summer 2021](su21)
 1. [Spring 2021](sp21)
 1. [Fall 2020](fa20)
