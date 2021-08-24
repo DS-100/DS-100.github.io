@@ -42,6 +42,11 @@ nav_exclude: true
 **A.** The official prerequisites will _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the [CDSS advisors team](https://data.berkeley.edu/degrees/student-services) and you must communicate directly with them - _do not email instructors about this_ as we are not making these decisions at all.
 
 ---
+**Q. I am waitlisted, what should I do?**
+
+**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place. We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. We'll be monitoring the waitlist and wil do our best to ensure all waitlisted students can enroll.
+
+---
 **Q. I Have a time conflict for the final, what can I do?**
 
 **A.** The course will have a final group project in lieu of a final exam, so there should be no issues for anyone on this front.
@@ -59,6 +64,7 @@ nav_exclude: true
 **A.** Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.
 
 ---
+
 
 **Q. When will the full schedule of labs and discussions be announced?**
 
