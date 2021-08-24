@@ -43,6 +43,13 @@ nav_exclude: true
 **A.** The official prerequisites will _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the [CDSS advisors team](https://data.berkeley.edu/degrees/student-services) and you must communicate directly with them - _do not email instructors about this_ as we are not making these decisions at all.
 
 ---
+**Q. I am a graduate student but the system won't let me enroll in Data 100 due to missing prerequsites, what can I do?**
+
+**A.** Graduate students should use the C200 class code, not C100: C200 has a proper graduate code so you don't have undergraduate prerequisite issues. There will be some differences in grading and homework, but the main content is the same.
+
+--- 
+
+
 **Q. I am waitlisted, what should I do?**
 
 **A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place. We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
