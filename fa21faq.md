@@ -50,6 +50,7 @@ nav_exclude: true
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
 
 **A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.
+
 --- 
 
 **Q. I Have a time conflict for the final, what can I do?**
