@@ -20,6 +20,7 @@ nav_exclude: true
 **Q. **
 
 **A.**
+
 --- 
 -->
 
@@ -77,7 +78,12 @@ nav_exclude: true
 **A.** We are still developing the schedule and logistics; we will post a complete version by the first day of class.
 
 ---
+**Q. Where can I find links to the class textbook and other relevant resources? **
 
+**A.** The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!)
+
+
+--- 
 **Q. Where is the Class Piazza?**
 
 **A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try Piazza next before emailing the instructors.
