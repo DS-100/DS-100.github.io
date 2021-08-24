@@ -5,7 +5,7 @@ tagline:
 nav_exclude: true
 ---
 
-# Frequently Asked Questions for Fall Data 100
+# Frequently Asked Questions for Fall 2021 Data 100
 
 **Data 100 will be taught in hybrid mode for the fall 2021 semester**
 
@@ -68,6 +68,24 @@ nav_exclude: true
 **Q. Where is the Class Piazza?**
 
 **A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try Piazza next before emailing the instructors.
+
+---
+
+**Q. I have added the course later in the semester. Can I catch up? Can I be excused for all late work**
+
+**A.** The answer to the first question is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
+
+As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
+
+---
+
+**Q. I would like to make a class-wide announcement about my project/group/initiative/etc.**
+
+**A.** We only allow posts made on Piazza and you must make it yourself, we do not make posts on your behalf.  These are our guidelines for Piazza posts from student groups - they must be text-only posts (no videos) where the announcement:
+
+1. Has to do with teaching or tutoring in a non-commercial setting, or
+2. is directly related to the material in the course, or
+3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
 
 ---
 
