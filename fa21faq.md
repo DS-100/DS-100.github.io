@@ -44,7 +44,8 @@ nav_exclude: true
 ---
 **Q. I Have a time conflict for the final, what can I do?**
 
-**A.** The course will have a final group project in lieu of a final exam, so there will be no issues regarding this.
+**A.** The course will have a final group project in lieu of a final exam, so there should be no issues for anyone on this front.
+
 --- 
 
 **Q. What is the proctoring policy given the online nature of the course?**
