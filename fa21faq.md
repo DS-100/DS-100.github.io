@@ -50,7 +50,7 @@ nav_exclude: true
 
 **Q. What is the proctoring policy given the online nature of the course?**
 
-**A.** We will offer each exam on two timezones, to be taken synchronously. No Zoom/video proctoring will be used, but we will deploy multiple measures to detect cheating and will enforce the campus policies aggressively, including severe grade penalties and reporting to the Office of Student Conduct for further disciplinary action.
+**A.** We will offer each exam on two timezones, to be taken synchronously. The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not will have regular proctoring).
 
 ---
 
