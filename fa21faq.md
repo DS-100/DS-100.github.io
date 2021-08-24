@@ -55,6 +55,13 @@ nav_exclude: true
 
 **A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.
 
+---
+**Q. I am a campus student and would like to audit the course, what can I do?**
+
+**A.** Most class materials are available online to all campus students, and you can access the lecture videos, slides, etc. without limit, as well as use the online [Data 100 DataHub (our JupyterHub instance for this class)](https://data100.datahub.berkeley.edu).
+
+Note however that the class Piazza, our only other class resource, is reserved for enrolled students and faculty auditors, as homework details and solutions are discussed in that environment.
+
 --- 
 **Q. I Have a time conflict for the final, what can I do?**
 
@@ -76,7 +83,7 @@ nav_exclude: true
 **A.** We are still developing the schedule and logistics; we will post a complete version by the first day of class.
 
 ---
-**Q. Where can I find links to the class textbook and other relevant resources? **
+**Q. Where can I find links to the class textbook and other relevant resources?**
 
 **A.** The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!)
 
