@@ -88,13 +88,17 @@ Note however that the class Piazza, our only other class resource, is reserved f
 
 **A.** The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!)
 
-
 --- 
 **Q. Where is the Class Piazza?**
 
 **A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try Piazza next before emailing the instructors.
 
 ---
+**Q. I can't find any information on bCourses, why?**
+
+**A.** We are not using bCourses for anything other than synchronizing access to Gradescope, so as long as you are enrolled in the class, you don't need anything. All class materials are available online through the website, communications happen on Piazza, and computational work is done on the DataHub.
+
+--- 
 **Q. I have added the course later in the semester. Can I catch up? Can I be excused for all late work**
 
 **A.** The answer to the first question is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
