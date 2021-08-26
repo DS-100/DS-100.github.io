@@ -9,7 +9,8 @@ nav_exclude: true
 
 **Data 100 will be taught in hybrid mode for the fall 2021 semester**
 
-* Lectures will be pre-recorded and available online before the scheduled lecture time.
+* Most lectures will be pre-recorded and [available on the course website](http://ds100.org/fa21/) before the scheduled lecture time.  
+* For a few live lectures, we will provide a Zoom link in advance on Piazza, and recordings will be kept for later asynchronous watching. The first live lecture will be in October at the earliest.
 * There will be _both_ in-person and online options for discussions, labs and office hours.
 * The midterm exam will be offered online, but DSP students and those with specific needs who require an in-person exam will be offered that option. We will provide a form to coordinate with those who need to take the exam in-person. To ensure fairness, the conditions of the exam will be as identical as possible in both settings.
 * The above means that **time conflicts should not be an issue for anyone.**
