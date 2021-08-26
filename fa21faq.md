@@ -112,7 +112,7 @@ As for the second part of this question - in fairness to our desire to apply our
 ---
 **Q. Who do I contact if I have further questions, how do I email the instruction team?**
 
-**A.** Please e-mail data100.instructors@erkeley.edu, and one of the instructors will get back to you. Note that this address is monitored by the team of the two lead instructors (Alvin Wan and Fernando Pérez) as well as several lead GSIs, to ensure more timely responses. You can contact Alvin and Fernando directly for matters that require strict privacy and their direct attention.
+**A.** Please e-mail data100.instructors@berkeley.edu, and one of the instructors will get back to you. Note that this address is monitored by the team of the two lead instructors (Alvin Wan and Fernando Pérez) as well as several lead GSIs, to ensure more timely responses. You can contact Alvin and Fernando directly for matters that require strict privacy and their direct attention.
 
 ---
 We’re excited to have you in the class this fall!
