@@ -49,7 +49,9 @@ nav_exclude: true
 ---
 **Q. I am waitlisted, what should I do?**
 
-**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place. We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
+
+We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on Piazza. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
 ---
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
