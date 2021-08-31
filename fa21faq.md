@@ -53,6 +53,8 @@ nav_exclude: true
 
 We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on Piazza. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
+There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope).
+
 ---
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
 
