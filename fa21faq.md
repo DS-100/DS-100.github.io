@@ -49,7 +49,11 @@ nav_exclude: true
 ---
 **Q. I am waitlisted, what should I do?**
 
-**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place. We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
+
+We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on Piazza. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+
+There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope).
 
 ---
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
@@ -106,14 +110,18 @@ Note however that the class Piazza, our only other class resource, is reserved f
 As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
 
 ---
+**Q. ** I didn't turn in a Lab/HW/etc in time, can I have an extension?
+
+**A.** We have a generous drop policy for assignments, and therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on Piazza, else you can request the extension by contacting Samantha Hing.
+
+---
 **Q. I would like to make a class-wide announcement about my project/group/initiative/etc.**
 
-**A.** For a post to be accepted, the announced activity must fall into one of the following categories:
+**A.** We only allow posts made on Piazza and you must make it yourself, we do not make posts on your behalf.  These are our guidelines for Piazza posts from student groups - they must be text-only posts (no videos) where the announcement:
 
-1. Related to teaching or tutoring on topics specific to this course and strictly non-commercial (e.g. a tutoring/support group for a specific demographic by a campus-approved organization), OR
-1. Recruitment of students to help with the public good in a non-financial way (no solicitations for donations!), in a context explicitly connected to the topics of the course, and as part of a campus-approved organization (no recruiting by external entities, even if non-profits).
-
-Posts that meet these criteria must be short, text-only (no videos), and must be sent for prior approval to the teaching staff at data100.instructors@berkeley.edu with all contact information for further follow-up. If approved, they wil be posted on Piazza in a special category titled "External Announcements".
+1. Has to do with teaching or tutoring in a non-commercial setting, or
+2. is directly related to the material in the course, or
+3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
 
 ---
 **Q. Who do I contact if I have further questions, how do I email the instruction team?**
