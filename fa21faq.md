@@ -53,7 +53,7 @@ nav_exclude: true
 
 We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on Piazza. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
-There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope).
+There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope). In the meantime, you can join Gradescope using this code: `BPRBWV`.
 
 ---
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
@@ -90,12 +90,12 @@ Note however that the class Piazza, our only other class resource, is reserved f
 ---
 **Q. Where can I find links to the class textbook and other relevant resources?**
 
-**A.** The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!)
+**A.** The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!) You can join Piazza using this [signup Link](piazza.com/berkeley/fall2021/data100), or add the course on Gradescope using this code: `BPRBWV`.
 
 --- 
 **Q. Where is the Class Piazza?**
 
-**A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try Piazza next before emailing the instructors.
+**A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try Piazza next before emailing the instructors. Here is the [signup Link](piazza.com/berkeley/fall2021/data100)
 
 ---
 **Q. I can't find any information on bCourses, why?**
