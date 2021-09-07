@@ -109,8 +109,10 @@ Note however that the class Piazza, our only other class resource, is reserved f
 
 As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
 
+To get a section (discussion and lab) assignment, please contact Akshara Majjiga.
+
 ---
-**Q. ** I didn't turn in a Lab/HW/etc in time, can I have an extension?
+**Q. I didn't turn in a Lab/HW/etc in time, can I have an extension?**
 
 **A.** We have a generous drop policy for assignments, and therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on Piazza, else you can request the extension by contacting Samantha Hing.
 
