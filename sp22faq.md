@@ -52,7 +52,7 @@ nav_exclude: true
 
 **A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
 
-We recommend that you sign up for the class Piazza and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on Piazza. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+We recommend that you sign up for the class EdStem and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
 There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope). In the meantime, you can join Gradescope using this code: `BPRBWV`.
 
@@ -108,7 +108,7 @@ Note however that the class EdStem, our only other class resource, is reserved f
 --- 
 **Q. Where is the Class EdStem?**
 
-**A.** [Here](https://piazza.com/class/kqsiwfz12g0482). If your question isn't answered here, please try EdStem next before emailing the instructors. Here is the [signup Link](piazza.com/berkeley/fall2021/data100)
+**A.** Link to be posted soon. <!--[Here](https://edstem.org/us/courses/15436/discussion/).--> If your question isn't answered here, please try EdStem next before emailing the instructors. <!--Here is the [signup link](https://edstem.org/us/join/TeKcwA).-->
 
 ---
 **Q. I can't find any information on bCourses, why?**
@@ -129,7 +129,7 @@ To get a section (discussion and lab) assignment, please contact Akshara Majjiga
 ---
 **Q. I didn't turn in a Lab/HW/etc in time, can I have an extension?**
 
-**A.** We have a generous drop policy for assignments, and therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on Piazza, else you can request the extension by contacting Samantha Hing.
+**A.** We have a generous drop policy for assignments, and therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on EdStem, else you can request the extension by contacting Samantha Hing.
 
 ---
 -->
