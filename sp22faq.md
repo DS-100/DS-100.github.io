@@ -38,7 +38,7 @@ nav_exclude: true
 ---
 **Q. Will the official prerequisites be enforced?**
 
-**A.** The official prerequisites _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the [CDSS advisors team](https://data.berkeley.edu/degrees/student-services) and you must communicate directly with them - _do not email instructors about this_ as we are not making these decisions at all.
+**A.** The official prerequisites _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the CDSS advisors. To request an exception see [https://data.berkeley.edu/academics/data-science-undergraduate-studies/courses/spring-2022-classes](https://data.berkeley.edu/academics/data-science-undergraduate-studies/courses/spring-2022-classes) - _do not email instructors about this_ as we are not making these decisions at all.
 
 ---
 **Q. I am a graduate student but the system won't let me enroll in Data 100 due to missing prerequsites, what can I do?**
