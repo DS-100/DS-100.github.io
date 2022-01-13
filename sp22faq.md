@@ -7,6 +7,14 @@ nav_exclude: true
 
 # Frequently Asked Questions for Spring 2022 Data 100
 
+
+**[UPDATE 1/9/22] Data 100 will be online for at least the first two weeks of the semester.** 
+
+[Ed post](https://edstem.org/us/courses/15436/discussion/985206). More details to be posted soon; please make sure you are subscribed to the [EdStem discussion forum](https://edstem.org/us/courses/15436/discussion/) for latest updates as we prepare for this semester.
+
+---
+
+
 **Data 100 will be taught in hybrid mode for the Spring 2022 semester**
 
 * Lectures will be available in three formats: Live attendance, Zoom simulcast of the live lecture, and a recording of the live lecture posted later.
@@ -52,7 +60,7 @@ nav_exclude: true
 
 **A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
 
-We recommend that you sign up for the class EdStem and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website](http://ds100.org/fa21/) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+We recommend that you sign up for the class [EdStem](https://edstem.org/us/courses/15436/discussion/) and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website (link TBD)](#)21/) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
 There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope). In the meantime, you can join Gradescope using this code: `BPRBWV`.
 
