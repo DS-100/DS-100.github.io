@@ -33,6 +33,11 @@ course:
 * There will be two midterms and a final exam. There will be online options for all exams.
 * The above means that **time conflicts should not be an issue for anyone.**
 
+---
+**Q. Where is the course website?**
+
+**A.** [Here]({{page.course.website}}).
+
 <!-- Template to copy/paste
 
 ---
@@ -156,7 +161,7 @@ To get a section (discussion and lab) assignment, please contact {{page.course.l
 3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
 
 ---
-**Q. Who do I contact if I have further questions, how do I email the instruction team?**
+**Q. Who do I contact if I have further questions? How do I email the instruction team?**
 
 **A.** Please e-mail [{{page.course.email}}](mailto:{{page.course.email}}) and one of the instructors will get back to you. Note that to ensure more timely responses, this address is monitored by the team of the two lead instructors (Josh Hug and Lisa Yan) the Head TA ({{page.course.head_ta}}), as well as several lead GSIs, to ensure more timely responses. You can contact Josh and Lisa directly for matters that require strict privacy and their direct attention.
 
