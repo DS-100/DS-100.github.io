@@ -3,6 +3,17 @@ layout: page
 title:
 tagline:
 nav_exclude: true
+
+course:
+    edstem: https://edstem.org/us/courses/15436/
+    edstem_join: https://edstem.org/us/join/TeKcwA
+    website: https://ds100.org/sp22
+    logistics_ta: Kanu Grover
+    repo: https://github.com/DS-100/sp22
+    comms_ta: Samantha Hing
+    head_ta: Andrew Lenz
+    email: data100.instructors@berkeley.edu
+
 ---
 
 # Frequently Asked Questions for Spring 2022 Data 100
@@ -10,16 +21,16 @@ nav_exclude: true
 
 **[UPDATE 1/9/22] Data 100 will be online for at least the first two weeks of the semester.** 
 
-[Ed post](https://edstem.org/us/courses/15436/discussion/985206). More details to be posted soon; please make sure you are subscribed to the [EdStem discussion forum](https://edstem.org/us/courses/15436/discussion/) for latest updates as we prepare for this semester.
+[Ed post](https://edstem.org/us/courses/15436/discussion/985206). More details to be posted soon; please make sure you are subscribed to the [EdStem discussion forum]({{page.course.edstem}}) for latest updates as we prepare for this semester.
 
 ---
 
+**Q. Will Data 100 be taught in hybrid mode for the Spring 2022 semester?**
 
-**Data 100 will be taught in hybrid mode for the Spring 2022 semester**
-
-* Lectures will be available in three formats: Live attendance, Zoom simulcast of the live lecture, and a recording of the live lecture posted later.
+**A.** Yes.
+* Lectures will be available in three formats: Live attendance, Zoom simulcast of the live lecture, and a recording of the live lecture posted within 24 hours.
 * There will be _both_ in-person and online options for discussions, labs and office hours. Most options will be in-person.
-* There will be a midterm. There will very likely also be a final exam, though we may have a project in lieu of a final. There will be an online option for any exam. We may actually do fully online exams. TBD.
+* There will be two midterms and a final exam. There will be online options for all exams.
 * The above means that **time conflicts should not be an issue for anyone.**
 
 <!-- Template to copy/paste
@@ -54,22 +65,19 @@ nav_exclude: true
 **A.** Graduate students should use the C200 class code, not C100: C200 has a proper graduate code so you don't have undergraduate prerequisite issues. There will be some differences in grading and homework, but the main content is the same.
 
 
-<!--
----
 **Q. I am waitlisted, what should I do?**
 
-**A.** Currently (Aug 23, 2021) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
+**A.** Currently (Jan 14, 2022) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
 
-We recommend that you sign up for the class [EdStem](https://edstem.org/us/courses/15436/discussion/) and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website (link TBD)](#)21/) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
+We recommend that you sign up for the class [EdStem]({{page.course.edstem}}) and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website]({{page.course.website}}) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
-There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope). In the meantime, you can join Gradescope using this code: `BPRBWV`.
+There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope). In the meantime, you can join Gradescope using this code: `74WGNK`.
 
--->
-<!--
 ---
+
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
 
-**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.-->
+**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.
 
 **Q. What are my chance of getting into this class if I am a Berkeley student? If I am Concurrent Enrollment?**
 
@@ -82,48 +90,48 @@ There is no material on bCourses that you need or will miss, and if/when you get
 
 Note however that the class EdStem, our only other class resource, is reserved for enrolled students and faculty auditors, as homework details and solutions are discussed in that environment.
 
-<!--
 --- 
+
+**Q. What is the proctoring policy for exams?**
+
+**A.** We will offer in-person and online exams, to be taken synchronously .The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not) will have regular proctoring.
+**A.** TBD.
+
+---
+**Q. What is the alternate exam policy?**
+
+**A.** TBD, but we will be offering alternate exams for both midterms and the final exam.
+<!--Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.-->
+
+<!--
 **Q. I have a time conflict for the final, what can I do?**
 
 **A.** The course will have a final group project in lieu of a final exam, so there should be no issues for anyone on this front.
 -->
 
-
---- 
-
-**Q. What is the proctoring policy for exams?**
-
-**A.** TBD.
-
-<!--
----
-**Q. What is the alternate exam policy?**
-
-**A.** Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.
--->
-
 ---
 **Q. When will the full schedule of labs and discussions be announced?**
 
-**A.** We are still developing the schedule and logistics; we will post a complete version by the first day of class.
+**A.** The schedule (which is always subject to change) is located on the [course homepage]({{page.course.website}}).
 
 ---
-**Q. Where can I find links to the class textbook and other relevant resources?**
+**Q. Where can I find links to the class schedule, optional textbook, and other additional relevant resources?**
 
-**A.** For now, only the Fa21 page is available: The [class resources page](https://ds100.org/fa21/resources) has these links, don't hesitate to make suggestions by filing an issue on the [class repository](https://github.com/DS-100/fa21/tree/gh-pages) (or even better, propose a new pull request with your additions!). The sp21 page will be coming soon.
+**A.** Check out the [course homepage]({{page.course.website}}) and the [resources page]({{page.course.website}}/resources). Don’t hesitate to make suggestions by filing an issue on the [class repository]({{page.course.repo}}) (or even better, propose a new pull request with your additions!).
 
 --- 
 **Q. Where is the Class EdStem?**
 
-**A.** Link to be posted soon. <!--[Here](https://edstem.org/us/courses/15436/discussion/).--> If your question isn't answered here, please try EdStem next before emailing the instructors. <!--Here is the [signup link](https://edstem.org/us/join/TeKcwA).-->
+**A.** [Here]({{page.course.edstem}}).
+If that link doesn't work, here is the [signup link]({{page.course.edstem_join}}).
+If your question isn't answered in this FAQ, please try EdStem next before emailing the instructors. 
 
 ---
 **Q. I can't find any information on bCourses, why?**
 
-**A.** We are not using bCourses for anything other than synchronizing access to Gradescope, so as long as you are enrolled in the class, you don't need anything. All class materials are available online through the website, communications happen on EdStem, and computational work is done on the DataHub.
+**A.** We will only be using bCourses for posting course videos and synchronizing access to Gradescope. As long as you are enrolled in the class right now, you don't need anything.
+All class materials are available online through the website, communications happen on EdStem, and computational work is done on the DataHub. The bCourses page for course videos will be published within 24 hours of the first class meeting on Tuesday Jan 18.
 
-<!--
 --- 
 **Q. I have added the course later in the semester. Can I catch up? Can I be excused for all late work**
 
@@ -131,17 +139,14 @@ Note however that the class EdStem, our only other class resource, is reserved f
 
 As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
 
-To get a section (discussion and lab) assignment, please contact Akshara Majjiga.
--->
-<!--
+To get a section (discussion and lab) assignment, please contact {{page.course.logistics_ta}}.
+
 ---
 **Q. I didn't turn in a Lab/HW/etc in time, can I have an extension?**
 
-**A.** We have a generous drop policy for assignments, and therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on EdStem, else you can request the extension by contacting Samantha Hing.
+**A.** We have a generous drop policy for assignments and late policy for projects; therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on EdStem, else you can request the extension by contacting our Communications TA, {{page.course.comms_ta}}. For more details, see our [syllabus]({{page.course.website}}/syllabus#policies).
 
 ---
--->
-
 **Q. I would like to make a class-wide announcement about my project/group/initiative/etc.**
 
 **A.** We only allow posts made on EdStem and you must make it yourself, we do not make posts on your behalf.  These are our guidelines for EdStem posts from student groups - they must be text-only posts (no videos) where the announcement:
@@ -150,14 +155,12 @@ To get a section (discussion and lab) assignment, please contact Akshara Majjiga
 2. is directly related to the material in the course, or
 3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
 
-<!--
 ---
 **Q. Who do I contact if I have further questions, how do I email the instruction team?**
 
-**A.** Please e-mail data100.instructors@berkeley.edu, and one of the instructors will get back to you. Note that this address is monitored by the team of the two lead instructors (Alvin Wan and Fernando Pérez) as well as several lead GSIs, to ensure more timely responses. You can contact Alvin and Fernando directly for matters that require strict privacy and their direct attention.
--->
+**A.** Please e-mail [{{page.course.email}}](mailto:{{page.course.email}}) and one of the instructors will get back to you. Note that to ensure more timely responses, this address is monitored by the team of the two lead instructors (Josh Hug and Lisa Yan) the Head TA ({{page.course.head_ta}}), as well as several lead GSIs, to ensure more timely responses. You can contact Josh and Lisa directly for matters that require strict privacy and their direct attention.
 
 ---
-We’re excited to have you in the class this fall!
+We’re excited to have you in the class this Spring!
 
 Lisa, Josh, and the rest of your Spring 2022 instructional team.
