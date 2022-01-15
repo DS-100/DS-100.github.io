@@ -69,10 +69,11 @@ course:
 
 **A.** Graduate students should use the C200 class code, not C100: C200 has a proper graduate code so you don't have undergraduate prerequisite issues. There will be some differences in grading and homework, but the main content is the same.
 
+---
 
-**Q. I am waitlisted, what should I do?**
+**Q. I am waitlisted, what should I do? What are my chances of getting into this class?**
 
-**A.** Currently (Jan 14, 2022) the waitlist is relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
+**A.** Currently (Jan 14, 2022) the waitlists for Data C100/C200 are relatively short compared to the overall class size, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.
 
 We recommend that you sign up for the class [EdStem]({{page.course.edstem}}) and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website]({{page.course.website}}) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
 
@@ -80,13 +81,9 @@ There is no material on bCourses that you need or will miss, and if/when you get
 
 ---
 
-**Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do?**
+**Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do? What are my chances of getting into this class?**
 
 **A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.
-
-**Q. What are my chance of getting into this class if I am a Berkeley student? If I am Concurrent Enrollment?**
-
-**A.** At this time we don't have enough information to provide advice.
 
 ---
 **Q. I am a campus student and would like to audit the course, what can I do?**
@@ -100,7 +97,6 @@ Note however that the class EdStem, our only other class resource, is reserved f
 **Q. What is the proctoring policy for exams?**
 
 **A.** We will offer in-person and online exams, to be taken synchronously .The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not) will have regular proctoring.
-**A.** TBD.
 
 ---
 **Q. What is the alternate exam policy?**
@@ -134,8 +130,8 @@ If your question isn't answered in this FAQ, please try EdStem next before email
 ---
 **Q. I can't find any information on bCourses, why?**
 
-**A.** We will only be using bCourses for posting course videos and synchronizing access to Gradescope. As long as you are enrolled in the class right now, you don't need anything.
-All class materials are available online through the website, communications happen on EdStem, and computational work is done on the DataHub. The bCourses page for course videos will be published within 24 hours of the first class meeting on Tuesday Jan 18.
+**A.** We will only be using bCourses for synchronizing access to Gradescope. As long as you are enrolled in the class right now, you don't need anything.
+All class materials are available online through the website; communications happen on EdStem; and computational work is done on the DataHub.
 
 --- 
 **Q. I have added the course later in the semester. Can I catch up? Can I be excused for all late work**
