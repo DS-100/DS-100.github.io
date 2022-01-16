@@ -83,7 +83,7 @@ There is no material on bCourses that you need or will miss, and if/when you get
 
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do? What are my chances of getting into this class?**
 
-**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class.
+**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class. Zoom links are only available to registered Berkeley students, though we plan to publish lecture recordings within a day of the live session for asynchronous viewing.
 
 ---
 **Q. I am a campus student and would like to audit the course, what can I do?**
