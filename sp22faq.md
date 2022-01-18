@@ -19,9 +19,10 @@ course:
 # Frequently Asked Questions for Spring 2022 Data 100
 
 
-**[UPDATE 1/9/22] Data 100 will be online for at least the first two weeks of the semester.** 
+**[UPDATE 1/18/22] Data 100 will be online for at least the first two weeks of the semester.** 
 
-[Ed post](https://edstem.org/us/courses/15436/discussion/985206). More details to be posted soon; please make sure you are subscribed to the [EdStem discussion forum]({{page.course.edstem}}) for latest updates as we prepare for this semester.
+See more details on the [course website]({{page.course.website}}).
+Please make sure you are subscribed to the [EdStem discussion forum]({{page.course.edstem}}) for latest updates as we prepare for this semester. If you cannot access Ed at this time, please join using this [signup link]({{page.course.edstem_join}}).
 
 ---
 
