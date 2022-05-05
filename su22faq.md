@@ -118,6 +118,12 @@ Note however that the class EdStem, our only other class resource, is reserved f
 <!-- The schedule (which is always subject to change) is located on the [course homepage]({{page.course.website}}).-->
 
 ---
+
+**Q. Where can I find information about the Fall 2022 offering of Data 100?**
+
+**A.** Not here. Please refer to the [Fall 2022 FAQ page](../fa22faq) or the [Data 001 Piazza](https://piazza.com/class/j7s01y165odq5).
+
+---
 <!-- **Q. Where can I find links to the class schedule, optional textbook, and other additional relevant resources?**
 
 **A.** Check out the [course homepage]({{page.course.website}}) and the [resources page]({{page.course.website}}/resources). Don’t hesitate to make suggestions by filing an issue on the [class repository]({{page.course.repo}}) (or even better, propose a new pull request with your additions!).
