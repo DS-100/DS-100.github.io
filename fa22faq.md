@@ -145,6 +145,11 @@ To get a section (discussion and lab) assignment, please contact {{page.course.l
 3. is seeking to recruit students to help with the public good in a non-financial way (no solicitations for donations!), and in a context explicitly connected to their work in the course.
 
 ---
+**Q. I would like to apply for a (u)GSI position for this course. What should I do?**
+
+**A.** All applications for Academic Student Employee positions are managed centrally; you can find all the details [here](https://data.berkeley.edu/academics/undergraduate-programs/courses/joining-data-course-staff). Please _do not_ email the instructors individually with your resume/etc, as they are not in a position to hire you at all.
+
+---
 **Q. Who do I contact if I have further questions? How do I email the instruction team?**
 
 **A.** Please e-mail [{{page.course.email}}](mailto:{{page.course.email}}) and one of the instructors will get back to you. Note that to ensure more timely responses, this address is monitored by the team of the two lead instructors (Will Fithian and Fernando Pérez) the Head TA ({{page.course.head_ta}}), as well as several lead GSIs, to ensure more timely responses. You can contact Will and Fernando directly for matters that require strict privacy and their direct attention.
