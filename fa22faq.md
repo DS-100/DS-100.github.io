@@ -147,7 +147,7 @@ To get a section (discussion and lab) assignment, please contact {{page.course.l
 ---
 **Q. I would like to apply for a (u)GSI position for this course. What should I do?**
 
-**A.** All applications for Academic Student Employee positions are managed centrally; you can find all the details [here](https://data.berkeley.edu/academics/undergraduate-programs/courses/joining-data-course-staff). Please _do not_ email the instructors individually with your resume/etc, as they are not in a position to hire you at all.
+**A.** All applications for Academic Student Employee positions are managed centrally; you can find all the details [here](https://data.berkeley.edu/academics/undergraduate-programs/courses/joining-data-course-staff). Please _do not_ email the instructors individually with your resume/etc, as they are not in a position to hire you.
 
 ---
 **Q. Who do I contact if I have further questions? How do I email the instruction team?**
