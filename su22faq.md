@@ -7,13 +7,7 @@ nav_exclude: true
 course:
     edstem: https://edstem.org/us/courses/15436/
     edstem_join: https://edstem.org/us/join/TeKcwA
-    website: https://ds100.org/sp22
-    logistics_ta: Kanu Grover
-    repo: https://github.com/DS-100/sp22
-    comms_ta: Samantha Hing
-    head_ta: Andrew Lenz
-    email: data100.instructors@berkeley.edu
-
+    website: https://ds100.org/su22
 ---
 
 # Frequently Asked Questions for Summer 2022 Data 100
@@ -30,9 +24,7 @@ course:
 ---
 **Q. Where is the course website?**
 
-**A.** To be released closer to the start of class (June 21st).
-
-<!-- [Here]({{page.course.website}}). -->
+**A.** [Here]({{page.course.website}}).
 
 <!-- Template to copy/paste
 
@@ -96,12 +88,16 @@ Note however that the class EdStem, our only other class resource, is reserved f
 
 **Q. What is the proctoring policy for exams?**
 
-**A.** We will offer online exams, to be taken synchronously. The exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer.
+**A.** We will offer online exams, to be taken synchronously. The exam will be proctored with a minimally-invasive Zoom setup that has been used successfully before and that does not require you to install any custom proctoring spyware on your computer.
 
 ---
-**Q. What is the alternate exam policy?**
+**Q. When are the exams and what is the alternate exam policy?**
 
-**A.** TBD, but we will be offering alternate exams for the midterm and the final exam.
+**A.** We have two exams:
+* Midterm on **Monday, July 18**. Time TBD.
+* Final on **Friday, August 12**. Time TBD.
+
+Alternate exam times will be offered for the midterm and final, and the form to request the alternate will be posted on Ed soon after the start of class. The alternate exams will likely be on the same day but different time. The primary purpose of the alternate exam is to accommodate students in different timezones, but students with documented conflicts and unique personal circumstances may also be approved to take the alternate exam.
 <!--Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.-->
 
 <!--
@@ -113,9 +109,7 @@ Note however that the class EdStem, our only other class resource, is reserved f
 ---
 **Q. When will the full schedule of classes, labs, and discussions be announced?**
 
-**A.** We are still developing the schedule and logistics; we will post a complete version by the first day of class on June 21.
-
-<!-- The schedule (which is always subject to change) is located on the [course homepage]({{page.course.website}}).-->
+**A.** The schedule (which is always subject to change) is located on the [course homepage]({{page.course.website}}).
 
 ---
 

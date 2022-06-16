@@ -14,6 +14,7 @@ UC Berkeley
 ### [Fall 2022 Frequently Asked Questions](fa22faq)
 
 ## Offerings
+1. [Summer 2022](su22)
 1. [Spring 2022](sp22)
 1. [Fall 2021](fa21)
 1. [Summer 2021](su21)
