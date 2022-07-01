@@ -79,24 +79,38 @@ Note however that the class EdStem, our only other class resource, is reserved f
 
 ---
 
+**Q. What aspects of the course will be offered online?
+
+**A.** We will offer:
+
+- Recordings of all lectures, available for online viewing shortly after the lecture is delivered. Note these will  _not_ be live hybrid lectures where remote students could participate, only a static recordings, available post-lecture.
+- Labs, discussions and exams will be in-person, with regular DSP accommodations being offered as per standard DSP policies.
+
+---
+
 **Q. What is the proctoring policy for exams?**
 
-**A.** TBD.
+**A.** Exams will be in-person and subject to standard proctoring procedures, with appropriate accommodations for DSP students
 
 <!-- We will offer in-person and online exams, to be taken synchronously .The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not) will have regular proctoring. -->
 
 ---
+
+<!--
+
 **Q. What is the alternate exam policy?**
 
 **A.** TBD.
 
-<!--Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.-->
+Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.-->
 
-<!--
 **Q. I have a time conflict for the final, what can I do?**
 
-**A.** The course will have a final group project in lieu of a final exam, so there should be no issues for anyone on this front.
--->
+**A.** The course only allows for time conflicts for specifc courses that have been pre-approved for conflicts, after planning with course instructors of those courses and the Division.
+
+If, at the time of the final, you are enrolled in a course approved for finals conflicts, you will be allowed to take an alternate exam that will be offered only once after the Data 100 final.
+
+Currently the **ONLY** course approved for final exam time conflicts is: **CS 70**.
 
 ---
 **Q. When will the full schedule of labs and discussions be announced?**
