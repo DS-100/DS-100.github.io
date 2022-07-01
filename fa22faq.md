@@ -79,7 +79,7 @@ Note however that the class EdStem, our only other class resource, is reserved f
 
 ---
 
-**Q. What aspects of the course will be offered online?
+**Q. What aspects of the course will be offered online?**
 
 **A.** We will offer:
 
@@ -103,6 +103,24 @@ Note however that the class EdStem, our only other class resource, is reserved f
 **A.** TBD.
 
 Each exam will be offered in two timeslots, roughly corresponding to the morning and evening in Pacific Time, to accommodate for timezone differences. Everyone must be able to make one of these two timeslots; we will not be offering additional alternates to accommodate for class conflicts.-->
+
+
+**Q. What is the conflict policy for the course?**
+
+**A.** The basic policy is the following:
+
+* TIME CONFLICTS: This class will NOT allow time conflicts.
+
+* EXAM CONFLICTS: This class will NOT accommodate final exam conflicts.
+
+With the following two caveats:
+
+* As long as you can attend discussions and labs in-person, lectures will be available for asynchronous watching (see relevant question above).
+
+* For specific courses, a final exam time conflict will be allowed (see next question for details).
+
+---
+
 
 **Q. I have a time conflict for the final, what can I do?**
 
