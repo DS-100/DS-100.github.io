@@ -19,12 +19,10 @@ course:
 # Frequently Asked Questions for Fall 2022 Data 100
 
 <!-- Template to copy/paste
-
 ---
 **Q. **
 
 **A.**
-
 --- 
 -->
 
@@ -78,13 +76,19 @@ There is no material on bCourses that you need or will miss, and if/when you get
 Note however that the class EdStem, our only other class resource, is reserved for enrolled students and faculty auditors, as homework details and solutions are discussed in that environment.
 
 ---
+**Q. I have another enrollment issue - can the instructors make an exception for my case or provide me with an "enrollment code"?**
+
+**A.** No. The instructors to not handle any enrollment issues. If you think your circumstances warrant exceptional consideration, you must discuss those with an enrollment advisor. They are the only ones authorized to handle such situations and enroll you.
+
+---
 
 **Q. What aspects of the course will be offered online?**
 
 **A.** We will offer:
 
 - Recordings of all lectures, available for online viewing shortly after the lecture is delivered. Note these will  _not_ be live hybrid lectures where remote students could participate, only a static recordings, available post-lecture.
-- Labs, discussions and exams will be in-person, with regular DSP accommodations being offered as per standard DSP policies.
+- Discussions will be mostly in-person, but we will offer a small number of online discussion sections.
+- There will be no direct lab sessions: labs will be due on Tuesdays and a video walk-through of the lab content will be released _after_ the lab is due for you to watch on your own. There will be online help available for labs through office hours and dedicated Ed channels.
 
 ---
 
@@ -120,8 +124,6 @@ With the following two caveats:
 * For specific courses, a final exam time conflict will be allowed (see next question for details).
 
 ---
-
-
 **Q. I have a time conflict for the final, what can I do?**
 
 **A.** The course only allows for time conflicts for specifc courses that have been pre-approved for conflicts, after planning with course instructors of those courses and the Division.
