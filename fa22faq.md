@@ -66,7 +66,11 @@ There is no material on bCourses that you need or will miss, and if/when you get
 
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do? What are my chances of getting into this class?**
 
-**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class. Zoom links are only available to registered Berkeley students, though we plan to publish lecture recordings within a day of the live session for asynchronous viewing.
+**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class. 
+
+In order to access the class videos, Ed platform and other resources, you must email [{{page.course.email}}](mailto:{{page.course.email}}) with the subject line `Concurrent Enrollment interim resource access`, and provide your name, email and student ID.
+
+Note that once all CE requests are processed (in the first few weeks of classes), we will remove all temporarily added students who do not end up with a permanent enrollment in the course.
 
 ---
 **Q. I am a campus student and would like to audit the course, what can I do?**
