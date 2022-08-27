@@ -53,24 +53,29 @@ course:
 **A.** Graduate students should use the C200 class code, not C100: C200 has a proper graduate code so you don't have undergraduate prerequisite issues. There will be some differences in grading and homework, but the main content is the same.
 
 ---
+**Q. I can't enroll yet for reason X (waitlist, concurrent enrollment, etc) but expect/hope to, what should I do?**
+
+**A.** We encourage you to not fall behind: you should complete all work when it is assigned, as **we will not make exceptions later for late work because of your enrollment date**.
+
+To be added to the relevant resources (Ed, bCourses, etc.), please email [{{page.course.email}}](mailto:{{page.course.email}}) with the subject line `Interim access to class resources`, providing your name, email and student ID.
+
+---
 
 **Q. I am waitlisted, what should I do? What are my chances of getting into this class?**
 
 **A.** Historically we've been able to accomodate students who wish to enroll, so we do not expect any issues allowing waitlisted students once the usual early-semester shuffle takes place.  We will update this page if conditions change.
 
-We recommend that you sign up for the class [EdStem]({{page.course.edstem}}) and follow the class assuming you'll have a slot soon. All lectures and class materials are openly available on the [class website]({{page.course.website}}) and all discussions happen on EdStem. We'll be monitoring the waitlist and will do our best to ensure all waitlisted students can enroll.
-
-There is no material on bCourses that you need or will miss, and if/when you get formally enrolled, you'll be automatically added to bCourses for grade management (the only thing we keep there, to sync with Gradescope).
+We recommend that you sign up for the class [EdStem]({{page.course.edstem}}) and follow the class assuming you'll have a slot soon. **See above for how to get added to any other required resources.**
 
 ---
 
 **Q. I have a Concurrent Enrollment Request that hasn't been approved yet, what should I do? What are my chances of getting into this class?**
 
-**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But given we think it is _likely_ we'll be able to admit you, we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class. 
-
-In order to access the class videos, Ed platform and other resources, you must email [{{page.course.email}}](mailto:{{page.course.email}}) with the subject line `Concurrent Enrollment interim resource access`, and provide your name, email and student ID.
+**A.** By campus policy, we must first process the waitlist in its entirety before we can admit you. We will do all we can to ensure all waitlisted students are promptly admitted, so that you can also enroll in the course, though we can not provide 100% guarantee that will be the case. But we strongly suggest you start working on the course, following lectures and turning in assignments, from the start. This will prevent you from falling behind and will give you the best chance of success in the class. 
 
 Note that once all CE requests are processed (in the first few weeks of classes), we will remove all temporarily added students who do not end up with a permanent enrollment in the course.
+
+**See above for how to get added to any other required resources.**
 
 ---
 **Q. I am a campus student and would like to audit the course, what can I do?**
