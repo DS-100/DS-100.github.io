@@ -87,7 +87,7 @@ Note however that the class EdStem, our only other class resource, is reserved f
 ---
 **Q. I have another enrollment issue - can the instructors make an exception for my case or provide me with an "enrollment code"?**
 
-**A.** No. The instructors to not handle any enrollment issues. If you think your circumstances warrant exceptional consideration, you must discuss those with an enrollment advisor. They are the only ones authorized to handle such situations and enroll you.
+**A.** No. The instructors do not handle any enrollment issues. If you think your circumstances warrant exceptional consideration, you must discuss those with an enrollment advisor. They are the only ones authorized to handle such situations and enroll you.
 
 ---
 
