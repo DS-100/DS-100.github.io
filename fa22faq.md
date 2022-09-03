@@ -17,6 +17,13 @@ course:
 ---
 
 # Frequently Asked Questions for Fall 2022 Data 100
+{: .no_toc }
+
+## Table of Contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 <!-- Template to copy/paste
 ---
