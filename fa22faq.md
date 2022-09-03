@@ -27,12 +27,12 @@ course:
 -->
 
 ---
-**Q. Where is the course website?**
+## Q. Where is the course website?
 
 **A.** [Here]({{page.course.website}}).
 
 ---
-**Q. What are the official prerequisites for this course?**
+## Q. What are the official prerequisites for this course?
 
 **A.** The official list of prerequisites is:
 
