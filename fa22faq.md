@@ -8,10 +8,10 @@ course:
     edstem: na
     edstem_join: na
     website: https://ds100.org/fa22
-    logistics_ta: na
+    logistics_ta: Vasanth Madhavan
     repo: https://github.com/DS-100/fa22
     comms_ta: na
-    head_ta: na
+    head_ta: Kanu Grover and Dominic Liu
     email: data100.instructors@berkeley.edu
 
 ---
@@ -196,7 +196,7 @@ All applications for Academic Student Employee positions are managed centrally; 
 ---
 ## Who do I contact if I have further questions? How do I email the instruction team?
 
-Please e-mail [{{page.course.email}}](mailto:{{page.course.email}}) and one of the instructors will get back to you. Note that to ensure more timely responses, this address is monitored by the team of the two lead instructors (Will Fithian and Fernando Pérez) the Head TA ({{page.course.head_ta}}), as well as several lead GSIs, to ensure more timely responses. You can contact Will and Fernando directly for matters that require strict privacy and their direct attention.
+Please e-mail [{{page.course.email}}](mailto:{{page.course.email}}) and one of the instructors will get back to you. Note that to ensure more timely responses, this address is monitored by the team of the two lead instructors (Will Fithian and Fernando Pérez) the Head TAs ({{page.course.head_ta}}), as well as several lead GSIs, to ensure more timely responses. You can contact Will and Fernando directly for matters that require strict privacy and their direct attention.
 
 ---
 We’re excited to have you in the class this Spring!
