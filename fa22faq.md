@@ -54,7 +54,7 @@ Graduate students should use the C200 class code, not C100: C200 has a proper gr
 ---
 ## I can't enroll yet for reason X (waitlist, concurrent enrollment, etc) but expect/hope to, what should I do?
 
-We encourage you to not fall behind: you should complete all work when it is assigned, as **we will not make exceptions later for late work because of your enrollment date**.
+We encourage you to not fall behind: you should complete all work when it is assigned.
 
 To be added to the relevant resources (Ed, bCourses, etc.), please email [{{page.course.email}}](mailto:{{page.course.email}}) with the subject line `Interim access to class resources`, providing your name, email and student ID.
 
@@ -170,7 +170,7 @@ All class materials are available online through the website; communications hap
 
 The answer to the first question is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
 
-As for the second part of this question - in fairness to our desire to apply our policies as uniformly and universally as possible, we do not make separate considerations for late work based on the date you joined the course.  We offer fairly generous drop/late assignment policies which you can take advantage of and apply them to early work, but there are no extra allowances based on your start date.
+As for the second part of this question - we will make special considerations for late work based on the date you joined the course, and were added to relevant course platforms. Please email Data100Departmental [{{page.course.email}}](mailto:{{page.course.email}}) if this applies to you, and we'll communicate separately.
 
 To get a section (discussion and lab) assignment, please contact {{page.course.logistics_ta}}.
 
