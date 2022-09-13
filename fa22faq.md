@@ -179,7 +179,7 @@ To get a section (discussion and lab) assignment, please contact {{page.course.l
 
 We have a generous slip days policy for assignments that is meant to allow most students to manage delays that can occur due to illness, accidents, personal problems, etc.  You _must use your slip days first for any and all circumstances that cause you to be late with an assignment_. You should not think of slip days as "free extra days to be late any time."
 
-Once you've exhausted your slip days, we will only provide an extension in case of a _major and documented_ set of exceptional circumstances (death in the family, illness documented with medical paperwork, or similar).  In such case, you can contact our Communications TA, {{page.course.comms_ta}}, providing documentation that supports your case.  Given the already flexible slip days policy, these exceptions will only be granted sparignly.
+Once you've exhausted your slip days, we will only provide an extension in case of a _major and documented_ set of exceptional circumstances (death in the family, illness documented with medical paperwork, or similar).  In such case, you can contact our Communications TA, {{page.course.comms_ta}}, providing documentation that supports your case.  Given the already flexible slip days policy, these exceptions will only be granted sparingly.
 
 If there's a problem that affects the whole class (e.g. a hub outage), we'll make announcements on Ed and will change the deadline for the whole class.
 
