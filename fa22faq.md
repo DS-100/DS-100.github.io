@@ -175,9 +175,15 @@ As for the second part of this question - we will make special considerations fo
 To get a section (discussion and lab) assignment, please contact {{page.course.logistics_ta}}.
 
 ---
-## I didn't turn in a Lab/HW/etc in time, can I have an extension?
+## I didn't turn in a Lab/HW/etc in time because I had X (illness, etc.). Can I have an extension?
 
-We have a generous drop policy for assignments and late policy for projects; therefore we do not provide extensions, unless there is a _major and documented_ set of exceptional circumstances (death in the family, outage in the hub that prevents students from working, natural disaster, ...). If the problem is class-wide we'll make announcements on EdStem, else you can request the extension by contacting our Communications TA, {{page.course.comms_ta}}. For more details, see our [syllabus]({{page.course.website}}/syllabus#policies).
+We have a generous slip days policy for assignments that is meant to allow most students to manage delays that can occur due to illness, accidents, personal problems, etc.  You _must use your slip days first for any and all circumstances that cause you to be late with an assignment_. You should not think of slip days as "free extra days to be late any time."
+
+Once you've exhausted your slip days, we will only provide an extension in case of a _major and documented_ set of exceptional circumstances (death in the family, illness documented with medical paperwork, or similar).  In such case, you can contact our Communications TA, {{page.course.comms_ta}}, providing documentation that supports your case.  Given the already flexible slip days policy, these exceptions will only be granted sparignly.
+
+If there's a problem that affects the whole class (e.g. a hub outage), we'll make announcements on Ed and will change the deadline for the whole class.
+
+For more details, see our [syllabus]({{page.course.website}}/syllabus#policies).
 
 ---
 ## I would like to make a class-wide announcement about my project/group/initiative/etc.
