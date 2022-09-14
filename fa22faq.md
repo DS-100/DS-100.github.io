@@ -5,7 +5,7 @@ tagline:
 nav_exclude: true
 
 course:
-    edstem: na
+    edstem: https://edstem.org/us/courses/25695/discussion/
     edstem_join: na
     website: https://ds100.org/fa22
     logistics_ta: Vasanth Madhavan
@@ -155,8 +155,8 @@ Check out the [course homepage]({{page.course.website}}) and the [resources page
 --- 
 ## Where is the Class EdStem?
 
-[Here]({{page.course.edstem}}).
-If that link doesn't work, here is the [signup link]({{page.course.edstem_join}}).
+[Here]({{page.course.edstem}}). If that link doesn't work for you, please email [{{page.course.email}}](mailto:{{page.course.email}}) to be added. You will only be added if you are an enrolled student, or pending enrollment in the first few days. Note that we will purge the Ed roster once early-semester enrollment settles down.
+
 If your question isn't answered in this FAQ, please try EdStem next before emailing the instructors. 
 
 ---
