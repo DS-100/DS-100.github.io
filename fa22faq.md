@@ -177,7 +177,7 @@ To get a section (discussion and lab) assignment, please contact {{page.course.l
 ---
 ## I didn't turn in a Lab/HW/etc in time because I had X (illness, etc.). Can I have an extension?
 
-We have a generous slip days policy for assignments that is meant to allow most students to manage delays that can occur due to illness, accidents, personal problems, etc.  You _must use your slip days first for any and all circumstances that cause you to be late with an assignment_. You should not think of slip days as "free extra days to be late any time."
+We have a generous slip days policy for assignments, plus two lab drops. This is meant to allow most students to manage delays that can occur due to illness, accidents, personal problems, etc.  You _must use your slip days first for any and all circumstances that cause you to be late with an assignment_. You should not think of slip days as "free extra days to be late any time."
 
 Once you've exhausted your slip days, we will only provide an extension in case of a _major and documented_ set of exceptional circumstances (death in the family, illness documented with medical paperwork, or similar).  In such case, you can contact our Communications TA, {{page.course.comms_ta}}, providing documentation that supports your case.  Given the already flexible slip days policy, these exceptions will only be granted sparingly.
 
