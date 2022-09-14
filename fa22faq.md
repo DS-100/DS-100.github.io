@@ -10,7 +10,7 @@ course:
     website: https://ds100.org/fa22
     logistics_ta: Vasanth Madhavan
     repo: https://github.com/DS-100/fa22
-    comms_ta: na
+    comms_ta: Samantha Hing
     head_ta: Kanu Grover and Dominic Liu
     email: data100.instructors@berkeley.edu
 
