@@ -85,32 +85,6 @@ Note however that the class EdStem, our only other class resource, is reserved f
 
 No. The instructors do not handle any enrollment issues. If you need assistance with enrollment or think your circumstances warrant exceptional consideration, you must discuss those with an enrollment advisor. They are the only ones authorized to handle such situations and enroll you.
 
-# Course Resources
----
-## Where is the course website?
-
-TBD.<!--[Here]({{page.course.website}}).-->
-
----
-## Where can I find links to the class schedule, optional textbook, and other additional relevant resources?
-
-The course website for Spring 2023 will be released soon.
-
-<!--Check out the [course homepage]({{page.course.website}}) and the [resources page]({{page.course.website}}/resources). Don’t hesitate to make suggestions by filing an issue on the [class repository]({{page.course.repo}}) (or even better, propose a new pull request with your additions!).-->
-
---- 
-## Where is the Class Discussion Forum (EdStem)?
-
-[Here]({{page.course.edstem}}). If that link doesn't work for you, please email [{{page.course.email}}](mailto:{{page.course.email}}) to be added. You will only be added if you are an enrolled student, or pending enrollment in the first few days. Note that we will purge the Ed roster once early-semester enrollment settles down.
-
-If your question isn't answered in this FAQ, please try EdStem next before emailing the instructors. 
-
----
-## I can't find any information on bCourses, why?
-
-We will only be using bCourses for synchronizing access to Gradescope. As long as you are enrolled in the class right now, you don't need anything.
-All class materials are available online through the website; communications happen on EdStem; and computational work is done on the DataHub.
-
 # Course Policies
 ---
 
@@ -122,14 +96,6 @@ We will offer:
 - Recordings of all lectures, available for online viewing shortly (by EOD) after the lecture is delivered.
 - Discussions will be mostly in-person, but we will offer a small number of online discussion sections.
 - There will be no synchronous lab sessions: labs will be due on Tuesdays and a video walk-through of the lab content will be released _after_ the lab is due for you to watch on your own. There will be online help available for labs through office hours and dedicated Ed channels.
-
----
-
-## What is the proctoring/accommodation policy for exams?
-
-Exams will be in-person (not online) and subject to standard proctoring procedures, with appropriate accommodations for DSP students.
-
-<!-- We will offer in-person and online exams, to be taken synchronously .The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not) will have regular proctoring. -->
 
 ---
 
@@ -157,6 +123,15 @@ With the following two caveats:
 * For specific courses, a final exam time conflict will be allowed (see next question for details).
 
 ---
+
+## What is the proctoring/accommodation policy for exams?
+
+Exams will be in-person (not online) and subject to standard proctoring procedures, with appropriate accommodations for DSP students.
+
+<!-- We will offer in-person and online exams, to be taken synchronously .The online exam will be proctored with a minimally-invasive Zoom setup that has been used successfully on campus for other courses and that does not require you to install any custom proctoring spyware on your computer. The in-person exam locations (DSP or not) will have regular proctoring. -->
+
+
+---
 ## What is the midterm schedule for this class?
 
 The exact midterm exam dates will be announced on the first date of class.
@@ -182,6 +157,32 @@ _Note:_ the above is the final state of affairs for the fall 2022 term, as of Se
 Discussion sections and sign-ups will be released within the first two days of class. See our [course policies](#course-policies) for more information about labs.
 
 <!--The schedule (which is always subject to change) is located on the [couruse homepage]({{page.course.website}}).-->
+
+# Course Resources
+---
+## Where is the course website?
+
+TBD.<!--[Here]({{page.course.website}}).-->
+
+---
+## Where can I find links to the class schedule, optional textbook, and other additional relevant resources?
+
+The course website for Spring 2023 will be released soon.
+
+<!--Check out the [course homepage]({{page.course.website}}) and the [resources page]({{page.course.website}}/resources). Don’t hesitate to make suggestions by filing an issue on the [class repository]({{page.course.repo}}) (or even better, propose a new pull request with your additions!).-->
+
+--- 
+## Where is the Class Discussion Forum (EdStem)?
+
+[Here]({{page.course.edstem}}). If that link doesn't work for you, please email [{{page.course.email}}](mailto:{{page.course.email}}) to be added. You will only be added if you are an enrolled student, or pending enrollment in the first few days. Note that we will purge the Ed roster once early-semester enrollment settles down.
+
+If your question isn't answered in this FAQ, please try EdStem next before emailing the instructors. 
+
+---
+## I can't find any information on bCourses, why?
+
+We will only be using bCourses for synchronizing access to Gradescope. As long as you are enrolled in the class right now, you don't need anything.
+All class materials are available online through the website; communications happen on EdStem; and computational work is done on the DataHub.
 
 # Assignment Extensions and Late Enrollment
 --- 
