@@ -10,7 +10,7 @@ nav_exclude: true
 UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
-### [Fall 2022 Frequently Asked Questions](fa22faq)
+### [Spring 2023 Frequently Asked Questions](sp23faq)
 
 ## Offerings
 1. [Fall 2022](fa22)
