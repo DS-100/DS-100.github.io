@@ -14,6 +14,7 @@ course:
     head_ta: TBD
     email: data100.instructors@berkeley.edu
     final_exam_slot: Thursday, May 11, 8am - 11am
+    enrollment_email: ds-enrollments@berkeley.edu
 
 ---
 
@@ -41,7 +42,7 @@ The official list of prerequisites is:
 ---
 ## Will the official prerequisites be enforced?
 
-The official prerequisites _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the CDSS advisors. To request an exception see [https://data.berkeley.edu/academics/undergraduate-programs/courses/2023-spring-courses](https://data.berkeley.edu/academics/undergraduate-programs/courses/2023-spring-courses) - _do not email instructors about this_ as we are not making these decisions at all.
+The official prerequisites _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the CDSS advisors. To request an exception see the Data Science Program's [2023 Spring Courses Enrollment page](https://data.berkeley.edu/academics/undergraduate-programs/courses/2023-spring-courses). _Do not email instructors about this_ as we are not making these decisions at all.
 
 ---
 ## I am a graduate student but the system won't let me enroll in Data 100 due to missing prerequsites, what can I do?
@@ -51,9 +52,11 @@ Graduate students should use the C200 class code, not C100: C200 has a proper gr
 ---
 ## I can't enroll yet for reason X (waitlist, concurrent enrollment, etc) but expect/hope to, what should I do?
 
-We encourage you to not fall behind: you should complete all work when it is assigned. We generally will not provide additional accommodations to students who enroll late; please see [below](#extensions-and-late-enrollment) for more details.
+We encourage you to not fall behind: you should complete all work when it is assigned. We generally will not provide additional accommodations to students who enroll late; please see [below](#assignment-extensions-and-late-enrollment) for more details.
 
-To be added to the relevant resources (Ed, bCourses, etc.), please email [{{page.course.email}}](mailto:{{page.course.email}}) with the subject line `Interim access to class resources`, providing your name, email and student ID.
+To be added to the relevant resources (Ed, bCourses, etc.), please email [{{page.course.email}}](mailto:{{page.course.email}}) (Subject line: `Interim access to class resources`) with your name, email and student ID.
+
+To get a section (discussion and/or lab) assignment, please contact {{page.course.logistics_ta}}.
 
 ---
 
@@ -83,7 +86,7 @@ Note however that the class EdStem, our only other class resource, is reserved f
 ---
 ## I have another enrollment issue - can the instructors assist me, make an exception for my case or provide me with an "enrollment code"?
 
-No. The instructors do not handle any enrollment issues. If you need assistance with enrollment or think your circumstances warrant exceptional consideration, you must discuss those with an enrollment advisor. They are the only ones authorized to handle such situations and enroll you.
+No. The instructors do not handle any enrollment issues. If you need assistance with enrollment or think your circumstances warrant exceptional consideration, you must discuss those with a Data Science enrollment advisor at [{{page.course.enrollment_email}}](mailto:{{page.course.enrollment_email}}). They are the only ones authorized to handle such situations and enroll you.
 
 # Course Policies
 ---
@@ -191,14 +194,13 @@ All class materials are available online through the website; communications hap
 --- 
 ## I have added the course later in the semester. Can I catch up? Can I be excused for all late work?
 
-The answer to the first question (Can I catch up?) is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
+The answer to the first question (_Can I catch up?_) is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
 
-As for the second part of this question (Can I be excused for all late work?), we will not be accommodating extensions beyond our extension policy below (see next question for details).
+As for the second part of this question (_Can I be excused for all late work?_), we will not be accommodating extensions beyond our extension policy below (see next question for details).
 
-If you are currently deciding whether to add this course, please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) so we can add you to appropriate course platforms.
-To get a section (discussion and/or lab) assignment, please contact {{page.course.logistics_ta}}.
-<!-- special considerations for late work based on the date you joined the course, and were added to relevant course platforms. Please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) if this applies to you, and we'll communicate separately.
-
+_If you are currently waitlisted/on the fence for adding this course,_ please see the [Enrollment](#enrollment) section above.
+<!--
+special considerations for late work based on the date you joined the course, and were added to relevant course platforms. Please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) if this applies to you, and we'll communicate separately.
 -->
 
 ---
