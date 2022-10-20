@@ -40,7 +40,7 @@ The official list of prerequisites is:
 - EE 16A or Math 54 or Stat 89A. This may be satisfied concurrently with Data 100, but we strongly recommend that you finish a linear algebra course before taking Data 100.
 
 ---
-## Will the official prerequisites be enforced?
+## Will the official prerequisites be enforced? How can I request an exception?
 
 The official prerequisites _are being strictly enforced by CDSS_.  Decisions on any requests for exceptions to this policy are being made by the CDSS advisors. To request an exception see the Data Science Program's [2023 Spring Courses Enrollment page](https://data.berkeley.edu/academics/undergraduate-programs/courses/2023-spring-courses). _Do not email instructors about this_ as we are not making these decisions at all.
 
