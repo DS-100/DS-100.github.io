@@ -112,15 +112,17 @@ Each exam will be offered in two timeslots, roughly corresponding to the morning
 
 The basic policy is the following:
 
-* TIME CONFLICTS: This class will NOT allow time conflicts.
+* TIME CONFLICTS: This class WILL allow for time conflicts with lecture, but students must attend their synchronous discussion or lab (will be assigned after instruction begins).
 
-* EXAM CONFLICTS: This class will NOT accommodate final exam conflicts.
+* EXAM CONFLICTS: This class WILL NOT accommodate final exam conflicts. For *specific courses*, a final exam time conflict will be allowed (see below questions for details).
 
+<!--
 With the following two caveats:
 
 * As long as you can attend discussions and labs in-person, lectures will be available for asynchronous watching (see relevant question above).
 
 * For specific courses, a final exam time conflict will be allowed (see next question for details).
+-->
 
 ---
 
@@ -134,14 +136,15 @@ Exams will be in-person (not online) and subject to standard proctoring procedur
 ---
 ## What is the midterm schedule for this class?
 
-The exact midterm exam dates will be announced on the first date of class.
+The exact midterm exam dates will be announced on the first date of class. Exams will likely be in the evening, i.e. not during lecture time.
 
 ---
 ## I have a conflict for the final exam, what can I do?
 
-As per the [Campus Registrar](https://registrar.berkeley.edu/scheduling/academic-scheduling/academic-scheduling-final-exam-guide-and-schedules/), the final exam will be held {{page.course.final_exam_slot}}. The exam will be held **in person**, not online.
+As per the [Campus Registrar](https://registrar.berkeley.edu/scheduling/academic-scheduling/academic-scheduling-final-exam-guide-and-schedules/), the final exam will be held {{page.course.final_exam_slot}}. The exam will be held **in person**, not online. 
 
 The course only allows for time conflicts for specifc courses that have been pre-approved for conflicts, after planning with course instructors of those courses and the Division. This will take through the beginning of January while course policies are decided across all courses with final conflicts.
+No accommodations will be made for travel.
 
 
 <!--As of Sept 1, 2022, the Division faculty have decided that CS 70 and CS 170 will both offer alternate finals. There is therefore no conflict for these two courses, and you can enroll in either of them and Data 100 without issue. You will take their alternate final.
@@ -188,11 +191,15 @@ All class materials are available online through the website; communications hap
 --- 
 ## I have added the course later in the semester. Can I catch up? Can I be excused for all late work?
 
-The answer to the first question is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
+The answer to the first question (Can I catch up?) is impossible to give in general, as it depends both on how late you add the course, and what your own background is. But as a general rule, the course moves quite quickly and covers new ground from the start. We estimate most students will probably struggle to catch up effectively if they join any later than the first few days of the semester, unless they have a particularly strong background already in the initial topics (probability, SQL, Python and Pandas).
 
-As for the second part of this question - we will make special considerations for late work based on the date you joined the course, and were added to relevant course platforms. Please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) if this applies to you, and we'll communicate separately.
+As for the second part of this question (Can I be excused for all late work?), we will not be accommodating extensions beyond our extension policy below (see next question for details).
 
+If you are currently deciding whether to add this course, please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) so we can add you to appropriate course platforms.
 To get a section (discussion and/or lab) assignment, please contact {{page.course.logistics_ta}}.
+<!-- special considerations for late work based on the date you joined the course, and were added to relevant course platforms. Please email the course staff at [{{page.course.email}}](mailto:{{page.course.email}}) if this applies to you, and we'll communicate separately.
+
+-->
 
 ---
 ## I didn't turn in a Lab/HW/etc in time because I had X (illness, etc.). Can I have an extension?
