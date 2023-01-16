@@ -117,7 +117,7 @@ The basic policy is the following:
 
 * TIME CONFLICTS: This class WILL allow for time conflicts with lecture, but students must attend their synchronous discussion or lab (will be assigned after instruction begins).
 
-* EXAM CONFLICTS: This class WILL NOT accommodate final exam conflicts. For *specific courses*, a final exam time conflict will be allowed (see below questions for details).
+* EXAM CONFLICTS: This class WILL NOT accommodate final exam conflicts. Midterm conflicts will be arranged via a midterm accommodation form sent out several weeks before the exam date. <!--For *specific courses*, a final exam time conflict will be allowed (see below questions for details).--> 
 
 <!--
 With the following two caveats:
@@ -146,8 +146,10 @@ The exact midterm exam dates will be announced on the first date of class. Exams
 
 As per the [Campus Registrar](https://registrar.berkeley.edu/scheduling/academic-scheduling/academic-scheduling-final-exam-guide-and-schedules/), the final exam will be held {{page.course.final_exam_slot}}. The exam will be held **in person**, not online. 
 
-The course only allows for time conflicts for specifc courses that have been pre-approved for conflicts, after planning with course instructors of those courses and the Division. This will take through the beginning of January while course policies are decided across all courses with final conflicts.
+The course only allows for time conflicts for specific courses that have been pre-approved for conflicts, after planning with course instructors of those courses and the Division. This will take through the beginning of January while course policies are decided across all courses with final conflicts.
 No accommodations will be made for travel.
+
+**Update** (January 15, 2023): Data 100 will NOT offer an alternate final as the course exam schedule does not conflict with any CS/DATA courses.
 
 
 <!--As of Sept 1, 2022, the Division faculty have decided that CS 70 and CS 170 will both offer alternate finals. There is therefore no conflict for these two courses, and you can enroll in either of them and Data 100 without issue. You will take their alternate final.
