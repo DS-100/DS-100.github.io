@@ -170,7 +170,7 @@ Discussion sections and sign-ups will be released within the first two days of c
 ---
 ## Where is the course website?
 
-[Here!]({{page.course.website}}).
+[Here!]({{page.course.website}})
 
 ---
 ## Where can I find links to the class schedule, optional textbook, and other additional relevant resources?
