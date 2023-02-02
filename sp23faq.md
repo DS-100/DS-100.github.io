@@ -8,10 +8,10 @@ course:
     edstem: TBD_LINK
     edstem_join: na
     website: https://ds100.org/sp23
-    logistics_ta: TBD
+    logistics_ta: Shiny Weng
     repo: https://github.com/DS-100/sp23
     comms_ta: TBD
-    head_ta: TBD
+    head_ta: Kanu Grover and Bella Crouch
     email: data100.instructors@berkeley.edu
     final_exam_slot: Thursday, May 11, 8am - 11am
     enrollment_email: ds-enrollments@berkeley.edu
