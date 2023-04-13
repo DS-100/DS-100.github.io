@@ -11,6 +11,7 @@ UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
 ### [Summer 2023 Frequently Asked Questions](su23faq)
+### [Fall 2023 Frequently Asked Questions](faqs/fa23)
 
 ## Offerings
 1. [Spring 2023](sp23)
