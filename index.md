@@ -14,7 +14,6 @@ UC Berkeley
 ### [Fall 2023 Frequently Asked Questions](faqs/fa23)
 
 ## Offerings
-1. [Fall 2023](fa23)
 1. [Summer 2023](su23)
 1. [Spring 2023](sp23)
 1. [Fall 2022](fa22)
