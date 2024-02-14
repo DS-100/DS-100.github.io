@@ -14,7 +14,7 @@
   }
 
   p {
-    @extend .staffer-name, .fs-3;
+    @extend h1.custom-h3, .fs-3;
   }
 }
 
@@ -24,6 +24,7 @@
   margin-right: $sp-4;
 }
 
-.staffer-name {
+h1.custom-h3 {
+  font-size: 1.17em;
   margin: $sp-1;
 }
