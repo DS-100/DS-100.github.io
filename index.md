@@ -13,7 +13,7 @@ UC Berkeley
 ### [Fall 2024 Frequently Asked Questions](faqs/fa24)
 
 ## Offerings
-1. [Summer 2024 - Coming Soon](/) [(faq)](https://docs.google.com/document/d/1F7NMjDnGMK-dru3L4crm63wgKwCD9QdkpJppIXkkHoA/edit?usp=sharing)
+1. [Summer 2024](su24) [(faq)](https://docs.google.com/document/d/1F7NMjDnGMK-dru3L4crm63wgKwCD9QdkpJppIXkkHoA/edit?usp=sharing)
 1. [Spring 2024](sp24)
 1. [Fall 2023](fa23)
 1. [Summer 2023](su23)
