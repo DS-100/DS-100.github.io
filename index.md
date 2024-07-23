@@ -10,6 +10,8 @@ nav_exclude: true
 UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
+### [Spring 2024 Frequently Asked Questions](faqs/sp24)
+
 ## Offerings
 1. [Summer 2024](su24)
 1. [Spring 2024](sp24)
