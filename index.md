@@ -13,6 +13,7 @@ UC Berkeley
 ### [Fall 2024 Frequently Asked Questions](faqs/fa24)
 
 ## Offerings
+1. [Fall 2024](fa24)
 1. [Summer 2024](su24)
 1. [Spring 2024](sp24)
 1. [Fall 2023](fa23)
@@ -41,9 +42,9 @@ UC Berkeley
 
 Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world.
 This intermediate-level class bridges between [Data 8](http://data8.org/) and upper-division computer science and statistics courses as well as methods courses in other fields.
-In this class, we explore key areas of data science including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision-making.​
-Through a strong emphasis on data-centric computing, quantitative critical thinking, and exploratory data analysis this class covers key principles and techniques of data science.
-These include languages for transforming, querying, and analyzing data; algorithms for machine learning methods including regression, classification, and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
+In this class, we explore key areas of data science, including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision-making.​
+Through a strong emphasis on data-centric computing, quantitative critical thinking, and exploratory data analysis, this class covers key principles and techniques of data science.
+These include languages for transforming, querying, and analyzing data; algorithms for machine learning methods, including regression, classification, and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
 
 ## Goals
 
@@ -55,10 +56,10 @@ These include languages for transforming, querying, and analyzing data; algorith
 
 ## Prerequisites
 
-While we are working to make this class widely accessible we currently require the following (or equivalent) prerequisites:
+While we are working to make this class widely accessible, we currently require the following (or equivalent) prerequisites:
 
-1. **Foundations of Data Science:** [**Data 8**](http://data8.org/) covers much of the material in Data 100 but at an introductory level. Data8 provides basic exposure to Python programming and working with tabular data as well as visualization, statistics, and machine learning.
+1. **Foundations of Data Science:** [**Data 8**](http://data8.org/) covers much of the material in Data 100 but at an introductory level. Data8 provides basic exposure to Python programming and working with tabular data, as well as visualization, statistics, and machine learning.
 
-1. **Computing:** _The Structure and Interpretation of Computer Programs_ [**CS 61A**](http://cs61a.org) or _Computational Structures in Data Science_ [**CS 88**](http://cs88-website.github.io). These courses provide additional background in Python programming (e.g., _for loops_, _lambdas_, _debugging_, and _complexity_) that will enable Data 100 to focus more on the concepts in Data Science and less on the details of programming in python.
+1. **Computing:** _The Structure and Interpretation of Computer Programs_ [**CS 61A**](http://cs61a.org) or _Computational Structures in Data Science_ [**CS 88**](http://cs88-website.github.io). These courses provide additional background in Python programming (e.g., _for loops_, _lambdas_, _debugging_, and _complexity_) that will enable Data 100 to focus more on the concepts in Data Science and less on the details of programming in Python.
 
-1. **Math:** _Linear Algebra_ ([Math 54](https://math.berkeley.edu/~nadler/54fall2017.html), [EE 16A](http://inst.eecs.berkeley.edu/~ee16a/), or [Stat 89A](https://stat89a.com/)): We will need some basic concepts like linear operators and derivatives to enable statistical inference and derive new prediction algorithms. This may be satisfied concurrently to Data 100.
+1. **Math:** _Linear Algebra_ ([Math 54](https://math.berkeley.edu/~nadler/54fall2017.html), [EE 16A](http://inst.eecs.berkeley.edu/~ee16a/), or [Stat 89A](https://stat89a.com/)): We will need some basic concepts like linear operators and derivatives to enable statistical inference and derive new prediction algorithms. This may be satisfied concurrently with Data 100.
