@@ -13,6 +13,7 @@ UC Berkeley
 ### [Spring 2025 Frequently Asked Questions](faqs/sp25)
 
 ## Offerings
+1. [Spring 2025](sp25)
 1. [Fall 2024](fa24)
 1. [Summer 2024](su24)
 1. [Spring 2024](sp24)
