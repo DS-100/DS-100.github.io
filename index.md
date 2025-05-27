@@ -10,7 +10,7 @@ nav_exclude: true
 UC Berkeley
 {: .mb-0 .fs-6 .text-grey-dk-000 }
 
-### [Spring 2025 Frequently Asked Questions](faqs/sp25)
+### [Summer 2025 Frequently Asked Questions](faqs/su25)
 
 ## Offerings
 1. [Spring 2025](sp25)
