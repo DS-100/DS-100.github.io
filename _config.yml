@@ -11,3 +11,4 @@ plugins:
 color_scheme: light
 search_enabled: true
 permalink: pretty
+favicon_ico: "/favicon.ico"
