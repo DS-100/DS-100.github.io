@@ -1,16 +1,18 @@
 ---
-layout: page
+layout: no-sidebar
 title: Home
-tagline: Principles and Techniques of Data Science
 nav_exclude: true
 ---
 
-# Principles and Techniques of Data Science
-{: .mb-2 }
-UC Berkeley
-{: .mb-0 .fs-6 .text-grey-dk-000 }
+# Data 100: Principles and Techniques of Data Science
 
-### [Summer 2025 Frequently Asked Questions](faqs/su25)
+## [Summer 2025 Frequently Asked Questions](faqs/su25)
+
+<img src="panda-logo.png" alt="Data 100 Logo" class="centered-icon" />
+
+## Course Description
+
+In UC Berkleey Data 100, students will explore the data science lifecycle, including question formulation, data collection and cleaning, exploratory data analysis and visualization, statistical inference and prediction​, and decision-making.​ This class will focus on quantitative critical thinking​ and key principles and techniques needed to carry out this cycle. These include languages for transforming, querying and analyzing data; algorithms for machine learning methods including regression, classification and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
 
 ## Offerings
 1. [Summer 2025](su25)
@@ -38,16 +40,10 @@ UC Berkeley
 1. [Fall 2017](fa17)
 1. [Spring 2017](sp17)
 
-<br>
-
-## Overview
+## Goals
 
 Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world.
-This intermediate-level class bridges between [Data 8](http://data8.org/) and upper-division computer science and statistics courses as well as methods courses in other fields.
-In this class, we explore key areas of data science, including question formulation, data collection and cleaning, visualization, statistical inference, predictive modeling, and decision-making.​ Through a strong emphasis on data-centric computing, quantitative critical thinking, and exploratory data analysis, this class covers key principles and techniques of data science.
-These include languages for transforming, querying, and analyzing data; algorithms for machine learning methods, including regression, classification, and clustering; principles behind creating informative data visualizations; statistical concepts of measurement error and prediction; and techniques for scalable data processing.
-
-## Goals
+This intermediate-level class bridges [Data 8](http://data8.org/) and upper-division computer science and statistics courses as well as methods courses in other fields.
 
 - **Prepare** students for advanced Berkeley courses in data-management ([CS 186](http://www.cs186berkeley.net)), machine learning ([CS 189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat 154](http://www.stat.berkeley.edu/~rabbee/s154/)), by providing the necessary foundation and context
 
@@ -59,8 +55,8 @@ These include languages for transforming, querying, and analyzing data; algorith
 
 While we are working to make this class widely accessible, we currently require the following (or equivalent) prerequisites:
 
-1. **Foundations of Data Science:** [**Data 8**](http://data8.org/) covers much of the material in Data 100 but at an introductory level. Data8 provides basic exposure to Python programming and working with tabular data, as well as visualization, statistics, and machine learning.
+1. *Foundations of Data Science:* [**Data 8**](http://data8.org/) covers much of the material in Data 100 but at an introductory level. Data8 provides basic exposure to Python programming and working with tabular data, as well as visualization, statistics, and machine learning. Alternate course: *Introduction to Probability and Statistics:* [**Stat 20**](https://stat20.berkeley.edu/)
 
-1. **Computing:** _The Structure and Interpretation of Computer Programs_ [**CS 61A**](http://cs61a.org) or _Computational Structures in Data Science_ [**CS 88**](http://cs88-website.github.io). These courses provide additional background in Python programming (e.g., _for loops_, _lambdas_, _debugging_, and _complexity_) that will enable Data 100 to focus more on the concepts in Data Science and less on the details of programming in Python.
+1. **Computing:** _The Structure and Interpretation of Computer Programs:_ [**CS 61A**](http://cs61a.org) or _Computational Structures in Data Science:_ [**CS 88**](http://cs88-website.github.io). These courses provide additional background in Python programming (e.g., for loops, lambdas, debugging, and complexity) that will enable Data 100 to focus more on the concepts in Data Science and less on the details of programming in Python. Alternate course: *Introduction to Computer Programming and Numerical Methods:* [**ENGIN 7**](https://undergraduate.catalog.berkeley.edu/courses/1066961)
 
-1. **Math:** _Linear Algebra_ ([Math 54](https://math.berkeley.edu/~nadler/54fall2017.html), [EE 16A](http://inst.eecs.berkeley.edu/~ee16a/), or [Stat 89A](https://stat89a.com/)): We will need some basic concepts like linear operators and derivatives to enable statistical inference and derive new prediction algorithms. This may be satisfied concurrently with Data 100.
+1. **Linear Algebra:** [**Math 54**](https://math.berkeley.edu/courses/overview/lowerdivcourses/math54), [**Math 56**](https://math.berkeley.edu/courses/overview/lower-division-course-outlines/math-56), [**Math 110**](https://undergraduate.catalog.berkeley.edu/courses/1145111), [**EE 16A**](https://eecs16a.org/), or [**Physics 89**](https://undergraduate.catalog.berkeley.edu/courses/1184991). We will need some basic concepts like linear operators and derivatives to enable statistical inference and derive new prediction algorithms. This may be satisfied concurrently with Data 100.
