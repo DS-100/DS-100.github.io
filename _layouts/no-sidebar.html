@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ jekyll.locale | default: "en-US" }}">
+  {%- include head.html -%}
+  <body>
+    {%- include header.html -%}
+    <div class="site-wrapper">
+      <main class="page-content bg-gray" aria-label="Content">
+        <div class="container-lg">
+          <div class="main-content-body-wrap">
+            <div class="main-content-body" itemprop="text">
+              {{ content }}
+            </div>
+          </div>
+        </div>
+      </main>
+      {%- include footer-custom.html -%}
+    </div>
+  </body>
+</html>
