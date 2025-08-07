@@ -45,7 +45,7 @@ In UC Berkley Data 100, students will explore the data science lifecycle, includ
 Combining data, computation, and inferential thinking, data science is redefining how people and organizations solve challenging problems and understand their world.
 This intermediate-level class bridges [Data 8](http://data8.org/) and upper-division computer science and statistics courses as well as methods courses in other fields.
 
-- **Prepare** students for advanced Berkeley courses in data-management ([CS 186](http://www.cs186berkeley.net)), machine learning ([CS 189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat 154](http://www.stat.berkeley.edu/~rabbee/s154/)), by providing the necessary foundation and context
+- **Prepare** students for advanced Berkeley courses in data-management ([CS 186](http://www.cs186berkeley.net)), machine learning ([CS 189](https://people.eecs.berkeley.edu/~jrs/189/)), and statistics ([Stat 154](https://stat154.berkeley.edu/)), by providing the necessary foundation and context
 
 - **Enable** students to start careers as data scientists by providing experience working with real-world data, tools, and techniques
 
