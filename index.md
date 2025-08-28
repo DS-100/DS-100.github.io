@@ -15,6 +15,7 @@ In UC Berkeley Data 100, students will explore the data science lifecycle, inclu
 # [Fall 2025 Frequently Asked Questions](faqs/fa25)
 
 ## Offerings
+1. [Fall 2025](fa25)
 1. [Summer 2025](su25)
 1. [Spring 2025](sp25)
 1. [Fall 2024](fa24)
