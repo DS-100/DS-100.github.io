@@ -247,8 +247,6 @@ GEM
     minitest (5.25.5)
     net-http (0.6.0)
       uri
-    nokogiri (1.15.4-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.18.9-aarch64-linux-gnu)
       racc (~> 1.4)
     nokogiri (1.18.9-aarch64-linux-musl)
@@ -297,7 +295,7 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (1.8.0)
-    uri (1.0.3)
+    uri (1.0.4)
     webrick (1.9.1)
 
 PLATFORMS
