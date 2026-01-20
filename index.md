@@ -17,7 +17,7 @@ In UC Berkeley Data 100, students will explore the data science lifecycle, inclu
 <span style="color: red;">The Spring 2026 Data 100 final is now **Thursday 5/14 11:30am-2:30pm**. Please see the [FAQs](https://ds100.org/faqs/sp26/#what-is-the-final-exam-schedule-for-this-class) for more details.</span>
 
 ## Offerings
-1. Spring 2026 (website coming soon!)
+1. [Spring 2026](sp26)
 1. [Fall 2025](fa25)
 1. [Summer 2025](su25)
 1. [Spring 2025](sp25)
