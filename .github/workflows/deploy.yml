@@ -25,29 +25,6 @@ jobs:
 
       - name: Build Jekyll Site
         run: bundle exec jekyll build
-        # This creates the _site folder
-
-      - name: Inject Automatic Redirects
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          # move into _site to create the new directory structures
-          cd _site
-          
-          # get the list of semester-style repos i.e. LetterLetterDigitDigit
-          REPOS=$(gh repo list DS-100 --limit 1000 --json name -q '.[].name | select(test("^[a-z]{2}[0-9]{2}$"))')
-          
-          for repo in $REPOS; do
-            echo "Creating redirect path for $repo/acks"
-            mkdir -p "$repo/acks"
-            
-            # Use the template that Jekyll copied into the _site root
-            # Then delete the template from the final site root so it's not public
-            cp redirect_template.html "$repo/acks/index.html"
-          done
-          
-          # Cleanup: remove the template from the site root
-          rm redirect_template.html
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
