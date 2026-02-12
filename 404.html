@@ -1,6 +1,20 @@
-Sorry, this page does not exist.
-
-<br>
-<br>
-
-<a href="http://www.ds100.org/">Back to http://www.ds100.org/</a>.
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <script>
+    // Run this immediately to minimize flicker
+    if (window.location.pathname.match(/\/[a-z]{2}\d{2}\/acks\/?/i)) {
+        window.location.replace("https://ds100.org/acknowledgements/");
+    }
+  </script>
+</head>
+<body>
+  <p>Sorry, this page does not exist.</p>
+  <p><a href="https://ds100.org/">Back to ds100.org</a></p>
+</body>
+</html>
